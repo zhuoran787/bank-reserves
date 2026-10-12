@@ -6,6 +6,7 @@
       "group": "bond",
       "unit": "%",
       "kind": "源表值",
+      "weight": 1,
       "period": "2026-06-30",
       "report": "2026年中报（2026H1）",
       "basis": "期末余额 / 归母净利润TTM（2025-07-01至2026-06-30）",
@@ -18,6 +19,7 @@
       "group": "bond",
       "unit": "%",
       "kind": "计算值",
+      "weight": 1,
       "period": "2026-06-30",
       "report": "2026年中报（2026H1）",
       "basis": "2026-06-30期末存量口径；不适用TTM/NTM",
@@ -30,6 +32,7 @@
       "group": "provision",
       "unit": "%",
       "kind": "源表值",
+      "weight": 1,
       "period": "2026-06-30",
       "report": "2026年中报（2026H1）",
       "basis": "期末余额 / 归母净利润TTM（2025-07-01至2026-06-30）",
@@ -42,6 +45,7 @@
       "group": "provision",
       "unit": "%",
       "kind": "源表值",
+      "weight": 1,
       "period": "2026-06-30",
       "report": "2026年中报（2026H1）",
       "basis": "2026-06-30期末存量口径；不适用TTM/NTM",
@@ -54,6 +58,7 @@
       "group": "provision",
       "unit": "%",
       "kind": "计算值",
+      "weight": 1,
       "period": "2026-06-30",
       "report": "2026年中报（2026H1）",
       "basis": "2026-06-30期末存量口径；不适用TTM/NTM",
@@ -61,16 +66,30 @@
       "source_label": "10号拨备库"
     },
     {
-      "id": "cet1",
-      "label": "CET1安全垫",
+      "id": "cet1_profit",
+      "label": "CET1安全垫金额 / 归母净利润(TTM)",
       "group": "capital",
-      "unit": "百分点",
-      "kind": "源表值",
+      "unit": "%",
+      "kind": "计算值",
+      "weight": 1,
+      "period": "2026-06-30",
+      "report": "2026年中报（2026H1）",
+      "basis": "期末余额 / 归母净利润TTM（2025-07-01至2026-06-30）",
+      "basis_short": "TTM分母",
+      "source_label": "6号自由现金流库＋10号"
+    },
+    {
+      "id": "cet1_equity",
+      "label": "CET1安全垫金额 / 归母净资产",
+      "group": "capital",
+      "unit": "%",
+      "kind": "计算值",
+      "weight": 1,
       "period": "2026-06-30",
       "report": "2026年中报（2026H1）",
       "basis": "2026-06-30期末存量口径；不适用TTM/NTM",
       "basis_short": "期末值",
-      "source_label": "6号自由现金流库"
+      "source_label": "6号自由现金流库＋10号"
     },
     {
       "id": "fcf1",
@@ -78,6 +97,7 @@
       "group": "capital",
       "unit": "%",
       "kind": "源表值",
+      "weight": 2,
       "period": "2026-06-30",
       "report": "2026年中报（2026H1）",
       "basis": "基于TTM盈利和期末资本的模型比例；含历史中位数调整及10年释放假设，非NTM预测、非财报现金流",
@@ -102,6 +122,14 @@
       "weight": 1
     }
   ],
+  "absolute_model": {
+    "formula": "(AC浮盈＋OCI相关其他综合收益余额)＋超额拨备＋CET1安全垫金额－OCI相关其他综合收益余额",
+    "short_formula": "AC浮盈＋超额拨备＋CET1安全垫金额",
+    "unit": "亿元",
+    "denominator_source": "provision",
+    "basis": "用户指定的机械加总研究口径，仅扣除浮盈项中的OCI余额；未进一步调整税务、拨备与监管资本之间的其他重叠，并非可分配现金。",
+    "valuation_note": "家底与归母净资产为2026H1期末，利润为截至2026H1的TTM；估值为2026E全年预测。并列比较原始数值，不跨期换算家底/市值或预期收益率。"
+  },
   "period": "2026-06-30",
-  "scoring": "ascending-midrank-percentile; group-equal; all-complete-cohort"
+  "scoring": "ascending-midrank-percentile; metric-config-weighted; all-complete-cohort"
 }

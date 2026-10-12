@@ -1,16 +1,17 @@
-import {renderValuation} from './valuation.mjs?v=20261011-h1';
-import {calculate,color,finite} from './engine.mjs';
+import {renderValuation} from './valuation.mjs?v=20261011-capital';
+import {calculate,color,finite} from './engine.mjs?v=20261011-capital';
+import {renderAbsolute} from './absolute.mjs?v=20261011-capital';
 const $=id=>document.getElementById(id);
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=(x,d=2)=>finite(x)?(x*100).toLocaleString('zh-CN',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
 const score=x=>finite(x)?x.toFixed(1):'—';
 const rawNum=x=>finite(x)?x.toLocaleString('zh-CN',{minimumFractionDigits:2,maximumFractionDigits:2}):'—';
 let data,model,valuation,valuationH,weights=[33,33,33],showScores=false,sortKey='total',sortDirection=-1;
-const labels={bond_profit:'AC&OCI浮盈<br>／归母净利润',bond_equity:'AC&OCI浮盈<br>／归母净资产',prov_profit:'超额拨备<br>／归母净利润',prov_equity:'超额拨备<br>／归母净资产',loan_prov:'拨贷比',cet1:'CET1安全垫',fcf1:'自由现金流1'};
-const groupNotes=['2项指标，各占本维度的1/2','3项指标，各占本维度的1/3','2项指标，各占本维度的1/2'];
+const labels={bond_profit:'AC&OCI浮盈<br>／归母净利润',bond_equity:'AC&OCI浮盈<br>／归母净资产',prov_profit:'超额拨备<br>／归母净利润',prov_equity:'超额拨备<br>／归母净资产',loan_prov:'拨贷比',cet1_profit:'CET1安全垫金额<br>／归母净利润',cet1_equity:'CET1安全垫金额<br>／归母净资产',fcf1:'自由现金流1'};
+const groupNote=g=>{const ms=data.metrics.filter(m=>m.group===g.id),sum=ms.reduce((s,m)=>s+m.weight,0);return ms.map(m=>`${m.label} ${(m.weight/sum*100).toFixed(1)}%`).join('；');};
 
 function weightUI(){
-  $('weights').innerHTML=data.groups.map((g,i)=>`<div class="weight"><div class="weight-head"><label for="weight-${g.id}">${esc(g.label)}</label><output id="output-${g.id}" for="weight-${g.id}"></output></div><input id="weight-${g.id}" aria-label="${esc(g.label)}权重" type="range" min="0" max="100" step="1" value="${weights[i]}"><small>${groupNotes[i]}</small></div>`).join('');
+  $('weights').innerHTML=data.groups.map((g,i)=>`<div class="weight"><div class="weight-head"><label for="weight-${g.id}">${esc(g.label)}</label><output id="output-${g.id}" for="weight-${g.id}"></output></div><input id="weight-${g.id}" aria-label="${esc(g.label)}权重" type="range" min="0" max="100" step="1" value="${weights[i]}"><small>${esc(groupNote(g))}</small></div>`).join('');
   data.groups.forEach((g,i)=>$(`weight-${g.id}`).addEventListener('input',e=>{weights[i]=Number(e.target.value);sortKey='total';sortDirection=-1;recalculate();}));
 }
 
@@ -40,6 +41,9 @@ function shown(){
 function sortButton(key,label){return `<button data-sort="${key}" aria-label="按${esc(label.replace(/<br>/g,'').replace(/<[^>]*>/g,''))}排序">${label}${sortKey===key?(sortDirection===-1?' ↓':' ↑'):' ↕'}</button>`;}
 
 function render(){
+  renderAbsolute(data,valuation,esc);
+  renderAbsolute(data,valuationH,esc,'h-');
+  document.querySelectorAll('.absolute-bank').forEach(btn=>btn.addEventListener('click',()=>detail(btn.dataset.bank)));
   if(model.error)return;
   const list=shown();
   if(valuation)renderValuation(model,valuation,esc);
@@ -73,10 +77,10 @@ function sourceText(d){
 }
 
 function detail(name){
-  const b=model.banks.find(x=>x.name===name);$('detail-name').textContent=b.name;
-  $('detail-body').innerHTML=`<p>${esc(b.type)} · 2026H1 · ${b.complete?`综合第 ${b.rank} 名 / ${score(b.total)} 分`:'缺少指定来源数据，不参与排名'}</p>`+
+  const b=model.banks.find(x=>x.name===name)||data.banks.find(x=>x.name===name);$('detail-name').textContent=b.name;
+  $('detail-body').innerHTML=`<p>${esc(b.type)} · 2026H1 · ${model.error?'当前未计算排名；绝对家底不受权重影响':b.complete?`综合第 ${b.rank} 名 / ${score(b.total)} 分`:'缺少指定来源数据，不参与排名'}</p>`+
     data.metrics.map(m=>{const d=b.metrics[m.id];return `<div class="detail-item"><div class="detail-label"><span>${esc(m.label)}</span><span>${fmt(d.value)} ${finite(d.value)?m.unit:''}</span></div><p><b>${esc(m.report)} · ${esc(m.basis)}</b></p><p>${m.kind}${d.formula?'：'+esc(d.formula):''}</p><p>${sourceText(d)}</p></div>`;}).join('')+
-    (b.complete?`<div class="detail-supplement"><b>核对分子与分母（亿元）</b>${Object.entries(b.supplement).map(([k,v])=>`<div><span>${esc(k)}</span><strong>${rawNum(v.value)}</strong></div>`).join('')}<p>两个源表的利润TTM数值并不完全一致，相关比率沿用各自源表；净资产统一使用拨备表中的归母口径。</p></div>`:'');
+    (b.complete?`<div class="detail-supplement"><b>核对分子与分母</b>${Object.entries(b.supplement).map(([k,v])=>`<div><span>${esc(k)}</span><strong>${rawNum(v.value)} ${esc(v.unit)}</strong></div>`).join('')}<p>两个源表的利润TTM数值并不完全一致，原有比率沿用各自源表；CET1两项比率均使用拨备库的归母分母。完整资本安全垫不另扣1个百分点，自由现金流1模型中的1个百分点保留假设不变。</p></div>`:'');
   $('bank-dialog').showModal();
 }
 
@@ -91,11 +95,20 @@ function exportCSV(){
 
 async function init(){
   try{
-    const response=await fetch('./data.json');if(!response.ok)throw new Error('数据文件暂时不可用');data=await response.json();
-    const vr=await fetch('./valuation.json');if(!vr.ok)throw new Error('估值文件暂时不可用');valuation=await vr.json();
-    const hr=await fetch('./valuation-h.json');if(!hr.ok)throw new Error('H股估值文件暂时不可用');valuationH=await hr.json();
+    const response=await fetch('./data.json?v=20261011-capital');if(!response.ok)throw new Error('数据文件暂时不可用');data=await response.json();
+    const vr=await fetch('./valuation.json?v=20261011-capital');if(!vr.ok)throw new Error('估值文件暂时不可用');valuation=await vr.json();
+    const hr=await fetch('./valuation-h.json?v=20261011-capital');if(!hr.ok)throw new Error('H股估值文件暂时不可用');valuationH=await hr.json();
     $('valuation-sort').addEventListener('change',render);
     $('h-valuation-sort').addEventListener('change',render);
+    $('absolute-sort').addEventListener('change',render);
+    $('h-absolute-sort').addEventListener('change',render);
+    const setMode=absolute=>{
+      $('rank-comparisons').hidden=absolute;$('absolute-comparisons').hidden=!absolute;
+      $('mode-rank').setAttribute('aria-pressed',String(!absolute));$('mode-absolute').setAttribute('aria-pressed',String(absolute));
+    };
+    $('mode-rank').addEventListener('click',()=>setMode(false));
+    $('mode-absolute').addEventListener('click',()=>setMode(true));
+    setMode(location.hash==='#absolute');
     weightUI();recalculate();
     $('sources').innerHTML='<b>本页采用的原始数据库</b>'+data.groups.map(g=>{const s=data.sources[g.id];return `<div class="source-row"><span>${esc(g.label)}</span><a href="${s.url}" target="_blank" rel="noopener">${esc(s.filename)} ↗</a><span>${esc(s.report)} · 文件名日期 ${esc(s.filename_date)}${s.internal_updated?' · 源表更新日 '+esc(s.internal_updated):''}</span></div>`;}).join('')+'<p>源文件需在银行先爽网站登录后下载。点击银行名称可查看精确单元格。</p>';
     $('reset').addEventListener('click',()=>{weights=[33,33,33];sortKey='total';sortDirection=-1;weightUI();recalculate();});

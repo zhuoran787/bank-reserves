@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="22家研究范围银行的浮盈、拨备与资本家底比较，2026年中报，支持自定义权重排名。">
 <title>银行家底 · 2026H1</title>
-<link rel="stylesheet" href="style.css?v=20261011-h1">
+<link rel="stylesheet" href="style.css?v=20261011-capital">
 </head>
 <body>
 <header class="masthead"><div class="shell"><div class="eyebrow">BANK RESERVES <span>2026 H1</span></div>
@@ -15,7 +15,7 @@
 <section class="controls card" aria-label="排名权重设置">
 <div class="control-title"><h2>按你的判断分配权重</h2><button id="reset">恢复等权</button></div>
 <div id="weights" class="weight-grid"></div>
-<div class="weight-foot"><span>各维度内部等权。调整后实时重排，百分位基准始终为全部 22 家完整样本。</span><span id="weight-status" role="status"></span></div>
+<div class="weight-foot"><span>维度内部权重见上方说明。调整后实时重排，百分位基准始终为全部 22 家完整样本。</span><span id="weight-status" role="status"></span></div>
 </section>
 <section class="table-section">
 <div class="table-tools"><div><h2>家底全景表</h2><p id="result-count"></p></div>
@@ -24,6 +24,8 @@
 <div class="table-wrap" tabindex="0" aria-label="可滚动银行家底表格"><table id="bank-table"><thead id="thead"></thead><tbody id="tbody"></tbody></table></div>
 <p class="coverage">全部家底数据更新至2026年中报（2026-06-30）；利润分母为TTM，余额为期末值。自由现金流1为TTM基础模型比例。点击银行查看文件名日期、可核验的源表更新日及精确单元格。</p>
 </section>
+<section class="comparison-mode card" aria-label="选择估值对照方式"><div><h2>两种方式看家底与估值</h2><p>排名看相对位置；绝对值保留金额与比例的实际差距。</p></div><div class="mode-buttons"><button id="mode-rank" aria-pressed="true">① 排名比较</button><button id="mode-absolute" aria-pressed="false">② 绝对值比较</button></div></section>
+<div id="rank-comparisons">
 <section id="valuation" class="table-section valuation-section">
 <div class="table-tools"><div><h2>A股估值与家底的排名偏差</h2><p>2026E 全年预测 · A股 · 图片日期 2026-10-09</p></div><select id="valuation-sort" aria-label="估值排序"><option value="positive">正向偏差最大优先</option><option value="negative">负向偏差最大优先</option><option value="cheap">估值最便宜优先</option><option value="strength">家底最强优先</option></select></div>
 <div id="gap-leaders" class="gap-grid"></div>
@@ -42,19 +44,27 @@
 <p id="h-valuation-source" class="coverage"></p>
 <p class="coverage">2026E为2026全年预测，不是未来12个月NTM；图片未注明股息税前/税后口径，沿用原图，不补猜。两张表的时点不同；偏差只是相对排名差，不是合理价值、价格目标或预期收益率。并列同名次、后续跳名次。</p>
 </section>
+</div>
+<div id="absolute-comparisons" hidden>
+<section id="absolute" class="absolute-intro card"><h2>按指定公式计算总家底</h2><p class="formula">总家底＝AC&amp;OCI浮盈＋超额拨备＋CET1安全垫金额－OCI余额</p><p>等价于 AC浮盈＋超额拨备＋CET1安全垫金额。再分别除以同一拨备库的归母净资产、归母净利润TTM。负值原样参与合计；扣除项为带正负号的源表OCI余额。</p><p>三项金额机械加总，不套用排名权重；拨贷比和自由现金流1保留在上方全景表，不计入存量金额合计。该研究口径仅扣除了浮盈项中的OCI，未进一步调整税务及拨备与监管资本的其他重叠，并非可分配现金。</p></section>
+<section class="table-section valuation-section"><div class="table-tools"><div><h2>A股：绝对家底与估值</h2><p id="absolute-count"></p></div><select id="absolute-sort" aria-label="A股绝对值排序"><option value="equity_ratio">总家底 / 归母净资产最高优先</option><option value="profit_ratio">总家底 / 归母净利润最高优先</option><option value="pb">PB最低优先</option><option value="dividend_yield">股息率最高优先</option><option value="total_amount">总家底金额最高优先</option></select></div>
+<div class="table-wrap" tabindex="0" aria-label="A股绝对家底估值对照"><table class="absolute-table"><thead><tr><th class="sticky-bank">银行</th><th>总家底 / 归母净资产<br><span>2026H1 · %</span></th><th>总家底 / 归母净利润<br><span>TTM · %</span></th><th>2026E PB<br><span>A股 · 倍</span></th><th>2026E 股息率<br><span>A股 · 全年预测</span></th><th>总家底<br><span>亿元</span></th><th>＋AC&amp;OCI浮盈<br><span>亿元</span></th><th>＋超额拨备<br><span>亿元</span></th><th>＋CET1安全垫<br><span>亿元</span></th><th>－OCI余额<br><span>源值 · 亿元</span></th></tr></thead><tbody id="absolute-body"></tbody></table></div><p id="absolute-source" class="coverage"></p></section>
+<section class="table-section valuation-section"><div class="table-tools"><div><h2>H股：绝对家底与估值</h2><p id="h-absolute-count"></p></div><select id="h-absolute-sort" aria-label="H股绝对值排序"><option value="equity_ratio">总家底 / 归母净资产最高优先</option><option value="profit_ratio">总家底 / 归母净利润最高优先</option><option value="pb">PB最低优先</option><option value="dividend_yield">股息率最高优先</option><option value="total_amount">总家底金额最高优先</option></select></div>
+<div class="table-wrap" tabindex="0" aria-label="H股绝对家底估值对照"><table class="absolute-table"><thead><tr><th class="sticky-bank">银行</th><th>总家底 / 归母净资产<br><span>2026H1 · %</span></th><th>总家底 / 归母净利润<br><span>TTM · %</span></th><th>2026E PB<br><span>H股 · 倍</span></th><th>2026E 股息率<br><span>H股 · 全年预测</span></th><th>总家底<br><span>亿元</span></th><th>＋AC&amp;OCI浮盈<br><span>亿元</span></th><th>＋超额拨备<br><span>亿元</span></th><th>＋CET1安全垫<br><span>亿元</span></th><th>－OCI余额<br><span>源值 · 亿元</span></th></tr></thead><tbody id="h-absolute-body"></tbody></table></div><p id="h-absolute-source" class="coverage"></p></section>
+</div>
 <section id="method" class="method card">
 <h2>先读懂数字，再看排名</h2>
 <div class="method-grid">
 <article><span class="section-no">01</span><h3>浮盈家底</h3><p>比较 AC 与 OCI 相关的剩余浮盈。AC 指按摊余成本计量的金融资产，OCI 指计入其他综合收益的相关资产。</p><p>利润比率直接采用余额表的 <b>AC&OCI浮盈/归母净利润(TTM)</b>。净资产比率按 <b>（AC浮盈＋OCI相关其他综合收益余额）÷归母净资产</b> 计算。</p><p class="note">浮盈不等于可立即分配的现金；AC处置、OCI重分类与税务等约束会影响实际释放。</p></article>
 <article><span class="section-no">02</span><h3>拨备家底</h3><p>比较超额拨备占利润、占归母净资产的比率，并加入拨贷比，即 <b>贷款拨备额÷贷款总额</b>。三列各占本维度的 1/3。</p><p>超额拨备沿用源表的广义风险口径：广义拨备减去广义风险资产，当前回收率假设为 0%。负值表示该测算口径下的缺口。</p><p class="note">这不是监管可直接转回的拨备额。拨贷比偏高也可能反映风险较高，评分只衡量拨备厚度。</p></article>
-<article><span class="section-no">03</span><h3>资本宽裕度</h3><p><b>CET1安全垫</b>表示核心一级资本充足率超过源表所用资本要求的幅度，单位是百分点。数值越大，资本缓冲越厚。</p><p><b>自由现金流1</b>沿用源表的比例模型：1%资本安全垫下拉平杠杆后的ROE＋超额CET1分10年释放可支撑的资本消耗速度－RWA增速。RWA即风险加权资产。</p><p class="note">它不是现金流量表中的现金金额。正值意味着该模型下的资本内生余量，负值意味着压力。</p></article>
+<article><span class="section-no">03</span><h3>资本宽裕度</h3><p><b>CET1安全垫金额＝源表安全垫（小数）×期末风险加权资产RWA</b>。再分别除以拨备库的归母净资产、归母净利润TTM，统一为百分比。完整安全垫不另扣1个百分点；原始百分点和金额保留在银行详情。两项比率各占资本组25%，自由现金流1占50%。</p><p><b>自由现金流1</b>沿用源表的比例模型：1%资本安全垫下拉平杠杆后的ROE＋超额CET1分10年释放可支撑的资本消耗速度－RWA增速。RWA即风险加权资产。</p><p class="note">CET1分子为监管合并资本缓冲，归母分母仅用于归一化，并非归母可分配金额。自由现金流1口径和数值不变；它不是现金流量表中的现金金额。正值意味着该模型下的资本内生余量，负值意味着压力。</p></article>
 </div>
-<details open><summary>评分怎么计算</summary><p>所有指标均按“越高，家底越厚”排序。单项分数＝100×（比本行低的样本数＋并列其他样本数÷2）÷（完整样本数－1）。无并列极值时最弱为0分、最强为100分；单项百分位按并列平均位置计分，展示名次并列同名次、后续跳名次。先平均同维度内的单项分数，再按上方权重加权；默认每个维度占1/3。各单元格的红绿色阶按该列排名生成，综合分色阶按综合排名生成。</p><p>范围筛选与银行搜索只改变显示，不改变排名基准。只有全部7项数据齐全的银行参与综合排名。总分以完整精度排名，显示保留1位小数；接近的显示分数可能有不同名次。家底总分只衡量研究范围内的相对家底；估值另表对照，两者均未预测未来资产质量变化。</p></details>
+<details open><summary>评分怎么计算</summary><p>所有指标均按“越高，家底越厚”排序。单项分数＝100×（比本行低的样本数＋并列其他样本数÷2）÷（完整样本数－1）。无并列极值时最弱为0分、最强为100分；单项百分位按并列平均位置计分，展示名次并列同名次、后续跳名次。先按各维度内部权重合成单项分数，再按上方权重加权；默认每个维度占1/3。各单元格的红绿色阶按该列排名生成，综合分色阶按综合排名生成。</p><p>范围筛选与银行搜索只改变显示，不改变排名基准。只有全部8项数据齐全的银行参与综合排名。总分以完整精度排名，显示保留1位小数；接近的显示分数可能有不同名次。家底总分只衡量研究范围内的相对家底；估值另表对照，两者均未预测未来资产质量变化。</p></details>
 <details><summary>数据口径与文件差异</summary><p>按名称关键词匹配网站实际文件并核对内容。第17号“上市银行债市浮盈数据库”记录的是兑现收益，不含所需余额比率；因此浮盈采用同目录第19号“债市浮盈余额数据库”。其原有“AC浮盈/净资产”也不等于用户指定的“AC&OCI浮盈/归母净资产”，本页按后者重新计算。</p><p>拨备库原始金额单位为百万元，浮盈余额表为亿元，跨表计算已统一为亿元。两个数据库的归母净利润(TTM)数值存在差异，本页各利润比率保留各自源表值，不擅自改写；点击银行可并列查看分母。各项报告期均为2026-06-30，文件更新日不等于数据时点。</p><p>范围来自 Obsidian 的 2_Bank 独立银行笔记；按用户要求排除3家香港银行后为22家A股银行。行业跟踪、基础知识、观点笔记及“其他银行合集”未作为独立银行纳入。</p></details>
 <div id="sources" class="sources"></div>
 </section>
 <footer>银行家底研究表 <span>2026H1 · 数据来源：银行先爽</span></footer>
 </main>
 <dialog id="bank-dialog"><div class="dialog-head"><div><span class="eyebrow">BANK DETAIL</span><h2 id="detail-name"></h2></div><button id="close-dialog" aria-label="关闭详情">✕</button></div><div id="detail-body"></div></dialog>
-<script type="module" src="app.mjs?v=20261011-h1"></script>
+<script type="module" src="app.mjs?v=20261011-capital"></script>
 </body></html>

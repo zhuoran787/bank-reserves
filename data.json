@@ -38,6 +38,7 @@
       "group": "bond",
       "unit": "%",
       "kind": "源表值",
+      "weight": 1,
       "period": "2026-06-30",
       "report": "2026年中报（2026H1）",
       "basis": "期末余额 / 归母净利润TTM（2025-07-01至2026-06-30）",
@@ -50,6 +51,7 @@
       "group": "bond",
       "unit": "%",
       "kind": "计算值",
+      "weight": 1,
       "period": "2026-06-30",
       "report": "2026年中报（2026H1）",
       "basis": "2026-06-30期末存量口径；不适用TTM/NTM",
@@ -62,6 +64,7 @@
       "group": "provision",
       "unit": "%",
       "kind": "源表值",
+      "weight": 1,
       "period": "2026-06-30",
       "report": "2026年中报（2026H1）",
       "basis": "期末余额 / 归母净利润TTM（2025-07-01至2026-06-30）",
@@ -74,6 +77,7 @@
       "group": "provision",
       "unit": "%",
       "kind": "源表值",
+      "weight": 1,
       "period": "2026-06-30",
       "report": "2026年中报（2026H1）",
       "basis": "2026-06-30期末存量口径；不适用TTM/NTM",
@@ -86,6 +90,7 @@
       "group": "provision",
       "unit": "%",
       "kind": "计算值",
+      "weight": 1,
       "period": "2026-06-30",
       "report": "2026年中报（2026H1）",
       "basis": "2026-06-30期末存量口径；不适用TTM/NTM",
@@ -93,16 +98,30 @@
       "source_label": "10号拨备库"
     },
     {
-      "id": "cet1",
-      "label": "CET1安全垫",
+      "id": "cet1_profit",
+      "label": "CET1安全垫金额 / 归母净利润(TTM)",
       "group": "capital",
-      "unit": "百分点",
-      "kind": "源表值",
+      "unit": "%",
+      "kind": "计算值",
+      "weight": 1,
+      "period": "2026-06-30",
+      "report": "2026年中报（2026H1）",
+      "basis": "期末余额 / 归母净利润TTM（2025-07-01至2026-06-30）",
+      "basis_short": "TTM分母",
+      "source_label": "6号自由现金流库＋10号"
+    },
+    {
+      "id": "cet1_equity",
+      "label": "CET1安全垫金额 / 归母净资产",
+      "group": "capital",
+      "unit": "%",
+      "kind": "计算值",
+      "weight": 1,
       "period": "2026-06-30",
       "report": "2026年中报（2026H1）",
       "basis": "2026-06-30期末存量口径；不适用TTM/NTM",
       "basis_short": "期末值",
-      "source_label": "6号自由现金流库"
+      "source_label": "6号自由现金流库＋10号"
     },
     {
       "id": "fcf1",
@@ -110,6 +129,7 @@
       "group": "capital",
       "unit": "%",
       "kind": "源表值",
+      "weight": 2,
       "period": "2026-06-30",
       "report": "2026年中报（2026H1）",
       "basis": "基于TTM盈利和期末资本的模型比例；含历史中位数调整及10年释放假设，非NTM预测、非财报现金流",
@@ -159,16 +179,6 @@
           "percentile": 100.0,
           "rank": 1
         },
-        "cet1": {
-          "value": 0.02019999999999999,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1916"
-          ],
-          "percentile": 57.142857142857146,
-          "rank": 10
-        },
         "fcf1": {
           "value": 0.08146609097902796,
           "unit": null,
@@ -214,6 +224,36 @@
           "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
           "percentile": 100.0,
           "rank": 1
+        },
+        "cet1_profit": {
+          "value": 1.5090306888841458,
+          "source": "capital",
+          "cells": [
+            "AK1916",
+            "AK1356"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1660"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净利润(TTM)[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 23.80952380952381,
+          "rank": 17
+        },
+        "cet1_equity": {
+          "value": 0.17520491123774654,
+          "source": "capital",
+          "cells": [
+            "AK1916",
+            "AK1356"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1738"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净资产[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 57.142857142857146,
+          "rank": 10
         }
       },
       "supplement": {
@@ -264,17 +304,248 @@
           "cells": [
             "L24"
           ]
+        },
+        "CET1安全垫（百分点）": {
+          "value": 2.0199999999999987,
+          "unit": "百分点",
+          "source": "capital",
+          "cells": [
+            "AK1916"
+          ]
+        },
+        "风险加权资产RWA": {
+          "value": 15075.699920000001,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1356"
+          ]
+        },
+        "CET1安全垫金额": {
+          "value": 304.52913838399985,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1916",
+            "AK1356"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA；完整安全垫，不另扣1个百分点"
         }
       },
       "code": "600926.SH",
+      "absolute": {
+        "bond_amount": 367.7301399999997,
+        "provision_amount": 420.97634348800005,
+        "capital_amount": 304.52913838399985,
+        "oci_deduction": 28.589000000000002,
+        "total_amount": 1064.6466218719997,
+        "equity_ratio": 0.6125237074996791,
+        "profit_ratio": 5.27563448853239
+      },
       "complete": true,
       "scores": {
         "bond": 95.23809523809524,
         "provision": 95.23809523809524,
-        "capital": 66.66666666666667
+        "capital": 58.333333333333336
       },
-      "total": 85.71428571428572,
+      "total": 82.93650793650794,
       "rank": 1
+    },
+    {
+      "name": "渝农商行",
+      "type": "城农商行",
+      "metrics": {
+        "prov_profit": {
+          "value": 0.9461048402179096,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1906"
+          ],
+          "percentile": 76.19047619047619,
+          "rank": 6
+        },
+        "prov_equity": {
+          "value": 0.08166067306476753,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1828"
+          ],
+          "percentile": 66.66666666666667,
+          "rank": 8
+        },
+        "fcf1": {
+          "value": 0.02237101814653991,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1713"
+          ],
+          "percentile": 57.142857142857146,
+          "rank": 10
+        },
+        "loan_prov": {
+          "value": 0.037409022357016194,
+          "source": "provision",
+          "cells": [
+            "AR1204",
+            "AR190"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 100.0,
+          "rank": 1
+        },
+        "bond_profit": {
+          "value": 1.5627688165278046,
+          "source": "bond",
+          "cells": [
+            "T38"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 71.42857142857143,
+          "rank": 7
+        },
+        "bond_equity": {
+          "value": 0.13189713308324444,
+          "source": "bond",
+          "cells": [
+            "H38",
+            "P38"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1750"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 66.66666666666667,
+          "rank": 8
+        },
+        "cet1_profit": {
+          "value": 4.382500246873755,
+          "source": "capital",
+          "cells": [
+            "AK1928",
+            "AK1368"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1672"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净利润(TTM)[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 95.23809523809524,
+          "rank": 2
+        },
+        "cet1_equity": {
+          "value": 0.37826454812744975,
+          "source": "capital",
+          "cells": [
+            "AK1928",
+            "AK1368"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1750"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净资产[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 95.23809523809524,
+          "rank": 2
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": 119.18586,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1594"
+          ]
+        },
+        "归母净利润(TTM)": {
+          "value": 125.97531999999997,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1672"
+          ]
+        },
+        "归母净资产": {
+          "value": 1459.52581,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1750"
+          ]
+        },
+        "AC浮盈余额": {
+          "value": 149.37422000000015,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H38"
+          ]
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 43.133050000000004,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P38"
+          ]
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 123.18346,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L38"
+          ]
+        },
+        "CET1安全垫（百分点）": {
+          "value": 4.83,
+          "unit": "百分点",
+          "source": "capital",
+          "cells": [
+            "AK1928"
+          ]
+        },
+        "风险加权资产RWA": {
+          "value": 11430.37,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1368"
+          ]
+        },
+        "CET1安全垫金额": {
+          "value": 552.0868710000001,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1928",
+            "AK1368"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA；完整安全垫，不另扣1个百分点"
+        }
+      },
+      "code": "601077.SH",
+      "absolute": {
+        "bond_amount": 192.50727000000015,
+        "provision_amount": 119.18586,
+        "capital_amount": 552.0868710000001,
+        "oci_deduction": 43.133050000000004,
+        "total_amount": 820.6469510000003,
+        "equity_ratio": 0.5622695709642848,
+        "profit_ratio": 6.514347024480672
+      },
+      "complete": true,
+      "scores": {
+        "bond": 69.04761904761905,
+        "provision": 80.95238095238095,
+        "capital": 76.19047619047619
+      },
+      "total": 75.3968253968254,
+      "rank": 2
     },
     {
       "name": "建设银行",
@@ -299,16 +570,6 @@
           ],
           "percentile": 42.857142857142854,
           "rank": 13
-        },
-        "cet1": {
-          "value": 0.052399999999999995,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1897"
-          ],
-          "percentile": 90.47619047619048,
-          "rank": 3
         },
         "fcf1": {
           "value": 0.08763500462473442,
@@ -353,6 +614,36 @@
             "AR1719"
           ],
           "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 85.71428571428571,
+          "rank": 4
+        },
+        "cet1_profit": {
+          "value": 3.8018719146405533,
+          "source": "capital",
+          "cells": [
+            "AK1897",
+            "AK1337"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1641"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净利润(TTM)[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 90.47619047619048,
+          "rank": 3
+        },
+        "cet1_equity": {
+          "value": 0.3456385075568568,
+          "source": "capital",
+          "cells": [
+            "AK1897",
+            "AK1337"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1719"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净资产[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
           "percentile": 85.71428571428571,
           "rank": 4
         }
@@ -405,299 +696,52 @@
           "cells": [
             "L5"
           ]
+        },
+        "CET1安全垫（百分点）": {
+          "value": 5.239999999999999,
+          "unit": "百分点",
+          "source": "capital",
+          "cells": [
+            "AK1897"
+          ]
+        },
+        "风险加权资产RWA": {
+          "value": 251325.5,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1337"
+          ]
+        },
+        "CET1安全垫金额": {
+          "value": 13169.456199999999,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1897",
+            "AK1337"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA；完整安全垫，不另扣1个百分点"
         }
       },
       "code": "601939.SH",
+      "absolute": {
+        "bond_amount": 5560.819999999999,
+        "provision_amount": 342.58189599999923,
+        "capital_amount": 13169.456199999999,
+        "oci_deduction": 357.04,
+        "total_amount": 18715.818095999995,
+        "equity_ratio": 0.49120535701444173,
+        "profit_ratio": 5.403043382968526
+      },
       "complete": true,
       "scores": {
         "bond": 85.71428571428571,
         "provision": 52.38095238095238,
-        "capital": 85.71428571428572
+        "capital": 84.52380952380952
       },
-      "total": 74.6031746031746,
-      "rank": 2
-    },
-    {
-      "name": "渝农商行",
-      "type": "城农商行",
-      "metrics": {
-        "prov_profit": {
-          "value": 0.9461048402179096,
-          "unit": "百分比值",
-          "source": "provision",
-          "cells": [
-            "AR1906"
-          ],
-          "percentile": 76.19047619047619,
-          "rank": 6
-        },
-        "prov_equity": {
-          "value": 0.08166067306476753,
-          "unit": "百分比值",
-          "source": "provision",
-          "cells": [
-            "AR1828"
-          ],
-          "percentile": 66.66666666666667,
-          "rank": 8
-        },
-        "cet1": {
-          "value": 0.0483,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1928"
-          ],
-          "percentile": 85.71428571428571,
-          "rank": 4
-        },
-        "fcf1": {
-          "value": 0.02237101814653991,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1713"
-          ],
-          "percentile": 57.142857142857146,
-          "rank": 10
-        },
-        "loan_prov": {
-          "value": 0.037409022357016194,
-          "source": "provision",
-          "cells": [
-            "AR1204",
-            "AR190"
-          ],
-          "formula": "贷款拨备额 ÷ 贷款总额",
-          "percentile": 100.0,
-          "rank": 1
-        },
-        "bond_profit": {
-          "value": 1.5627688165278046,
-          "source": "bond",
-          "cells": [
-            "T38"
-          ],
-          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
-          "percentile": 71.42857142857143,
-          "rank": 7
-        },
-        "bond_equity": {
-          "value": 0.13189713308324444,
-          "source": "bond",
-          "cells": [
-            "H38",
-            "P38"
-          ],
-          "denominator_source": "provision",
-          "denominator_cells": [
-            "AR1750"
-          ],
-          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
-          "percentile": 66.66666666666667,
-          "rank": 8
-        }
-      },
-      "supplement": {
-        "超额拨备额": {
-          "value": 119.18586,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AR1594"
-          ]
-        },
-        "归母净利润(TTM)": {
-          "value": 125.97531999999997,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AR1672"
-          ]
-        },
-        "归母净资产": {
-          "value": 1459.52581,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AR1750"
-          ]
-        },
-        "AC浮盈余额": {
-          "value": 149.37422000000015,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "H38"
-          ]
-        },
-        "OCI相关其他综合收益余额": {
-          "value": 43.133050000000004,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "P38"
-          ]
-        },
-        "浮盈表归母净利润(TTM)": {
-          "value": 123.18346,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "L38"
-          ]
-        }
-      },
-      "code": "601077.SH",
-      "complete": true,
-      "scores": {
-        "bond": 69.04761904761905,
-        "provision": 80.95238095238095,
-        "capital": 71.42857142857143
-      },
-      "total": 73.80952380952381,
+      "total": 74.2063492063492,
       "rank": 3
-    },
-    {
-      "name": "农业银行",
-      "type": "国有行",
-      "metrics": {
-        "prov_profit": {
-          "value": 1.0670046859475282,
-          "unit": "百分比值",
-          "source": "provision",
-          "cells": [
-            "AR1876"
-          ],
-          "percentile": 80.95238095238095,
-          "rank": 5
-        },
-        "prov_equity": {
-          "value": 0.09551447199440868,
-          "unit": "百分比值",
-          "source": "provision",
-          "cells": [
-            "AR1798"
-          ],
-          "percentile": 76.19047619047619,
-          "rank": 6
-        },
-        "cet1": {
-          "value": 0.01800000000000001,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1898"
-          ],
-          "percentile": 52.38095238095238,
-          "rank": 11
-        },
-        "fcf1": {
-          "value": -0.009430601096723779,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1683"
-          ],
-          "percentile": 28.571428571428573,
-          "rank": 16
-        },
-        "loan_prov": {
-          "value": 0.03619620770476493,
-          "source": "provision",
-          "cells": [
-            "AR1174",
-            "AR160"
-          ],
-          "formula": "贷款拨备额 ÷ 贷款总额",
-          "percentile": 90.47619047619048,
-          "rank": 3
-        },
-        "bond_profit": {
-          "value": 2.2092866001800933,
-          "source": "bond",
-          "cells": [
-            "T6"
-          ],
-          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
-          "percentile": 100.0,
-          "rank": 1
-        },
-        "bond_equity": {
-          "value": 0.19536636564629853,
-          "source": "bond",
-          "cells": [
-            "H6",
-            "P6"
-          ],
-          "denominator_source": "provision",
-          "denominator_cells": [
-            "AR1720"
-          ],
-          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
-          "percentile": 95.23809523809524,
-          "rank": 2
-        }
-      },
-      "supplement": {
-        "超额拨备额": {
-          "value": 3178.735,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AR1564"
-          ]
-        },
-        "归母净利润(TTM)": {
-          "value": 2979.12,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AR1642"
-          ]
-        },
-        "归母净资产": {
-          "value": 33280.14,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AR1720"
-          ]
-        },
-        "AC浮盈余额": {
-          "value": 5871.490000000005,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "H6"
-          ]
-        },
-        "OCI相关其他综合收益余额": {
-          "value": 630.33,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "P6"
-          ]
-        },
-        "浮盈表归母净利润(TTM)": {
-          "value": 2942.95,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "L6"
-          ]
-        }
-      },
-      "code": "601288.SH",
-      "complete": true,
-      "scores": {
-        "bond": 97.61904761904762,
-        "provision": 82.53968253968254,
-        "capital": 40.476190476190474
-      },
-      "total": 73.54497354497354,
-      "rank": 4
     },
     {
       "name": "招商银行",
@@ -722,16 +766,6 @@
           ],
           "percentile": 71.42857142857143,
           "rank": 7
-        },
-        "cet1": {
-          "value": 0.05819999999999999,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1902"
-          ],
-          "percentile": 95.23809523809524,
-          "rank": 2
         },
         "fcf1": {
           "value": 0.12394854063731989,
@@ -778,6 +812,36 @@
           "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
           "percentile": 47.61904761904762,
           "rank": 12
+        },
+        "cet1_profit": {
+          "value": 3.042033077998101,
+          "source": "capital",
+          "cells": [
+            "AK1902",
+            "AK1342"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1646"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净利润(TTM)[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 80.95238095238095,
+          "rank": 5
+        },
+        "cet1_equity": {
+          "value": 0.3430876787409676,
+          "source": "capital",
+          "cells": [
+            "AK1902",
+            "AK1342"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1724"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净资产[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 80.95238095238095,
+          "rank": 5
         }
       },
       "supplement": {
@@ -828,16 +892,247 @@
           "cells": [
             "L10"
           ]
+        },
+        "CET1安全垫（百分点）": {
+          "value": 5.8199999999999985,
+          "unit": "百分点",
+          "source": "capital",
+          "cells": [
+            "AK1902"
+          ]
+        },
+        "风险加权资产RWA": {
+          "value": 79289.39,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1342"
+          ]
+        },
+        "CET1安全垫金额": {
+          "value": 4614.642497999999,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1902",
+            "AK1342"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA；完整安全垫，不另扣1个百分点"
         }
       },
       "code": "600036.SH",
+      "absolute": {
+        "bond_amount": 1398.3700000000028,
+        "provision_amount": 1154.6648979999998,
+        "capital_amount": 4614.642497999999,
+        "oci_deduction": 191.07,
+        "total_amount": 6976.607396000002,
+        "equity_ratio": 0.5186941432663735,
+        "profit_ratio": 4.599071429701509
+      },
       "complete": true,
       "scores": {
         "bond": 42.85714285714286,
         "provision": 79.36507936507937,
-        "capital": 95.23809523809524
+        "capital": 88.0952380952381
       },
-      "total": 72.4867724867725,
+      "total": 70.10582010582011,
+      "rank": 4
+    },
+    {
+      "name": "农业银行",
+      "type": "国有行",
+      "metrics": {
+        "prov_profit": {
+          "value": 1.0670046859475282,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1876"
+          ],
+          "percentile": 80.95238095238095,
+          "rank": 5
+        },
+        "prov_equity": {
+          "value": 0.09551447199440868,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1798"
+          ],
+          "percentile": 76.19047619047619,
+          "rank": 6
+        },
+        "fcf1": {
+          "value": -0.009430601096723779,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1683"
+          ],
+          "percentile": 28.571428571428573,
+          "rank": 16
+        },
+        "loan_prov": {
+          "value": 0.03619620770476493,
+          "source": "provision",
+          "cells": [
+            "AR1174",
+            "AR160"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 90.47619047619048,
+          "rank": 3
+        },
+        "bond_profit": {
+          "value": 2.2092866001800933,
+          "source": "bond",
+          "cells": [
+            "T6"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 100.0,
+          "rank": 1
+        },
+        "bond_equity": {
+          "value": 0.19536636564629853,
+          "source": "bond",
+          "cells": [
+            "H6",
+            "P6"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1720"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 95.23809523809524,
+          "rank": 2
+        },
+        "cet1_profit": {
+          "value": 1.5879486022718128,
+          "source": "capital",
+          "cells": [
+            "AK1898",
+            "AK1338"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1642"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净利润(TTM)[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 33.333333333333336,
+          "rank": 15
+        },
+        "cet1_equity": {
+          "value": 0.1421475222159523,
+          "source": "capital",
+          "cells": [
+            "AK1898",
+            "AK1338"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1720"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净资产[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 28.571428571428573,
+          "rank": 16
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": 3178.735,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1564"
+          ]
+        },
+        "归母净利润(TTM)": {
+          "value": 2979.12,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1642"
+          ]
+        },
+        "归母净资产": {
+          "value": 33280.14,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1720"
+          ]
+        },
+        "AC浮盈余额": {
+          "value": 5871.490000000005,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H6"
+          ]
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 630.33,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P6"
+          ]
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 2942.95,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L6"
+          ]
+        },
+        "CET1安全垫（百分点）": {
+          "value": 1.800000000000001,
+          "unit": "百分点",
+          "source": "capital",
+          "cells": [
+            "AK1898"
+          ]
+        },
+        "风险加权资产RWA": {
+          "value": 262816.08,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1338"
+          ]
+        },
+        "CET1安全垫金额": {
+          "value": 4730.689440000003,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1898",
+            "AK1338"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA；完整安全垫，不另扣1个百分点"
+        }
+      },
+      "code": "601288.SH",
+      "absolute": {
+        "bond_amount": 6501.820000000005,
+        "provision_amount": 3178.735,
+        "capital_amount": 4730.689440000003,
+        "oci_deduction": 630.33,
+        "total_amount": 13780.91444000001,
+        "equity_ratio": 0.4140882352057416,
+        "profit_ratio": 4.625833950965389
+      },
+      "complete": true,
+      "scores": {
+        "bond": 97.61904761904762,
+        "provision": 82.53968253968254,
+        "capital": 29.761904761904763
+      },
+      "total": 69.97354497354497,
       "rank": 5
     },
     {
@@ -863,16 +1158,6 @@
           ],
           "percentile": 90.47619047619048,
           "rank": 3
-        },
-        "cet1": {
-          "value": 0.011799999999999998,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1922"
-          ],
-          "percentile": 9.523809523809524,
-          "rank": 20
         },
         "fcf1": {
           "value": 0.03607504664364489,
@@ -919,6 +1204,36 @@
           "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
           "percentile": 90.47619047619048,
           "rank": 3
+        },
+        "cet1_profit": {
+          "value": 1.0354228054011783,
+          "source": "capital",
+          "cells": [
+            "AK1922",
+            "AK1362"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1666"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净利润(TTM)[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 4.761904761904762,
+          "rank": 21
+        },
+        "cet1_equity": {
+          "value": 0.11410564646899964,
+          "source": "capital",
+          "cells": [
+            "AK1922",
+            "AK1362"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1744"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净资产[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 9.523809523809524,
+          "rank": 20
         }
       },
       "supplement": {
@@ -969,16 +1284,51 @@
           "cells": [
             "L31"
           ]
+        },
+        "CET1安全垫（百分点）": {
+          "value": 1.1799999999999997,
+          "unit": "百分点",
+          "source": "capital",
+          "cells": [
+            "AK1922"
+          ]
+        },
+        "风险加权资产RWA": {
+          "value": 5038.2182,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1362"
+          ]
+        },
+        "CET1安全垫金额": {
+          "value": 59.450974759999994,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1922",
+            "AK1362"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA；完整安全垫，不另扣1个百分点"
         }
       },
       "code": "002948.SZ",
+      "absolute": {
+        "bond_amount": 87.16746000000006,
+        "provision_amount": 75.75783508500001,
+        "capital_amount": 59.450974759999994,
+        "oci_deduction": 22.25799,
+        "total_amount": 200.11827984500007,
+        "equity_ratio": 0.38409169545427846,
+        "profit_ratio": 3.4853428655400585
+      },
       "complete": true,
       "scores": {
         "bond": 85.71428571428572,
         "provision": 82.53968253968254,
-        "capital": 35.714285714285715
+        "capital": 34.523809523809526
       },
-      "total": 67.98941798941799,
+      "total": 67.5925925925926,
       "rank": 6
     },
     {
@@ -1001,16 +1351,6 @@
           "source": "provision",
           "cells": [
             "AR1831"
-          ],
-          "percentile": 80.95238095238095,
-          "rank": 5
-        },
-        "cet1": {
-          "value": 0.039,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1931"
           ],
           "percentile": 80.95238095238095,
           "rank": 5
@@ -1060,6 +1400,36 @@
           "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
           "percentile": 23.80952380952381,
           "rank": 17
+        },
+        "cet1_profit": {
+          "value": 2.658440488074178,
+          "source": "capital",
+          "cells": [
+            "AK1931",
+            "AK1371"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1675"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净利润(TTM)[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 61.904761904761905,
+          "rank": 9
+        },
+        "cet1_equity": {
+          "value": 0.3509953482316878,
+          "source": "capital",
+          "cells": [
+            "AK1931",
+            "AK1371"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1753"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净资产[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 90.47619047619048,
+          "rank": 3
         }
       },
       "supplement": {
@@ -1110,158 +1480,52 @@
           "cells": [
             "L41"
           ]
+        },
+        "CET1安全垫（百分点）": {
+          "value": 3.9,
+          "unit": "百分点",
+          "source": "capital",
+          "cells": [
+            "AK1931"
+          ]
+        },
+        "风险加权资产RWA": {
+          "value": 3018.9216100000003,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1371"
+          ]
+        },
+        "CET1安全垫金额": {
+          "value": 117.73794279000002,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1931",
+            "AK1371"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA；完整安全垫，不另扣1个百分点"
         }
       },
       "code": "601128.SH",
+      "absolute": {
+        "bond_amount": 20.96944999999998,
+        "provision_amount": 32.300190000000015,
+        "capital_amount": 117.73794279000002,
+        "oci_deduction": 7.693370000000001,
+        "total_amount": 163.31421279000003,
+        "equity_ratio": 0.48686538622177,
+        "profit_ratio": 3.68752082184141
+      },
       "complete": true,
       "scores": {
         "bond": 19.047619047619047,
         "provision": 74.6031746031746,
-        "capital": 85.71428571428572
-      },
-      "total": 59.78835978835979,
-      "rank": 7
-    },
-    {
-      "name": "宁波银行",
-      "type": "城农商行",
-      "metrics": {
-        "prov_profit": {
-          "value": 0.7425800597628762,
-          "unit": "百分比值",
-          "source": "provision",
-          "cells": [
-            "AR1892"
-          ],
-          "percentile": 66.66666666666667,
-          "rank": 8
-        },
-        "prov_equity": {
-          "value": 0.08149467441015822,
-          "unit": "百分比值",
-          "source": "provision",
-          "cells": [
-            "AR1814"
-          ],
-          "percentile": 61.904761904761905,
-          "rank": 9
-        },
-        "cet1": {
-          "value": 0.017799999999999993,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1914"
-          ],
-          "percentile": 47.61904761904762,
-          "rank": 12
-        },
-        "fcf1": {
-          "value": 0.05206090842304645,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1699"
-          ],
-          "percentile": 66.66666666666667,
-          "rank": 8
-        },
-        "loan_prov": {
-          "value": 0.028326251129511506,
-          "source": "provision",
-          "cells": [
-            "AR1190",
-            "AR176"
-          ],
-          "formula": "贷款拨备额 ÷ 贷款总额",
-          "percentile": 52.38095238095238,
-          "rank": 11
-        },
-        "bond_profit": {
-          "value": 1.1706814632687634,
-          "source": "bond",
-          "cells": [
-            "T22"
-          ],
-          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
-          "percentile": 57.142857142857146,
-          "rank": 10
-        },
-        "bond_equity": {
-          "value": 0.12424143050075276,
-          "source": "bond",
-          "cells": [
-            "H22",
-            "P22"
-          ],
-          "denominator_source": "provision",
-          "denominator_cells": [
-            "AR1736"
-          ],
-          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
-          "percentile": 61.904761904761905,
-          "rank": 9
-        }
-      },
-      "supplement": {
-        "超额拨备额": {
-          "value": 231.11319199999997,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AR1580"
-          ]
-        },
-        "归母净利润(TTM)": {
-          "value": 311.23,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AR1658"
-          ]
-        },
-        "归母净资产": {
-          "value": 2835.93,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AR1736"
-          ]
-        },
-        "AC浮盈余额": {
-          "value": 223.77999999999975,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "H22"
-          ]
-        },
-        "OCI相关其他综合收益余额": {
-          "value": 128.56,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "P22"
-          ]
-        },
-        "浮盈表归母净利润(TTM)": {
-          "value": 300.97,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "L22"
-          ]
-        }
-      },
-      "code": "002142.SZ",
-      "complete": true,
-      "scores": {
-        "bond": 59.523809523809526,
-        "provision": 60.31746031746032,
-        "capital": 57.142857142857146
+        "capital": 83.33333333333334
       },
       "total": 58.99470899470899,
-      "rank": 8
+      "rank": 7
     },
     {
       "name": "南京银行",
@@ -1286,16 +1550,6 @@
           ],
           "percentile": 57.142857142857146,
           "rank": 10
-        },
-        "cet1": {
-          "value": 0.01619999999999999,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1915"
-          ],
-          "percentile": 33.333333333333336,
-          "rank": 15
         },
         "fcf1": {
           "value": 0.0628136331580364,
@@ -1342,6 +1596,36 @@
           "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
           "percentile": 76.19047619047619,
           "rank": 6
+        },
+        "cet1_profit": {
+          "value": 1.4717631739683108,
+          "source": "capital",
+          "cells": [
+            "AK1915",
+            "AK1355"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1659"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净利润(TTM)[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 19.047619047619047,
+          "rank": 18
+        },
+        "cet1_equity": {
+          "value": 0.15407630352297177,
+          "source": "capital",
+          "cells": [
+            "AK1915",
+            "AK1355"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1737"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净资产[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 47.61904761904762,
+          "rank": 12
         }
       },
       "supplement": {
@@ -1392,9 +1676,44 @@
           "cells": [
             "L23"
           ]
+        },
+        "CET1安全垫（百分点）": {
+          "value": 1.6199999999999988,
+          "unit": "百分点",
+          "source": "capital",
+          "cells": [
+            "AK1915"
+          ]
+        },
+        "风险加权资产RWA": {
+          "value": 20748.29309,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1355"
+          ]
+        },
+        "CET1安全垫金额": {
+          "value": 336.1223480579998,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1915",
+            "AK1355"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA；完整安全垫，不另扣1个百分点"
         }
       },
       "code": "601009.SH",
+      "absolute": {
+        "bond_amount": 306.29630000000054,
+        "provision_amount": 147.71656980800003,
+        "capital_amount": 336.1223480579998,
+        "oci_deduction": 20.99941,
+        "total_amount": 769.1358078660004,
+        "equity_ratio": 0.3525668640238678,
+        "profit_ratio": 3.367778918414003
+      },
       "complete": true,
       "scores": {
         "bond": 69.04761904761905,
@@ -1402,6 +1721,202 @@
         "capital": 52.38095238095238
       },
       "total": 57.40740740740741,
+      "rank": 8
+    },
+    {
+      "name": "宁波银行",
+      "type": "城农商行",
+      "metrics": {
+        "prov_profit": {
+          "value": 0.7425800597628762,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1892"
+          ],
+          "percentile": 66.66666666666667,
+          "rank": 8
+        },
+        "prov_equity": {
+          "value": 0.08149467441015822,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1814"
+          ],
+          "percentile": 61.904761904761905,
+          "rank": 9
+        },
+        "fcf1": {
+          "value": 0.05206090842304645,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1699"
+          ],
+          "percentile": 66.66666666666667,
+          "rank": 8
+        },
+        "loan_prov": {
+          "value": 0.028326251129511506,
+          "source": "provision",
+          "cells": [
+            "AR1190",
+            "AR176"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 52.38095238095238,
+          "rank": 11
+        },
+        "bond_profit": {
+          "value": 1.1706814632687634,
+          "source": "bond",
+          "cells": [
+            "T22"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 57.142857142857146,
+          "rank": 10
+        },
+        "bond_equity": {
+          "value": 0.12424143050075276,
+          "source": "bond",
+          "cells": [
+            "H22",
+            "P22"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1736"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 61.904761904761905,
+          "rank": 9
+        },
+        "cet1_profit": {
+          "value": 1.4391977444333766,
+          "source": "capital",
+          "cells": [
+            "AK1914",
+            "AK1354"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1658"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净利润(TTM)[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 14.285714285714286,
+          "rank": 19
+        },
+        "cet1_equity": {
+          "value": 0.1579451939927995,
+          "source": "capital",
+          "cells": [
+            "AK1914",
+            "AK1354"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1736"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净资产[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 52.38095238095238,
+          "rank": 11
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": 231.11319199999997,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1580"
+          ]
+        },
+        "归母净利润(TTM)": {
+          "value": 311.23,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1658"
+          ]
+        },
+        "归母净资产": {
+          "value": 2835.93,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1736"
+          ]
+        },
+        "AC浮盈余额": {
+          "value": 223.77999999999975,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H22"
+          ]
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 128.56,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P22"
+          ]
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 300.97,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L22"
+          ]
+        },
+        "CET1安全垫（百分点）": {
+          "value": 1.7799999999999994,
+          "unit": "百分点",
+          "source": "capital",
+          "cells": [
+            "AK1914"
+          ]
+        },
+        "风险加权资产RWA": {
+          "value": 25164.13,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1354"
+          ]
+        },
+        "CET1安全垫金额": {
+          "value": 447.92151399999983,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1914",
+            "AK1354"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA；完整安全垫，不另扣1个百分点"
+        }
+      },
+      "code": "002142.SZ",
+      "absolute": {
+        "bond_amount": 352.33999999999975,
+        "provision_amount": 231.11319199999997,
+        "capital_amount": 447.92151399999983,
+        "oci_deduction": 128.56,
+        "total_amount": 902.8147059999997,
+        "equity_ratio": 0.318348727225284,
+        "profit_ratio": 2.9007958937120444
+      },
+      "complete": true,
+      "scores": {
+        "bond": 59.523809523809526,
+        "provision": 60.31746031746032,
+        "capital": 50.0
+      },
+      "total": 56.613756613756614,
       "rank": 9
     },
     {
@@ -1427,16 +1942,6 @@
           ],
           "percentile": 95.23809523809524,
           "rank": 2
-        },
-        "cet1": {
-          "value": 0.014699999999999998,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1917"
-          ],
-          "percentile": 23.80952380952381,
-          "rank": 17
         },
         "fcf1": {
           "value": 0.12665708680041354,
@@ -1481,6 +1986,36 @@
             "AR1739"
           ],
           "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 38.095238095238095,
+          "rank": 14
+        },
+        "cet1_profit": {
+          "value": 1.1245173179139962,
+          "source": "capital",
+          "cells": [
+            "AK1917",
+            "AK1357"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1661"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净利润(TTM)[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 9.523809523809524,
+          "rank": 20
+        },
+        "cet1_equity": {
+          "value": 0.14784732914782783,
+          "source": "capital",
+          "cells": [
+            "AK1917",
+            "AK1357"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1739"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净资产[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
           "percentile": 38.095238095238095,
           "rank": 14
         }
@@ -1533,9 +2068,44 @@
           "cells": [
             "L25"
           ]
+        },
+        "CET1安全垫（百分点）": {
+          "value": 1.4699999999999998,
+          "unit": "百分点",
+          "source": "capital",
+          "cells": [
+            "AK1917"
+          ]
+        },
+        "风险加权资产RWA": {
+          "value": 10381.85293,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1357"
+          ]
+        },
+        "CET1安全垫金额": {
+          "value": 152.61323807099996,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1917",
+            "AK1357"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA；完整安全垫，不另扣1个百分点"
         }
       },
       "code": "601838.SH",
+      "absolute": {
+        "bond_amount": 82.44565000000046,
+        "provision_amount": 178.54157999999998,
+        "capital_amount": 152.61323807099996,
+        "oci_deduction": 11.10145,
+        "total_amount": 402.49901807100036,
+        "equity_ratio": 0.38992950781069013,
+        "profit_ratio": 2.9657788667956066
+      },
       "complete": true,
       "scores": {
         "bond": 28.57142857142857,
@@ -1543,7 +2113,7 @@
         "capital": 61.904761904761905
       },
       "total": 56.613756613756614,
-      "rank": 10
+      "rank": 9
     },
     {
       "name": "沪农商行",
@@ -1568,16 +2138,6 @@
           ],
           "percentile": 52.38095238095238,
           "rank": 11
-        },
-        "cet1": {
-          "value": 0.061500000000000006,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1929"
-          ],
-          "percentile": 100.0,
-          "rank": 1
         },
         "fcf1": {
           "value": 0.0014688837567826407,
@@ -1624,6 +2184,36 @@
           "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
           "percentile": 42.857142857142854,
           "rank": 13
+        },
+        "cet1_profit": {
+          "value": 4.878287392998601,
+          "source": "capital",
+          "cells": [
+            "AK1929",
+            "AK1369"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1673"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净利润(TTM)[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 100.0,
+          "rank": 1
+        },
+        "cet1_equity": {
+          "value": 0.4535094287898565,
+          "source": "capital",
+          "cells": [
+            "AK1929",
+            "AK1369"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1751"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净资产[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 100.0,
+          "rank": 1
         }
       },
       "supplement": {
@@ -1674,9 +2264,44 @@
           "cells": [
             "L39"
           ]
+        },
+        "CET1安全垫（百分点）": {
+          "value": 6.15,
+          "unit": "百分点",
+          "source": "capital",
+          "cells": [
+            "AK1929"
+          ]
+        },
+        "风险加权资产RWA": {
+          "value": 9814.918310000001,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1369"
+          ]
+        },
+        "CET1安全垫金额": {
+          "value": 603.6174760650001,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1929",
+            "AK1369"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA；完整安全垫，不另扣1个百分点"
         }
       },
       "code": "601825.SH",
+      "absolute": {
+        "bond_amount": 114.47696999999994,
+        "provision_amount": 66.604985436,
+        "capital_amount": 603.6174760650001,
+        "oci_deduction": 43.32322,
+        "total_amount": 741.3762115010001,
+        "equity_ratio": 0.5570102184384083,
+        "profit_ratio": 5.991619476645068
+      },
       "complete": true,
       "scores": {
         "bond": 42.857142857142854,
@@ -1709,16 +2334,6 @@
           ],
           "percentile": 38.095238095238095,
           "rank": 14
-        },
-        "cet1": {
-          "value": 0.037099999999999994,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1896"
-          ],
-          "percentile": 76.19047619047619,
-          "rank": 6
         },
         "fcf1": {
           "value": -0.009582145342959605,
@@ -1765,6 +2380,36 @@
           "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
           "percentile": 71.42857142857143,
           "rank": 7
+        },
+        "cet1_profit": {
+          "value": 2.9582326930221488,
+          "source": "capital",
+          "cells": [
+            "AK1896",
+            "AK1336"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1640"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净利润(TTM)[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 76.19047619047619,
+          "rank": 6
+        },
+        "cet1_equity": {
+          "value": 0.2557886925657858,
+          "source": "capital",
+          "cells": [
+            "AK1896",
+            "AK1336"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1718"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净资产[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 76.19047619047619,
+          "rank": 6
         }
       },
       "supplement": {
@@ -1815,9 +2460,44 @@
           "cells": [
             "L4"
           ]
+        },
+        "CET1安全垫（百分点）": {
+          "value": 3.7099999999999995,
+          "unit": "百分点",
+          "source": "capital",
+          "cells": [
+            "AK1896"
+          ]
+        },
+        "风险加权资产RWA": {
+          "value": 298327.8,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1336"
+          ]
+        },
+        "CET1安全垫金额": {
+          "value": 11067.961379999997,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1896",
+            "AK1336"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA；完整安全垫，不另扣1个百分点"
         }
       },
       "code": "601398.SH",
+      "absolute": {
+        "bond_amount": 5899.310000000006,
+        "provision_amount": -507.43425400000064,
+        "capital_amount": 11067.961379999997,
+        "oci_deduction": 581.71,
+        "total_amount": 15878.127126000003,
+        "equity_ratio": 0.36695514544277164,
+        "profit_ratio": 4.243888567679031
+      },
       "complete": true,
       "scores": {
         "bond": 73.80952380952381,
@@ -1850,16 +2530,6 @@
           ],
           "percentile": 23.80952380952381,
           "rank": 17
-        },
-        "cet1": {
-          "value": 0.027499999999999997,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1900"
-          ],
-          "percentile": 66.66666666666667,
-          "rank": 8
         },
         "fcf1": {
           "value": 0.020328730611281445,
@@ -1906,6 +2576,36 @@
           "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
           "percentile": 57.142857142857146,
           "rank": 10
+        },
+        "cet1_profit": {
+          "value": 2.915404544521953,
+          "source": "capital",
+          "cells": [
+            "AK1900",
+            "AK1340"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1645"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净利润(TTM)[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 71.42857142857143,
+          "rank": 7
+        },
+        "cet1_equity": {
+          "value": 0.21982935770023326,
+          "source": "capital",
+          "cells": [
+            "AK1900",
+            "AK1340"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1723"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净资产[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 71.42857142857143,
+          "rank": 7
         }
       },
       "supplement": {
@@ -1956,16 +2656,51 @@
           "cells": [
             "L9"
           ]
+        },
+        "CET1安全垫（百分点）": {
+          "value": 2.7499999999999996,
+          "unit": "百分点",
+          "source": "capital",
+          "cells": [
+            "AK1900"
+          ]
+        },
+        "风险加权资产RWA": {
+          "value": 103343.14,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1340"
+          ]
+        },
+        "CET1安全垫金额": {
+          "value": 2841.9363499999995,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1900",
+            "AK1340"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA；完整安全垫，不另扣1个百分点"
         }
       },
       "code": "601328.SH",
+      "absolute": {
+        "bond_amount": 1423.8700000000017,
+        "provision_amount": -226.4374900000001,
+        "capital_amount": 2841.9363499999995,
+        "oci_deduction": 142.88,
+        "total_amount": 3896.4888600000013,
+        "equity_ratio": 0.3014010652912457,
+        "profit_ratio": 3.9972187730816593
+      },
       "complete": true,
       "scores": {
         "bond": 61.90476190476191,
         "provision": 30.15873015873016,
-        "capital": 59.523809523809526
+        "capital": 61.904761904761905
       },
-      "total": 50.52910052910053,
+      "total": 51.32275132275132,
       "rank": 13
     },
     {
@@ -1991,16 +2726,6 @@
           ],
           "percentile": 47.61904761904762,
           "rank": 12
-        },
-        "cet1": {
-          "value": 0.009199999999999996,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1912"
-          ],
-          "percentile": 0.0,
-          "rank": 22
         },
         "fcf1": {
           "value": 0.09317927005726245,
@@ -2047,6 +2772,36 @@
           "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
           "percentile": 52.38095238095238,
           "rank": 11
+        },
+        "cet1_profit": {
+          "value": 0.8162356199114772,
+          "source": "capital",
+          "cells": [
+            "AK1912",
+            "AK1352"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1656"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净利润(TTM)[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 0.0,
+          "rank": 22
+        },
+        "cet1_equity": {
+          "value": 0.08395737671390774,
+          "source": "capital",
+          "cells": [
+            "AK1912",
+            "AK1352"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1734"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净资产[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 0.0,
+          "rank": 22
         }
       },
       "supplement": {
@@ -2097,9 +2852,44 @@
           "cells": [
             "L20"
           ]
+        },
+        "CET1安全垫（百分点）": {
+          "value": 0.9199999999999996,
+          "unit": "百分点",
+          "source": "capital",
+          "cells": [
+            "AK1912"
+          ]
+        },
+        "风险加权资产RWA": {
+          "value": 32062.260380000003,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1352"
+          ]
+        },
+        "CET1安全垫金额": {
+          "value": 294.9727954959999,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1912",
+            "AK1352"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA；完整安全垫，不另扣1个百分点"
         }
       },
       "code": "600919.SH",
+      "absolute": {
+        "bond_amount": 370.80014000000074,
+        "provision_amount": 154.14102775099994,
+        "capital_amount": 294.9727954959999,
+        "oci_deduction": 79.54585,
+        "total_amount": 740.3681132470006,
+        "equity_ratio": 0.21072914363618483,
+        "profit_ratio": 2.0487137631207464
+      },
       "complete": true,
       "scores": {
         "bond": 52.38095238095238,
@@ -2108,147 +2898,6 @@
       },
       "total": 44.97354497354497,
       "rank": 14
-    },
-    {
-      "name": "邮储银行",
-      "type": "国有行",
-      "metrics": {
-        "prov_profit": {
-          "value": -0.6205632310797399,
-          "unit": "百分比值",
-          "source": "provision",
-          "cells": [
-            "AR1878"
-          ],
-          "percentile": 9.523809523809524,
-          "rank": 20
-        },
-        "prov_equity": {
-          "value": -0.04651816082230872,
-          "unit": "百分比值",
-          "source": "provision",
-          "cells": [
-            "AR1800"
-          ],
-          "percentile": 4.761904761904762,
-          "rank": 21
-        },
-        "cet1": {
-          "value": 0.020399999999999984,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1901"
-          ],
-          "percentile": 61.904761904761905,
-          "rank": 9
-        },
-        "fcf1": {
-          "value": -0.08144423574609336,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1686"
-          ],
-          "percentile": 0.0,
-          "rank": 22
-        },
-        "loan_prov": {
-          "value": 0.02155226445558461,
-          "source": "provision",
-          "cells": [
-            "AR1176",
-            "AR162"
-          ],
-          "formula": "贷款拨备额 ÷ 贷款总额",
-          "percentile": 4.761904761904762,
-          "rank": 21
-        },
-        "bond_profit": {
-          "value": 1.9535410313595178,
-          "source": "bond",
-          "cells": [
-            "T8"
-          ],
-          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
-          "percentile": 95.23809523809524,
-          "rank": 2
-        },
-        "bond_equity": {
-          "value": 0.14350865431955315,
-          "source": "bond",
-          "cells": [
-            "H8",
-            "P8"
-          ],
-          "denominator_source": "provision",
-          "denominator_cells": [
-            "AR1722"
-          ],
-          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
-          "percentile": 80.95238095238095,
-          "rank": 5
-        }
-      },
-      "supplement": {
-        "超额拨备额": {
-          "value": -556.5148999999999,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AR1566"
-          ]
-        },
-        "归母净利润(TTM)": {
-          "value": 896.79,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AR1644"
-          ]
-        },
-        "归母净资产": {
-          "value": 11963.39,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AR1722"
-          ]
-        },
-        "AC浮盈余额": {
-          "value": 1660.7799999999988,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "H8"
-          ]
-        },
-        "OCI相关其他综合收益余额": {
-          "value": 56.07,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "P8"
-          ]
-        },
-        "浮盈表归母净利润(TTM)": {
-          "value": 878.84,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "L8"
-          ]
-        }
-      },
-      "code": "601658.SH",
-      "complete": true,
-      "scores": {
-        "bond": 88.0952380952381,
-        "provision": 6.349206349206349,
-        "capital": 30.952380952380953
-      },
-      "total": 41.798941798941804,
-      "rank": 15
     },
     {
       "name": "苏州银行",
@@ -2273,16 +2922,6 @@
           ],
           "percentile": 85.71428571428571,
           "rank": 4
-        },
-        "cet1": {
-          "value": 0.016599999999999997,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1921"
-          ],
-          "percentile": 38.095238095238095,
-          "rank": 14
         },
         "fcf1": {
           "value": -0.009694923266893557,
@@ -2329,6 +2968,36 @@
           "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
           "percentile": 9.523809523809524,
           "rank": 20
+        },
+        "cet1_profit": {
+          "value": 1.7416977859643559,
+          "source": "capital",
+          "cells": [
+            "AK1921",
+            "AK1361"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1667"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净利润(TTM)[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 47.61904761904762,
+          "rank": 12
+        },
+        "cet1_equity": {
+          "value": 0.1528546034574021,
+          "source": "capital",
+          "cells": [
+            "AK1921",
+            "AK1361"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1745"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净资产[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 42.857142857142854,
+          "rank": 13
         }
       },
       "supplement": {
@@ -2379,16 +3048,247 @@
           "cells": [
             "L32"
           ]
+        },
+        "CET1安全垫（百分点）": {
+          "value": 1.6599999999999997,
+          "unit": "百分点",
+          "source": "capital",
+          "cells": [
+            "AK1921"
+          ]
+        },
+        "风险加权资产RWA": {
+          "value": 5891.367759999999,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1361"
+          ]
+        },
+        "CET1安全垫金额": {
+          "value": 97.79670481599997,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1921",
+            "AK1361"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA；完整安全垫，不另扣1个百分点"
         }
       },
       "code": "002966.SZ",
+      "absolute": {
+        "bond_amount": 21.842651059999866,
+        "provision_amount": 90.302601175,
+        "capital_amount": 97.79670481599997,
+        "oci_deduction": 8.29474954,
+        "total_amount": 201.64720751099986,
+        "equity_ratio": 0.3151711910986966,
+        "profit_ratio": 3.59120990352984
+      },
       "complete": true,
       "scores": {
         "bond": 7.142857142857142,
         "provision": 85.71428571428571,
-        "capital": 28.57142857142857
+        "capital": 32.14285714285714
       },
-      "total": 40.476190476190474,
+      "total": 41.666666666666664,
+      "rank": 15
+    },
+    {
+      "name": "邮储银行",
+      "type": "国有行",
+      "metrics": {
+        "prov_profit": {
+          "value": -0.6205632310797399,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1878"
+          ],
+          "percentile": 9.523809523809524,
+          "rank": 20
+        },
+        "prov_equity": {
+          "value": -0.04651816082230872,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1800"
+          ],
+          "percentile": 4.761904761904762,
+          "rank": 21
+        },
+        "fcf1": {
+          "value": -0.08144423574609336,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1686"
+          ],
+          "percentile": 0.0,
+          "rank": 22
+        },
+        "loan_prov": {
+          "value": 0.02155226445558461,
+          "source": "provision",
+          "cells": [
+            "AR1176",
+            "AR162"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 4.761904761904762,
+          "rank": 21
+        },
+        "bond_profit": {
+          "value": 1.9535410313595178,
+          "source": "bond",
+          "cells": [
+            "T8"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 95.23809523809524,
+          "rank": 2
+        },
+        "bond_equity": {
+          "value": 0.14350865431955315,
+          "source": "bond",
+          "cells": [
+            "H8",
+            "P8"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1722"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 80.95238095238095,
+          "rank": 5
+        },
+        "cet1_profit": {
+          "value": 2.3536830696149584,
+          "source": "capital",
+          "cells": [
+            "AK1901",
+            "AK1341"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1644"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净利润(TTM)[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 57.142857142857146,
+          "rank": 10
+        },
+        "cet1_equity": {
+          "value": 0.1764348934541128,
+          "source": "capital",
+          "cells": [
+            "AK1901",
+            "AK1341"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1722"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净资产[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 61.904761904761905,
+          "rank": 9
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": -556.5148999999999,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1566"
+          ]
+        },
+        "归母净利润(TTM)": {
+          "value": 896.79,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1644"
+          ]
+        },
+        "归母净资产": {
+          "value": 11963.39,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1722"
+          ]
+        },
+        "AC浮盈余额": {
+          "value": 1660.7799999999988,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H8"
+          ]
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 56.07,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P8"
+          ]
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 878.84,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L8"
+          ]
+        },
+        "CET1安全垫（百分点）": {
+          "value": 2.0399999999999983,
+          "unit": "百分点",
+          "source": "capital",
+          "cells": [
+            "AK1901"
+          ]
+        },
+        "风险加权资产RWA": {
+          "value": 103468.6,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1341"
+          ]
+        },
+        "CET1安全垫金额": {
+          "value": 2110.7594399999984,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1901",
+            "AK1341"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA；完整安全垫，不另扣1个百分点"
+        }
+      },
+      "code": "601658.SH",
+      "absolute": {
+        "bond_amount": 1716.8499999999988,
+        "provision_amount": -556.5148999999999,
+        "capital_amount": 2110.7594399999984,
+        "oci_deduction": 56.07,
+        "total_amount": 3215.024539999997,
+        "equity_ratio": 0.26873858830983505,
+        "profit_ratio": 3.5850361177087136
+      },
+      "complete": true,
+      "scores": {
+        "bond": 88.0952380952381,
+        "provision": 6.349206349206349,
+        "capital": 29.761904761904763
+      },
+      "total": 41.402116402116405,
       "rank": 16
     },
     {
@@ -2414,16 +3314,6 @@
           ],
           "percentile": 33.333333333333336,
           "rank": 15
-        },
-        "cet1": {
-          "value": 0.03039999999999999,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1899"
-          ],
-          "percentile": 71.42857142857143,
-          "rank": 7
         },
         "fcf1": {
           "value": -0.012767130133937377,
@@ -2470,6 +3360,36 @@
           "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
           "percentile": 33.333333333333336,
           "rank": 15
+        },
+        "cet1_profit": {
+          "value": 2.719439822667694,
+          "source": "capital",
+          "cells": [
+            "AK1899",
+            "AK1339"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1643"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净利润(TTM)[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 66.66666666666667,
+          "rank": 8
+        },
+        "cet1_equity": {
+          "value": 0.21840733083816155,
+          "source": "capital",
+          "cells": [
+            "AK1899",
+            "AK1339"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1721"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净资产[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 66.66666666666667,
+          "rank": 8
         }
       },
       "supplement": {
@@ -2520,16 +3440,51 @@
           "cells": [
             "L7"
           ]
+        },
+        "CET1安全垫（百分点）": {
+          "value": 3.039999999999999,
+          "unit": "百分点",
+          "source": "capital",
+          "cells": [
+            "AK1899"
+          ]
+        },
+        "风险加权资产RWA": {
+          "value": 222765.06,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1339"
+          ]
+        },
+        "CET1安全垫金额": {
+          "value": 6772.057823999998,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1899",
+            "AK1339"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA；完整安全垫，不另扣1个百分点"
         }
       },
       "code": "601988.SH",
+      "absolute": {
+        "bond_amount": 2441.4000000000005,
+        "provision_amount": -460.5750139999995,
+        "capital_amount": 6772.057823999998,
+        "oci_deduction": 566.79,
+        "total_amount": 8186.092809999999,
+        "equity_ratio": 0.26401172687706304,
+        "profit_ratio": 3.287270628533796
+      },
       "complete": true,
       "scores": {
         "bond": 40.47619047619048,
         "provision": 31.746031746031747,
-        "capital": 42.85714285714286
+        "capital": 40.47619047619048
       },
-      "total": 38.35978835978836,
+      "total": 37.56613756613757,
       "rank": 17
     },
     {
@@ -2555,16 +3510,6 @@
           ],
           "percentile": 28.571428571428573,
           "rank": 16
-        },
-        "cet1": {
-          "value": 0.01429999999999999,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1903"
-          ],
-          "percentile": 19.047619047619047,
-          "rank": 18
         },
         "fcf1": {
           "value": -0.005983199134970085,
@@ -2609,6 +3554,36 @@
             "AR1725"
           ],
           "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 19.047619047619047,
+          "rank": 18
+        },
+        "cet1_profit": {
+          "value": 1.6890803575451554,
+          "source": "capital",
+          "cells": [
+            "AK1903",
+            "AK1343"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1647"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净利润(TTM)[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 42.857142857142854,
+          "rank": 13
+        },
+        "cet1_equity": {
+          "value": 0.13433564297684408,
+          "source": "capital",
+          "cells": [
+            "AK1903",
+            "AK1343"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1725"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净资产[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
           "percentile": 19.047619047619047,
           "rank": 18
         }
@@ -2661,16 +3636,51 @@
           "cells": [
             "L11"
           ]
+        },
+        "CET1安全垫（百分点）": {
+          "value": 1.429999999999999,
+          "unit": "百分点",
+          "source": "capital",
+          "cells": [
+            "AK1903"
+          ]
+        },
+        "风险加权资产RWA": {
+          "value": 89130.29,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1343"
+          ]
+        },
+        "CET1安全垫金额": {
+          "value": 1274.563146999999,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1903",
+            "AK1343"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA；完整安全垫，不另扣1个百分点"
         }
       },
       "code": "601166.SH",
+      "absolute": {
+        "bond_amount": 578.770000000003,
+        "provision_amount": -163.6417240000001,
+        "capital_amount": 1274.563146999999,
+        "oci_deduction": 9.38,
+        "total_amount": 1680.311423000002,
+        "equity_ratio": 0.1771004566869383,
+        "profit_ratio": 2.226787292436955
+      },
       "complete": true,
       "scores": {
         "bond": 23.80952380952381,
         "provision": 25.396825396825395,
-        "capital": 26.19047619047619
+        "capital": 32.142857142857146
       },
-      "total": 25.13227513227513,
+      "total": 27.116402116402117,
       "rank": 18
     },
     {
@@ -2696,16 +3706,6 @@
           ],
           "percentile": 14.285714285714286,
           "rank": 19
-        },
-        "cet1": {
-          "value": 0.015700000000000002,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1908"
-          ],
-          "percentile": 28.571428571428573,
-          "rank": 16
         },
         "fcf1": {
           "value": -0.05156045649166582,
@@ -2752,6 +3752,36 @@
           "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
           "percentile": 28.571428571428573,
           "rank": 16
+        },
+        "cet1_profit": {
+          "value": 1.768311169147933,
+          "source": "capital",
+          "cells": [
+            "AK1908",
+            "AK1348"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1652"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净利润(TTM)[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 52.38095238095238,
+          "rank": 11
+        },
+        "cet1_equity": {
+          "value": 0.14018072340363436,
+          "source": "capital",
+          "cells": [
+            "AK1908",
+            "AK1348"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1730"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净资产[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 23.80952380952381,
+          "rank": 17
         }
       },
       "supplement": {
@@ -2802,158 +3832,52 @@
           "cells": [
             "L16"
           ]
+        },
+        "CET1安全垫（百分点）": {
+          "value": 1.5700000000000003,
+          "unit": "百分点",
+          "source": "capital",
+          "cells": [
+            "AK1908"
+          ]
+        },
+        "风险加权资产RWA": {
+          "value": 48948.43,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1348"
+          ]
+        },
+        "CET1安全垫金额": {
+          "value": 768.4903510000001,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1908",
+            "AK1348"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA；完整安全垫，不另扣1个百分点"
         }
       },
       "code": "000001.SZ",
+      "absolute": {
+        "bond_amount": 381.9899999999997,
+        "provision_amount": -186.57,
+        "capital_amount": 768.4903510000001,
+        "oci_deduction": 8.42,
+        "total_amount": 955.4903509999999,
+        "equity_ratio": 0.1742914903669005,
+        "profit_ratio": 2.198601787892036
+      },
       "complete": true,
       "scores": {
         "bond": 30.952380952380956,
         "provision": 12.698412698412698,
-        "capital": 16.666666666666668
+        "capital": 21.428571428571427
       },
-      "total": 20.105820105820108,
+      "total": 21.693121693121693,
       "rank": 19
-    },
-    {
-      "name": "中信银行",
-      "type": "股份行",
-      "metrics": {
-        "prov_profit": {
-          "value": -0.286155550444649,
-          "unit": "百分比值",
-          "source": "provision",
-          "cells": [
-            "AR1883"
-          ],
-          "percentile": 19.047619047619047,
-          "rank": 18
-        },
-        "prov_equity": {
-          "value": -0.023549419735086737,
-          "unit": "百分比值",
-          "source": "provision",
-          "cells": [
-            "AR1805"
-          ],
-          "percentile": 19.047619047619047,
-          "rank": 18
-        },
-        "cet1": {
-          "value": 0.013699999999999986,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1904"
-          ],
-          "percentile": 14.285714285714286,
-          "rank": 19
-        },
-        "fcf1": {
-          "value": 0.002679713026723804,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1689"
-          ],
-          "percentile": 47.61904761904762,
-          "rank": 12
-        },
-        "loan_prov": {
-          "value": 0.023698536823884137,
-          "source": "provision",
-          "cells": [
-            "AR1181",
-            "AR167"
-          ],
-          "formula": "贷款拨备额 ÷ 贷款总额",
-          "percentile": 14.285714285714286,
-          "rank": 19
-        },
-        "bond_profit": {
-          "value": 0.24657688148637008,
-          "source": "bond",
-          "cells": [
-            "T13"
-          ],
-          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
-          "percentile": 0.0,
-          "rank": 22
-        },
-        "bond_equity": {
-          "value": 0.02014093376938752,
-          "source": "bond",
-          "cells": [
-            "H13",
-            "P13"
-          ],
-          "denominator_source": "provision",
-          "denominator_cells": [
-            "AR1727"
-          ],
-          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
-          "percentile": 4.761904761904762,
-          "rank": 21
-        }
-      },
-      "supplement": {
-        "超额拨备额": {
-          "value": -205.29371500000008,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AR1571"
-          ]
-        },
-        "归母净利润(TTM)": {
-          "value": 717.42,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AR1649"
-          ]
-        },
-        "归母净资产": {
-          "value": 8717.57,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AR1727"
-          ]
-        },
-        "AC浮盈余额": {
-          "value": 151.47999999999956,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "H13"
-          ]
-        },
-        "OCI相关其他综合收益余额": {
-          "value": 24.1,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "P13"
-          ]
-        },
-        "浮盈表归母净利润(TTM)": {
-          "value": 712.07,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "L13"
-          ]
-        }
-      },
-      "code": "601998.SH",
-      "complete": true,
-      "scores": {
-        "bond": 2.380952380952381,
-        "provision": 17.46031746031746,
-        "capital": 30.952380952380953
-      },
-      "total": 16.93121693121693,
-      "rank": 20
     },
     {
       "name": "民生银行",
@@ -2978,16 +3902,6 @@
           ],
           "percentile": 0.0,
           "rank": 22
-        },
-        "cet1": {
-          "value": 0.016700000000000003,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1906"
-          ],
-          "percentile": 42.857142857142854,
-          "rank": 13
         },
         "fcf1": {
           "value": 0.002678926127220836,
@@ -3034,6 +3948,36 @@
           "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
           "percentile": 0.0,
           "rank": 22
+        },
+        "cet1_profit": {
+          "value": 3.5697214188977404,
+          "source": "capital",
+          "cells": [
+            "AK1906",
+            "AK1346"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1650"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净利润(TTM)[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 85.71428571428571,
+          "rank": 4
+        },
+        "cet1_equity": {
+          "value": 0.1454631088971951,
+          "source": "capital",
+          "cells": [
+            "AK1906",
+            "AK1346"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1728"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净资产[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 33.333333333333336,
+          "rank": 15
         }
       },
       "supplement": {
@@ -3084,16 +4028,247 @@
           "cells": [
             "L14"
           ]
+        },
+        "CET1安全垫（百分点）": {
+          "value": 1.6700000000000004,
+          "unit": "百分点",
+          "source": "capital",
+          "cells": [
+            "AK1906"
+          ]
+        },
+        "风险加权资产RWA": {
+          "value": 61390.65817409766,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1346"
+          ]
+        },
+        "CET1安全垫金额": {
+          "value": 1025.223991507431,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1906",
+            "AK1346"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA；完整安全垫，不另扣1个百分点"
         }
       },
       "code": "600016.SH",
+      "absolute": {
+        "bond_amount": 117.2300000000005,
+        "provision_amount": -1008.0495589999997,
+        "capital_amount": 1025.223991507431,
+        "oci_deduction": 52.04,
+        "total_amount": 82.36443250743181,
+        "equity_ratio": 0.01168621346586717,
+        "profit_ratio": 0.2867842357501108
+      },
       "complete": true,
       "scores": {
         "bond": 4.761904761904762,
         "provision": 0.0,
-        "capital": 42.857142857142854
+        "capital": 51.19047619047619
       },
-      "total": 15.873015873015872,
+      "total": 18.65079365079365,
+      "rank": 20
+    },
+    {
+      "name": "中信银行",
+      "type": "股份行",
+      "metrics": {
+        "prov_profit": {
+          "value": -0.286155550444649,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1883"
+          ],
+          "percentile": 19.047619047619047,
+          "rank": 18
+        },
+        "prov_equity": {
+          "value": -0.023549419735086737,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1805"
+          ],
+          "percentile": 19.047619047619047,
+          "rank": 18
+        },
+        "fcf1": {
+          "value": 0.002679713026723804,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1689"
+          ],
+          "percentile": 47.61904761904762,
+          "rank": 12
+        },
+        "loan_prov": {
+          "value": 0.023698536823884137,
+          "source": "provision",
+          "cells": [
+            "AR1181",
+            "AR167"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 14.285714285714286,
+          "rank": 19
+        },
+        "bond_profit": {
+          "value": 0.24657688148637008,
+          "source": "bond",
+          "cells": [
+            "T13"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 0.0,
+          "rank": 22
+        },
+        "bond_equity": {
+          "value": 0.02014093376938752,
+          "source": "bond",
+          "cells": [
+            "H13",
+            "P13"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1727"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 4.761904761904762,
+          "rank": 21
+        },
+        "cet1_profit": {
+          "value": 1.534105536505811,
+          "source": "capital",
+          "cells": [
+            "AK1904",
+            "AK1344"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1649"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净利润(TTM)[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 28.571428571428573,
+          "rank": 16
+        },
+        "cet1_equity": {
+          "value": 0.1262505484900034,
+          "source": "capital",
+          "cells": [
+            "AK1904",
+            "AK1344"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1727"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净资产[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 14.285714285714286,
+          "rank": 19
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": -205.29371500000008,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1571"
+          ]
+        },
+        "归母净利润(TTM)": {
+          "value": 717.42,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1649"
+          ]
+        },
+        "归母净资产": {
+          "value": 8717.57,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1727"
+          ]
+        },
+        "AC浮盈余额": {
+          "value": 151.47999999999956,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H13"
+          ]
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 24.1,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P13"
+          ]
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 712.07,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L13"
+          ]
+        },
+        "CET1安全垫（百分点）": {
+          "value": 1.3699999999999986,
+          "unit": "百分点",
+          "source": "capital",
+          "cells": [
+            "AK1904"
+          ]
+        },
+        "风险加权资产RWA": {
+          "value": 80335.62,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1344"
+          ]
+        },
+        "CET1安全垫金额": {
+          "value": 1100.5979939999988,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1904",
+            "AK1344"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA；完整安全垫，不另扣1个百分点"
+        }
+      },
+      "code": "601998.SH",
+      "absolute": {
+        "bond_amount": 175.57999999999956,
+        "provision_amount": -205.29371500000008,
+        "capital_amount": 1100.5979939999988,
+        "oci_deduction": 24.1,
+        "total_amount": 1046.7842789999984,
+        "equity_ratio": 0.12007753066508195,
+        "profit_ratio": 1.459095479635358
+      },
+      "complete": true,
+      "scores": {
+        "bond": 2.380952380952381,
+        "provision": 17.46031746031746,
+        "capital": 34.523809523809526
+      },
+      "total": 18.121693121693124,
       "rank": 21
     },
     {
@@ -3119,16 +4294,6 @@
           ],
           "percentile": 9.523809523809524,
           "rank": 20
-        },
-        "cet1": {
-          "value": 0.010500000000000006,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1905"
-          ],
-          "percentile": 4.761904761904762,
-          "rank": 21
         },
         "fcf1": {
           "value": -0.03143599518607831,
@@ -3175,6 +4340,36 @@
           "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
           "percentile": 14.285714285714286,
           "rank": 19
+        },
+        "cet1_profit": {
+          "value": 1.6796472741113788,
+          "source": "capital",
+          "cells": [
+            "AK1905",
+            "AK1345"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1648"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净利润(TTM)[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 38.095238095238095,
+          "rank": 14
+        },
+        "cet1_equity": {
+          "value": 0.10320556014646678,
+          "source": "capital",
+          "cells": [
+            "AK1905",
+            "AK1345"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1726"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA[亿元] ÷ 归母净资产[亿元]；分子为监管合并资本缓冲，非归母可分配金额",
+          "percentile": 4.761904761904762,
+          "rank": 21
         }
       },
       "supplement": {
@@ -3225,20 +4420,63 @@
           "cells": [
             "L12"
           ]
+        },
+        "CET1安全垫（百分点）": {
+          "value": 1.0500000000000005,
+          "unit": "百分点",
+          "source": "capital",
+          "cells": [
+            "AK1905"
+          ]
+        },
+        "风险加权资产RWA": {
+          "value": 81952.39,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1345"
+          ]
+        },
+        "CET1安全垫金额": {
+          "value": 860.5000950000004,
+          "unit": "亿元",
+          "source": "capital",
+          "cells": [
+            "AK1905",
+            "AK1345"
+          ],
+          "formula": "CET1安全垫（小数）×风险加权资产RWA；完整安全垫，不另扣1个百分点"
         }
       },
       "code": "600000.SH",
+      "absolute": {
+        "bond_amount": 361.5100000000016,
+        "provision_amount": -333.1813750000001,
+        "capital_amount": 860.5000950000004,
+        "oci_deduction": 58.77,
+        "total_amount": 830.0587200000019,
+        "equity_ratio": 0.0995545214344914,
+        "profit_ratio": 1.620227440416939
+      },
       "complete": true,
       "scores": {
         "bond": 19.047619047619047,
         "provision": 15.873015873015873,
-        "capital": 7.142857142857142
+        "capital": 15.476190476190476
       },
-      "total": 14.02116402116402,
+      "total": 16.7989417989418,
       "rank": 22
     }
   ],
-  "config_hash": "0d5ac2cdae3dc4b28460f97ad309a89314516c540a542d0bac01bddbd757ed37",
+  "absolute_model": {
+    "formula": "(AC浮盈＋OCI相关其他综合收益余额)＋超额拨备＋CET1安全垫金额－OCI相关其他综合收益余额",
+    "short_formula": "AC浮盈＋超额拨备＋CET1安全垫金额",
+    "unit": "亿元",
+    "denominator_source": "provision",
+    "basis": "用户指定的机械加总研究口径，仅扣除浮盈项中的OCI余额；未进一步调整税务、拨备与监管资本之间的其他重叠，并非可分配现金。",
+    "valuation_note": "家底与归母净资产为2026H1期末，利润为截至2026H1的TTM；估值为2026E全年预测。并列比较原始数值，不跨期换算家底/市值或预期收益率。"
+  },
+  "config_hash": "97fb0e0de664c2b257f63773d4fcef04986e16bf4d9768702068194365864c8a",
   "source_note": "第17号为兑现收益库；按用户指定浮盈余额指标改用同网站第19号余额库。浮盈/归母净资产及拨贷比由源表计算。",
   "scope_note": "2_Bank 独立银行笔记中按用户要求排除3家香港银行，保留22家。排除行业、基础知识、观点和其他银行合集。"
 }

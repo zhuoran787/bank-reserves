@@ -21,7 +21,7 @@ export function calculate(data, rawWeights = data.groups.map(g => g.weight)) {
     if (!b.complete) {b.scores=null; b.total=null; b.rank=null; continue;}
     b.scores = Object.fromEntries(data.groups.map(g => {
       const members = data.metrics.filter(m => m.group === g.id);
-      return [g.id, members.reduce((sum,m) => sum+b.metrics[m.id].percentile,0)/members.length];
+      return [g.id, members.reduce((sum,m) => sum+b.metrics[m.id].percentile*m.weight,0)/members.reduce((sum,m)=>sum+m.weight,0)];
     }));
     b.total = data.groups.reduce((sum,g,i) => sum+b.scores[g.id]*weights[i],0);
   }
