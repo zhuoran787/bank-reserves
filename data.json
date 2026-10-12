@@ -7,21 +7,28 @@
       "url": "https://yinhangxianshuang.com/api/files/1189/download",
       "sha256": "d3a0c1b2c9ceae4f6a6114514f223af6db8136639853f6fcb1961f372b34f90e",
       "sheet": "【输出】数据汇总",
-      "period": "2026-06-30"
+      "period": "2026-06-30",
+      "report": "2026年中报（2026H1）",
+      "filename_date": "2026-09-23",
+      "internal_updated": "2026-09-24"
     },
     "bond": {
       "filename": "19【银行先爽】债市浮盈余额数据库—20260924.xlsx",
       "url": "https://yinhangxianshuang.com/api/files/1193/download",
       "sha256": "fc49c7e05ca8d3d66684fe398269da493fa852e8531e83481909a32949cf730c",
       "sheet": "配置户浮盈一览",
-      "period": "2026-06-30"
+      "period": "2026-06-30",
+      "report": "2026年中报（2026H1）",
+      "filename_date": "2026-09-24"
     },
     "capital": {
       "filename": "6【银行先爽】上市银行自由现金流数据库-20260902.xlsx",
       "url": "https://yinhangxianshuang.com/api/files/883/download",
       "sha256": "3b2305cbd8d920967f4cecf8b5f30315848c4bfb4f6309d3b2653213e91cfdeb",
       "sheet": "计算",
-      "period": "2026-06-30"
+      "period": "2026-06-30",
+      "report": "2026年中报（2026H1）",
+      "filename_date": "2026-09-02"
     }
   },
   "metrics": [
@@ -30,49 +37,84 @@
       "label": "AC&OCI浮盈 / 归母净利润(TTM)",
       "group": "bond",
       "unit": "%",
-      "kind": "源表值"
+      "kind": "源表值",
+      "period": "2026-06-30",
+      "report": "2026年中报（2026H1）",
+      "basis": "期末余额 / 归母净利润TTM（2025-07-01至2026-06-30）",
+      "basis_short": "TTM分母",
+      "source_label": "19号浮盈余额库"
     },
     {
       "id": "bond_equity",
       "label": "AC&OCI浮盈 / 归母净资产",
       "group": "bond",
       "unit": "%",
-      "kind": "计算值"
+      "kind": "计算值",
+      "period": "2026-06-30",
+      "report": "2026年中报（2026H1）",
+      "basis": "2026-06-30期末存量口径；不适用TTM/NTM",
+      "basis_short": "期末值",
+      "source_label": "19号浮盈余额库＋10号"
     },
     {
       "id": "prov_profit",
       "label": "超额拨备 / 归母净利润(TTM)",
       "group": "provision",
       "unit": "%",
-      "kind": "源表值"
+      "kind": "源表值",
+      "period": "2026-06-30",
+      "report": "2026年中报（2026H1）",
+      "basis": "期末余额 / 归母净利润TTM（2025-07-01至2026-06-30）",
+      "basis_short": "TTM分母",
+      "source_label": "10号拨备库"
     },
     {
       "id": "prov_equity",
       "label": "超额拨备 / 归母净资产",
       "group": "provision",
       "unit": "%",
-      "kind": "源表值"
+      "kind": "源表值",
+      "period": "2026-06-30",
+      "report": "2026年中报（2026H1）",
+      "basis": "2026-06-30期末存量口径；不适用TTM/NTM",
+      "basis_short": "期末值",
+      "source_label": "10号拨备库"
     },
     {
       "id": "loan_prov",
       "label": "拨贷比",
       "group": "provision",
       "unit": "%",
-      "kind": "计算值"
+      "kind": "计算值",
+      "period": "2026-06-30",
+      "report": "2026年中报（2026H1）",
+      "basis": "2026-06-30期末存量口径；不适用TTM/NTM",
+      "basis_short": "期末值",
+      "source_label": "10号拨备库"
     },
     {
       "id": "cet1",
       "label": "CET1安全垫",
       "group": "capital",
       "unit": "百分点",
-      "kind": "源表值"
+      "kind": "源表值",
+      "period": "2026-06-30",
+      "report": "2026年中报（2026H1）",
+      "basis": "2026-06-30期末存量口径；不适用TTM/NTM",
+      "basis_short": "期末值",
+      "source_label": "6号自由现金流库"
     },
     {
       "id": "fcf1",
       "label": "自由现金流1",
       "group": "capital",
       "unit": "%",
-      "kind": "源表值"
+      "kind": "源表值",
+      "period": "2026-06-30",
+      "report": "2026年中报（2026H1）",
+      "basis": "基于TTM盈利和期末资本的模型比例；含历史中位数调整及10年释放假设，非NTM预测、非财报现金流",
+      "basis_short": "TTM基础模型",
+      "source_label": "6号自由现金流库"
     }
   ],
   "groups": [
@@ -3194,117 +3236,9 @@
       },
       "total": 14.02116402116402,
       "rank": 22
-    },
-    {
-      "name": "中银香港",
-      "type": "香港",
-      "metrics": {
-        "prov_profit": {
-          "value": null,
-          "reason": "指定数据库未覆盖该银行"
-        },
-        "prov_equity": {
-          "value": null,
-          "reason": "指定数据库未覆盖该银行"
-        },
-        "cet1": {
-          "value": null,
-          "reason": "指定数据库未覆盖该银行"
-        },
-        "fcf1": {
-          "value": null,
-          "reason": "指定数据库未覆盖该银行"
-        },
-        "loan_prov": {
-          "value": null,
-          "reason": "指定数据库未覆盖该银行"
-        },
-        "bond_profit": {
-          "value": null,
-          "reason": "指定数据库未覆盖该银行"
-        },
-        "bond_equity": {
-          "value": null,
-          "reason": "指定数据库未覆盖该银行"
-        }
-      },
-      "supplement": {},
-      "complete": false
-    },
-    {
-      "name": "汇丰",
-      "type": "香港",
-      "metrics": {
-        "prov_profit": {
-          "value": null,
-          "reason": "指定数据库未覆盖该银行"
-        },
-        "prov_equity": {
-          "value": null,
-          "reason": "指定数据库未覆盖该银行"
-        },
-        "cet1": {
-          "value": null,
-          "reason": "指定数据库未覆盖该银行"
-        },
-        "fcf1": {
-          "value": null,
-          "reason": "指定数据库未覆盖该银行"
-        },
-        "loan_prov": {
-          "value": null,
-          "reason": "指定数据库未覆盖该银行"
-        },
-        "bond_profit": {
-          "value": null,
-          "reason": "指定数据库未覆盖该银行"
-        },
-        "bond_equity": {
-          "value": null,
-          "reason": "指定数据库未覆盖该银行"
-        }
-      },
-      "supplement": {},
-      "complete": false
-    },
-    {
-      "name": "渣打银行",
-      "type": "香港",
-      "metrics": {
-        "prov_profit": {
-          "value": null,
-          "reason": "指定数据库未覆盖该银行"
-        },
-        "prov_equity": {
-          "value": null,
-          "reason": "指定数据库未覆盖该银行"
-        },
-        "cet1": {
-          "value": null,
-          "reason": "指定数据库未覆盖该银行"
-        },
-        "fcf1": {
-          "value": null,
-          "reason": "指定数据库未覆盖该银行"
-        },
-        "loan_prov": {
-          "value": null,
-          "reason": "指定数据库未覆盖该银行"
-        },
-        "bond_profit": {
-          "value": null,
-          "reason": "指定数据库未覆盖该银行"
-        },
-        "bond_equity": {
-          "value": null,
-          "reason": "指定数据库未覆盖该银行"
-        }
-      },
-      "supplement": {},
-      "complete": false
     }
   ],
-  "config_hash": "4709b692ede011b8e678881c097f8b11716750ee8da587821e23e7c92403ac04",
+  "config_hash": "0d5ac2cdae3dc4b28460f97ad309a89314516c540a542d0bac01bddbd757ed37",
   "source_note": "第17号为兑现收益库；按用户指定浮盈余额指标改用同网站第19号余额库。浮盈/归母净资产及拨贷比由源表计算。",
-  "scope_note": "2_Bank 中25家独立银行笔记。排除行业、基础知识、观点和其他银行合集。3家香港银行未被指定数据覆盖。"
+  "scope_note": "2_Bank 独立银行笔记中按用户要求排除3家香港银行，保留22家。排除行业、基础知识、观点和其他银行合集。"
 }
