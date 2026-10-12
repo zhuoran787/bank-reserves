@@ -1,0 +1,72 @@
+{
+  "metrics": [
+    {
+      "id": "bond_profit",
+      "label": "AC&OCI浮盈 / 归母净利润(TTM)",
+      "group": "bond",
+      "unit": "%",
+      "kind": "源表值"
+    },
+    {
+      "id": "bond_equity",
+      "label": "AC&OCI浮盈 / 归母净资产",
+      "group": "bond",
+      "unit": "%",
+      "kind": "计算值"
+    },
+    {
+      "id": "prov_profit",
+      "label": "超额拨备 / 归母净利润(TTM)",
+      "group": "provision",
+      "unit": "%",
+      "kind": "源表值"
+    },
+    {
+      "id": "prov_equity",
+      "label": "超额拨备 / 归母净资产",
+      "group": "provision",
+      "unit": "%",
+      "kind": "源表值"
+    },
+    {
+      "id": "loan_prov",
+      "label": "拨贷比",
+      "group": "provision",
+      "unit": "%",
+      "kind": "计算值"
+    },
+    {
+      "id": "cet1",
+      "label": "CET1安全垫",
+      "group": "capital",
+      "unit": "百分点",
+      "kind": "源表值"
+    },
+    {
+      "id": "fcf1",
+      "label": "自由现金流1",
+      "group": "capital",
+      "unit": "%",
+      "kind": "源表值"
+    }
+  ],
+  "groups": [
+    {
+      "id": "bond",
+      "label": "浮盈家底",
+      "weight": 1
+    },
+    {
+      "id": "provision",
+      "label": "拨备家底",
+      "weight": 1
+    },
+    {
+      "id": "capital",
+      "label": "资本宽裕度",
+      "weight": 1
+    }
+  ],
+  "period": "2026-06-30",
+  "scoring": "ascending-midrank-percentile; group-equal; all-complete-cohort"
+}

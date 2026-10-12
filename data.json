@@ -1,0 +1,3310 @@
+{
+  "as_of": "2026-06-30",
+  "prepared": "2026-10-11",
+  "sources": {
+    "provision": {
+      "filename": "10【银行先爽】超额拨备数据库(更新至2026H1)-20260923.xlsx",
+      "url": "https://yinhangxianshuang.com/api/files/1189/download",
+      "sha256": "d3a0c1b2c9ceae4f6a6114514f223af6db8136639853f6fcb1961f372b34f90e",
+      "sheet": "【输出】数据汇总",
+      "period": "2026-06-30"
+    },
+    "bond": {
+      "filename": "19【银行先爽】债市浮盈余额数据库—20260924.xlsx",
+      "url": "https://yinhangxianshuang.com/api/files/1193/download",
+      "sha256": "fc49c7e05ca8d3d66684fe398269da493fa852e8531e83481909a32949cf730c",
+      "sheet": "配置户浮盈一览",
+      "period": "2026-06-30"
+    },
+    "capital": {
+      "filename": "6【银行先爽】上市银行自由现金流数据库-20260902.xlsx",
+      "url": "https://yinhangxianshuang.com/api/files/883/download",
+      "sha256": "3b2305cbd8d920967f4cecf8b5f30315848c4bfb4f6309d3b2653213e91cfdeb",
+      "sheet": "计算",
+      "period": "2026-06-30"
+    }
+  },
+  "metrics": [
+    {
+      "id": "bond_profit",
+      "label": "AC&OCI浮盈 / 归母净利润(TTM)",
+      "group": "bond",
+      "unit": "%",
+      "kind": "源表值"
+    },
+    {
+      "id": "bond_equity",
+      "label": "AC&OCI浮盈 / 归母净资产",
+      "group": "bond",
+      "unit": "%",
+      "kind": "计算值"
+    },
+    {
+      "id": "prov_profit",
+      "label": "超额拨备 / 归母净利润(TTM)",
+      "group": "provision",
+      "unit": "%",
+      "kind": "源表值"
+    },
+    {
+      "id": "prov_equity",
+      "label": "超额拨备 / 归母净资产",
+      "group": "provision",
+      "unit": "%",
+      "kind": "源表值"
+    },
+    {
+      "id": "loan_prov",
+      "label": "拨贷比",
+      "group": "provision",
+      "unit": "%",
+      "kind": "计算值"
+    },
+    {
+      "id": "cet1",
+      "label": "CET1安全垫",
+      "group": "capital",
+      "unit": "百分点",
+      "kind": "源表值"
+    },
+    {
+      "id": "fcf1",
+      "label": "自由现金流1",
+      "group": "capital",
+      "unit": "%",
+      "kind": "源表值"
+    }
+  ],
+  "groups": [
+    {
+      "id": "bond",
+      "label": "浮盈家底",
+      "weight": 1
+    },
+    {
+      "id": "provision",
+      "label": "拨备家底",
+      "weight": 1
+    },
+    {
+      "id": "capital",
+      "label": "资本宽裕度",
+      "weight": 1
+    }
+  ],
+  "banks": [
+    {
+      "name": "杭州银行",
+      "type": "城农商行",
+      "metrics": {
+        "prov_profit": {
+          "value": 2.0860605490453215,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1894"
+          ],
+          "percentile": 100.0,
+          "rank": 1
+        },
+        "prov_equity": {
+          "value": 0.24220054371611946,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1816"
+          ],
+          "percentile": 100.0,
+          "rank": 1
+        },
+        "cet1": {
+          "value": 0.02019999999999999,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1916"
+          ],
+          "percentile": 57.142857142857146,
+          "rank": 10
+        },
+        "fcf1": {
+          "value": 0.08146609097902796,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1701"
+          ],
+          "percentile": 76.19047619047619,
+          "rank": 6
+        },
+        "loan_prov": {
+          "value": 0.035865418593859354,
+          "source": "provision",
+          "cells": [
+            "AR1192",
+            "AR178"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 85.71428571428571,
+          "rank": 4
+        },
+        "bond_profit": {
+          "value": 1.8726368109546525,
+          "source": "bond",
+          "cells": [
+            "T24"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 90.47619047619048,
+          "rank": 3
+        },
+        "bond_equity": {
+          "value": 0.21156637712908313,
+          "source": "bond",
+          "cells": [
+            "H24",
+            "P24"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1738"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 100.0,
+          "rank": 1
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": 420.97634348800005,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1582"
+          ]
+        },
+        "归母净利润(TTM)": {
+          "value": 201.80446999999995,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1660"
+          ]
+        },
+        "归母净资产": {
+          "value": 1738.1312899999998,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1738"
+          ]
+        },
+        "AC浮盈余额": {
+          "value": 339.1411399999997,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H24"
+          ]
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 28.589000000000002,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P24"
+          ]
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 196.37024,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L24"
+          ]
+        }
+      },
+      "code": "600926.SH",
+      "complete": true,
+      "scores": {
+        "bond": 95.23809523809524,
+        "provision": 95.23809523809524,
+        "capital": 66.66666666666667
+      },
+      "total": 85.71428571428572,
+      "rank": 1
+    },
+    {
+      "name": "建设银行",
+      "type": "国有行",
+      "metrics": {
+        "prov_profit": {
+          "value": 0.09889948902117221,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1875"
+          ],
+          "percentile": 42.857142857142854,
+          "rank": 13
+        },
+        "prov_equity": {
+          "value": 0.008991221311737845,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1797"
+          ],
+          "percentile": 42.857142857142854,
+          "rank": 13
+        },
+        "cet1": {
+          "value": 0.052399999999999995,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1897"
+          ],
+          "percentile": 90.47619047619048,
+          "rank": 3
+        },
+        "fcf1": {
+          "value": 0.08763500462473442,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1682"
+          ],
+          "percentile": 80.95238095238095,
+          "rank": 5
+        },
+        "loan_prov": {
+          "value": 0.03082755360297199,
+          "source": "provision",
+          "cells": [
+            "AR1173",
+            "AR159"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 71.42857142857143,
+          "rank": 7
+        },
+        "bond_profit": {
+          "value": 1.6267032523416973,
+          "source": "bond",
+          "cells": [
+            "T5"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 85.71428571428571,
+          "rank": 4
+        },
+        "bond_equity": {
+          "value": 0.14594630912644066,
+          "source": "bond",
+          "cells": [
+            "H5",
+            "P5"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1719"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 85.71428571428571,
+          "rank": 4
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": 342.58189599999923,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1563"
+          ]
+        },
+        "归母净利润(TTM)": {
+          "value": 3463.94,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1641"
+          ]
+        },
+        "归母净资产": {
+          "value": 38101.82,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1719"
+          ]
+        },
+        "AC浮盈余额": {
+          "value": 5203.779999999999,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H5"
+          ]
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 357.04,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P5"
+          ]
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 3418.46,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L5"
+          ]
+        }
+      },
+      "code": "601939.SH",
+      "complete": true,
+      "scores": {
+        "bond": 85.71428571428571,
+        "provision": 52.38095238095238,
+        "capital": 85.71428571428572
+      },
+      "total": 74.6031746031746,
+      "rank": 2
+    },
+    {
+      "name": "渝农商行",
+      "type": "城农商行",
+      "metrics": {
+        "prov_profit": {
+          "value": 0.9461048402179096,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1906"
+          ],
+          "percentile": 76.19047619047619,
+          "rank": 6
+        },
+        "prov_equity": {
+          "value": 0.08166067306476753,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1828"
+          ],
+          "percentile": 66.66666666666667,
+          "rank": 8
+        },
+        "cet1": {
+          "value": 0.0483,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1928"
+          ],
+          "percentile": 85.71428571428571,
+          "rank": 4
+        },
+        "fcf1": {
+          "value": 0.02237101814653991,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1713"
+          ],
+          "percentile": 57.142857142857146,
+          "rank": 10
+        },
+        "loan_prov": {
+          "value": 0.037409022357016194,
+          "source": "provision",
+          "cells": [
+            "AR1204",
+            "AR190"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 100.0,
+          "rank": 1
+        },
+        "bond_profit": {
+          "value": 1.5627688165278046,
+          "source": "bond",
+          "cells": [
+            "T38"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 71.42857142857143,
+          "rank": 7
+        },
+        "bond_equity": {
+          "value": 0.13189713308324444,
+          "source": "bond",
+          "cells": [
+            "H38",
+            "P38"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1750"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 66.66666666666667,
+          "rank": 8
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": 119.18586,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1594"
+          ]
+        },
+        "归母净利润(TTM)": {
+          "value": 125.97531999999997,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1672"
+          ]
+        },
+        "归母净资产": {
+          "value": 1459.52581,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1750"
+          ]
+        },
+        "AC浮盈余额": {
+          "value": 149.37422000000015,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H38"
+          ]
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 43.133050000000004,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P38"
+          ]
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 123.18346,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L38"
+          ]
+        }
+      },
+      "code": "601077.SH",
+      "complete": true,
+      "scores": {
+        "bond": 69.04761904761905,
+        "provision": 80.95238095238095,
+        "capital": 71.42857142857143
+      },
+      "total": 73.80952380952381,
+      "rank": 3
+    },
+    {
+      "name": "农业银行",
+      "type": "国有行",
+      "metrics": {
+        "prov_profit": {
+          "value": 1.0670046859475282,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1876"
+          ],
+          "percentile": 80.95238095238095,
+          "rank": 5
+        },
+        "prov_equity": {
+          "value": 0.09551447199440868,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1798"
+          ],
+          "percentile": 76.19047619047619,
+          "rank": 6
+        },
+        "cet1": {
+          "value": 0.01800000000000001,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1898"
+          ],
+          "percentile": 52.38095238095238,
+          "rank": 11
+        },
+        "fcf1": {
+          "value": -0.009430601096723779,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1683"
+          ],
+          "percentile": 28.571428571428573,
+          "rank": 16
+        },
+        "loan_prov": {
+          "value": 0.03619620770476493,
+          "source": "provision",
+          "cells": [
+            "AR1174",
+            "AR160"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 90.47619047619048,
+          "rank": 3
+        },
+        "bond_profit": {
+          "value": 2.2092866001800933,
+          "source": "bond",
+          "cells": [
+            "T6"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 100.0,
+          "rank": 1
+        },
+        "bond_equity": {
+          "value": 0.19536636564629853,
+          "source": "bond",
+          "cells": [
+            "H6",
+            "P6"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1720"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 95.23809523809524,
+          "rank": 2
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": 3178.735,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1564"
+          ]
+        },
+        "归母净利润(TTM)": {
+          "value": 2979.12,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1642"
+          ]
+        },
+        "归母净资产": {
+          "value": 33280.14,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1720"
+          ]
+        },
+        "AC浮盈余额": {
+          "value": 5871.490000000005,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H6"
+          ]
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 630.33,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P6"
+          ]
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 2942.95,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L6"
+          ]
+        }
+      },
+      "code": "601288.SH",
+      "complete": true,
+      "scores": {
+        "bond": 97.61904761904762,
+        "provision": 82.53968253968254,
+        "capital": 40.476190476190474
+      },
+      "total": 73.54497354497354,
+      "rank": 4
+    },
+    {
+      "name": "招商银行",
+      "type": "股份行",
+      "metrics": {
+        "prov_profit": {
+          "value": 0.7611702998101465,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1880"
+          ],
+          "percentile": 71.42857142857143,
+          "rank": 7
+        },
+        "prov_equity": {
+          "value": 0.08584658502802532,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1802"
+          ],
+          "percentile": 71.42857142857143,
+          "rank": 7
+        },
+        "cet1": {
+          "value": 0.05819999999999999,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1902"
+          ],
+          "percentile": 95.23809523809524,
+          "rank": 2
+        },
+        "fcf1": {
+          "value": 0.12394854063731989,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1687"
+          ],
+          "percentile": 95.23809523809524,
+          "rank": 2
+        },
+        "loan_prov": {
+          "value": 0.03629877930233235,
+          "source": "provision",
+          "cells": [
+            "AR1178",
+            "AR164"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 95.23809523809524,
+          "rank": 2
+        },
+        "bond_profit": {
+          "value": 0.9276270837893974,
+          "source": "bond",
+          "cells": [
+            "T10"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 38.095238095238095,
+          "rank": 14
+        },
+        "bond_equity": {
+          "value": 0.10396547891390047,
+          "source": "bond",
+          "cells": [
+            "H10",
+            "P10"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1724"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 47.61904761904762,
+          "rank": 12
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": 1154.6648979999998,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1568"
+          ]
+        },
+        "归母净利润(TTM)": {
+          "value": 1516.96,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1646"
+          ]
+        },
+        "归母净资产": {
+          "value": 13450.33,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1724"
+          ]
+        },
+        "AC浮盈余额": {
+          "value": 1207.300000000003,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H10"
+          ]
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 191.07,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P10"
+          ]
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 1507.47,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L10"
+          ]
+        }
+      },
+      "code": "600036.SH",
+      "complete": true,
+      "scores": {
+        "bond": 42.85714285714286,
+        "provision": 79.36507936507937,
+        "capital": 95.23809523809524
+      },
+      "total": 72.4867724867725,
+      "rank": 5
+    },
+    {
+      "name": "青岛银行",
+      "type": "城农商行",
+      "metrics": {
+        "prov_profit": {
+          "value": 1.319429840326314,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1900"
+          ],
+          "percentile": 90.47619047619048,
+          "rank": 3
+        },
+        "prov_equity": {
+          "value": 0.14540378492300077,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1822"
+          ],
+          "percentile": 90.47619047619048,
+          "rank": 3
+        },
+        "cet1": {
+          "value": 0.011799999999999998,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1922"
+          ],
+          "percentile": 9.523809523809524,
+          "rank": 20
+        },
+        "fcf1": {
+          "value": 0.03607504664364489,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1707"
+          ],
+          "percentile": 61.904761904761905,
+          "rank": 9
+        },
+        "loan_prov": {
+          "value": 0.02967165675717039,
+          "source": "provision",
+          "cells": [
+            "AR1198",
+            "AR184"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 66.66666666666667,
+          "rank": 8
+        },
+        "bond_profit": {
+          "value": 1.59826127868662,
+          "source": "bond",
+          "cells": [
+            "T31"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 80.95238095238095,
+          "rank": 5
+        },
+        "bond_equity": {
+          "value": 0.1673025449038184,
+          "source": "bond",
+          "cells": [
+            "H31",
+            "P31"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1744"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 90.47619047619048,
+          "rank": 3
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": 75.75783508500001,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1588"
+          ]
+        },
+        "归母净利润(TTM)": {
+          "value": 57.4171,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1666"
+          ]
+        },
+        "归母净资产": {
+          "value": 521.01694,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1744"
+          ]
+        },
+        "AC浮盈余额": {
+          "value": 64.90947000000006,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H31"
+          ]
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 22.25799,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P31"
+          ]
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 54.53893,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L31"
+          ]
+        }
+      },
+      "code": "002948.SZ",
+      "complete": true,
+      "scores": {
+        "bond": 85.71428571428572,
+        "provision": 82.53968253968254,
+        "capital": 35.714285714285715
+      },
+      "total": 67.98941798941799,
+      "rank": 6
+    },
+    {
+      "name": "常熟银行",
+      "type": "城农商行",
+      "metrics": {
+        "prov_profit": {
+          "value": 0.7293157229835839,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1909"
+          ],
+          "percentile": 61.904761904761905,
+          "rank": 9
+        },
+        "prov_equity": {
+          "value": 0.0962919528602686,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1831"
+          ],
+          "percentile": 80.95238095238095,
+          "rank": 5
+        },
+        "cet1": {
+          "value": 0.039,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1931"
+          ],
+          "percentile": 80.95238095238095,
+          "rank": 5
+        },
+        "fcf1": {
+          "value": 0.09325137377436368,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1716"
+          ],
+          "percentile": 90.47619047619048,
+          "rank": 3
+        },
+        "loan_prov": {
+          "value": 0.0322648583510618,
+          "source": "provision",
+          "cells": [
+            "AR1207",
+            "AR193"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 80.95238095238095,
+          "rank": 5
+        },
+        "bond_profit": {
+          "value": 0.4832008970213577,
+          "source": "bond",
+          "cells": [
+            "T41"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 14.285714285714286,
+          "rank": 19
+        },
+        "bond_equity": {
+          "value": 0.06251323261274182,
+          "source": "bond",
+          "cells": [
+            "H41",
+            "P41"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1753"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 23.80952380952381,
+          "rank": 17
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": 32.300190000000015,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1597"
+          ]
+        },
+        "归母净利润(TTM)": {
+          "value": 44.28835,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1675"
+          ]
+        },
+        "归母净资产": {
+          "value": 335.44017999999994,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1753"
+          ]
+        },
+        "AC浮盈余额": {
+          "value": 13.276079999999979,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H41"
+          ]
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 7.693370000000001,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P41"
+          ]
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 43.39696,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L41"
+          ]
+        }
+      },
+      "code": "601128.SH",
+      "complete": true,
+      "scores": {
+        "bond": 19.047619047619047,
+        "provision": 74.6031746031746,
+        "capital": 85.71428571428572
+      },
+      "total": 59.78835978835979,
+      "rank": 7
+    },
+    {
+      "name": "宁波银行",
+      "type": "城农商行",
+      "metrics": {
+        "prov_profit": {
+          "value": 0.7425800597628762,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1892"
+          ],
+          "percentile": 66.66666666666667,
+          "rank": 8
+        },
+        "prov_equity": {
+          "value": 0.08149467441015822,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1814"
+          ],
+          "percentile": 61.904761904761905,
+          "rank": 9
+        },
+        "cet1": {
+          "value": 0.017799999999999993,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1914"
+          ],
+          "percentile": 47.61904761904762,
+          "rank": 12
+        },
+        "fcf1": {
+          "value": 0.05206090842304645,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1699"
+          ],
+          "percentile": 66.66666666666667,
+          "rank": 8
+        },
+        "loan_prov": {
+          "value": 0.028326251129511506,
+          "source": "provision",
+          "cells": [
+            "AR1190",
+            "AR176"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 52.38095238095238,
+          "rank": 11
+        },
+        "bond_profit": {
+          "value": 1.1706814632687634,
+          "source": "bond",
+          "cells": [
+            "T22"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 57.142857142857146,
+          "rank": 10
+        },
+        "bond_equity": {
+          "value": 0.12424143050075276,
+          "source": "bond",
+          "cells": [
+            "H22",
+            "P22"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1736"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 61.904761904761905,
+          "rank": 9
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": 231.11319199999997,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1580"
+          ]
+        },
+        "归母净利润(TTM)": {
+          "value": 311.23,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1658"
+          ]
+        },
+        "归母净资产": {
+          "value": 2835.93,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1736"
+          ]
+        },
+        "AC浮盈余额": {
+          "value": 223.77999999999975,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H22"
+          ]
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 128.56,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P22"
+          ]
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 300.97,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L22"
+          ]
+        }
+      },
+      "code": "002142.SZ",
+      "complete": true,
+      "scores": {
+        "bond": 59.523809523809526,
+        "provision": 60.31746031746032,
+        "capital": 57.142857142857146
+      },
+      "total": 58.99470899470899,
+      "rank": 8
+    },
+    {
+      "name": "南京银行",
+      "type": "城农商行",
+      "metrics": {
+        "prov_profit": {
+          "value": 0.6467996218770299,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1893"
+          ],
+          "percentile": 57.142857142857146,
+          "rank": 10
+        },
+        "prov_equity": {
+          "value": 0.0677123171863073,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1815"
+          ],
+          "percentile": 57.142857142857146,
+          "rank": 10
+        },
+        "cet1": {
+          "value": 0.01619999999999999,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1915"
+          ],
+          "percentile": 33.333333333333336,
+          "rank": 15
+        },
+        "fcf1": {
+          "value": 0.0628136331580364,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1700"
+          ],
+          "percentile": 71.42857142857143,
+          "rank": 7
+        },
+        "loan_prov": {
+          "value": 0.02496754771224409,
+          "source": "provision",
+          "cells": [
+            "AR1191",
+            "AR177"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 38.095238095238095,
+          "rank": 14
+        },
+        "bond_profit": {
+          "value": 1.3736118135092497,
+          "source": "bond",
+          "cells": [
+            "T23"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 61.904761904761905,
+          "rank": 9
+        },
+        "bond_equity": {
+          "value": 0.14040423661035442,
+          "source": "bond",
+          "cells": [
+            "H23",
+            "P23"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1737"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 76.19047619047619,
+          "rank": 6
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": 147.71656980800003,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1581"
+          ]
+        },
+        "归母净利润(TTM)": {
+          "value": 228.38072999999997,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1659"
+          ]
+        },
+        "归母净资产": {
+          "value": 2181.53175,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1737"
+          ]
+        },
+        "AC浮盈余额": {
+          "value": 285.29689000000053,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H23"
+          ]
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 20.99941,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P23"
+          ]
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 222.98607,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L23"
+          ]
+        }
+      },
+      "code": "601009.SH",
+      "complete": true,
+      "scores": {
+        "bond": 69.04761904761905,
+        "provision": 50.79365079365079,
+        "capital": 52.38095238095238
+      },
+      "total": 57.40740740740741,
+      "rank": 9
+    },
+    {
+      "name": "成都银行",
+      "type": "城农商行",
+      "metrics": {
+        "prov_profit": {
+          "value": 1.3155680412489636,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1895"
+          ],
+          "percentile": 85.71428571428571,
+          "rank": 4
+        },
+        "prov_equity": {
+          "value": 0.1729659633625797,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1817"
+          ],
+          "percentile": 95.23809523809524,
+          "rank": 2
+        },
+        "cet1": {
+          "value": 0.014699999999999998,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1917"
+          ],
+          "percentile": 23.80952380952381,
+          "rank": 17
+        },
+        "fcf1": {
+          "value": 0.12665708680041354,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1702"
+          ],
+          "percentile": 100.0,
+          "rank": 1
+        },
+        "loan_prov": {
+          "value": 0.028839875476994965,
+          "source": "provision",
+          "cells": [
+            "AR1193",
+            "AR179"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 57.142857142857146,
+          "rank": 10
+        },
+        "bond_profit": {
+          "value": 0.6139685551086924,
+          "source": "bond",
+          "cells": [
+            "T25"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 19.047619047619047,
+          "rank": 18
+        },
+        "bond_equity": {
+          "value": 0.07987098174724425,
+          "source": "bond",
+          "cells": [
+            "H25",
+            "P25"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1739"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 38.095238095238095,
+          "rank": 14
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": 178.54157999999998,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1583"
+          ]
+        },
+        "归母净利润(TTM)": {
+          "value": 135.71444,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1661"
+          ]
+        },
+        "归母净资产": {
+          "value": 1032.23534,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1739"
+          ]
+        },
+        "AC浮盈余额": {
+          "value": 71.34420000000046,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H25"
+          ]
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 11.10145,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P25"
+          ]
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 134.28318,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L25"
+          ]
+        }
+      },
+      "code": "601838.SH",
+      "complete": true,
+      "scores": {
+        "bond": 28.57142857142857,
+        "provision": 79.36507936507937,
+        "capital": 61.904761904761905
+      },
+      "total": 56.613756613756614,
+      "rank": 10
+    },
+    {
+      "name": "沪农商行",
+      "type": "城农商行",
+      "metrics": {
+        "prov_profit": {
+          "value": 0.538285045823136,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1907"
+          ],
+          "percentile": 52.38095238095238,
+          "rank": 11
+        },
+        "prov_equity": {
+          "value": 0.0500416076362646,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1829"
+          ],
+          "percentile": 52.38095238095238,
+          "rank": 11
+        },
+        "cet1": {
+          "value": 0.061500000000000006,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1929"
+          ],
+          "percentile": 100.0,
+          "rank": 1
+        },
+        "fcf1": {
+          "value": 0.0014688837567826407,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1714"
+          ],
+          "percentile": 38.095238095238095,
+          "rank": 14
+        },
+        "loan_prov": {
+          "value": 0.028933771603667807,
+          "source": "provision",
+          "cells": [
+            "AR1205",
+            "AR191"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 61.904761904761905,
+          "rank": 9
+        },
+        "bond_profit": {
+          "value": 0.9277899657442898,
+          "source": "bond",
+          "cells": [
+            "T39"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 42.857142857142854,
+          "rank": 13
+        },
+        "bond_equity": {
+          "value": 0.08600875112618994,
+          "source": "bond",
+          "cells": [
+            "H39",
+            "P39"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1751"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 42.857142857142854,
+          "rank": 13
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": 66.604985436,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1595"
+          ]
+        },
+        "归母净利润(TTM)": {
+          "value": 123.73552999999998,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1673"
+          ]
+        },
+        "归母净资产": {
+          "value": 1330.9921199999999,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1751"
+          ]
+        },
+        "AC浮盈余额": {
+          "value": 71.15374999999995,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H39"
+          ]
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 43.32322,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P39"
+          ]
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 123.38673,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L39"
+          ]
+        }
+      },
+      "code": "601825.SH",
+      "complete": true,
+      "scores": {
+        "bond": 42.857142857142854,
+        "provision": 55.55555555555555,
+        "capital": 69.04761904761905
+      },
+      "total": 55.82010582010582,
+      "rank": 11
+    },
+    {
+      "name": "工商银行",
+      "type": "国有行",
+      "metrics": {
+        "prov_profit": {
+          "value": -0.13562647611462006,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1874"
+          ],
+          "percentile": 38.095238095238095,
+          "rank": 14
+        },
+        "prov_equity": {
+          "value": -0.011727177204313217,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1796"
+          ],
+          "percentile": 38.095238095238095,
+          "rank": 14
+        },
+        "cet1": {
+          "value": 0.037099999999999994,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1896"
+          ],
+          "percentile": 76.19047619047619,
+          "rank": 6
+        },
+        "fcf1": {
+          "value": -0.009582145342959605,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1681"
+          ],
+          "percentile": 23.80952380952381,
+          "rank": 17
+        },
+        "loan_prov": {
+          "value": 0.028008391814910955,
+          "source": "provision",
+          "cells": [
+            "AR1172",
+            "AR158"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 47.61904761904762,
+          "rank": 12
+        },
+        "bond_profit": {
+          "value": 1.58862465564553,
+          "source": "bond",
+          "cells": [
+            "T4"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 76.19047619047619,
+          "rank": 6
+        },
+        "bond_equity": {
+          "value": 0.13633737416784045,
+          "source": "bond",
+          "cells": [
+            "H4",
+            "P4"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1718"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 71.42857142857143,
+          "rank": 7
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": -507.43425400000064,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1562"
+          ]
+        },
+        "归母净利润(TTM)": {
+          "value": 3741.41,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1640"
+          ]
+        },
+        "归母净资产": {
+          "value": 43269.94,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1718"
+          ]
+        },
+        "AC浮盈余额": {
+          "value": 5317.600000000006,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H4"
+          ]
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 581.71,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P4"
+          ]
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 3713.47,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L4"
+          ]
+        }
+      },
+      "code": "601398.SH",
+      "complete": true,
+      "scores": {
+        "bond": 73.80952380952381,
+        "provision": 41.26984126984127,
+        "capital": 50.0
+      },
+      "total": 55.02645502645503,
+      "rank": 12
+    },
+    {
+      "name": "交通银行",
+      "type": "国有行",
+      "metrics": {
+        "prov_profit": {
+          "value": -0.23229122897004525,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1879"
+          ],
+          "percentile": 23.80952380952381,
+          "rank": 17
+        },
+        "prov_equity": {
+          "value": -0.01751538453208251,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1801"
+          ],
+          "percentile": 23.80952380952381,
+          "rank": 17
+        },
+        "cet1": {
+          "value": 0.027499999999999997,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1900"
+          ],
+          "percentile": 66.66666666666667,
+          "rank": 8
+        },
+        "fcf1": {
+          "value": 0.020328730611281445,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1685"
+          ],
+          "percentile": 52.38095238095238,
+          "rank": 11
+        },
+        "loan_prov": {
+          "value": 0.02652525540131889,
+          "source": "provision",
+          "cells": [
+            "AR1177",
+            "AR163"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 42.857142857142854,
+          "rank": 13
+        },
+        "bond_profit": {
+          "value": 1.4768597270049388,
+          "source": "bond",
+          "cells": [
+            "T9"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 66.66666666666667,
+          "rank": 8
+        },
+        "bond_equity": {
+          "value": 0.11013914071250454,
+          "source": "bond",
+          "cells": [
+            "H9",
+            "P9"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1723"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 57.142857142857146,
+          "rank": 10
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": -226.4374900000001,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1567"
+          ]
+        },
+        "归母净利润(TTM)": {
+          "value": 974.8,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1645"
+          ]
+        },
+        "归母净资产": {
+          "value": 12927.92,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1723"
+          ]
+        },
+        "AC浮盈余额": {
+          "value": 1280.9900000000016,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H9"
+          ]
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 142.88,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P9"
+          ]
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 964.12,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L9"
+          ]
+        }
+      },
+      "code": "601328.SH",
+      "complete": true,
+      "scores": {
+        "bond": 61.90476190476191,
+        "provision": 30.15873015873016,
+        "capital": 59.523809523809526
+      },
+      "total": 50.52910052910053,
+      "rank": 13
+    },
+    {
+      "name": "江苏银行",
+      "type": "城农商行",
+      "metrics": {
+        "prov_profit": {
+          "value": 0.426532206566947,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1890"
+          ],
+          "percentile": 47.61904761904762,
+          "rank": 12
+        },
+        "prov_equity": {
+          "value": 0.04387277922426275,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1812"
+          ],
+          "percentile": 47.61904761904762,
+          "rank": 12
+        },
+        "cet1": {
+          "value": 0.009199999999999996,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1912"
+          ],
+          "percentile": 0.0,
+          "rank": 22
+        },
+        "fcf1": {
+          "value": 0.09317927005726245,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1697"
+          ],
+          "percentile": 85.71428571428571,
+          "rank": 4
+        },
+        "loan_prov": {
+          "value": 0.024363807172411496,
+          "source": "provision",
+          "cells": [
+            "AR1188",
+            "AR174"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 23.80952380952381,
+          "rank": 17
+        },
+        "bond_profit": {
+          "value": 1.0503342472200945,
+          "source": "bond",
+          "cells": [
+            "T20"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 52.38095238095238,
+          "rank": 11
+        },
+        "bond_equity": {
+          "value": 0.10553992610471756,
+          "source": "bond",
+          "cells": [
+            "H20",
+            "P20"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1734"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 52.38095238095238,
+          "rank": 11
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": 154.14102775099994,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1578"
+          ]
+        },
+        "归母净利润(TTM)": {
+          "value": 361.38192000000004,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1656"
+          ]
+        },
+        "归母净资产": {
+          "value": 3513.36365,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1734"
+          ]
+        },
+        "AC浮盈余额": {
+          "value": 291.25429000000076,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H20"
+          ]
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 79.54585,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P20"
+          ]
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 353.03061,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L20"
+          ]
+        }
+      },
+      "code": "600919.SH",
+      "complete": true,
+      "scores": {
+        "bond": 52.38095238095238,
+        "provision": 39.682539682539684,
+        "capital": 42.857142857142854
+      },
+      "total": 44.97354497354497,
+      "rank": 14
+    },
+    {
+      "name": "邮储银行",
+      "type": "国有行",
+      "metrics": {
+        "prov_profit": {
+          "value": -0.6205632310797399,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1878"
+          ],
+          "percentile": 9.523809523809524,
+          "rank": 20
+        },
+        "prov_equity": {
+          "value": -0.04651816082230872,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1800"
+          ],
+          "percentile": 4.761904761904762,
+          "rank": 21
+        },
+        "cet1": {
+          "value": 0.020399999999999984,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1901"
+          ],
+          "percentile": 61.904761904761905,
+          "rank": 9
+        },
+        "fcf1": {
+          "value": -0.08144423574609336,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1686"
+          ],
+          "percentile": 0.0,
+          "rank": 22
+        },
+        "loan_prov": {
+          "value": 0.02155226445558461,
+          "source": "provision",
+          "cells": [
+            "AR1176",
+            "AR162"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 4.761904761904762,
+          "rank": 21
+        },
+        "bond_profit": {
+          "value": 1.9535410313595178,
+          "source": "bond",
+          "cells": [
+            "T8"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 95.23809523809524,
+          "rank": 2
+        },
+        "bond_equity": {
+          "value": 0.14350865431955315,
+          "source": "bond",
+          "cells": [
+            "H8",
+            "P8"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1722"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 80.95238095238095,
+          "rank": 5
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": -556.5148999999999,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1566"
+          ]
+        },
+        "归母净利润(TTM)": {
+          "value": 896.79,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1644"
+          ]
+        },
+        "归母净资产": {
+          "value": 11963.39,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1722"
+          ]
+        },
+        "AC浮盈余额": {
+          "value": 1660.7799999999988,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H8"
+          ]
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 56.07,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P8"
+          ]
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 878.84,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L8"
+          ]
+        }
+      },
+      "code": "601658.SH",
+      "complete": true,
+      "scores": {
+        "bond": 88.0952380952381,
+        "provision": 6.349206349206349,
+        "capital": 30.952380952380953
+      },
+      "total": 41.798941798941804,
+      "rank": 15
+    },
+    {
+      "name": "苏州银行",
+      "type": "城农商行",
+      "metrics": {
+        "prov_profit": {
+          "value": 1.608232514881095,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1901"
+          ],
+          "percentile": 95.23809523809524,
+          "rank": 2
+        },
+        "prov_equity": {
+          "value": 0.14114144561155292,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1823"
+          ],
+          "percentile": 85.71428571428571,
+          "rank": 4
+        },
+        "cet1": {
+          "value": 0.016599999999999997,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1921"
+          ],
+          "percentile": 38.095238095238095,
+          "rank": 14
+        },
+        "fcf1": {
+          "value": -0.009694923266893557,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1706"
+          ],
+          "percentile": 19.047619047619047,
+          "rank": 18
+        },
+        "loan_prov": {
+          "value": 0.031108532569068755,
+          "source": "provision",
+          "cells": [
+            "AR1199",
+            "AR185"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 76.19047619047619,
+          "rank": 6
+        },
+        "bond_profit": {
+          "value": 0.3988665131546132,
+          "source": "bond",
+          "cells": [
+            "T32"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 4.761904761904762,
+          "rank": 21
+        },
+        "bond_equity": {
+          "value": 0.034139695938798634,
+          "source": "bond",
+          "cells": [
+            "H32",
+            "P32"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1745"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 9.523809523809524,
+          "rank": 20
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": 90.302601175,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1589"
+          ]
+        },
+        "归母净利润(TTM)": {
+          "value": 56.150214809999994,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1667"
+          ]
+        },
+        "归母净资产": {
+          "value": 639.8021557999999,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1745"
+          ]
+        },
+        "AC浮盈余额": {
+          "value": 13.547901519999868,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H32"
+          ]
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 8.29474954,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P32"
+          ]
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 54.76180712,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L32"
+          ]
+        }
+      },
+      "code": "002966.SZ",
+      "complete": true,
+      "scores": {
+        "bond": 7.142857142857142,
+        "provision": 85.71428571428571,
+        "capital": 28.57142857142857
+      },
+      "total": 40.476190476190474,
+      "rank": 16
+    },
+    {
+      "name": "中国银行",
+      "type": "国有行",
+      "metrics": {
+        "prov_profit": {
+          "value": -0.1849520584361345,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1877"
+          ],
+          "percentile": 33.333333333333336,
+          "rank": 15
+        },
+        "prov_equity": {
+          "value": -0.014854119984325877,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1799"
+          ],
+          "percentile": 33.333333333333336,
+          "rank": 15
+        },
+        "cet1": {
+          "value": 0.03039999999999999,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1899"
+          ],
+          "percentile": 71.42857142857143,
+          "rank": 7
+        },
+        "fcf1": {
+          "value": -0.012767130133937377,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1684"
+          ],
+          "percentile": 14.285714285714286,
+          "rank": 19
+        },
+        "loan_prov": {
+          "value": 0.02454614113211157,
+          "source": "provision",
+          "cells": [
+            "AR1175",
+            "AR161"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 28.571428571428573,
+          "rank": 16
+        },
+        "bond_profit": {
+          "value": 0.9953197873520109,
+          "source": "bond",
+          "cells": [
+            "T7"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 47.61904761904762,
+          "rank": 12
+        },
+        "bond_equity": {
+          "value": 0.07873820208955852,
+          "source": "bond",
+          "cells": [
+            "H7",
+            "P7"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1721"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 33.333333333333336,
+          "rank": 15
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": -460.5750139999995,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1565"
+          ]
+        },
+        "归母净利润(TTM)": {
+          "value": 2490.24,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1643"
+          ]
+        },
+        "归母净资产": {
+          "value": 31006.55,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1721"
+          ]
+        },
+        "AC浮盈余额": {
+          "value": 1874.6100000000006,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H7"
+          ]
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 566.79,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P7"
+          ]
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 2452.88,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L7"
+          ]
+        }
+      },
+      "code": "601988.SH",
+      "complete": true,
+      "scores": {
+        "bond": 40.47619047619048,
+        "provision": 31.746031746031747,
+        "capital": 42.85714285714286
+      },
+      "total": 38.35978835978836,
+      "rank": 17
+    },
+    {
+      "name": "兴业银行",
+      "type": "股份行",
+      "metrics": {
+        "prov_profit": {
+          "value": -0.2168617712930202,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1881"
+          ],
+          "percentile": 28.571428571428573,
+          "rank": 16
+        },
+        "prov_equity": {
+          "value": -0.017247412388410512,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1803"
+          ],
+          "percentile": 28.571428571428573,
+          "rank": 16
+        },
+        "cet1": {
+          "value": 0.01429999999999999,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1903"
+          ],
+          "percentile": 19.047619047619047,
+          "rank": 18
+        },
+        "fcf1": {
+          "value": -0.005983199134970085,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1688"
+          ],
+          "percentile": 33.333333333333336,
+          "rank": 15
+        },
+        "loan_prov": {
+          "value": 0.02431530720881141,
+          "source": "provision",
+          "cells": [
+            "AR1179",
+            "AR165"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 19.047619047619047,
+          "rank": 18
+        },
+        "bond_profit": {
+          "value": 0.7467518224630709,
+          "source": "bond",
+          "cells": [
+            "T11"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 28.571428571428573,
+          "rank": 16
+        },
+        "bond_equity": {
+          "value": 0.06100085371894762,
+          "source": "bond",
+          "cells": [
+            "H11",
+            "P11"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1725"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 19.047619047619047,
+          "rank": 18
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": -163.6417240000001,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1569"
+          ]
+        },
+        "归母净利润(TTM)": {
+          "value": 754.59,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1647"
+          ]
+        },
+        "归母净资产": {
+          "value": 9487.9,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1725"
+          ]
+        },
+        "AC浮盈余额": {
+          "value": 569.390000000003,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H11"
+          ]
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 9.38,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P11"
+          ]
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 775.05,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L11"
+          ]
+        }
+      },
+      "code": "601166.SH",
+      "complete": true,
+      "scores": {
+        "bond": 23.80952380952381,
+        "provision": 25.396825396825395,
+        "capital": 26.19047619047619
+      },
+      "total": 25.13227513227513,
+      "rank": 18
+    },
+    {
+      "name": "平安银行",
+      "type": "股份行",
+      "metrics": {
+        "prov_profit": {
+          "value": -0.42930118042292736,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1886"
+          ],
+          "percentile": 14.285714285714286,
+          "rank": 19
+        },
+        "prov_equity": {
+          "value": -0.03403233044030251,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1808"
+          ],
+          "percentile": 14.285714285714286,
+          "rank": 19
+        },
+        "cet1": {
+          "value": 0.015700000000000002,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1908"
+          ],
+          "percentile": 28.571428571428573,
+          "rank": 16
+        },
+        "fcf1": {
+          "value": -0.05156045649166582,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1693"
+          ],
+          "percentile": 4.761904761904762,
+          "rank": 21
+        },
+        "loan_prov": {
+          "value": 0.023046548448935396,
+          "source": "provision",
+          "cells": [
+            "AR1184",
+            "AR170"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 9.523809523809524,
+          "rank": 20
+        },
+        "bond_profit": {
+          "value": 0.8871110078959584,
+          "source": "bond",
+          "cells": [
+            "T16"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 33.333333333333336,
+          "rank": 15
+        },
+        "bond_equity": {
+          "value": 0.0696789939695082,
+          "source": "bond",
+          "cells": [
+            "H16",
+            "P16"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1730"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 28.571428571428573,
+          "rank": 16
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": -186.57,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1574"
+          ]
+        },
+        "归母净利润(TTM)": {
+          "value": 434.59,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1652"
+          ]
+        },
+        "归母净资产": {
+          "value": 5482.14,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1730"
+          ]
+        },
+        "AC浮盈余额": {
+          "value": 373.5699999999997,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H16"
+          ]
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 8.42,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P16"
+          ]
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 430.6,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L16"
+          ]
+        }
+      },
+      "code": "000001.SZ",
+      "complete": true,
+      "scores": {
+        "bond": 30.952380952380956,
+        "provision": 12.698412698412698,
+        "capital": 16.666666666666668
+      },
+      "total": 20.105820105820108,
+      "rank": 19
+    },
+    {
+      "name": "中信银行",
+      "type": "股份行",
+      "metrics": {
+        "prov_profit": {
+          "value": -0.286155550444649,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1883"
+          ],
+          "percentile": 19.047619047619047,
+          "rank": 18
+        },
+        "prov_equity": {
+          "value": -0.023549419735086737,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1805"
+          ],
+          "percentile": 19.047619047619047,
+          "rank": 18
+        },
+        "cet1": {
+          "value": 0.013699999999999986,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1904"
+          ],
+          "percentile": 14.285714285714286,
+          "rank": 19
+        },
+        "fcf1": {
+          "value": 0.002679713026723804,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1689"
+          ],
+          "percentile": 47.61904761904762,
+          "rank": 12
+        },
+        "loan_prov": {
+          "value": 0.023698536823884137,
+          "source": "provision",
+          "cells": [
+            "AR1181",
+            "AR167"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 14.285714285714286,
+          "rank": 19
+        },
+        "bond_profit": {
+          "value": 0.24657688148637008,
+          "source": "bond",
+          "cells": [
+            "T13"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 0.0,
+          "rank": 22
+        },
+        "bond_equity": {
+          "value": 0.02014093376938752,
+          "source": "bond",
+          "cells": [
+            "H13",
+            "P13"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1727"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 4.761904761904762,
+          "rank": 21
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": -205.29371500000008,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1571"
+          ]
+        },
+        "归母净利润(TTM)": {
+          "value": 717.42,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1649"
+          ]
+        },
+        "归母净资产": {
+          "value": 8717.57,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1727"
+          ]
+        },
+        "AC浮盈余额": {
+          "value": 151.47999999999956,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H13"
+          ]
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 24.1,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P13"
+          ]
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 712.07,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L13"
+          ]
+        }
+      },
+      "code": "601998.SH",
+      "complete": true,
+      "scores": {
+        "bond": 2.380952380952381,
+        "provision": 17.46031746031746,
+        "capital": 30.952380952380953
+      },
+      "total": 16.93121693121693,
+      "rank": 20
+    },
+    {
+      "name": "民生银行",
+      "type": "股份行",
+      "metrics": {
+        "prov_profit": {
+          "value": -3.5099218628133695,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1884"
+          ],
+          "percentile": 0.0,
+          "rank": 22
+        },
+        "prov_equity": {
+          "value": -0.1430263278944381,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1806"
+          ],
+          "percentile": 0.0,
+          "rank": 22
+        },
+        "cet1": {
+          "value": 0.016700000000000003,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1906"
+          ],
+          "percentile": 42.857142857142854,
+          "rank": 13
+        },
+        "fcf1": {
+          "value": 0.002678926127220836,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1691"
+          ],
+          "percentile": 42.857142857142854,
+          "rank": 13
+        },
+        "loan_prov": {
+          "value": 0.020910213465773923,
+          "source": "provision",
+          "cells": [
+            "AR1182",
+            "AR168"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 0.0,
+          "rank": 22
+        },
+        "bond_profit": {
+          "value": 0.39962502130560934,
+          "source": "bond",
+          "cells": [
+            "T14"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 9.523809523809524,
+          "rank": 20
+        },
+        "bond_equity": {
+          "value": 0.016633087400681115,
+          "source": "bond",
+          "cells": [
+            "H14",
+            "P14"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1728"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 0.0,
+          "rank": 22
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": -1008.0495589999997,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1572"
+          ]
+        },
+        "归母净利润(TTM)": {
+          "value": 287.2,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1650"
+          ]
+        },
+        "归母净资产": {
+          "value": 7048.0,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1728"
+          ]
+        },
+        "AC浮盈余额": {
+          "value": 65.19000000000051,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H14"
+          ]
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 52.04,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P14"
+          ]
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 293.35,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L14"
+          ]
+        }
+      },
+      "code": "600016.SH",
+      "complete": true,
+      "scores": {
+        "bond": 4.761904761904762,
+        "provision": 0.0,
+        "capital": 42.857142857142854
+      },
+      "total": 15.873015873015872,
+      "rank": 21
+    },
+    {
+      "name": "浦发银行",
+      "type": "股份行",
+      "metrics": {
+        "prov_profit": {
+          "value": -0.6503511057758001,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1882"
+          ],
+          "percentile": 4.761904761904762,
+          "rank": 21
+        },
+        "prov_equity": {
+          "value": -0.039960681744311714,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AR1804"
+          ],
+          "percentile": 9.523809523809524,
+          "rank": 20
+        },
+        "cet1": {
+          "value": 0.010500000000000006,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1905"
+          ],
+          "percentile": 4.761904761904762,
+          "rank": 21
+        },
+        "fcf1": {
+          "value": -0.03143599518607831,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1690"
+          ],
+          "percentile": 9.523809523809524,
+          "rank": 20
+        },
+        "loan_prov": {
+          "value": 0.024671405500548634,
+          "source": "provision",
+          "cells": [
+            "AR1180",
+            "AR166"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 33.333333333333336,
+          "rank": 15
+        },
+        "bond_profit": {
+          "value": 0.7189936356404169,
+          "source": "bond",
+          "cells": [
+            "T12"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 23.80952380952381,
+          "rank": 17
+        },
+        "bond_equity": {
+          "value": 0.04335832414817961,
+          "source": "bond",
+          "cells": [
+            "H12",
+            "P12"
+          ],
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AR1726"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 14.285714285714286,
+          "rank": 19
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": -333.1813750000001,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1570"
+          ]
+        },
+        "归母净利润(TTM)": {
+          "value": 512.31,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1648"
+          ]
+        },
+        "归母净资产": {
+          "value": 8337.73,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AR1726"
+          ]
+        },
+        "AC浮盈余额": {
+          "value": 302.7400000000016,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H12"
+          ]
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 58.77,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P12"
+          ]
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 502.8,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L12"
+          ]
+        }
+      },
+      "code": "600000.SH",
+      "complete": true,
+      "scores": {
+        "bond": 19.047619047619047,
+        "provision": 15.873015873015873,
+        "capital": 7.142857142857142
+      },
+      "total": 14.02116402116402,
+      "rank": 22
+    },
+    {
+      "name": "中银香港",
+      "type": "香港",
+      "metrics": {
+        "prov_profit": {
+          "value": null,
+          "reason": "指定数据库未覆盖该银行"
+        },
+        "prov_equity": {
+          "value": null,
+          "reason": "指定数据库未覆盖该银行"
+        },
+        "cet1": {
+          "value": null,
+          "reason": "指定数据库未覆盖该银行"
+        },
+        "fcf1": {
+          "value": null,
+          "reason": "指定数据库未覆盖该银行"
+        },
+        "loan_prov": {
+          "value": null,
+          "reason": "指定数据库未覆盖该银行"
+        },
+        "bond_profit": {
+          "value": null,
+          "reason": "指定数据库未覆盖该银行"
+        },
+        "bond_equity": {
+          "value": null,
+          "reason": "指定数据库未覆盖该银行"
+        }
+      },
+      "supplement": {},
+      "complete": false
+    },
+    {
+      "name": "汇丰",
+      "type": "香港",
+      "metrics": {
+        "prov_profit": {
+          "value": null,
+          "reason": "指定数据库未覆盖该银行"
+        },
+        "prov_equity": {
+          "value": null,
+          "reason": "指定数据库未覆盖该银行"
+        },
+        "cet1": {
+          "value": null,
+          "reason": "指定数据库未覆盖该银行"
+        },
+        "fcf1": {
+          "value": null,
+          "reason": "指定数据库未覆盖该银行"
+        },
+        "loan_prov": {
+          "value": null,
+          "reason": "指定数据库未覆盖该银行"
+        },
+        "bond_profit": {
+          "value": null,
+          "reason": "指定数据库未覆盖该银行"
+        },
+        "bond_equity": {
+          "value": null,
+          "reason": "指定数据库未覆盖该银行"
+        }
+      },
+      "supplement": {},
+      "complete": false
+    },
+    {
+      "name": "渣打银行",
+      "type": "香港",
+      "metrics": {
+        "prov_profit": {
+          "value": null,
+          "reason": "指定数据库未覆盖该银行"
+        },
+        "prov_equity": {
+          "value": null,
+          "reason": "指定数据库未覆盖该银行"
+        },
+        "cet1": {
+          "value": null,
+          "reason": "指定数据库未覆盖该银行"
+        },
+        "fcf1": {
+          "value": null,
+          "reason": "指定数据库未覆盖该银行"
+        },
+        "loan_prov": {
+          "value": null,
+          "reason": "指定数据库未覆盖该银行"
+        },
+        "bond_profit": {
+          "value": null,
+          "reason": "指定数据库未覆盖该银行"
+        },
+        "bond_equity": {
+          "value": null,
+          "reason": "指定数据库未覆盖该银行"
+        }
+      },
+      "supplement": {},
+      "complete": false
+    }
+  ],
+  "config_hash": "4709b692ede011b8e678881c097f8b11716750ee8da587821e23e7c92403ac04",
+  "source_note": "第17号为兑现收益库；按用户指定浮盈余额指标改用同网站第19号余额库。浮盈/归母净资产及拨贷比由源表计算。",
+  "scope_note": "2_Bank 中25家独立银行笔记。排除行业、基础知识、观点和其他银行合集。3家香港银行未被指定数据覆盖。"
+}
