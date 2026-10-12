@@ -128,7 +128,8 @@
     "unit": "亿元",
     "denominator_source": "provision",
     "basis": "用户指定的机械加总研究口径，仅扣除浮盈项中的OCI余额；未进一步调整税务、拨备与监管资本之间的其他重叠，并非可分配现金。",
-    "valuation_note": "家底与归母净资产为2026H1期末，利润为截至2026H1的TTM；估值为2026E全年预测。并列比较原始数值，不跨期换算家底/市值或预期收益率。"
+    "adjusted_pb_formula": "家底调整后PB＝原PB÷（1＋总家底/归母净资产）",
+    "valuation_note": "家底与归母净资产为2026H1期末，利润为截至2026H1的TTM；原PB为2026E全年预测。家底调整后PB按原PB÷（1＋总家底/归母净资产）计算，是用户指定研究口径的混合期近似，并非严格同一期市值/调整后净资产。PB下降倍数＝原PB－调整后PB，不是股价涨幅或合理价格偏离。"
   },
   "period": "2026-06-30",
   "scoring": "ascending-midrank-percentile; metric-config-weighted; all-complete-cohort"
