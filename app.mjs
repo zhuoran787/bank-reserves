@@ -1,6 +1,7 @@
-import {renderValuation} from './valuation.mjs?v=20261011-focus';
-import {calculate,color,finite} from './engine.mjs?v=20261011-focus';
-import {renderAbsolute} from './absolute.mjs?v=20261011-focus';
+import {renderValuation} from './valuation.mjs?v=20261011-combined';
+import {calculate,color,finite} from './engine.mjs?v=20261011-combined';
+import {renderAbsolute} from './absolute.mjs?v=20261011-combined';
+import {renderCombined} from './combined.mjs?v=20261011-combined';
 const $=id=>document.getElementById(id);
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=(x,d=2)=>finite(x)?(x*100).toLocaleString('zh-CN',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
@@ -20,9 +21,8 @@ function recalculate(){
   data.groups.forEach((g,i)=>{$(`output-${g.id}`).textContent=model.error?'—':`${(model.weights[i]*100).toFixed(1)}%`;});
   $('weight-status').textContent=model.error||'权重自动折算至100%';
   $('weight-status').classList.toggle('error-state',Boolean(model.error));
-  if(model.error){$('h-gap-leaders').innerHTML='';$('h-valuation-body').innerHTML='';$('gap-leaders').innerHTML='';$('valuation-body').innerHTML='';$('leaders').innerHTML='';$('tbody').innerHTML='<tr><td colspan="12" class="empty">至少保留一个正权重，即可恢复排名。</td></tr>';$('result-count').textContent='当前权重均为0，未计算排名';return;}
-  const tops=model.banks.filter(b=>b.complete).slice(0,3);
-  $('leaders').innerHTML=tops.map(b=>`<article class="leader"><div><small>综合第 ${b.rank} 名</small><h3>${esc(b.name)}</h3><p>浮盈 ${score(b.scores.bond)} · 拨备 ${score(b.scores.provision)} · 资本 ${score(b.scores.capital)}</p></div><div class="leader-number">${score(b.total)}<small>综合分 / 100</small></div></article>`).join('');
+  renderCombined(data,model,[{label:'A股',valuation,id:'a'},{label:'H股',valuation:valuationH,id:'h'}],esc);
+  if(model.error){$('h-gap-leaders').innerHTML='';$('h-valuation-body').innerHTML='';$('gap-leaders').innerHTML='';$('valuation-body').innerHTML='';$('tbody').innerHTML='<tr><td colspan="12" class="empty">至少保留一个正权重，即可恢复排名。</td></tr>';$('result-count').textContent='当前权重均为0，未计算排名';return;}
   render();
 }
 
@@ -95,9 +95,9 @@ function exportCSV(){
 
 async function init(){
   try{
-    const response=await fetch('./data.json?v=20261011-focus');if(!response.ok)throw new Error('数据文件暂时不可用');data=await response.json();
-    const vr=await fetch('./valuation.json?v=20261011-focus');if(!vr.ok)throw new Error('估值文件暂时不可用');valuation=await vr.json();
-    const hr=await fetch('./valuation-h.json?v=20261011-focus');if(!hr.ok)throw new Error('H股估值文件暂时不可用');valuationH=await hr.json();
+    const response=await fetch('./data.json?v=20261011-combined');if(!response.ok)throw new Error('数据文件暂时不可用');data=await response.json();
+    const vr=await fetch('./valuation.json?v=20261011-combined');if(!vr.ok)throw new Error('估值文件暂时不可用');valuation=await vr.json();
+    const hr=await fetch('./valuation-h.json?v=20261011-combined');if(!hr.ok)throw new Error('H股估值文件暂时不可用');valuationH=await hr.json();
     $('valuation-sort').addEventListener('change',render);
     $('h-valuation-sort').addEventListener('change',render);
     $('absolute-sort').addEventListener('change',render);
