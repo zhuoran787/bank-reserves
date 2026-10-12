@@ -5,7 +5,7 @@ const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const fmt=(x,d=2)=>finite(x)?(x*100).toLocaleString('zh-CN',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
 const score=x=>finite(x)?x.toFixed(1):'—';
 const rawNum=x=>finite(x)?x.toLocaleString('zh-CN',{minimumFractionDigits:2,maximumFractionDigits:2}):'—';
-let data,model,valuation,weights=[33,33,33],showScores=false,sortKey='total',sortDirection=-1;
+let data,model,valuation,valuationH,weights=[33,33,33],showScores=false,sortKey='total',sortDirection=-1;
 const labels={bond_profit:'AC&OCI浮盈<br>／归母净利润',bond_equity:'AC&OCI浮盈<br>／归母净资产',prov_profit:'超额拨备<br>／归母净利润',prov_equity:'超额拨备<br>／归母净资产',loan_prov:'拨贷比',cet1:'CET1安全垫',fcf1:'自由现金流1'};
 const groupNotes=['2项指标，各占本维度的1/2','3项指标，各占本维度的1/3','2项指标，各占本维度的1/2'];
 
@@ -19,7 +19,7 @@ function recalculate(){
   data.groups.forEach((g,i)=>{$(`output-${g.id}`).textContent=model.error?'—':`${(model.weights[i]*100).toFixed(1)}%`;});
   $('weight-status').textContent=model.error||'权重自动折算至100%';
   $('weight-status').classList.toggle('error-state',Boolean(model.error));
-  if(model.error){$('gap-leaders').innerHTML='';$('valuation-body').innerHTML='';$('leaders').innerHTML='';$('tbody').innerHTML='<tr><td colspan="12" class="empty">至少保留一个正权重，即可恢复排名。</td></tr>';$('result-count').textContent='当前权重均为0，未计算排名';return;}
+  if(model.error){$('h-gap-leaders').innerHTML='';$('h-valuation-body').innerHTML='';$('gap-leaders').innerHTML='';$('valuation-body').innerHTML='';$('leaders').innerHTML='';$('tbody').innerHTML='<tr><td colspan="12" class="empty">至少保留一个正权重，即可恢复排名。</td></tr>';$('result-count').textContent='当前权重均为0，未计算排名';return;}
   const tops=model.banks.filter(b=>b.complete).slice(0,3);
   $('leaders').innerHTML=tops.map(b=>`<article class="leader"><div><small>综合第 ${b.rank} 名</small><h3>${esc(b.name)}</h3><p>浮盈 ${score(b.scores.bond)} · 拨备 ${score(b.scores.provision)} · 资本 ${score(b.scores.capital)}</p></div><div class="leader-number">${score(b.total)}<small>综合分 / 100</small></div></article>`).join('');
   render();
@@ -43,6 +43,7 @@ function render(){
   if(model.error)return;
   const list=shown();
   if(valuation)renderValuation(model,valuation,esc);
+  if(valuationH)renderValuation(model,valuationH,esc,'h-');
   $('result-count').textContent=`显示 ${list.length} / ${data.banks.length} 家 · 排名基准 ${model.completeCount} 家 · TTM = 过去12个月`;
   $('thead').innerHTML=`<tr><th rowspan="2" class="sticky-bank">${sortButton('name','排名 / 银行')}</th><th rowspan="2" class="sticky-score">${sortButton('total','综合分<br>0—100')}</th>${data.groups.map(g=>`<th class="group" colspan="${data.metrics.filter(m=>m.group===g.id).length+(showScores?1:0)}">${esc(g.label)}</th>`).join('')}</tr><tr>${data.groups.map(g=>data.metrics.filter(m=>m.group===g.id).map((m,i)=>`<th class="${i===0?'group-start':''}">${sortButton(m.id,labels[m.id])}<br><span>${m.unit} · ${esc(m.basis_short)}${m.kind==='计算值'?' · 计算':''}</span><span class="column-source">2026H1 · ${esc(m.source_label)}</span></th>`).join('')+(showScores?`<th>${sortButton(`group-${g.id}`,'维度分')}<br>0—100</th>`:'')).join('')}</tr>`;
   $('tbody').innerHTML=list.length?list.map(b=>{
@@ -92,7 +93,9 @@ async function init(){
   try{
     const response=await fetch('./data.json');if(!response.ok)throw new Error('数据文件暂时不可用');data=await response.json();
     const vr=await fetch('./valuation.json');if(!vr.ok)throw new Error('估值文件暂时不可用');valuation=await vr.json();
+    const hr=await fetch('./valuation-h.json');if(!hr.ok)throw new Error('H股估值文件暂时不可用');valuationH=await hr.json();
     $('valuation-sort').addEventListener('change',render);
+    $('h-valuation-sort').addEventListener('change',render);
     weightUI();recalculate();
     $('sources').innerHTML='<b>本页采用的原始数据库</b>'+data.groups.map(g=>{const s=data.sources[g.id];return `<div class="source-row"><span>${esc(g.label)}</span><a href="${s.url}" target="_blank" rel="noopener">${esc(s.filename)} ↗</a><span>${esc(s.report)} · 文件名日期 ${esc(s.filename_date)}${s.internal_updated?' · 源表更新日 '+esc(s.internal_updated):''}</span></div>`;}).join('')+'<p>源文件需在银行先爽网站登录后下载。点击银行名称可查看精确单元格。</p>';
     $('reset').addEventListener('click',()=>{weights=[33,33,33];sortKey='total';sortDirection=-1;weightUI();recalculate();});
