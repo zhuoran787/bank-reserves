@@ -1,4 +1,4 @@
-import {renderValuation} from './valuation.mjs';
+import {renderValuation} from './valuation.mjs?v=20261011-h1';
 import {calculate,color,finite} from './engine.mjs';
 const $=id=>document.getElementById(id);
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
