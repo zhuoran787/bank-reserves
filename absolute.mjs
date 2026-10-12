@@ -1,4 +1,4 @@
-import {finite,color} from './engine.mjs?v=20261011-combined';
+import {finite,color} from './engine.mjs?v=20261011-ac80';
 
 // Absolute reserve colors use the full bank cohort; valuation colors use each market.
 // Linear value spacing retains magnitude differences instead of percentile spacing.
@@ -10,10 +10,9 @@ export const absoluteColumns = [
   {key:'profit_ratio',source:'absolute',kind:'percent'},
   {key:'dividend_yield',source:'valuation',kind:'percent'},
   {key:'total_amount',source:'absolute',kind:'amount'},
-  {key:'bond_amount',source:'absolute',kind:'amount'},
+  {key:'discounted_ac_amount',source:'absolute',kind:'amount'},
   {key:'provision_amount',source:'absolute',kind:'amount'},
   {key:'capital_amount',source:'absolute',kind:'amount'},
-  {key:'oci_deduction',source:'absolute',kind:'amount',lower:true},
 ];
 const numberFormat=new Intl.NumberFormat('zh-CN',{minimumFractionDigits:2,maximumFractionDigits:2});
 export const formatAbsolute=(value,kind)=>numberFormat.format(kind==='percent'?value*100:value)+(kind==='percent'?'%':kind==='multiple'?'×':'');

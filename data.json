@@ -334,13 +334,12 @@
       },
       "code": "600926.SH",
       "absolute": {
-        "bond_amount": 367.7301399999997,
+        "discounted_ac_amount": 271.3129119999998,
         "provision_amount": 420.97634348800005,
         "capital_amount": 304.52913838399985,
-        "oci_deduction": 28.589000000000002,
-        "total_amount": 1064.6466218719997,
-        "equity_ratio": 0.6125237074996791,
-        "profit_ratio": 5.27563448853239
+        "total_amount": 996.8183938719997,
+        "equity_ratio": 0.5735000569905164,
+        "profit_ratio": 4.939525838411805
       },
       "complete": true,
       "scores": {
@@ -530,13 +529,12 @@
       },
       "code": "601077.SH",
       "absolute": {
-        "bond_amount": 192.50727000000015,
+        "discounted_ac_amount": 119.49937600000013,
         "provision_amount": 119.18586,
         "capital_amount": 552.0868710000001,
-        "oci_deduction": 43.133050000000004,
-        "total_amount": 820.6469510000003,
-        "equity_ratio": 0.5622695709642848,
-        "profit_ratio": 6.514347024480672
+        "total_amount": 790.7721070000002,
+        "equity_ratio": 0.5418007010098713,
+        "profit_ratio": 6.27719863700287
       },
       "complete": true,
       "scores": {
@@ -726,13 +724,12 @@
       },
       "code": "601939.SH",
       "absolute": {
-        "bond_amount": 5560.819999999999,
+        "discounted_ac_amount": 4163.023999999999,
         "provision_amount": 342.58189599999923,
         "capital_amount": 13169.456199999999,
-        "oci_deduction": 357.04,
-        "total_amount": 18715.818095999995,
-        "equity_ratio": 0.49120535701444173,
-        "profit_ratio": 5.403043382968526
+        "total_amount": 17675.062095999998,
+        "equity_ratio": 0.46389023138527236,
+        "profit_ratio": 5.102588987107167
       },
       "complete": true,
       "scores": {
@@ -922,13 +919,12 @@
       },
       "code": "600036.SH",
       "absolute": {
-        "bond_amount": 1398.3700000000028,
+        "discounted_ac_amount": 965.8400000000024,
         "provision_amount": 1154.6648979999998,
         "capital_amount": 4614.642497999999,
-        "oci_deduction": 191.07,
-        "total_amount": 6976.607396000002,
-        "equity_ratio": 0.5186941432663735,
-        "profit_ratio": 4.599071429701509
+        "total_amount": 6735.147396000001,
+        "equity_ratio": 0.5007421673668974,
+        "profit_ratio": 4.439897819322857
       },
       "complete": true,
       "scores": {
@@ -1118,13 +1114,12 @@
       },
       "code": "601288.SH",
       "absolute": {
-        "bond_amount": 6501.820000000005,
+        "discounted_ac_amount": 4697.192000000005,
         "provision_amount": 3178.735,
         "capital_amount": 4730.689440000003,
-        "oci_deduction": 630.33,
-        "total_amount": 13780.91444000001,
-        "equity_ratio": 0.4140882352057416,
-        "profit_ratio": 4.625833950965389
+        "total_amount": 12606.616440000009,
+        "equity_ratio": 0.37880298700666554,
+        "profit_ratio": 4.2316578184161795
       },
       "complete": true,
       "scores": {
@@ -1314,13 +1309,12 @@
       },
       "code": "002948.SZ",
       "absolute": {
-        "bond_amount": 87.16746000000006,
+        "discounted_ac_amount": 51.927576000000045,
         "provision_amount": 75.75783508500001,
         "capital_amount": 59.450974759999994,
-        "oci_deduction": 22.25799,
-        "total_amount": 200.11827984500007,
-        "equity_ratio": 0.38409169545427846,
-        "profit_ratio": 3.4853428655400585
+        "total_amount": 187.13638584500006,
+        "equity_ratio": 0.3591752426418229,
+        "profit_ratio": 3.2592448215775454
       },
       "complete": true,
       "scores": {
@@ -1510,13 +1504,12 @@
       },
       "code": "601128.SH",
       "absolute": {
-        "bond_amount": 20.96944999999998,
+        "discounted_ac_amount": 10.620863999999983,
         "provision_amount": 32.300190000000015,
         "capital_amount": 117.73794279000002,
-        "oci_deduction": 7.693370000000001,
-        "total_amount": 163.31421279000003,
-        "equity_ratio": 0.48686538622177,
-        "profit_ratio": 3.68752082184141
+        "total_amount": 160.65899679,
+        "equity_ratio": 0.47894976919580723,
+        "profit_ratio": 3.62756789968468
       },
       "complete": true,
       "scores": {
@@ -1706,13 +1699,12 @@
       },
       "code": "601009.SH",
       "absolute": {
-        "bond_amount": 306.29630000000054,
+        "discounted_ac_amount": 228.23751200000044,
         "provision_amount": 147.71656980800003,
         "capital_amount": 336.1223480579998,
-        "oci_deduction": 20.99941,
-        "total_amount": 769.1358078660004,
-        "equity_ratio": 0.3525668640238678,
-        "profit_ratio": 3.367778918414003
+        "total_amount": 712.0764298660002,
+        "equity_ratio": 0.32641121536095,
+        "profit_ratio": 3.1179356939002707
       },
       "complete": true,
       "scores": {
@@ -1902,13 +1894,12 @@
       },
       "code": "002142.SZ",
       "absolute": {
-        "bond_amount": 352.33999999999975,
+        "discounted_ac_amount": 179.0239999999998,
         "provision_amount": 231.11319199999997,
         "capital_amount": 447.92151399999983,
-        "oci_deduction": 128.56,
-        "total_amount": 902.8147059999997,
-        "equity_ratio": 0.318348727225284,
-        "profit_ratio": 2.9007958937120444
+        "total_amount": 858.0587059999996,
+        "equity_ratio": 0.30256695546081874,
+        "profit_ratio": 2.756992275808886
       },
       "complete": true,
       "scores": {
@@ -2098,13 +2089,12 @@
       },
       "code": "601838.SH",
       "absolute": {
-        "bond_amount": 82.44565000000046,
+        "discounted_ac_amount": 57.075360000000366,
         "provision_amount": 178.54157999999998,
         "capital_amount": 152.61323807099996,
-        "oci_deduction": 11.10145,
-        "total_amount": 402.49901807100036,
-        "equity_ratio": 0.38992950781069013,
-        "profit_ratio": 2.9657788667956066
+        "total_amount": 388.2301780710003,
+        "equity_ratio": 0.37610626475063363,
+        "profit_ratio": 2.8606401652690776
       },
       "complete": true,
       "scores": {
@@ -2294,13 +2284,12 @@
       },
       "code": "601825.SH",
       "absolute": {
-        "bond_amount": 114.47696999999994,
+        "discounted_ac_amount": 56.92299999999996,
         "provision_amount": 66.604985436,
         "capital_amount": 603.6174760650001,
-        "oci_deduction": 43.32322,
-        "total_amount": 741.3762115010001,
-        "equity_ratio": 0.5570102184384083,
-        "profit_ratio": 5.991619476645068
+        "total_amount": 727.1454615010001,
+        "equity_ratio": 0.5463183820359508,
+        "profit_ratio": 5.876610069080402
       },
       "complete": true,
       "scores": {
@@ -2490,13 +2479,12 @@
       },
       "code": "601398.SH",
       "absolute": {
-        "bond_amount": 5899.310000000006,
+        "discounted_ac_amount": 4254.0800000000045,
         "provision_amount": -507.43425400000064,
         "capital_amount": 11067.961379999997,
-        "oci_deduction": 581.71,
-        "total_amount": 15878.127126000003,
-        "equity_ratio": 0.36695514544277164,
-        "profit_ratio": 4.243888567679031
+        "total_amount": 14814.607126,
+        "equity_ratio": 0.3423764194265118,
+        "profit_ratio": 3.9596320975247306
       },
       "complete": true,
       "scores": {
@@ -2686,13 +2674,12 @@
       },
       "code": "601328.SH",
       "absolute": {
-        "bond_amount": 1423.8700000000017,
+        "discounted_ac_amount": 1024.7920000000013,
         "provision_amount": -226.4374900000001,
         "capital_amount": 2841.9363499999995,
-        "oci_deduction": 142.88,
-        "total_amount": 3896.4888600000013,
-        "equity_ratio": 0.3014010652912457,
-        "profit_ratio": 3.9972187730816593
+        "total_amount": 3640.2908600000005,
+        "equity_ratio": 0.2815836468666267,
+        "profit_ratio": 3.7343976815757087
       },
       "complete": true,
       "scores": {
@@ -2882,13 +2869,12 @@
       },
       "code": "600919.SH",
       "absolute": {
-        "bond_amount": 370.80014000000074,
+        "discounted_ac_amount": 233.00343200000063,
         "provision_amount": 154.14102775099994,
         "capital_amount": 294.9727954959999,
-        "oci_deduction": 79.54585,
-        "total_amount": 740.3681132470006,
-        "equity_ratio": 0.21072914363618483,
-        "profit_ratio": 2.0487137631207464
+        "total_amount": 682.1172552470005,
+        "equity_ratio": 0.19414934609658197,
+        "profit_ratio": 1.887524575792282
       },
       "complete": true,
       "scores": {
@@ -3078,13 +3064,12 @@
       },
       "code": "002966.SZ",
       "absolute": {
-        "bond_amount": 21.842651059999866,
+        "discounted_ac_amount": 10.838321215999896,
         "provision_amount": 90.302601175,
         "capital_amount": 97.79670481599997,
-        "oci_deduction": 8.29474954,
-        "total_amount": 201.64720751099986,
-        "equity_ratio": 0.3151711910986966,
-        "profit_ratio": 3.59120990352984
+        "total_amount": 198.93762720699988,
+        "equity_ratio": 0.3109361626927483,
+        "profit_ratio": 3.542953982992962
       },
       "complete": true,
       "scores": {
@@ -3274,13 +3259,12 @@
       },
       "code": "601658.SH",
       "absolute": {
-        "bond_amount": 1716.8499999999988,
+        "discounted_ac_amount": 1328.6239999999991,
         "provision_amount": -556.5148999999999,
         "capital_amount": 2110.7594399999984,
-        "oci_deduction": 56.07,
-        "total_amount": 3215.024539999997,
-        "equity_ratio": 0.26873858830983505,
-        "profit_ratio": 3.5850361177087136
+        "total_amount": 2882.8685399999977,
+        "equity_ratio": 0.24097421717422887,
+        "profit_ratio": 3.214652861874015
       },
       "complete": true,
       "scores": {
@@ -3470,13 +3454,12 @@
       },
       "code": "601988.SH",
       "absolute": {
-        "bond_amount": 2441.4000000000005,
+        "discounted_ac_amount": 1499.6880000000006,
         "provision_amount": -460.5750139999995,
         "capital_amount": 6772.057823999998,
-        "oci_deduction": 566.79,
-        "total_amount": 8186.092809999999,
-        "equity_ratio": 0.26401172687706304,
-        "profit_ratio": 3.287270628533796
+        "total_amount": 7811.170809999999,
+        "equity_ratio": 0.25192002367241756,
+        "profit_ratio": 3.1367140556733486
       },
       "complete": true,
       "scores": {
@@ -3666,13 +3649,12 @@
       },
       "code": "601166.SH",
       "absolute": {
-        "bond_amount": 578.770000000003,
+        "discounted_ac_amount": 455.51200000000244,
         "provision_amount": -163.6417240000001,
         "capital_amount": 1274.563146999999,
-        "oci_deduction": 9.38,
-        "total_amount": 1680.311423000002,
-        "equity_ratio": 0.1771004566869383,
-        "profit_ratio": 2.226787292436955
+        "total_amount": 1566.4334230000013,
+        "equity_ratio": 0.16509801146723735,
+        "profit_ratio": 2.075873551199991
       },
       "complete": true,
       "scores": {
@@ -3862,13 +3844,12 @@
       },
       "code": "000001.SZ",
       "absolute": {
-        "bond_amount": 381.9899999999997,
+        "discounted_ac_amount": 298.85599999999977,
         "provision_amount": -186.57,
         "capital_amount": 768.4903510000001,
-        "oci_deduction": 8.42,
-        "total_amount": 955.4903509999999,
-        "equity_ratio": 0.1742914903669005,
-        "profit_ratio": 2.198601787892036
+        "total_amount": 880.776351,
+        "equity_ratio": 0.16066287088618678,
+        "profit_ratio": 2.02668342805863
       },
       "complete": true,
       "scores": {
@@ -4058,13 +4039,12 @@
       },
       "code": "600016.SH",
       "absolute": {
-        "bond_amount": 117.2300000000005,
+        "discounted_ac_amount": 52.15200000000041,
         "provision_amount": -1008.0495589999997,
         "capital_amount": 1025.223991507431,
-        "oci_deduction": 52.04,
-        "total_amount": 82.36443250743181,
-        "equity_ratio": 0.01168621346586717,
-        "profit_ratio": 0.2867842357501108
+        "total_amount": 69.32643250743172,
+        "equity_ratio": 0.009836326973245137,
+        "profit_ratio": 0.24138729981696283
       },
       "complete": true,
       "scores": {
@@ -4254,13 +4234,12 @@
       },
       "code": "601998.SH",
       "absolute": {
-        "bond_amount": 175.57999999999956,
+        "discounted_ac_amount": 121.18399999999966,
         "provision_amount": -205.29371500000008,
         "capital_amount": 1100.5979939999988,
-        "oci_deduction": 24.1,
-        "total_amount": 1046.7842789999984,
-        "equity_ratio": 0.12007753066508195,
-        "profit_ratio": 1.459095479635358
+        "total_amount": 1016.4882789999984,
+        "equity_ratio": 0.11660225028304888,
+        "profit_ratio": 1.4168663809205186
       },
       "complete": true,
       "scores": {
@@ -4450,13 +4429,12 @@
       },
       "code": "600000.SH",
       "absolute": {
-        "bond_amount": 361.5100000000016,
+        "discounted_ac_amount": 242.1920000000013,
         "provision_amount": -333.1813750000001,
         "capital_amount": 860.5000950000004,
-        "oci_deduction": 58.77,
-        "total_amount": 830.0587200000019,
-        "equity_ratio": 0.0995545214344914,
-        "profit_ratio": 1.620227440416939
+        "total_amount": 769.5107200000016,
+        "equity_ratio": 0.09229259282802413,
+        "profit_ratio": 1.5020411860006668
       },
       "complete": true,
       "scores": {
@@ -4469,15 +4447,16 @@
     }
   ],
   "absolute_model": {
-    "formula": "(AC浮盈＋OCI相关其他综合收益余额)＋超额拨备＋CET1安全垫金额－OCI相关其他综合收益余额",
-    "short_formula": "AC浮盈＋超额拨备＋CET1安全垫金额",
+    "ac_discount_factor": 0.8,
+    "formula": "折扣后AC浮盈＋超额拨备＋CET1安全垫金额",
+    "short_formula": "折扣后AC浮盈＋超额拨备＋CET1安全垫金额",
     "unit": "亿元",
     "denominator_source": "provision",
-    "basis": "用户指定的机械加总研究口径，仅扣除浮盈项中的OCI余额；未进一步调整税务、拨备与监管资本之间的其他重叠，并非可分配现金。",
+    "basis": "用户指定的机械加总研究口径，AC浮盈先按配置折扣系数计入，OCI不计入；未进一步调整税务、拨备与监管资本之间的其他重叠，并非可分配现金。",
     "adjusted_pb_formula": "家底调整后PB＝原PB÷（1＋总家底/归母净资产）",
     "valuation_note": "家底与归母净资产为2026H1期末，利润为截至2026H1的TTM；原PB为2026E全年预测。家底调整后PB按原PB÷（1＋总家底/归母净资产）计算，是用户指定研究口径的混合期近似，并非严格同一期市值/调整后净资产。PB下降倍数＝原PB－调整后PB，不是股价涨幅或合理价格偏离。"
   },
-  "config_hash": "799e151934ce002b42a8fcd46b668cd6af187ead0b7b530a70400d1ecb2b3600",
+  "config_hash": "fe26d0d757357e02261dded968f8a81b263910c7f1df17722e92a33b266b2d8e",
   "source_note": "第17号为兑现收益库；按用户指定浮盈余额指标改用同网站第19号余额库。浮盈/归母净资产及拨贷比由源表计算。",
   "scope_note": "2_Bank 独立银行笔记中按用户要求排除3家香港银行，保留22家。排除行业、基础知识、观点和其他银行合集。"
 }

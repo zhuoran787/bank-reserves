@@ -1,7 +1,7 @@
-import {renderValuation} from './valuation.mjs?v=20261011-combined';
-import {calculate,color,finite} from './engine.mjs?v=20261011-combined';
-import {renderAbsolute} from './absolute.mjs?v=20261011-combined';
-import {renderCombined} from './combined.mjs?v=20261011-combined';
+import {renderValuation} from './valuation.mjs?v=20261011-ac80';
+import {calculate,color,finite} from './engine.mjs?v=20261011-ac80';
+import {renderAbsolute} from './absolute.mjs?v=20261011-ac80';
+import {renderCombined} from './combined.mjs?v=20261011-ac80';
 const $=id=>document.getElementById(id);
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=(x,d=2)=>finite(x)?(x*100).toLocaleString('zh-CN',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
@@ -95,13 +95,14 @@ function exportCSV(){
 
 async function init(){
   try{
-    const response=await fetch('./data.json?v=20261011-combined');if(!response.ok)throw new Error('数据文件暂时不可用');data=await response.json();
-    const vr=await fetch('./valuation.json?v=20261011-combined');if(!vr.ok)throw new Error('估值文件暂时不可用');valuation=await vr.json();
-    const hr=await fetch('./valuation-h.json?v=20261011-combined');if(!hr.ok)throw new Error('H股估值文件暂时不可用');valuationH=await hr.json();
+    const response=await fetch('./data.json?v=20261011-ac80');if(!response.ok)throw new Error('数据文件暂时不可用');data=await response.json();
+    const vr=await fetch('./valuation.json?v=20261011-ac80');if(!vr.ok)throw new Error('估值文件暂时不可用');valuation=await vr.json();
+    const hr=await fetch('./valuation-h.json?v=20261011-ac80');if(!hr.ok)throw new Error('H股估值文件暂时不可用');valuationH=await hr.json();
     $('valuation-sort').addEventListener('change',render);
     $('h-valuation-sort').addEventListener('change',render);
     $('absolute-sort').addEventListener('change',render);
     $('h-absolute-sort').addEventListener('change',render);
+    document.querySelectorAll('.ac-discount-factor').forEach(el=>el.textContent=(data.absolute_model.ac_discount_factor*100).toFixed(0)+'%');
     weightUI();recalculate();
     $('sources').innerHTML='<b>本页采用的原始数据库</b>'+data.groups.map(g=>{const s=data.sources[g.id];return `<div class="source-row"><span>${esc(g.label)}</span><a href="${s.url}" target="_blank" rel="noopener">${esc(s.filename)} ↗</a><span>${esc(s.report)} · 文件名日期 ${esc(s.filename_date)}${s.internal_updated?' · 源表更新日 '+esc(s.internal_updated):''}</span></div>`;}).join('')+'<p>源文件需在银行先爽网站登录后下载。点击银行名称可查看精确单元格。</p>';
     $('reset').addEventListener('click',()=>{weights=[33,33,33];sortKey='total';sortDirection=-1;weightUI();recalculate();});
