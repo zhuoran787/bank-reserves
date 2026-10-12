@@ -1,13 +1,13 @@
-import {renderValuation} from './valuation.mjs?v=20261011-emphasis';
-import {calculate,color,finite} from './engine.mjs?v=20261011-emphasis';
-import {renderAbsolute} from './absolute.mjs?v=20261011-emphasis';
-import {renderCombined} from './combined.mjs?v=20261011-emphasis';
+import {renderValuation} from './valuation.mjs?v=20261011-nii';
+import {calculate,color,finite} from './engine.mjs?v=20261011-nii';
+import {renderAbsolute} from './absolute.mjs?v=20261011-nii';
+import {renderCombined} from './combined.mjs?v=20261011-nii';
 const $=id=>document.getElementById(id);
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=(x,d=2)=>finite(x)?(x*100).toLocaleString('zh-CN',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
 const score=x=>finite(x)?x.toFixed(1):'—';
 const rawNum=x=>finite(x)?x.toLocaleString('zh-CN',{minimumFractionDigits:2,maximumFractionDigits:2}):'—';
-let data,model,valuation,valuationH,weights=[33,33,33],showScores=false,sortKey='total',sortDirection=-1;
+let data,model,valuation,valuationH,niiGrowth,weights=[33,33,33],showScores=false,sortKey='total',sortDirection=-1;
 const labels={bond_profit:'AC&OCI浮盈<br>／归母净利润',bond_equity:'AC&OCI浮盈<br>／归母净资产',prov_profit:'超额拨备<br>／归母净利润',prov_equity:'超额拨备<br>／归母净资产',loan_prov:'拨贷比',cet1_profit:'CET1安全垫金额<br>／归母净利润',cet1_equity:'CET1安全垫金额<br>／归母净资产',fcf1:'自由现金流1'};
 const groupNote=g=>{const ms=data.metrics.filter(m=>m.group===g.id),sum=ms.reduce((s,m)=>s+m.weight,0);return ms.map(m=>`${m.label} ${(m.weight/sum*100).toFixed(1)}%`).join('；');};
 
@@ -21,7 +21,7 @@ function recalculate(){
   data.groups.forEach((g,i)=>{$(`output-${g.id}`).textContent=model.error?'—':`${(model.weights[i]*100).toFixed(1)}%`;});
   $('weight-status').textContent=model.error||'权重自动折算至100%';
   $('weight-status').classList.toggle('error-state',Boolean(model.error));
-  renderCombined(data,model,[{label:'A股',valuation,id:'a'},{label:'H股',valuation:valuationH,id:'h'}],esc);
+  renderCombined(data,model,[{label:'A股',valuation,id:'a'},{label:'H股',valuation:valuationH,id:'h'}],esc,niiGrowth);
   if(model.error){$('h-gap-leaders').innerHTML='';$('h-valuation-body').innerHTML='';$('gap-leaders').innerHTML='';$('valuation-body').innerHTML='';$('tbody').innerHTML='<tr><td colspan="12" class="empty">至少保留一个正权重，即可恢复排名。</td></tr>';$('result-count').textContent='当前权重均为0，未计算排名';return;}
   render();
 }
@@ -95,9 +95,12 @@ function exportCSV(){
 
 async function init(){
   try{
-    const response=await fetch('./data.json?v=20261011-emphasis');if(!response.ok)throw new Error('数据文件暂时不可用');data=await response.json();
-    const vr=await fetch('./valuation.json?v=20261011-emphasis');if(!vr.ok)throw new Error('估值文件暂时不可用');valuation=await vr.json();
-    const hr=await fetch('./valuation-h.json?v=20261011-emphasis');if(!hr.ok)throw new Error('H股估值文件暂时不可用');valuationH=await hr.json();
+    const response=await fetch('./data.json?v=20261011-nii');if(!response.ok)throw new Error('数据文件暂时不可用');data=await response.json();
+    const vr=await fetch('./valuation.json?v=20261011-nii');if(!vr.ok)throw new Error('估值文件暂时不可用');valuation=await vr.json();
+    const hr=await fetch('./valuation-h.json?v=20261011-nii');if(!hr.ok)throw new Error('H股估值文件暂时不可用');valuationH=await hr.json();
+    const nr=await fetch('./nii-growth.json?v=20261011-nii');if(!nr.ok)throw new Error('净利息收入增速文件暂时不可用');niiGrowth=await nr.json();
+    const growthNames=niiGrowth.banks.map(b=>b.name).sort(),bankNames=data.banks.map(b=>b.name).sort();
+    if(JSON.stringify(growthNames)!==JSON.stringify(bankNames)||niiGrowth.banks.some(b=>!finite(b.value))||niiGrowth.display_only!==true)throw new Error('净利息收入增速范围或口径不完整');
     $('valuation-sort').addEventListener('change',render);
     $('h-valuation-sort').addEventListener('change',render);
     $('absolute-sort').addEventListener('change',render);
