@@ -1,11 +1,11 @@
-import {finite,color} from './engine.mjs?v=20261011-pb';
+import {finite,color} from './engine.mjs?v=20261011-focus';
 
 // Absolute reserve colors use the full bank cohort; valuation colors use each market.
 // Linear value spacing retains magnitude differences instead of percentile spacing.
 export const absoluteColumns = [
+  {key:'adjusted_pb',source:'comparison',kind:'multiple',lower:true,rank:true},
   {key:'equity_ratio',source:'absolute',kind:'percent'},
   {key:'pb',source:'valuation',kind:'multiple',lower:true},
-  {key:'adjusted_pb',source:'comparison',kind:'multiple',lower:true,rank:true},
   {key:'pb_reduction',source:'comparison',kind:'multiple'},
   {key:'profit_ratio',source:'absolute',kind:'percent'},
   {key:'dividend_yield',source:'valuation',kind:'percent'},
@@ -51,7 +51,7 @@ export function renderAbsolute(data, valuation, esc, prefix='') {
   const scales=absoluteColumns.map(c=>(c.source==='absolute'?data.banks:rows).map(b=>b[c.source][c.key]));
   $('absolute-body').innerHTML=shown.map(b=>`<tr><td class="sticky-bank"><button class="bank-name absolute-bank" data-bank="${esc(b.name)}">${esc(b.name)}</button><span class="bank-sub">${prefix?'H股':'A股'} · ${esc(b.type)}</span></td>${absoluteColumns.map((c,i)=>{
     const value=b[c.source][c.key],paint=color(absoluteColorScore(value,scales[i],c.lower));
-    return `<td><span class="metric-value absolute-value${c.rank?' adjusted-pb':''}" style="background:${paint.background};color:${paint.color}" title="${value.toPrecision(12)}">${formatAbsolute(value,c.kind)}${c.rank?`<span class="metric-rank">第 ${b.comparison.rank} 名</span>`:''}</span></td>`;
+    return `<td${c.rank?' class="pb-focus"':''}><span class="metric-value absolute-value${c.rank?' adjusted-pb':''}" style="background:${paint.background};color:${paint.color}" title="${value.toPrecision(12)}">${formatAbsolute(value,c.kind)}${c.rank?`<span class="metric-rank">第 ${b.comparison.rank} 名</span>`:''}</span></td>`;
   }).join('')}</tr>`).join('');
   $('absolute-count').textContent=`显示 ${shown.length} / ${rows.length} 家 · 调整后PB越低排名越前；名次按本市场全样本、未四舍五入值计算`;
   $('absolute-source').innerHTML=`家底：2026H1，利润分母统一为10号拨备库归母净利润TTM；金额单位亿元。<br>估值：<a href="${valuation.source.url}" target="_blank" rel="noopener">${esc(valuation.source.title)} · ${esc(valuation.source.published)}图片 ↗</a>，${esc(valuation.source.market)}2026E全年预测。<br>${esc(data.absolute_model.valuation_note)}`;
