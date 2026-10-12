@@ -1,6 +1,6 @@
-import {renderValuation} from './valuation.mjs?v=20261011-capital';
-import {calculate,color,finite} from './engine.mjs?v=20261011-capital';
-import {renderAbsolute} from './absolute.mjs?v=20261011-capital';
+import {renderValuation} from './valuation.mjs?v=20261011-all';
+import {calculate,color,finite} from './engine.mjs?v=20261011-all';
+import {renderAbsolute} from './absolute.mjs?v=20261011-all';
 const $=id=>document.getElementById(id);
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=(x,d=2)=>finite(x)?(x*100).toLocaleString('zh-CN',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
@@ -95,20 +95,13 @@ function exportCSV(){
 
 async function init(){
   try{
-    const response=await fetch('./data.json?v=20261011-capital');if(!response.ok)throw new Error('数据文件暂时不可用');data=await response.json();
-    const vr=await fetch('./valuation.json?v=20261011-capital');if(!vr.ok)throw new Error('估值文件暂时不可用');valuation=await vr.json();
-    const hr=await fetch('./valuation-h.json?v=20261011-capital');if(!hr.ok)throw new Error('H股估值文件暂时不可用');valuationH=await hr.json();
+    const response=await fetch('./data.json?v=20261011-all');if(!response.ok)throw new Error('数据文件暂时不可用');data=await response.json();
+    const vr=await fetch('./valuation.json?v=20261011-all');if(!vr.ok)throw new Error('估值文件暂时不可用');valuation=await vr.json();
+    const hr=await fetch('./valuation-h.json?v=20261011-all');if(!hr.ok)throw new Error('H股估值文件暂时不可用');valuationH=await hr.json();
     $('valuation-sort').addEventListener('change',render);
     $('h-valuation-sort').addEventListener('change',render);
     $('absolute-sort').addEventListener('change',render);
     $('h-absolute-sort').addEventListener('change',render);
-    const setMode=absolute=>{
-      $('rank-comparisons').hidden=absolute;$('absolute-comparisons').hidden=!absolute;
-      $('mode-rank').setAttribute('aria-pressed',String(!absolute));$('mode-absolute').setAttribute('aria-pressed',String(absolute));
-    };
-    $('mode-rank').addEventListener('click',()=>setMode(false));
-    $('mode-absolute').addEventListener('click',()=>setMode(true));
-    setMode(location.hash==='#absolute');
     weightUI();recalculate();
     $('sources').innerHTML='<b>本页采用的原始数据库</b>'+data.groups.map(g=>{const s=data.sources[g.id];return `<div class="source-row"><span>${esc(g.label)}</span><a href="${s.url}" target="_blank" rel="noopener">${esc(s.filename)} ↗</a><span>${esc(s.report)} · 文件名日期 ${esc(s.filename_date)}${s.internal_updated?' · 源表更新日 '+esc(s.internal_updated):''}</span></div>`;}).join('')+'<p>源文件需在银行先爽网站登录后下载。点击银行名称可查看精确单元格。</p>';
     $('reset').addEventListener('click',()=>{weights=[33,33,33];sortKey='total';sortDirection=-1;weightUI();recalculate();});

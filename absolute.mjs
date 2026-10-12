@@ -1,4 +1,26 @@
-import {finite} from './engine.mjs?v=20261011-capital';
+import {finite,color} from './engine.mjs?v=20261011-all';
+
+// Absolute reserve colors use the full bank cohort; valuation colors use each market.
+// Linear value spacing retains magnitude differences instead of percentile spacing.
+export const absoluteColumns = [
+  {key:'equity_ratio',source:'absolute',kind:'percent'},
+  {key:'profit_ratio',source:'absolute',kind:'percent'},
+  {key:'pb',source:'valuation',kind:'multiple',lower:true},
+  {key:'dividend_yield',source:'valuation',kind:'percent'},
+  {key:'total_amount',source:'absolute',kind:'amount'},
+  {key:'bond_amount',source:'absolute',kind:'amount'},
+  {key:'provision_amount',source:'absolute',kind:'amount'},
+  {key:'capital_amount',source:'absolute',kind:'amount'},
+  {key:'oci_deduction',source:'absolute',kind:'amount',lower:true},
+];
+const numberFormat=new Intl.NumberFormat('zh-CN',{minimumFractionDigits:2,maximumFractionDigits:2});
+export const formatAbsolute=(value,kind)=>numberFormat.format(kind==='percent'?value*100:value)+(kind==='percent'?'%':kind==='multiple'?'×':'');
+export function absoluteColorScore(value,values,lower=false){
+  const min=Math.min(...values),max=Math.max(...values);
+  if(max===min)return 50;
+  const score=100*(value-min)/(max-min);
+  return lower?100-score:score;
+}
 
 export function compareAbsolute(data, valuation) {
   const names=valuation.banks.map(b=>b.name);
@@ -18,9 +40,11 @@ export function renderAbsolute(data, valuation, esc, prefix='') {
   rows.sort((a,b)=>(key==='pb'?1:-1)*(value(a)-value(b))||a.name.localeCompare(b.name,'zh'));
   const q=document.getElementById('search').value.trim(),type=document.getElementById('type').value;
   const shown=rows.filter(b=>(!q||b.name.includes(q)||(b.code||'').includes(q))&&(!type||b.type===type));
-  const num=x=>x.toLocaleString('zh-CN',{minimumFractionDigits:2,maximumFractionDigits:2});
-  const pct=x=>num(x*100)+'%';
-  $('absolute-body').innerHTML=shown.map(b=>`<tr><td class="sticky-bank"><button class="bank-name absolute-bank" data-bank="${esc(b.name)}">${esc(b.name)}</button><span class="bank-sub">${prefix?'H股':'A股'} · ${esc(b.type)}</span></td><td class="absolute-ratio">${pct(b.absolute.equity_ratio)}</td><td class="absolute-ratio">${pct(b.absolute.profit_ratio)}</td><td>${num(b.valuation.pb)}×</td><td>${pct(b.valuation.dividend_yield)}</td><td><b>${num(b.absolute.total_amount)}</b></td>${['bond_amount','provision_amount','capital_amount','oci_deduction'].map(k=>`<td>${num(b.absolute[k])}</td>`).join('')}</tr>`).join('');
+  const scales=absoluteColumns.map(c=>(c.source==='absolute'?data.banks:rows).map(b=>b[c.source][c.key]));
+  $('absolute-body').innerHTML=shown.map(b=>`<tr><td class="sticky-bank"><button class="bank-name absolute-bank" data-bank="${esc(b.name)}">${esc(b.name)}</button><span class="bank-sub">${prefix?'H股':'A股'} · ${esc(b.type)}</span></td>${absoluteColumns.map((c,i)=>{
+    const value=b[c.source][c.key],paint=color(absoluteColorScore(value,scales[i],c.lower));
+    return `<td><span class="metric-value absolute-value" style="background:${paint.background};color:${paint.color}">${formatAbsolute(value,c.kind)}</span></td>`;
+  }).join('')}</tr>`).join('');
   $('absolute-count').textContent=`显示 ${shown.length} / ${rows.length} 家 · 总家底按指定金额公式计算，不随排名权重变化`;
   $('absolute-source').innerHTML=`家底：2026H1，利润分母统一为10号拨备库归母净利润TTM；金额单位亿元。<br>估值：<a href="${valuation.source.url}" target="_blank" rel="noopener">${esc(valuation.source.title)} · ${esc(valuation.source.published)}图片 ↗</a>，${esc(valuation.source.market)}2026E全年预测。<br>${esc(data.absolute_model.valuation_note)}`;
   return shown;
