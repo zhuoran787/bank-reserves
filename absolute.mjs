@@ -1,4 +1,4 @@
-import {finite,color} from './engine.mjs?v=20261011-ac80';
+import {finite,color} from './engine.mjs?v=20261011-emphasis';
 
 // Absolute reserve colors use the full bank cohort; valuation colors use each market.
 // Linear value spacing retains magnitude differences instead of percentile spacing.

@@ -1,5 +1,5 @@
-import {compareValuation} from './valuation.mjs?v=20261011-ac80';
-import {compareAbsolute} from './absolute.mjs?v=20261011-ac80';
+import {compareValuation} from './valuation.mjs?v=20261011-emphasis';
+import {compareAbsolute} from './absolute.mjs?v=20261011-emphasis';
 
 export const combination = Object.freeze({gapWeight:1, adjustedWeight:1, edgeCount:5});
 
@@ -29,7 +29,7 @@ export function edgeRows(rows, tail=false) {
 export function renderCombined(data, model, markets, esc) {
   const target=document.getElementById('leaders');
   const sum=combination.gapWeight+combination.adjustedWeight;
-  const header=`<h2>两种方法综合排名</h2><p class="combined-explain">排名偏差法名次 × ${(combination.gapWeight/sum*100).toFixed(0)}% + 调整PB法名次 × ${(combination.adjustedWeight/sum*100).toFixed(0)}% = 平均名次，越小越靠前。A股、H股分别排名。</p>`;
+  const header=`<div class="combined-heading"><span class="combined-kicker">综合筛选总览</span><h2>两种方法综合排名</h2><p class="combined-explain">排名偏差法名次 × ${(combination.gapWeight/sum*100).toFixed(0)}% + 调整PB法名次 × ${(combination.adjustedWeight/sum*100).toFixed(0)}% = 平均名次，越小越靠前。A股、H股分别排名。</p></div>`;
   if(model.error){target.innerHTML=header+'<p class="error-state">家底权重均为0，暂不计算综合排名；至少保留一个正权重即可恢复。</p>';return;}
   const table=(rows,tail,id)=>{
     const selected=edgeRows(rows,tail);

@@ -1,7 +1,7 @@
-import {renderValuation} from './valuation.mjs?v=20261011-ac80';
-import {calculate,color,finite} from './engine.mjs?v=20261011-ac80';
-import {renderAbsolute} from './absolute.mjs?v=20261011-ac80';
-import {renderCombined} from './combined.mjs?v=20261011-ac80';
+import {renderValuation} from './valuation.mjs?v=20261011-emphasis';
+import {calculate,color,finite} from './engine.mjs?v=20261011-emphasis';
+import {renderAbsolute} from './absolute.mjs?v=20261011-emphasis';
+import {renderCombined} from './combined.mjs?v=20261011-emphasis';
 const $=id=>document.getElementById(id);
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=(x,d=2)=>finite(x)?(x*100).toLocaleString('zh-CN',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
@@ -95,9 +95,9 @@ function exportCSV(){
 
 async function init(){
   try{
-    const response=await fetch('./data.json?v=20261011-ac80');if(!response.ok)throw new Error('数据文件暂时不可用');data=await response.json();
-    const vr=await fetch('./valuation.json?v=20261011-ac80');if(!vr.ok)throw new Error('估值文件暂时不可用');valuation=await vr.json();
-    const hr=await fetch('./valuation-h.json?v=20261011-ac80');if(!hr.ok)throw new Error('H股估值文件暂时不可用');valuationH=await hr.json();
+    const response=await fetch('./data.json?v=20261011-emphasis');if(!response.ok)throw new Error('数据文件暂时不可用');data=await response.json();
+    const vr=await fetch('./valuation.json?v=20261011-emphasis');if(!vr.ok)throw new Error('估值文件暂时不可用');valuation=await vr.json();
+    const hr=await fetch('./valuation-h.json?v=20261011-emphasis');if(!hr.ok)throw new Error('H股估值文件暂时不可用');valuationH=await hr.json();
     $('valuation-sort').addEventListener('change',render);
     $('h-valuation-sort').addEventListener('change',render);
     $('absolute-sort').addEventListener('change',render);
