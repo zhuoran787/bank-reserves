@@ -1,7 +1,7 @@
-import {renderValuation} from './valuation.mjs?v=20261011-nii';
-import {calculate,color,finite} from './engine.mjs?v=20261011-nii';
-import {renderAbsolute} from './absolute.mjs?v=20261011-nii';
-import {renderCombined} from './combined.mjs?v=20261011-nii';
+import {renderValuation} from './valuation.mjs?v=20261012-val';
+import {calculate,color,finite} from './engine.mjs?v=20261012-val';
+import {renderAbsolute} from './absolute.mjs?v=20261012-val';
+import {renderCombined} from './combined.mjs?v=20261012-val';
 const $=id=>document.getElementById(id);
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=(x,d=2)=>finite(x)?(x*100).toLocaleString('zh-CN',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
@@ -95,10 +95,10 @@ function exportCSV(){
 
 async function init(){
   try{
-    const response=await fetch('./data.json?v=20261011-nii');if(!response.ok)throw new Error('数据文件暂时不可用');data=await response.json();
-    const vr=await fetch('./valuation.json?v=20261011-nii');if(!vr.ok)throw new Error('估值文件暂时不可用');valuation=await vr.json();
-    const hr=await fetch('./valuation-h.json?v=20261011-nii');if(!hr.ok)throw new Error('H股估值文件暂时不可用');valuationH=await hr.json();
-    const nr=await fetch('./nii-growth.json?v=20261011-nii');if(!nr.ok)throw new Error('净利息收入增速文件暂时不可用');niiGrowth=await nr.json();
+    const response=await fetch('./data.json?v=20261012-val');if(!response.ok)throw new Error('数据文件暂时不可用');data=await response.json();
+    const vr=await fetch('./valuation.json?v=20261012-val');if(!vr.ok)throw new Error('估值文件暂时不可用');valuation=await vr.json();
+    const hr=await fetch('./valuation-h.json?v=20261012-val');if(!hr.ok)throw new Error('H股估值文件暂时不可用');valuationH=await hr.json();
+    const nr=await fetch('./nii-growth.json?v=20261012-val');if(!nr.ok)throw new Error('净利息收入增速文件暂时不可用');niiGrowth=await nr.json();
     const growthNames=niiGrowth.banks.map(b=>b.name).sort(),bankNames=data.banks.map(b=>b.name).sort();
     if(JSON.stringify(growthNames)!==JSON.stringify(bankNames)||niiGrowth.banks.some(b=>!finite(b.value))||niiGrowth.display_only!==true)throw new Error('净利息收入增速范围或口径不完整');
     $('valuation-sort').addEventListener('change',render);

@@ -1,15 +1,16 @@
 {
   "source": {
     "title": "长江银行｜上市银行预期股息率及动态估值",
-    "filename": "valuation-source-20261009.png",
-    "original_filename": "codex-clipboard-5a27347f-d9cf-4971-b88e-64123b4d8677.png",
+    "filename": "valuation-source-20261012.png",
+    "original_filename": "codex-clipboard-a0c14565-62a1-45cb-bcb4-15569e1dcebf.png",
     "publisher": "长江证券研究所",
     "upstream": "Wind、上市银行财务报告（图片署名，未独立获取底表）",
-    "published": "2026-10-09",
+    "published": "2026-10-12",
     "market": "H股",
     "basis": "2026E全年预测；非TTM、非NTM",
-    "price_basis": "图片日期为2026-10-09；未另行标明具体价格时点，不宣称为已核验收盘价",
-    "url": "./valuation-source-20261009.png"
+    "price_basis": "图片日期为2026-10-12；未另行标明具体价格时点，不宣称为已核验收盘价",
+    "url": "./valuation-source-20261012.png",
+    "sha256": "fc79201701bf9ee204564b92e4ac974e2f53fdb6a263f773fefe1583dfc54bb3"
   },
   "weights": {
     "pb": 0.5,
@@ -20,8 +21,8 @@
   "banks": [
     {
       "name": "交通银行",
-      "pb": 0.52,
-      "dividend_yield": 0.0489,
+      "pb": 0.53,
+      "dividend_yield": 0.0478,
       "row_label": "交通银行",
       "pb_column": "2026E PB / H股",
       "yield_column": "2026年预期股息率 / H股"
@@ -29,39 +30,39 @@
     {
       "name": "邮储银行",
       "pb": 0.52,
-      "dividend_yield": 0.050499999999999996,
+      "dividend_yield": 0.0496,
       "row_label": "邮储银行",
       "pb_column": "2026E PB / H股",
       "yield_column": "2026年预期股息率 / H股"
     },
     {
       "name": "工商银行",
-      "pb": 0.55,
-      "dividend_yield": 0.0516,
+      "pb": 0.56,
+      "dividend_yield": 0.051,
       "row_label": "工商银行",
       "pb_column": "2026E PB / H股",
       "yield_column": "2026年预期股息率 / H股"
     },
     {
       "name": "农业银行",
-      "pb": 0.65,
-      "dividend_yield": 0.048600000000000004,
+      "pb": 0.67,
+      "dividend_yield": 0.047400000000000005,
       "row_label": "农业银行",
       "pb_column": "2026E PB / H股",
       "yield_column": "2026年预期股息率 / H股"
     },
     {
       "name": "建设银行",
-      "pb": 0.58,
-      "dividend_yield": 0.050199999999999995,
+      "pb": 0.59,
+      "dividend_yield": 0.0496,
       "row_label": "建设银行",
       "pb_column": "2026E PB / H股",
       "yield_column": "2026年预期股息率 / H股"
     },
     {
       "name": "中国银行",
-      "pb": 0.59,
-      "dividend_yield": 0.0467,
+      "pb": 0.6,
+      "dividend_yield": 0.0458,
       "row_label": "中国银行",
       "pb_column": "2026E PB / H股",
       "yield_column": "2026年预期股息率 / H股"
@@ -69,39 +70,39 @@
     {
       "name": "民生银行",
       "pb": 0.22,
-      "dividend_yield": 0.0611,
+      "dividend_yield": 0.059699999999999996,
       "row_label": "民生银行",
       "pb_column": "2026E PB / H股",
       "yield_column": "2026年预期股息率 / H股"
     },
     {
       "name": "招商银行",
-      "pb": 0.93,
-      "dividend_yield": 0.0462,
+      "pb": 0.96,
+      "dividend_yield": 0.044800000000000006,
       "row_label": "招商银行",
       "pb_column": "2026E PB / H股",
       "yield_column": "2026年预期股息率 / H股"
     },
     {
       "name": "中信银行",
-      "pb": 0.52,
-      "dividend_yield": 0.054299999999999994,
+      "pb": 0.53,
+      "dividend_yield": 0.0535,
       "row_label": "中信银行",
       "pb_column": "2026E PB / H股",
       "yield_column": "2026年预期股息率 / H股"
     },
     {
       "name": "青岛银行",
-      "pb": 0.55,
-      "dividend_yield": 0.049400000000000006,
+      "pb": 0.56,
+      "dividend_yield": 0.0482,
       "row_label": "青岛银行",
       "pb_column": "2026E PB / H股",
       "yield_column": "2026年预期股息率 / H股"
     },
     {
       "name": "渝农商行",
-      "pb": 0.43,
-      "dividend_yield": 0.0643,
+      "pb": 0.45,
+      "dividend_yield": 0.061399999999999996,
       "row_label": "渝农商行",
       "pb_column": "2026E PB / H股",
       "yield_column": "2026年预期股息率 / H股"
