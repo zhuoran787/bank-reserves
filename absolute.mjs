@@ -1,4 +1,4 @@
-import {finite,color} from './engine.mjs?v=20261025-val';
+import {finite,color} from './engine.mjs?v=20261101-q3';
 
 // Absolute reserve colors use the full bank cohort; valuation colors use each market.
 // Linear value spacing retains magnitude differences instead of percentile spacing.
@@ -53,6 +53,6 @@ export function renderAbsolute(data, valuation, esc, prefix='') {
     return `<td${c.rank?' class="pb-focus"':''}><span class="metric-value absolute-value${c.rank?' adjusted-pb':''}" style="background:${paint.background};color:${paint.color}" title="${value.toPrecision(12)}">${formatAbsolute(value,c.kind)}${c.rank?`<span class="metric-rank">第 ${b.comparison.rank} 名</span>`:''}</span></td>`;
   }).join('')}</tr>`).join('');
   $('absolute-count').textContent=`显示 ${shown.length} / ${rows.length} 家 · 调整后PB越低排名越前；名次按本市场全样本、未四舍五入值计算`;
-  $('absolute-source').innerHTML=`家底：2026H1，利润分母统一为10号拨备库归母净利润TTM；金额单位亿元。<br>估值：<a href="${valuation.source.url}" target="_blank" rel="noopener">${esc(valuation.source.title)} · ${esc(valuation.source.published)}图片 ↗</a>，${esc(valuation.source.market)}2026E全年预测。<br>${esc(data.absolute_model.valuation_note)}`;
+  $('absolute-source').innerHTML=`家底：${esc(data.as_of)}，利润分母统一为Q3拨备库归母净利润TTM；金额单位亿元。<br>估值：<a href="${valuation.source.url}" target="_blank" rel="noopener">${esc(valuation.source.title)} · ${esc(valuation.source.published)}图片 ↗</a>，${esc(valuation.source.market)}2026E全年预测。<br>${esc(data.absolute_model.valuation_note)}`;
   return shown;
 }

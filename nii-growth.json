@@ -1,9 +1,9 @@
 {
   "metric": "净利息收入同比增速",
-  "period_label": "2026H1",
-  "period_end": "2026-06-30",
-  "comparison_period": "2025H1",
-  "basis": "2026年上半年累计净利息收入较2025年上半年同期的增速；非单季、环比或相对一季度增速的变化。",
+  "period_label": "2026Q1–3",
+  "period_end": "2026-09-30",
+  "comparison_period": "2025Q1–3",
+  "basis": "2026年前三季度累计净利息收入同比2025年前三季度；非第三季度单季、环比或增速变化百分点。",
   "display_only": true,
   "scope_names": [
     "中信银行",
@@ -31,10 +31,14 @@
   ],
   "scope_hash": "739e00eaff99ac1828fcaa6de8a9f4da56d01a00f0b2dc7bb2f334bf66706296",
   "source": {
-    "filename": "0【银行先爽】上市银行2026H1业绩变化一览—20260830.xlsx",
-    "filename_date": "2026-08-30",
-    "url": "https://yinhangxianshuang.com/api/files/863/download",
-    "sheet": "一张图",
+    "filename": "1【银行先爽】上市银行2026Q1~3业绩变化一览—20261030.xlsx",
+    "filename_date": "2026-10-30",
+    "sha256": "cf7637d8d9b1124c939bb92e30080336e23881add9da42374af43c2274ccdc0d",
+    "url": "https://yinhangxianshuang.com/files?folder=649",
+    "url_note": "用户提供的本地下载文件；未核验新文件下载ID，链接指向文件目录。",
+    "sheet": "一张图-26Q1~3",
+    "period": "2026-09-30",
+    "report": "2026年前三季度（2026Q1–3）",
     "header_cells": [
       "E50",
       "E51",
@@ -42,163 +46,162 @@
       "E53"
     ],
     "value_range": "E54:E96",
-    "sha256": "07241edfcb090bf961d3b6c009d10b2a7902f80afa30bdbbdd1d63847e22bfe7",
-    "retrieved_on": "2026-10-11"
+    "retrieved_on": "2026-11-01"
   },
   "banks": [
     {
       "name": "中信银行",
-      "value": 0.027359166303844048,
+      "value": 0.016229967874319882,
       "cell": "E91",
       "bank_cell": "B91",
       "report_cell": "D91"
     },
     {
       "name": "中国银行",
-      "value": 0.10202685088633993,
-      "cell": "E73",
-      "bank_cell": "B73",
-      "report_cell": "D73"
+      "value": 0.10379014831548963,
+      "cell": "E69",
+      "bank_cell": "B69",
+      "report_cell": "D69"
     },
     {
       "name": "交通银行",
-      "value": 0.08616138984363086,
-      "cell": "E75",
-      "bank_cell": "B75",
-      "report_cell": "D75"
+      "value": 0.09363534606056838,
+      "cell": "E74",
+      "bank_cell": "B74",
+      "report_cell": "D74"
     },
     {
       "name": "兴业银行",
-      "value": -0.012894041081960544,
+      "value": -0.021881956398309286,
       "cell": "E94",
       "bank_cell": "B94",
       "report_cell": "D94"
     },
     {
       "name": "农业银行",
-      "value": 0.10539414386507737,
-      "cell": "E71",
-      "bank_cell": "B71",
-      "report_cell": "D71"
+      "value": 0.10585572935681055,
+      "cell": "E68",
+      "bank_cell": "B68",
+      "report_cell": "D68"
     },
     {
       "name": "南京银行",
-      "value": 0.4019496214324522,
+      "value": 0.3211691329998201,
       "cell": "E54",
       "bank_cell": "B54",
       "report_cell": "D54"
     },
     {
       "name": "宁波银行",
-      "value": 0.14257949156495375,
-      "cell": "E64",
-      "bank_cell": "B64",
-      "report_cell": "D64"
+      "value": 0.1403433259064209,
+      "cell": "E61",
+      "bank_cell": "B61",
+      "report_cell": "D61"
     },
     {
       "name": "工商银行",
-      "value": 0.08821147026558154,
-      "cell": "E74",
-      "bank_cell": "B74",
-      "report_cell": "D74"
+      "value": 0.0964014735454653,
+      "cell": "E73",
+      "bank_cell": "B73",
+      "report_cell": "D73"
     },
     {
       "name": "常熟银行",
-      "value": 0.058239115160972035,
-      "cell": "E81",
-      "bank_cell": "B81",
-      "report_cell": "D81"
+      "value": 0.03136145441539168,
+      "cell": "E88",
+      "bank_cell": "B88",
+      "report_cell": "D88"
     },
     {
       "name": "平安银行",
-      "value": -0.004920574291684454,
+      "value": 0.0030351749733295266,
       "cell": "E93",
       "bank_cell": "B93",
       "report_cell": "D93"
     },
     {
       "name": "建设银行",
-      "value": 0.08457704501777064,
-      "cell": "E76",
-      "bank_cell": "B76",
-      "report_cell": "D76"
-    },
-    {
-      "name": "成都银行",
-      "value": 0.1898438292766068,
-      "cell": "E60",
-      "bank_cell": "B60",
-      "report_cell": "D60"
-    },
-    {
-      "name": "招商银行",
-      "value": 0.05596455672338219,
-      "cell": "E84",
-      "bank_cell": "B84",
-      "report_cell": "D84"
-    },
-    {
-      "name": "杭州银行",
-      "value": 0.19169699562100295,
-      "cell": "E59",
-      "bank_cell": "B59",
-      "report_cell": "D59"
-    },
-    {
-      "name": "民生银行",
-      "value": 0.068715322236449,
-      "cell": "E78",
-      "bank_cell": "B78",
-      "report_cell": "D78"
-    },
-    {
-      "name": "江苏银行",
-      "value": 0.12000517800343108,
-      "cell": "E68",
-      "bank_cell": "B68",
-      "report_cell": "D68"
-    },
-    {
-      "name": "沪农商行",
-      "value": 0.035887174987275595,
-      "cell": "E88",
-      "bank_cell": "B88",
-      "report_cell": "D88"
-    },
-    {
-      "name": "浦发银行",
-      "value": 0.10846039069065463,
+      "value": 0.10009214089605852,
       "cell": "E70",
       "bank_cell": "B70",
       "report_cell": "D70"
     },
     {
+      "name": "成都银行",
+      "value": 0.21630364884507142,
+      "cell": "E57",
+      "bank_cell": "B57",
+      "report_cell": "D57"
+    },
+    {
+      "name": "招商银行",
+      "value": 0.058340935504430085,
+      "cell": "E78",
+      "bank_cell": "B78",
+      "report_cell": "D78"
+    },
+    {
+      "name": "杭州银行",
+      "value": 0.1465995890879525,
+      "cell": "E60",
+      "bank_cell": "B60",
+      "report_cell": "D60"
+    },
+    {
+      "name": "民生银行",
+      "value": 0.049476890478082375,
+      "cell": "E83",
+      "bank_cell": "B83",
+      "report_cell": "D83"
+    },
+    {
+      "name": "江苏银行",
+      "value": 0.12919338818911544,
+      "cell": "E64",
+      "bank_cell": "B64",
+      "report_cell": "D64"
+    },
+    {
+      "name": "沪农商行",
+      "value": 0.029762588007838597,
+      "cell": "E89",
+      "bank_cell": "B89",
+      "report_cell": "D89"
+    },
+    {
+      "name": "浦发银行",
+      "value": 0.08042988192754949,
+      "cell": "E76",
+      "bank_cell": "B76",
+      "report_cell": "D76"
+    },
+    {
       "name": "渝农商行",
-      "value": 0.15199250681198911,
-      "cell": "E61",
-      "bank_cell": "B61",
-      "report_cell": "D61"
+      "value": 0.12946778711484594,
+      "cell": "E63",
+      "bank_cell": "B63",
+      "report_cell": "D63"
     },
     {
       "name": "苏州银行",
-      "value": 0.2389585130748304,
+      "value": 0.22704655046030414,
       "cell": "E56",
       "bank_cell": "B56",
       "report_cell": "D56"
     },
     {
       "name": "邮储银行",
-      "value": 0.05816997224179839,
-      "cell": "E82",
-      "bank_cell": "B82",
-      "report_cell": "D82"
+      "value": 0.04578038526400798,
+      "cell": "E84",
+      "bank_cell": "B84",
+      "report_cell": "D84"
     },
     {
       "name": "青岛银行",
-      "value": 0.14965570118955185,
-      "cell": "E62",
-      "bank_cell": "B62",
-      "report_cell": "D62"
+      "value": 0.15244247965931343,
+      "cell": "E59",
+      "bank_cell": "B59",
+      "report_cell": "D59"
     }
   ]
 }

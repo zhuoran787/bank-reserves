@@ -11,7 +11,9 @@
       "report": "2026年中报（2026H1）",
       "basis": "期末余额 / 归母净利润TTM（2025-07-01至2026-06-30）",
       "basis_short": "TTM分母",
-      "source_label": "19号浮盈余额库"
+      "source_label": "19号浮盈余额库",
+      "period_label": "2026H1保留",
+      "source": "bond"
     },
     {
       "id": "bond_equity",
@@ -24,7 +26,9 @@
       "report": "2026年中报（2026H1）",
       "basis": "2026-06-30期末存量口径；不适用TTM/NTM",
       "basis_short": "期末值",
-      "source_label": "19号浮盈余额库＋10号"
+      "source_label": "H1浮盈库＋H1拨备库",
+      "period_label": "2026H1保留",
+      "source": "bond"
     },
     {
       "id": "prov_profit",
@@ -33,11 +37,13 @@
       "unit": "%",
       "kind": "源表值",
       "weight": 1,
-      "period": "2026-06-30",
-      "report": "2026年中报（2026H1）",
-      "basis": "期末余额 / 归母净利润TTM（2025-07-01至2026-06-30）",
+      "period": "2026-09-30",
+      "report": "2026年三季报（2026Q3）",
+      "basis": "期末余额 / 归母净利润TTM（2025-10-01至2026-09-30）",
       "basis_short": "TTM分母",
-      "source_label": "10号拨备库"
+      "source_label": "10号拨备库",
+      "period_label": "2026Q3",
+      "source": "provision"
     },
     {
       "id": "prov_equity",
@@ -46,11 +52,13 @@
       "unit": "%",
       "kind": "源表值",
       "weight": 1,
-      "period": "2026-06-30",
-      "report": "2026年中报（2026H1）",
-      "basis": "2026-06-30期末存量口径；不适用TTM/NTM",
+      "period": "2026-09-30",
+      "report": "2026年三季报（2026Q3）",
+      "basis": "2026-09-30期末存量口径；不适用TTM/NTM",
       "basis_short": "期末值",
-      "source_label": "10号拨备库"
+      "source_label": "10号拨备库",
+      "period_label": "2026Q3",
+      "source": "provision"
     },
     {
       "id": "loan_prov",
@@ -59,11 +67,13 @@
       "unit": "%",
       "kind": "计算值",
       "weight": 1,
-      "period": "2026-06-30",
-      "report": "2026年中报（2026H1）",
-      "basis": "2026-06-30期末存量口径；不适用TTM/NTM",
+      "period": "2026-09-30",
+      "report": "2026年三季报（2026Q3）",
+      "basis": "2026-09-30期末存量口径；不适用TTM/NTM",
       "basis_short": "期末值",
-      "source_label": "10号拨备库"
+      "source_label": "10号拨备库",
+      "period_label": "2026Q3",
+      "source": "provision"
     },
     {
       "id": "cet1_profit",
@@ -72,11 +82,13 @@
       "unit": "%",
       "kind": "计算值",
       "weight": 1,
-      "period": "2026-06-30",
-      "report": "2026年中报（2026H1）",
-      "basis": "期末余额 / 归母净利润TTM（2025-07-01至2026-06-30）",
+      "period": "2026-09-30",
+      "report": "2026年三季报（2026Q3）资本推算",
+      "basis": "期末余额 / 归母净利润TTM（2025-10-01至2026-09-30）；沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
       "basis_short": "TTM分母",
-      "source_label": "6号自由现金流库＋10号"
+      "source_label": "Q3业绩表＋旧资本库＋Q3拨备库",
+      "period_label": "2026Q3推算",
+      "source": "performance"
     },
     {
       "id": "cet1_equity",
@@ -85,11 +97,13 @@
       "unit": "%",
       "kind": "计算值",
       "weight": 1,
-      "period": "2026-06-30",
-      "report": "2026年中报（2026H1）",
-      "basis": "2026-06-30期末存量口径；不适用TTM/NTM",
+      "period": "2026-09-30",
+      "report": "2026年三季报（2026Q3）资本推算",
+      "basis": "2026-09-30期末存量口径；不适用TTM/NTM；沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
       "basis_short": "期末值",
-      "source_label": "6号自由现金流库＋10号"
+      "source_label": "Q3业绩表＋旧资本库＋Q3拨备库",
+      "period_label": "2026Q3推算",
+      "source": "performance"
     },
     {
       "id": "fcf1",
@@ -102,7 +116,9 @@
       "report": "2026年中报（2026H1）",
       "basis": "基于TTM盈利和期末资本的模型比例；含历史中位数调整及10年释放假设，非NTM预测、非财报现金流",
       "basis_short": "TTM基础模型",
-      "source_label": "6号自由现金流库"
+      "source_label": "6号自由现金流库",
+      "period_label": "2026H1保留",
+      "source": "capital"
     }
   ],
   "groups": [
@@ -130,8 +146,8 @@
     "denominator_source": "provision",
     "basis": "用户指定的机械加总研究口径，AC浮盈先按配置折扣系数计入，OCI不计入；未进一步调整税务、拨备与监管资本之间的其他重叠，并非可分配现金。",
     "adjusted_pb_formula": "家底调整后PB＝原PB÷（1＋总家底/归母净资产）",
-    "valuation_note": "家底与归母净资产为2026H1期末，利润为截至2026H1的TTM；原PB为2026E全年预测。家底调整后PB按原PB÷（1＋总家底/归母净资产）计算，是用户指定研究口径的混合期近似，并非严格同一期市值/调整后净资产。PB下降倍数＝原PB－调整后PB，不是股价涨幅或合理价格偏离。"
+    "valuation_note": "混合报告期测算：AC浮盈保留2026H1；拨备、归母净资产及利润TTM采用2026Q3；资本为Q3推算。原PB为2026E全年预测。家底调整后PB＝原PB÷（1＋总家底/归母净资产），并非严格同一期市值/调整后净资产。PB下降倍数＝原PB－调整后PB，不是股价涨幅。沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。"
   },
-  "period": "2026-06-30",
+  "period": "2026Q3/H1混合报告期",
   "scoring": "ascending-midrank-percentile; metric-config-weighted; all-complete-cohort"
 }
