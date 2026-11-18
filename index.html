@@ -4,26 +4,27 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="22家研究范围银行的浮盈、拨备与资本家底比较：2026Q3拨备与资本推算，H1浮盈与自由现金流1保留，支持自定义权重排名。">
 <title>银行家底 · 2026Q3 / H1混合期</title>
-<link rel="stylesheet" href="style.css?v=20261117-excet1">
+<link rel="stylesheet" href="style.css?v=20261117-writeoffs">
 </head>
 <body>
 <header class="masthead"><div class="shell"><div class="eyebrow">BANK RESERVES <span>2026 Q3 / H1</span></div>
 <div class="title-line"><div><h1>银行的家底</h1><p>浮盈能释放多少，拨备有多厚，资本还有多少余地。</p></div><a class="source-link" href="#method">口径与来源 ↗</a></div>
 <p class="report-usage"><strong>本报告怎么用？</strong>以家底为基础：家底好的银行，遇利好催化可考虑做多；家底差的银行，遇利空催化可考虑做空。</p>
-<div class="meta"><span>报告期 <strong>Q3 / H1混合期</strong></span><span>研究范围 <strong>22 家</strong></span><span>完整可比 <strong>22 家</strong></span><span>整理日期 <strong>2026.11.17</strong>（美西）</span></div><p class="report-usage">拨备、净利息收入增速已更新至三季报；资本安全垫为Q3推算。浮盈两项与自由现金流1完整保留H1。估值采用11月13日图片。</p></div></header>
+<div class="meta"><span>报告期 <strong>Q3 / H1混合期</strong></span><span>研究范围 <strong>22 家</strong></span><span>参与评分 <strong>22 家</strong></span><span>整理日期 <strong>2026.11.17</strong>（美西）</span></div><p class="report-usage">拨备、净利息收入增速已更新至三季报；资本安全垫为Q3推算。浮盈两项与自由现金流1完整保留H1。估值采用11月13日图片。</p></div></header>
 <main class="shell">
 <section class="combined-ranking card" id="leaders" aria-label="两种方法综合排名：A股及H股前列与后段榜单"></section>
 <section class="controls card" aria-label="排名权重设置">
 <div class="control-title"><h2>按你的判断分配权重</h2><button id="reset">恢复等权</button></div>
 <div id="weights" class="weight-grid"></div>
-<div class="weight-foot"><span>维度内部权重见上方说明。调整后实时重排，百分位基准始终为全部 22 家完整样本。</span><span id="weight-status" role="status"></span></div>
+<div class="weight-foot"><span>维度内部权重见上方说明。调整后实时重排，百分位基准始终为全部 22 家评分样本。</span><span id="weight-status" role="status"></span></div>
 </section>
 <section class="table-section">
 <div class="table-tools"><div><h2>家底全景表</h2><p id="result-count"></p></div>
 <div class="filters"><input id="search" type="search" placeholder="搜索银行" aria-label="搜索银行"><select id="type" aria-label="银行类型"><option value="">全部类型</option><option>国有行</option><option>股份行</option><option>城农商行</option></select><button id="toggle-scores" aria-pressed="false">显示维度分</button><button id="export">导出当前表格</button></div></div>
 <div class="legend"><span class="legend-scale"></span><span>红：相对薄弱</span><span>绿：相对厚实</span><span class="legend-rest">点击表头排序 · 点击银行查看来源 · 横向滑动查看完整表格</span></div>
 <div class="table-wrap" tabindex="0" aria-label="可滚动银行家底表格"><table id="bank-table"><thead id="thead"></thead><tbody id="tbody"></tbody></table></div>
-<p class="coverage">逐列报告期：浮盈两项及自由现金流1保留2026H1；拨备三项更新至2026Q3；CET1两项为Q3推算。资本沿用原H1源表隐含要求不变的假设，RWA由2025Q3余额与新表同比增速推算，并非直接披露余额。点击银行查看文件日期、精确单元格及推算来源。</p>
+<p class="coverage">逐列报告期：浮盈两项及自由现金流1保留2026H1；拨备原三项更新至2026Q3；累计已核销不良／总资产为2021H2–2026H1累计值；CET1两项为Q3推算。资本沿用原H1源表隐含要求不变的假设，RWA由2025Q3余额与新表同比增速推算，并非直接披露余额。点击银行查看文件日期、精确单元格及推算来源。</p>
+<p class="coverage" id="writeoff-note">“累计已核销不良／总资产”沿用工作簿口径：实际为累计核销及转出额÷（2022年末与累计截止期总资产的平均值），不是期末不良余额。当前累计2021H2–2026H1；Q3披露不足，未延伸至Q3。带 * 的沪农商行缺少2021H2，按工作簿SUM跳过该期，并非确认为零。拨备家底四项等权，占比越高得分越高；累计核销金额不加回调整PB。</p>
 </section>
 <section class="comparison-mode card" aria-label="估值对照导航"><div><h2>排名与绝对值，直接对照</h2><p>以下依次列出 A股排名、H股排名、A股绝对值、H股绝对值。</p></div><nav class="comparison-links"><a href="#valuation">排名比较 ↓</a><a href="#absolute">绝对值比较 ↓</a></nav></section>
 <div id="rank-comparisons">
@@ -60,10 +61,10 @@
 <h2>先读懂数字，再看排名</h2>
 <div class="method-grid">
 <article><span class="section-no">01</span><h3>浮盈家底</h3><p>比较 AC 与 OCI 相关的剩余浮盈。AC 指按摊余成本计量的金融资产，OCI 指计入其他综合收益的相关资产。</p><p>利润比率直接采用余额表的 <b>AC&OCI浮盈/归母净利润(TTM)</b>。净资产比率按 <b>（AC浮盈＋OCI相关其他综合收益余额）÷归母净资产</b> 计算。</p><p class="note">浮盈不等于可立即分配的现金；AC处置、OCI重分类与税务等约束会影响实际释放。</p></article>
-<article><span class="section-no">02</span><h3>拨备家底</h3><p>比较超额拨备占利润、占归母净资产的比率，并加入拨贷比，即 <b>贷款拨备额÷贷款总额</b>。三列各占本维度的 1/3。</p><p>超额拨备沿用源表的广义风险口径：广义拨备减去广义风险资产，当前回收率假设为 0%。负值表示该测算口径下的缺口。</p><p class="note">这不是监管可直接转回的拨备额。拨贷比偏高也可能反映风险较高，评分只衡量拨备厚度。</p></article>
+<article><span class="section-no">02</span><h3>拨备家底</h3><p>比较超额拨备占利润、占归母净资产的比率，并加入拨贷比（<b>贷款拨备额÷贷款总额</b>）与累计已核销不良／总资产。四列等权，各占本维度的25%；新列的实际分母为两期平均总资产。</p><p>超额拨备沿用源表的广义风险口径：广义拨备减去广义风险资产，当前回收率假设为 0%。负值表示该测算口径下的缺口。</p><p class="note">这不是监管可直接转回的拨备额。拨贷比偏高也可能反映风险较高，累计核销转出占比高也不等于未来资产质量更好；此处沿用用户指定的评分方向。</p></article>
 <article><span class="section-no">03</span><h3>资本宽裕度</h3><p><b>CET1安全垫金额＝（Q3核心一级资本充足率－沿用资本要求）×推算Q3 RWA</b>。再分别除以拨备库的归母净资产、归母净利润TTM，统一为百分比。资本要求由H1核充率减H1安全垫反推，假设Q3不变，未逐家重新核验Q3监管要求；Q3 RWA＝2025Q3余额×（1＋新表RWA同比增速）。完整安全垫不另扣1个百分点，原始百分点和金额保留在银行详情。两项比率各占资本组25%，自由现金流1占50%。</p><p><b>自由现金流1</b>保留2026H1源表的比例模型：1%资本安全垫下拉平杠杆后的ROE＋超额CET1分10年释放可支撑的资本消耗速度－RWA增速。RWA即风险加权资产。</p><p class="note">CET1分子为监管合并资本缓冲，归母分母仅用于归一化，并非归母可分配金额。自由现金流1口径和数值不变；它不是现金流量表中的现金金额。正值意味着该模型下的资本内生余量，负值意味着压力。</p></article>
 </div>
-<details open><summary>评分怎么计算</summary><p>所有指标均按“越高，家底越厚”排序。单项分数＝100×（比本行低的样本数＋并列其他样本数÷2）÷（完整样本数－1）。无并列极值时最弱为0分、最强为100分；单项百分位按并列平均位置计分，展示名次并列同名次、后续跳名次。先按各维度内部权重合成维度分数，再按上方权重加权。各单元格的红绿色阶按该列排名生成，综合分色阶按综合排名生成。</p><p>范围筛选与银行搜索只改变显示，不改变排名基准。只有全部8项数据齐全的银行参与综合排名。总分以完整精度排名，显示保留1位小数；接近的显示分数可能有不同名次。家底总分只衡量研究范围内的相对家底；估值另表对照，两者均未预测未来资产质量变化。</p></details>
+<details open><summary>评分怎么计算</summary><p>所有指标均按用户指定的“数值越高，得分越高”排序。单项分数＝100×（比本行低的样本数＋并列其他样本数÷2）÷（评分样本数－1）。无并列极值时最弱为0分、最强为100分；单项百分位按并列平均位置计分，展示名次并列同名次、后续跳名次。先按各维度内部权重合成维度分数，再按上方权重加权。各单元格的红绿色阶按该列排名生成，综合分色阶按综合排名生成。</p><p>范围筛选与银行搜索只改变显示，不改变排名基准。只有全部<span id="metric-count">9</span>项指标值齐全的银行参与综合排名。总分以完整精度排名，显示保留1位小数；接近的显示分数可能有不同名次。家底总分只衡量研究范围内的相对家底；估值另表对照，两者均未预测未来资产质量变化。</p></details>
 <details><summary>数据口径与文件差异</summary><p>按名称关键词匹配网站实际文件并核对内容。第17号“上市银行债市浮盈数据库”记录的是兑现收益，不含所需余额比率；因此浮盈采用同目录第19号“债市浮盈余额数据库”。其原有“AC浮盈/净资产”也不等于用户指定的“AC&OCI浮盈/归母净资产”，本页按后者重新计算。</p><p>拨备库原始金额单位为百万元，浮盈余额表为亿元，跨表计算已统一为亿元。两个数据库的归母净利润(TTM)数值存在差异，本页各利润比率保留各自源表值，不擅自改写；点击银行可并列查看分母。浮盈两项连同原分母完整保留2026H1；拨备及资本比率的分母采用2026Q3，TTM为2025-10-01至2026-09-30。自由现金流1保留H1。总家底为混合报告期测算，文件更新日不等于数据时点。</p><p>范围来自 Obsidian 的 2_Bank 独立银行笔记；按用户要求排除3家香港银行后为22家A股银行。行业跟踪、基础知识、观点笔记及“其他银行合集”未作为独立银行纳入。</p></details>
 <div id="sources" class="sources"></div>
 </section>
@@ -71,5 +72,5 @@
 <footer>银行家底研究表 <span>2026Q3 / H1混合期 · 数据来源：银行先爽</span></footer>
 </main>
 <dialog id="bank-dialog"><div class="dialog-head"><div><span class="eyebrow">BANK DETAIL</span><h2 id="detail-name"></h2></div><button id="close-dialog" aria-label="关闭详情">✕</button></div><div id="detail-body"></div></dialog>
-<script type="module" src="app.mjs?v=20261117-excet1"></script>
+<script type="module" src="app.mjs?v=20261117-writeoffs"></script>
 </body></html>

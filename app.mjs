@@ -1,14 +1,14 @@
-import {renderValuation} from './valuation.mjs?v=20261117-excet1';
-import {calculate,color,finite} from './engine.mjs?v=20261117-excet1';
-import {renderAbsolute} from './absolute.mjs?v=20261117-excet1';
-import {renderCombined} from './combined.mjs?v=20261117-excet1';
+import {renderValuation} from './valuation.mjs?v=20261117-writeoffs';
+import {calculate,color,finite} from './engine.mjs?v=20261117-writeoffs';
+import {renderAbsolute} from './absolute.mjs?v=20261117-writeoffs';
+import {renderCombined} from './combined.mjs?v=20261117-writeoffs';
 const $=id=>document.getElementById(id);
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=(x,d=2)=>finite(x)?(x*100).toLocaleString('zh-CN',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
 const score=x=>finite(x)?x.toFixed(1):'—';
 const rawNum=x=>finite(x)?x.toLocaleString('zh-CN',{minimumFractionDigits:2,maximumFractionDigits:2}):'—';
 let data,model,valuation,valuationH,niiGrowth,weights,showScores=false,sortKey='total',sortDirection=-1;
-const labels={bond_profit:'AC&OCI浮盈<br>／归母净利润',bond_equity:'AC&OCI浮盈<br>／归母净资产',prov_profit:'超额拨备<br>／归母净利润',prov_equity:'超额拨备<br>／归母净资产',loan_prov:'拨贷比',cet1_profit:'CET1安全垫金额<br>／归母净利润',cet1_equity:'CET1安全垫金额<br>／归母净资产',fcf1:'自由现金流1'};
+const labels={bond_profit:'AC&OCI浮盈<br>／归母净利润',bond_equity:'AC&OCI浮盈<br>／归母净资产',prov_profit:'超额拨备<br>／归母净利润',prov_equity:'超额拨备<br>／归母净资产',loan_prov:'拨贷比',writeoff_assets:'累计已核销不良<br>／总资产',cet1_profit:'CET1安全垫金额<br>／归母净利润',cet1_equity:'CET1安全垫金额<br>／归母净资产',fcf1:'自由现金流1'};
 const groupNote=g=>{const ms=data.metrics.filter(m=>m.group===g.id),sum=ms.reduce((s,m)=>s+m.weight,0);return ms.map(m=>`${m.label} ${(m.weight/sum*100).toFixed(1)}%`).join('；');};
 
 function weightUI(){
@@ -56,7 +56,7 @@ function render(){
     for(const g of data.groups){
       for(const [i,m] of data.metrics.filter(m=>m.group===g.id).entries()){
         const v=b.metrics[m.id];
-        html+=`<td class="${i===0?'group-start':''}" title="${esc(m.label)}：${finite(v.value)?fmt(v.value)+(m.unit==='百分点'?'个百分点':'%'):'缺数据'}">${pill(fmt(v.value),v.percentile,'',v.rank)}</td>`;
+        html+=`<td class="${i===0?'group-start':''}" title="${esc(m.label)}：${finite(v.value)?fmt(v.value)+(m.unit==='百分点'?'个百分点':'%'):'缺数据'}${v.missing_periods?.length?'；'+esc(v.assumption):''}">${pill(fmt(v.value)+(v.missing_periods?.length?'*':''),v.percentile,'',v.rank)}</td>`;
       }
       if(showScores)html+=`<td>${pill(score(b.scores?.[g.id]),b.scores?.[g.id])}</td>`;
     }
@@ -71,7 +71,8 @@ function pill(text,pct,cls='',rank){const c=color(pct);return `<span class="metr
 function sourceText(d){
   if(!d.source)return esc(d.reason||'无数据');
   const s=data.sources[d.source];
-  let out=`<a href="${s.url}" target="_blank" rel="noopener">${esc(s.filename)}</a><br>${esc(s.sheet)} · ${esc(d.cells.join('、'))}<br>文件名日期：${esc(s.filename_date)}${s.internal_updated?'；源表更新日：'+esc(s.internal_updated):''}；报告期：${esc(s.report)} / ${esc(s.period)}`;
+  let out=`${s.url?`<a href="${s.url}" target="_blank" rel="noopener">${esc(s.filename)}</a>`:esc(s.filename)}<br>${esc(s.sheet)} · ${esc(d.cells.join('、'))}<br>文件名日期：${esc(s.filename_date)}${s.internal_updated?'；源表更新日：'+esc(s.internal_updated):''}；报告期：${esc(s.report)} / ${esc(s.period)}`;
+  if(finite(d.cumulative_yi))out+=`<br>累计核销及转出额：${rawNum(d.cumulative_yi)}亿元；两期平均总资产：${rawNum(d.average_assets_yi)}亿元。`;
   if(d.denominator_source){const s2=data.sources[d.denominator_source];out+=`<br>分母：<a href="${s2.url}" target="_blank" rel="noopener">${esc(s2.filename)}</a> · ${esc(s2.sheet)} · ${esc(d.denominator_cells.join('、'))}<br>分母文件名日期：${esc(s2.filename_date)}${s2.internal_updated?'；源表更新日：'+esc(s2.internal_updated):''}；报告期：${esc(s2.report)} / ${esc(s2.period)}`;}
   for(const ref of d.references||[]){const s2=data.sources[ref.source];out+=`<br>${esc(ref.label)}：<a href="${s2.url}" target="_blank" rel="noopener">${esc(s2.filename)}</a> · ${esc(s2.sheet)} · ${esc(ref.cells.join('、'))} · 数据期 ${esc(ref.period)}`;}
   if(d.assumption)out+=`<br><b>测算假设：</b>${esc(d.assumption)}`;
@@ -90,17 +91,17 @@ function exportCSV(){
   if(model.error)return;
   const headers=['排名','银行','类型','报告期','综合分',...data.groups.map(g=>g.label+'分'),...data.metrics.map(m=>m.label+'('+m.unit+')')];
   const rows=shown().map(b=>[b.rank??'',b.name,b.type,data.as_of,b.total??'',...data.groups.map(g=>b.scores?.[g.id]??''),...data.metrics.map(m=>finite(b.metrics[m.id].value)?b.metrics[m.id].value*100:'')]);
-  const foot=[[],['权重',...data.groups.map((g,i)=>g.label+': '+(model.weights[i]*100).toFixed(3)+'%')],['口径',data.source_note],['报告期',data.as_of],...data.metrics.map(m=>[m.label,m.report,m.basis,m.source_label,data.sources[m.source].filename]),['浮盈净资产分母来源（H1保留）',data.sources.provision_h1.filename],['资本推算假设',data.capital_note]];
+  const foot=[[],['权重',...data.groups.map((g,i)=>g.label+': '+(model.weights[i]*100).toFixed(3)+'%')],['口径',data.source_note],['报告期',data.as_of],...data.metrics.map(m=>[m.label,m.report,m.basis,m.source_label,data.sources[m.source].filename]),['累计核销缺失说明',...data.banks.filter(b=>b.metrics.writeoff_assets.missing_periods.length).map(b=>b.name+'：'+b.metrics.writeoff_assets.assumption)],['浮盈净资产分母来源（H1保留）',data.sources.provision_h1.filename],['资本推算假设',data.capital_note]];
   const csv='\ufeff'+[headers,...rows,...foot].map(row=>row.map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(',')).join('\r\n');
-  const a=document.createElement('a'),url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.href=url;a.download='银行家底-20261101-Q3与H1混合期.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  const a=document.createElement('a'),url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.href=url;a.download='银行家底-20261117-含累计核销.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
 
 async function init(){
   try{
-    const response=await fetch('./data.json?v=20261117-excet1');if(!response.ok)throw new Error('数据文件暂时不可用');data=await response.json();
-    const vr=await fetch('./valuation.json?v=20261117-excet1');if(!vr.ok)throw new Error('估值文件暂时不可用');valuation=await vr.json();
-    const hr=await fetch('./valuation-h.json?v=20261117-excet1');if(!hr.ok)throw new Error('H股估值文件暂时不可用');valuationH=await hr.json();
-    const nr=await fetch('./nii-growth.json?v=20261117-excet1');if(!nr.ok)throw new Error('净利息收入增速文件暂时不可用');niiGrowth=await nr.json();
+    const response=await fetch('./data.json?v=20261117-writeoffs');if(!response.ok)throw new Error('数据文件暂时不可用');data=await response.json();
+    const vr=await fetch('./valuation.json?v=20261117-writeoffs');if(!vr.ok)throw new Error('估值文件暂时不可用');valuation=await vr.json();
+    const hr=await fetch('./valuation-h.json?v=20261117-writeoffs');if(!hr.ok)throw new Error('H股估值文件暂时不可用');valuationH=await hr.json();
+    const nr=await fetch('./nii-growth.json?v=20261117-writeoffs');if(!nr.ok)throw new Error('净利息收入增速文件暂时不可用');niiGrowth=await nr.json();
     const growthNames=niiGrowth.banks.map(b=>b.name).sort(),bankNames=data.banks.map(b=>b.name).sort();
     if(JSON.stringify(growthNames)!==JSON.stringify(bankNames)||niiGrowth.banks.some(b=>!finite(b.value))||niiGrowth.display_only!==true)throw new Error('净利息收入增速范围或口径不完整');
     $('valuation-sort').addEventListener('change',render);
@@ -110,9 +111,10 @@ async function init(){
     document.querySelectorAll('.ac-discount-factor').forEach(el=>el.textContent=(data.absolute_model.ac_discount_factor*100).toFixed(0)+'%');
     $('absolute-formula').textContent='总家底（用于PB调整）＝'+data.absolute_model.formula;
     $('adjusted-pb-formula').textContent=data.absolute_model.adjusted_pb_formula;
+    $('metric-count').textContent=data.metrics.length;
     weights=data.groups.map(g=>g.weight);
     weightUI();recalculate();
-    $('sources').innerHTML='<b>本页采用的原始数据库</b>'+Object.entries(data.sources).map(([key,s])=>`<div class="source-row"><span>${esc(({bond:'H1浮盈',provision:'Q3拨备',capital:'H1资本模型及历史RWA',provision_h1:'H1浮盈分母',performance:'Q3业绩与资本'})[key])}</span><a href="${s.url}" target="_blank" rel="noopener">${esc(s.filename)} ↗</a><span>${esc(s.report)} · 文件名日期 ${esc(s.filename_date)}${s.internal_updated?' · 源表更新日 '+esc(s.internal_updated):''}</span></div>`).join('')+'<p>新文件由用户提供，链接指向银行先爽文件目录；源文件需登录后下载。点击银行名称可查看精确单元格和资本推算的历史输入。</p>';
+    $('sources').innerHTML='<b>本页采用的数据来源</b>'+Object.entries(data.sources).map(([key,s])=>`<div class="source-row"><span>${esc(({bond:'H1浮盈',provision:'Q3拨备',capital:'H1资本模型及历史RWA',provision_h1:'H1浮盈分母',performance:'Q3业绩与资本',writeoffs:'累计核销转出'})[key])}</span>${s.url?`<a href="${s.url}" target="_blank" rel="noopener">${esc(s.filename)} ↗</a>`:`<span>${esc(s.filename)}（用户提供）</span>`}<span>${esc(s.report)} · 文件名日期 ${esc(s.filename_date)}${s.internal_updated?' · 源表更新日 '+esc(s.internal_updated):''}</span></div>`).join('')+'<p>新文件由用户提供，链接指向银行先爽文件目录；源文件需登录后下载。点击银行名称可查看精确单元格和资本推算的历史输入。</p>';
     $('reset').addEventListener('click',()=>{weights=[33,33,33];sortKey='total';sortDirection=-1;weightUI();recalculate();});
     $('search').addEventListener('input',render);$('type').addEventListener('change',render);
     $('toggle-scores').addEventListener('click',()=>{showScores=!showScores;$('toggle-scores').setAttribute('aria-pressed',String(showScores));$('toggle-scores').textContent=showScores?'隐藏维度分':'显示维度分';render();});

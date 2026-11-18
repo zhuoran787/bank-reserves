@@ -76,6 +76,21 @@
       "source": "provision"
     },
     {
+      "id": "writeoff_assets",
+      "label": "累计已核销不良 / 总资产",
+      "group": "provision",
+      "unit": "%",
+      "kind": "计算值",
+      "weight": 1,
+      "source": "writeoffs",
+      "period": "2026-06-30",
+      "report": "2021H2–2026H1累计核销及转出额",
+      "period_label": "2021H2–2026H1",
+      "source_label": "财报修正版工作簿D列",
+      "basis_short": "累计／平均资产",
+      "basis": "2021H2起累计核销及转出额÷（2022年末总资产与累计截止期总资产的平均值）；缺失半年度按Excel SUM跳过并注明，非期末不良余额。"
+    },
+    {
       "id": "cet1_profit",
       "label": "CET1安全垫金额 / 归母净利润(TTM)",
       "group": "capital",
@@ -130,12 +145,12 @@
     {
       "id": "provision",
       "label": "拨备家底",
-      "weight": 40
+      "weight": 50
     },
     {
       "id": "capital",
       "label": "资本宽裕度",
-      "weight": 40
+      "weight": 30
     }
   ],
   "absolute_model": {
@@ -153,5 +168,31 @@
     "valuation_note": "总家底仅含折扣后AC浮盈与超额拨备，CET1安全垫不加回且不从原归母净资产扣除。家底、归母净资产及利润TTM的报告期见逐列标注；原PB为2026E全年预测。家底调整后PB＝原PB÷（1＋总家底/归母净资产），属于混合报告期研究近似，并非严格同一期市值/调整后净资产；仍未进一步调整税务及超额拨备与账面净资产的其他重叠。PB下降倍数＝原PB－调整后PB，不是股价涨幅或合理价格偏离。"
   },
   "period": "2026Q3/H1混合报告期",
-  "scoring": "ascending-midrank-percentile; metric-config-weighted; all-complete-cohort"
+  "scoring": "ascending-midrank-percentile; metric-config-weighted; all-complete-cohort",
+  "writeoff_model": {
+    "start_period": "2021H2",
+    "asset_base_date": "2022-12-31",
+    "cutoff_rule": "latest_common_reconstructable_half_year; quarterly_extension_requires_verified_period_basis",
+    "missing_policy": "skip_missing_like_excel_sum_and_disclose",
+    "source_sheet": "底稿-42家上市银行",
+    "fields": {
+      "npl": "不良贷款余额",
+      "rate": "不良核销转出率1（披露核转）",
+      "assets": "总资产"
+    },
+    "corrections": [
+      {
+        "code": "601988.SH",
+        "period": "2024A",
+        "amount_yi": 846.11,
+        "source": "https://static.cninfo.com.cn/finalpage/2025-03-27/1222911239.PDF"
+      },
+      {
+        "code": "601838.SH",
+        "period": "2025H1",
+        "amount_yi": 0.723,
+        "source": "https://static.cninfo.com.cn/finalpage/2025-08-27/1224586200.PDF"
+      }
+    ]
+  }
 }

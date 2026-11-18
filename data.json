@@ -1,6 +1,6 @@
 {
   "as_of": "2026Q3/H1混合报告期",
-  "prepared": "2026-11-01",
+  "prepared": "2026-11-17",
   "sources": {
     "provision": {
       "filename": "10【银行先爽】超额拨备数据库(更新至2026Q1~3)-20261031.xlsx",
@@ -52,6 +52,17 @@
       "sheet": "一张图-26Q1~3",
       "period": "2026-09-30",
       "report": "2026年前三季度（2026Q1–3）"
+    },
+    "writeoffs": {
+      "filename": "22家上市银行不良核销转出额-财报修正版.xlsx",
+      "sha256": "4fc0862162bebe67eb874e82edbe6eff6fb64636584086ea0dae396d5415582f",
+      "sheet": "半年度及累计",
+      "period": "2026-06-30",
+      "report": "2021H2–2026H1累计核销及转出额",
+      "filename_date": "未标注（用户提供修正版）",
+      "underlying_filename": "7【银行先爽】上市银行资产质量指标数据库-20261030.xlsx",
+      "underlying_sha256": "f5aa4815bc4bd660f5ccd589864c81d1631f090974f05e5105e42bad97e8d14e",
+      "note": "本地用户工作簿；原始数据库日期2026-10-30。无公开下载链接。"
     }
   },
   "metrics": [
@@ -131,6 +142,21 @@
       "source": "provision"
     },
     {
+      "id": "writeoff_assets",
+      "label": "累计已核销不良 / 总资产",
+      "group": "provision",
+      "unit": "%",
+      "kind": "计算值",
+      "weight": 1,
+      "source": "writeoffs",
+      "period": "2026-06-30",
+      "report": "2021H2–2026H1累计核销及转出额",
+      "period_label": "2021H2–2026H1",
+      "source_label": "财报修正版工作簿D列",
+      "basis_short": "累计／平均资产",
+      "basis": "2021H2起累计核销及转出额÷（2022年末总资产与累计截止期总资产的平均值）；缺失半年度按Excel SUM跳过并注明，非期末不良余额。"
+    },
+    {
       "id": "cet1_profit",
       "label": "CET1安全垫金额 / 归母净利润(TTM)",
       "group": "capital",
@@ -185,12 +211,12 @@
     {
       "id": "provision",
       "label": "拨备家底",
-      "weight": 40
+      "weight": 50
     },
     {
       "id": "capital",
       "label": "资本宽裕度",
-      "weight": 40
+      "weight": 30
     }
   ],
   "banks": [
@@ -337,6 +363,24 @@
           "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净资产；完整安全垫，不另扣1个百分点",
           "percentile": 57.142857142857146,
           "rank": 10
+        },
+        "writeoff_assets": {
+          "value": 0.008834145290007209,
+          "source": "writeoffs",
+          "cells": [
+            "C25",
+            "D25",
+            "E25",
+            "I25:R25"
+          ],
+          "formula": "2021H2起累计核销及转出额÷（2022年末总资产与累计截止期总资产的平均值）；缺失半年度按Excel SUM跳过并注明，非期末不良余额。",
+          "cumulative_yi": 180.42047224426776,
+          "average_assets_yi": 20423.08184,
+          "missing_periods": [],
+          "period": "2026-06-30",
+          "assumption": "累计窗口内10个半年度均有数据。",
+          "percentile": 14.285714285714286,
+          "rank": 19
         }
       },
       "supplement": {
@@ -527,10 +571,10 @@
       "complete": true,
       "scores": {
         "bond": 95.23809523809524,
-        "provision": 96.82539682539682,
+        "provision": 76.19047619047619,
         "capital": 57.142857142857146
       },
-      "total": 80.63492063492063,
+      "total": 74.28571428571429,
       "rank": 1
     },
     {
@@ -676,6 +720,24 @@
           "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净资产；完整安全垫，不另扣1个百分点",
           "percentile": 85.71428571428571,
           "rank": 4
+        },
+        "writeoff_assets": {
+          "value": 0.020474421873892333,
+          "source": "writeoffs",
+          "cells": [
+            "C14",
+            "D14",
+            "E14",
+            "I14:R14"
+          ],
+          "formula": "2021H2起累计核销及转出额÷（2022年末总资产与累计截止期总资产的平均值）；缺失半年度按Excel SUM跳过并注明，非期末不良余额。",
+          "cumulative_yi": 2449.17,
+          "average_assets_yi": 119620.96,
+          "missing_periods": [],
+          "period": "2026-06-30",
+          "assumption": "累计窗口内10个半年度均有数据。",
+          "percentile": 66.66666666666667,
+          "rank": 8
         }
       },
       "supplement": {
@@ -866,10 +928,10 @@
       "complete": true,
       "scores": {
         "bond": 42.85714285714286,
-        "provision": 80.95238095238095,
+        "provision": 77.38095238095238,
         "capital": 89.28571428571428
       },
-      "total": 76.66666666666666,
+      "total": 74.04761904761905,
       "rank": 2
     },
     {
@@ -1015,6 +1077,24 @@
           "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净资产；完整安全垫，不另扣1个百分点",
           "percentile": 95.23809523809524,
           "rank": 2
+        },
+        "writeoff_assets": {
+          "value": 0.019194324440492988,
+          "source": "writeoffs",
+          "cells": [
+            "C16",
+            "D16",
+            "E16",
+            "I16:R16"
+          ],
+          "formula": "2021H2起累计核销及转出额÷（2022年末总资产与累计截止期总资产的平均值）；缺失半年度按Excel SUM跳过并注明，非期末不良余额。",
+          "cumulative_yi": 301.36127534999997,
+          "average_assets_yi": 15700.540869999999,
+          "missing_periods": [],
+          "period": "2026-06-30",
+          "assumption": "累计窗口内10个半年度均有数据。",
+          "percentile": 57.142857142857146,
+          "rank": 10
         }
       },
       "supplement": {
@@ -1205,10 +1285,10 @@
       "complete": true,
       "scores": {
         "bond": 69.04761904761905,
-        "provision": 77.77777777777779,
+        "provision": 72.61904761904762,
         "capital": 76.19047619047619
       },
-      "total": 75.39682539682539,
+      "total": 72.97619047619048,
       "rank": 3
     },
     {
@@ -1354,6 +1434,24 @@
           "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净资产；完整安全垫，不另扣1个百分点",
           "percentile": 80.95238095238095,
           "rank": 5
+        },
+        "writeoff_assets": {
+          "value": 0.013650504116548726,
+          "source": "writeoffs",
+          "cells": [
+            "C19",
+            "D19",
+            "E19",
+            "I19:R19"
+          ],
+          "formula": "2021H2起累计核销及转出额÷（2022年末总资产与累计截止期总资产的平均值）；缺失半年度按Excel SUM跳过并注明，非期末不良余额。",
+          "cumulative_yi": 5591.94,
+          "average_assets_yi": 409650.805,
+          "missing_periods": [],
+          "period": "2026-06-30",
+          "assumption": "累计窗口内10个半年度均有数据。",
+          "percentile": 42.857142857142854,
+          "rank": 13
         }
       },
       "supplement": {
@@ -1544,10 +1642,10 @@
       "complete": true,
       "scores": {
         "bond": 85.71428571428571,
-        "provision": 49.20634920634921,
+        "provision": 47.61904761904762,
         "capital": 83.33333333333333
       },
-      "total": 70.15873015873017,
+      "total": 65.95238095238095,
       "rank": 4
     },
     {
@@ -1693,6 +1791,24 @@
           "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净资产；完整安全垫，不另扣1个百分点",
           "percentile": 9.523809523809524,
           "rank": 20
+        },
+        "writeoff_assets": {
+          "value": 0.01208660549762694,
+          "source": "writeoffs",
+          "cells": [
+            "C21",
+            "D21",
+            "E21",
+            "I21:R21"
+          ],
+          "formula": "2021H2起累计核销及转出额÷（2022年末总资产与累计截止期总资产的平均值）；缺失半年度按Excel SUM跳过并注明，非期末不良余额。",
+          "cumulative_yi": 83.27686,
+          "average_assets_yi": 6890.012255,
+          "missing_periods": [],
+          "period": "2026-06-30",
+          "assumption": "累计窗口内10个半年度均有数据。",
+          "percentile": 33.333333333333336,
+          "rank": 15
         }
       },
       "supplement": {
@@ -1883,10 +1999,10 @@
       "complete": true,
       "scores": {
         "bond": 85.71428571428572,
-        "provision": 88.8888888888889,
+        "provision": 75.0,
         "capital": 35.714285714285715
       },
-      "total": 66.984126984127,
+      "total": 65.35714285714286,
       "rank": 5
     },
     {
@@ -2032,6 +2148,24 @@
           "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净资产；完整安全垫，不另扣1个百分点",
           "percentile": 90.47619047619048,
           "rank": 3
+        },
+        "writeoff_assets": {
+          "value": 0.029535375187741558,
+          "source": "writeoffs",
+          "cells": [
+            "C11",
+            "D11",
+            "E11",
+            "I11:R11"
+          ],
+          "formula": "2021H2起累计核销及转出额÷（2022年末总资产与累计截止期总资产的平均值）；缺失半年度按Excel SUM跳过并注明，非期末不良余额。",
+          "cumulative_yi": 105.24476,
+          "average_assets_yi": 3563.345965,
+          "missing_periods": [],
+          "period": "2026-06-30",
+          "assumption": "累计窗口内10个半年度均有数据。",
+          "percentile": 80.95238095238095,
+          "rank": 5
         }
       },
       "supplement": {
@@ -2222,10 +2356,10 @@
       "complete": true,
       "scores": {
         "bond": 19.047619047619047,
-        "provision": 68.25396825396825,
+        "provision": 71.42857142857143,
         "capital": 85.71428571428572
       },
-      "total": 65.39682539682539,
+      "total": 65.23809523809524,
       "rank": 6
     },
     {
@@ -2371,6 +2505,24 @@
           "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净资产；完整安全垫，不另扣1个百分点",
           "percentile": 33.333333333333336,
           "rank": 15
+        },
+        "writeoff_assets": {
+          "value": 0.012626654667571187,
+          "source": "writeoffs",
+          "cells": [
+            "C20",
+            "D20",
+            "E20",
+            "I20:R20"
+          ],
+          "formula": "2021H2起累计核销及转出额÷（2022年末总资产与累计截止期总资产的平均值）；缺失半年度按Excel SUM跳过并注明，非期末不良余额。",
+          "cumulative_yi": 5365.47,
+          "average_assets_yi": 424932.03,
+          "missing_periods": [],
+          "period": "2026-06-30",
+          "assumption": "累计窗口内10个半年度均有数据。",
+          "percentile": 38.095238095238095,
+          "rank": 14
         }
       },
       "supplement": {
@@ -2561,350 +2713,11 @@
       "complete": true,
       "scores": {
         "bond": 97.61904761904762,
-        "provision": 82.53968253968253,
+        "provision": 71.42857142857143,
         "capital": 30.952380952380956
       },
-      "total": 64.92063492063492,
+      "total": 64.52380952380952,
       "rank": 7
-    },
-    {
-      "name": "成都银行",
-      "type": "城农商行",
-      "metrics": {
-        "prov_profit": {
-          "value": 1.3407925268549457,
-          "unit": "百分比值",
-          "source": "provision",
-          "cells": [
-            "AS1895"
-          ],
-          "period": "2026-09-30",
-          "percentile": 85.71428571428571,
-          "rank": 4
-        },
-        "prov_equity": {
-          "value": 0.17648360778484282,
-          "unit": "百分比值",
-          "source": "provision",
-          "cells": [
-            "AS1817"
-          ],
-          "period": "2026-09-30",
-          "percentile": 95.23809523809524,
-          "rank": 2
-        },
-        "fcf1": {
-          "value": 0.12665708680041354,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1702"
-          ],
-          "percentile": 100.0,
-          "rank": 1
-        },
-        "loan_prov": {
-          "value": 0.03044140628290917,
-          "source": "provision",
-          "cells": [
-            "AS1193",
-            "AS179"
-          ],
-          "formula": "贷款拨备额 ÷ 贷款总额",
-          "percentile": 71.42857142857143,
-          "rank": 7
-        },
-        "bond_profit": {
-          "value": 0.6139685551086924,
-          "source": "bond",
-          "cells": [
-            "T25"
-          ],
-          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
-          "percentile": 19.047619047619047,
-          "rank": 18
-        },
-        "bond_equity": {
-          "value": 0.07987098174724425,
-          "source": "bond",
-          "cells": [
-            "H25",
-            "P25"
-          ],
-          "denominator_source": "provision_h1",
-          "denominator_cells": [
-            "AR1739"
-          ],
-          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
-          "percentile": 38.095238095238095,
-          "rank": 14
-        },
-        "cet1_profit": {
-          "source": "performance",
-          "cells": [
-            "K289",
-            "K254"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1357"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1271",
-                "AK1917"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 1.0440027963895342,
-          "denominator_source": "provision",
-          "denominator_cells": [
-            "AS1661"
-          ],
-          "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净利润(TTM)；完整安全垫，不另扣1个百分点",
-          "percentile": 4.761904761904762,
-          "rank": 21
-        },
-        "cet1_equity": {
-          "source": "performance",
-          "cells": [
-            "K289",
-            "K254"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1357"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1271",
-                "AK1917"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 0.13741826297054144,
-          "denominator_source": "provision",
-          "denominator_cells": [
-            "AS1739"
-          ],
-          "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净资产；完整安全垫，不另扣1个百分点",
-          "percentile": 23.80952380952381,
-          "rank": 17
-        }
-      },
-      "supplement": {
-        "超额拨备额": {
-          "value": 183.8082687279999,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AS1583"
-          ],
-          "period": "2026-09-30"
-        },
-        "归母净利润(TTM)": {
-          "value": 137.08927,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AS1661"
-          ],
-          "period": "2026-09-30"
-        },
-        "归母净资产": {
-          "value": 1041.50335,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AS1739"
-          ],
-          "period": "2026-09-30"
-        },
-        "AC浮盈余额": {
-          "value": 71.34420000000046,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "H25"
-          ],
-          "period": "2026-06-30"
-        },
-        "OCI相关其他综合收益余额": {
-          "value": 11.10145,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "P25"
-          ],
-          "period": "2026-06-30"
-        },
-        "浮盈表归母净利润(TTM)": {
-          "value": 134.28318,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "L25"
-          ],
-          "period": "2026-06-30"
-        },
-        "CET1安全垫（百分点）": {
-          "source": "performance",
-          "cells": [
-            "K289",
-            "K254"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1357"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1271",
-                "AK1917"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 1.3499999999999983,
-          "unit": "百分点"
-        },
-        "风险加权资产RWA": {
-          "source": "performance",
-          "cells": [
-            "K289",
-            "K254"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1357"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1271",
-                "AK1917"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 10601.598610000003,
-          "unit": "亿元",
-          "formula": "2025Q3 RWA×（1＋2026Q3 RWA同比增速）"
-        },
-        "CET1安全垫金额": {
-          "source": "performance",
-          "cells": [
-            "K289",
-            "K254"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1357"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1271",
-                "AK1917"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 143.12158123499987,
-          "unit": "亿元",
-          "formula": "（Q3核充率－沿用资本要求）×推算Q3 RWA"
-        },
-        "浮盈比率沿用H1归母净资产": {
-          "value": 1032.23534,
-          "unit": "亿元",
-          "source": "provision_h1",
-          "cells": [
-            "AR1739"
-          ],
-          "period": "2026-06-30"
-        },
-        "核心一级资本充足率（Q3）": {
-          "value": 8.85,
-          "unit": "%",
-          "source": "performance",
-          "cells": [
-            "K289"
-          ],
-          "period": "2026-09-30"
-        },
-        "沿用H1源表隐含资本要求": {
-          "value": 7.500000000000001,
-          "unit": "%",
-          "source": "capital",
-          "cells": [
-            "AK1271",
-            "AK1917"
-          ],
-          "period": "2026-06-30（沿用假设）"
-        }
-      },
-      "code": "601838.SH",
-      "absolute": {
-        "discounted_ac_amount": 28.537680000000183,
-        "provision_amount": 183.8082687279999,
-        "capital_amount": 143.12158123499987,
-        "total_amount": 212.34594872800008,
-        "equity_ratio": 0.20388407653993632,
-        "profit_ratio": 1.5489611165629527
-      },
-      "complete": true,
-      "scores": {
-        "bond": 28.57142857142857,
-        "provision": 84.12698412698413,
-        "capital": 57.142857142857146
-      },
-      "total": 62.222222222222214,
-      "rank": 8
     },
     {
       "name": "南京银行",
@@ -3049,6 +2862,24 @@
           "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净资产；完整安全垫，不另扣1个百分点",
           "percentile": 47.61904761904762,
           "rank": 12
+        },
+        "writeoff_assets": {
+          "value": 0.019614392846439427,
+          "source": "writeoffs",
+          "cells": [
+            "C15",
+            "D15",
+            "E15",
+            "I15:R15"
+          ],
+          "formula": "2021H2起累计核销及转出额÷（2022年末总资产与累计截止期总资产的平均值）；缺失半年度按Excel SUM跳过并注明，非期末不良余额。",
+          "cumulative_yi": 519.4683200000001,
+          "average_assets_yi": 26484.03772,
+          "missing_periods": [],
+          "period": "2026-06-30",
+          "assumption": "累计窗口内10个半年度均有数据。",
+          "percentile": 61.904761904761905,
+          "rank": 9
         }
       },
       "supplement": {
@@ -3239,350 +3070,11 @@
       "complete": true,
       "scores": {
         "bond": 69.04761904761905,
-        "provision": 57.142857142857146,
+        "provision": 58.333333333333336,
         "capital": 53.57142857142857
       },
-      "total": 58.095238095238095,
-      "rank": 9
-    },
-    {
-      "name": "沪农商行",
-      "type": "城农商行",
-      "metrics": {
-        "prov_profit": {
-          "value": 0.49229720289001366,
-          "unit": "百分比值",
-          "source": "provision",
-          "cells": [
-            "AS1907"
-          ],
-          "period": "2026-09-30",
-          "percentile": 52.38095238095238,
-          "rank": 11
-        },
-        "prov_equity": {
-          "value": 0.045754389579418464,
-          "unit": "百分比值",
-          "source": "provision",
-          "cells": [
-            "AS1829"
-          ],
-          "period": "2026-09-30",
-          "percentile": 47.61904761904762,
-          "rank": 12
-        },
-        "fcf1": {
-          "value": 0.0014688837567826407,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1714"
-          ],
-          "percentile": 38.095238095238095,
-          "rank": 14
-        },
-        "loan_prov": {
-          "value": 0.028449202951863147,
-          "source": "provision",
-          "cells": [
-            "AS1205",
-            "AS191"
-          ],
-          "formula": "贷款拨备额 ÷ 贷款总额",
-          "percentile": 52.38095238095238,
-          "rank": 11
-        },
-        "bond_profit": {
-          "value": 0.9277899657442898,
-          "source": "bond",
-          "cells": [
-            "T39"
-          ],
-          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
-          "percentile": 42.857142857142854,
-          "rank": 13
-        },
-        "bond_equity": {
-          "value": 0.08600875112618994,
-          "source": "bond",
-          "cells": [
-            "H39",
-            "P39"
-          ],
-          "denominator_source": "provision_h1",
-          "denominator_cells": [
-            "AR1751"
-          ],
-          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
-          "percentile": 42.857142857142854,
-          "rank": 13
-        },
-        "cet1_profit": {
-          "source": "performance",
-          "cells": [
-            "K308",
-            "K269"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1369"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1283",
-                "AK1929"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 4.836799065684958,
-          "denominator_source": "provision",
-          "denominator_cells": [
-            "AS1673"
-          ],
-          "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净利润(TTM)；完整安全垫，不另扣1个百分点",
-          "percentile": 100.0,
-          "rank": 1
-        },
-        "cet1_equity": {
-          "source": "performance",
-          "cells": [
-            "K308",
-            "K269"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1369"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1283",
-                "AK1929"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 0.4495349302607342,
-          "denominator_source": "provision",
-          "denominator_cells": [
-            "AS1751"
-          ],
-          "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净资产；完整安全垫，不另扣1个百分点",
-          "percentile": 100.0,
-          "rank": 1
-        }
-      },
-      "supplement": {
-        "超额拨备额": {
-          "value": 61.16653425800001,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AS1595"
-          ],
-          "period": "2026-09-30"
-        },
-        "归母净利润(TTM)": {
-          "value": 124.24716999999998,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AS1673"
-          ],
-          "period": "2026-09-30"
-        },
-        "归母净资产": {
-          "value": 1336.84516,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AS1751"
-          ],
-          "period": "2026-09-30"
-        },
-        "AC浮盈余额": {
-          "value": 71.15374999999995,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "H39"
-          ],
-          "period": "2026-06-30"
-        },
-        "OCI相关其他综合收益余额": {
-          "value": 43.32322,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "P39"
-          ],
-          "period": "2026-06-30"
-        },
-        "浮盈表归母净利润(TTM)": {
-          "value": 123.38673,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "L39"
-          ],
-          "period": "2026-06-30"
-        },
-        "CET1安全垫（百分点）": {
-          "source": "performance",
-          "cells": [
-            "K308",
-            "K269"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1369"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1283",
-                "AK1929"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 6.07,
-          "unit": "百分点"
-        },
-        "风险加权资产RWA": {
-          "source": "performance",
-          "cells": [
-            "K308",
-            "K269"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1369"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1283",
-                "AK1929"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 9900.4711,
-          "unit": "亿元",
-          "formula": "2025Q3 RWA×（1＋2026Q3 RWA同比增速）"
-        },
-        "CET1安全垫金额": {
-          "source": "performance",
-          "cells": [
-            "K308",
-            "K269"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1369"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1283",
-                "AK1929"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 600.9585957700001,
-          "unit": "亿元",
-          "formula": "（Q3核充率－沿用资本要求）×推算Q3 RWA"
-        },
-        "浮盈比率沿用H1归母净资产": {
-          "value": 1330.9921199999999,
-          "unit": "亿元",
-          "source": "provision_h1",
-          "cells": [
-            "AR1751"
-          ],
-          "period": "2026-06-30"
-        },
-        "核心一级资本充足率（Q3）": {
-          "value": 13.570000000000002,
-          "unit": "%",
-          "source": "performance",
-          "cells": [
-            "K308"
-          ],
-          "period": "2026-09-30"
-        },
-        "沿用H1源表隐含资本要求": {
-          "value": 7.500000000000001,
-          "unit": "%",
-          "source": "capital",
-          "cells": [
-            "AK1283",
-            "AK1929"
-          ],
-          "period": "2026-06-30（沿用假设）"
-        }
-      },
-      "code": "601825.SH",
-      "absolute": {
-        "discounted_ac_amount": 28.46149999999998,
-        "provision_amount": 61.16653425800001,
-        "capital_amount": 600.9585957700001,
-        "total_amount": 89.62803425799999,
-        "equity_ratio": 0.06704443935601337,
-        "profit_ratio": 0.7213688187666568
-      },
-      "complete": true,
-      "scores": {
-        "bond": 42.857142857142854,
-        "provision": 50.79365079365079,
-        "capital": 69.04761904761905
-      },
-      "total": 56.5079365079365,
-      "rank": 10
+      "total": 59.047619047619044,
+      "rank": 8
     },
     {
       "name": "宁波银行",
@@ -3727,6 +3219,24 @@
           "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净资产；完整安全垫，不另扣1个百分点",
           "percentile": 38.095238095238095,
           "rank": 14
+        },
+        "writeoff_assets": {
+          "value": 0.016268101711664915,
+          "source": "writeoffs",
+          "cells": [
+            "C17",
+            "D17",
+            "E17",
+            "I17:R17"
+          ],
+          "formula": "2021H2起累计核销及转出额÷（2022年末总资产与累计截止期总资产的平均值）；缺失半年度按Excel SUM跳过并注明，非期末不良余额。",
+          "cumulative_yi": 513.61,
+          "average_assets_yi": 31571.6,
+          "missing_periods": [],
+          "period": "2026-06-30",
+          "assumption": "累计窗口内10个半年度均有数据。",
+          "percentile": 52.38095238095238,
+          "rank": 11
         }
       },
       "supplement": {
@@ -3917,10 +3427,726 @@
       "complete": true,
       "scores": {
         "bond": 59.523809523809526,
-        "provision": 61.904761904761905,
+        "provision": 59.523809523809526,
         "capital": 46.42857142857143
       },
-      "total": 55.23809523809524,
+      "total": 55.595238095238095,
+      "rank": 9
+    },
+    {
+      "name": "成都银行",
+      "type": "城农商行",
+      "metrics": {
+        "prov_profit": {
+          "value": 1.3407925268549457,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AS1895"
+          ],
+          "period": "2026-09-30",
+          "percentile": 85.71428571428571,
+          "rank": 4
+        },
+        "prov_equity": {
+          "value": 0.17648360778484282,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AS1817"
+          ],
+          "period": "2026-09-30",
+          "percentile": 95.23809523809524,
+          "rank": 2
+        },
+        "fcf1": {
+          "value": 0.12665708680041354,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1702"
+          ],
+          "percentile": 100.0,
+          "rank": 1
+        },
+        "loan_prov": {
+          "value": 0.03044140628290917,
+          "source": "provision",
+          "cells": [
+            "AS1193",
+            "AS179"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 71.42857142857143,
+          "rank": 7
+        },
+        "bond_profit": {
+          "value": 0.6139685551086924,
+          "source": "bond",
+          "cells": [
+            "T25"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 19.047619047619047,
+          "rank": 18
+        },
+        "bond_equity": {
+          "value": 0.07987098174724425,
+          "source": "bond",
+          "cells": [
+            "H25",
+            "P25"
+          ],
+          "denominator_source": "provision_h1",
+          "denominator_cells": [
+            "AR1739"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 38.095238095238095,
+          "rank": 14
+        },
+        "cet1_profit": {
+          "source": "performance",
+          "cells": [
+            "K289",
+            "K254"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1357"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1271",
+                "AK1917"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 1.0440027963895342,
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AS1661"
+          ],
+          "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净利润(TTM)；完整安全垫，不另扣1个百分点",
+          "percentile": 4.761904761904762,
+          "rank": 21
+        },
+        "cet1_equity": {
+          "source": "performance",
+          "cells": [
+            "K289",
+            "K254"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1357"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1271",
+                "AK1917"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 0.13741826297054144,
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AS1739"
+          ],
+          "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净资产；完整安全垫，不另扣1个百分点",
+          "percentile": 23.80952380952381,
+          "rank": 17
+        },
+        "writeoff_assets": {
+          "value": 0.0025902049948586703,
+          "source": "writeoffs",
+          "cells": [
+            "C28",
+            "D28",
+            "E28",
+            "I28:R28"
+          ],
+          "formula": "2021H2起累计核销及转出额÷（2022年末总资产与累计截止期总资产的平均值）；缺失半年度按Excel SUM跳过并注明，非期末不良余额。",
+          "cumulative_yi": 31.27287,
+          "average_assets_yi": 12073.51158,
+          "missing_periods": [],
+          "period": "2026-06-30",
+          "assumption": "累计窗口内10个半年度均有数据。",
+          "percentile": 0.0,
+          "rank": 22
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": 183.8082687279999,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AS1583"
+          ],
+          "period": "2026-09-30"
+        },
+        "归母净利润(TTM)": {
+          "value": 137.08927,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AS1661"
+          ],
+          "period": "2026-09-30"
+        },
+        "归母净资产": {
+          "value": 1041.50335,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AS1739"
+          ],
+          "period": "2026-09-30"
+        },
+        "AC浮盈余额": {
+          "value": 71.34420000000046,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H25"
+          ],
+          "period": "2026-06-30"
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 11.10145,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P25"
+          ],
+          "period": "2026-06-30"
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 134.28318,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L25"
+          ],
+          "period": "2026-06-30"
+        },
+        "CET1安全垫（百分点）": {
+          "source": "performance",
+          "cells": [
+            "K289",
+            "K254"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1357"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1271",
+                "AK1917"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 1.3499999999999983,
+          "unit": "百分点"
+        },
+        "风险加权资产RWA": {
+          "source": "performance",
+          "cells": [
+            "K289",
+            "K254"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1357"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1271",
+                "AK1917"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 10601.598610000003,
+          "unit": "亿元",
+          "formula": "2025Q3 RWA×（1＋2026Q3 RWA同比增速）"
+        },
+        "CET1安全垫金额": {
+          "source": "performance",
+          "cells": [
+            "K289",
+            "K254"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1357"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1271",
+                "AK1917"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 143.12158123499987,
+          "unit": "亿元",
+          "formula": "（Q3核充率－沿用资本要求）×推算Q3 RWA"
+        },
+        "浮盈比率沿用H1归母净资产": {
+          "value": 1032.23534,
+          "unit": "亿元",
+          "source": "provision_h1",
+          "cells": [
+            "AR1739"
+          ],
+          "period": "2026-06-30"
+        },
+        "核心一级资本充足率（Q3）": {
+          "value": 8.85,
+          "unit": "%",
+          "source": "performance",
+          "cells": [
+            "K289"
+          ],
+          "period": "2026-09-30"
+        },
+        "沿用H1源表隐含资本要求": {
+          "value": 7.500000000000001,
+          "unit": "%",
+          "source": "capital",
+          "cells": [
+            "AK1271",
+            "AK1917"
+          ],
+          "period": "2026-06-30（沿用假设）"
+        }
+      },
+      "code": "601838.SH",
+      "absolute": {
+        "discounted_ac_amount": 28.537680000000183,
+        "provision_amount": 183.8082687279999,
+        "capital_amount": 143.12158123499987,
+        "total_amount": 212.34594872800008,
+        "equity_ratio": 0.20388407653993632,
+        "profit_ratio": 1.5489611165629527
+      },
+      "complete": true,
+      "scores": {
+        "bond": 28.57142857142857,
+        "provision": 63.095238095238095,
+        "capital": 57.142857142857146
+      },
+      "total": 54.404761904761905,
+      "rank": 10
+    },
+    {
+      "name": "沪农商行",
+      "type": "城农商行",
+      "metrics": {
+        "prov_profit": {
+          "value": 0.49229720289001366,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AS1907"
+          ],
+          "period": "2026-09-30",
+          "percentile": 52.38095238095238,
+          "rank": 11
+        },
+        "prov_equity": {
+          "value": 0.045754389579418464,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AS1829"
+          ],
+          "period": "2026-09-30",
+          "percentile": 47.61904761904762,
+          "rank": 12
+        },
+        "fcf1": {
+          "value": 0.0014688837567826407,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1714"
+          ],
+          "percentile": 38.095238095238095,
+          "rank": 14
+        },
+        "loan_prov": {
+          "value": 0.028449202951863147,
+          "source": "provision",
+          "cells": [
+            "AS1205",
+            "AS191"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 52.38095238095238,
+          "rank": 11
+        },
+        "bond_profit": {
+          "value": 0.9277899657442898,
+          "source": "bond",
+          "cells": [
+            "T39"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 42.857142857142854,
+          "rank": 13
+        },
+        "bond_equity": {
+          "value": 0.08600875112618994,
+          "source": "bond",
+          "cells": [
+            "H39",
+            "P39"
+          ],
+          "denominator_source": "provision_h1",
+          "denominator_cells": [
+            "AR1751"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 42.857142857142854,
+          "rank": 13
+        },
+        "cet1_profit": {
+          "source": "performance",
+          "cells": [
+            "K308",
+            "K269"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1369"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1283",
+                "AK1929"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 4.836799065684958,
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AS1673"
+          ],
+          "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净利润(TTM)；完整安全垫，不另扣1个百分点",
+          "percentile": 100.0,
+          "rank": 1
+        },
+        "cet1_equity": {
+          "source": "performance",
+          "cells": [
+            "K308",
+            "K269"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1369"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1283",
+                "AK1929"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 0.4495349302607342,
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AS1751"
+          ],
+          "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净资产；完整安全垫，不另扣1个百分点",
+          "percentile": 100.0,
+          "rank": 1
+        },
+        "writeoff_assets": {
+          "value": 0.01107419307843183,
+          "source": "writeoffs",
+          "cells": [
+            "C22",
+            "D22",
+            "E22",
+            "I22:R22"
+          ],
+          "formula": "2021H2起累计核销及转出额÷（2022年末总资产与累计截止期总资产的平均值）；缺失半年度按Excel SUM跳过并注明，非期末不良余额。",
+          "cumulative_yi": 162.19118,
+          "average_assets_yi": 14645.868900000001,
+          "missing_periods": [
+            "2021H2"
+          ],
+          "period": "2026-06-30",
+          "assumption": "缺少2021H2，累计跳过该期；不是已核实为零。",
+          "percentile": 28.571428571428573,
+          "rank": 16
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": 61.16653425800001,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AS1595"
+          ],
+          "period": "2026-09-30"
+        },
+        "归母净利润(TTM)": {
+          "value": 124.24716999999998,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AS1673"
+          ],
+          "period": "2026-09-30"
+        },
+        "归母净资产": {
+          "value": 1336.84516,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AS1751"
+          ],
+          "period": "2026-09-30"
+        },
+        "AC浮盈余额": {
+          "value": 71.15374999999995,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H39"
+          ],
+          "period": "2026-06-30"
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 43.32322,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P39"
+          ],
+          "period": "2026-06-30"
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 123.38673,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L39"
+          ],
+          "period": "2026-06-30"
+        },
+        "CET1安全垫（百分点）": {
+          "source": "performance",
+          "cells": [
+            "K308",
+            "K269"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1369"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1283",
+                "AK1929"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 6.07,
+          "unit": "百分点"
+        },
+        "风险加权资产RWA": {
+          "source": "performance",
+          "cells": [
+            "K308",
+            "K269"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1369"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1283",
+                "AK1929"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 9900.4711,
+          "unit": "亿元",
+          "formula": "2025Q3 RWA×（1＋2026Q3 RWA同比增速）"
+        },
+        "CET1安全垫金额": {
+          "source": "performance",
+          "cells": [
+            "K308",
+            "K269"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1369"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1283",
+                "AK1929"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 600.9585957700001,
+          "unit": "亿元",
+          "formula": "（Q3核充率－沿用资本要求）×推算Q3 RWA"
+        },
+        "浮盈比率沿用H1归母净资产": {
+          "value": 1330.9921199999999,
+          "unit": "亿元",
+          "source": "provision_h1",
+          "cells": [
+            "AR1751"
+          ],
+          "period": "2026-06-30"
+        },
+        "核心一级资本充足率（Q3）": {
+          "value": 13.570000000000002,
+          "unit": "%",
+          "source": "performance",
+          "cells": [
+            "K308"
+          ],
+          "period": "2026-09-30"
+        },
+        "沿用H1源表隐含资本要求": {
+          "value": 7.500000000000001,
+          "unit": "%",
+          "source": "capital",
+          "cells": [
+            "AK1283",
+            "AK1929"
+          ],
+          "period": "2026-06-30（沿用假设）"
+        }
+      },
+      "code": "601825.SH",
+      "absolute": {
+        "discounted_ac_amount": 28.46149999999998,
+        "provision_amount": 61.16653425800001,
+        "capital_amount": 600.9585957700001,
+        "total_amount": 89.62803425799999,
+        "equity_ratio": 0.06704443935601337,
+        "profit_ratio": 0.7213688187666568
+      },
+      "complete": true,
+      "scores": {
+        "bond": 42.857142857142854,
+        "provision": 45.23809523809524,
+        "capital": 69.04761904761905
+      },
+      "total": 51.904761904761905,
       "rank": 11
     },
     {
@@ -4066,6 +4292,24 @@
           "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净资产；完整安全垫，不另扣1个百分点",
           "percentile": 71.42857142857143,
           "rank": 7
+        },
+        "writeoff_assets": {
+          "value": 0.01411977344641641,
+          "source": "writeoffs",
+          "cells": [
+            "C18",
+            "D18",
+            "E18",
+            "I18:R18"
+          ],
+          "formula": "2021H2起累计核销及转出额÷（2022年末总资产与累计截止期总资产的平均值）；缺失半年度按Excel SUM跳过并注明，非期末不良余额。",
+          "cumulative_yi": 2065.2,
+          "average_assets_yi": 146262.97,
+          "missing_periods": [],
+          "period": "2026-06-30",
+          "assumption": "累计窗口内10个半年度均有数据。",
+          "percentile": 47.61904761904762,
+          "rank": 12
         }
       },
       "supplement": {
@@ -4256,689 +4500,11 @@
       "complete": true,
       "scores": {
         "bond": 61.90476190476191,
-        "provision": 31.746031746031747,
+        "provision": 35.714285714285715,
         "capital": 63.095238095238095
       },
-      "total": 50.317460317460316,
+      "total": 49.16666666666667,
       "rank": 12
-    },
-    {
-      "name": "工商银行",
-      "type": "国有行",
-      "metrics": {
-        "prov_profit": {
-          "value": -0.17655711668670312,
-          "unit": "百分比值",
-          "source": "provision",
-          "cells": [
-            "AS1874"
-          ],
-          "period": "2026-09-30",
-          "percentile": 38.095238095238095,
-          "rank": 14
-        },
-        "prov_equity": {
-          "value": -0.015523679008458968,
-          "unit": "百分比值",
-          "source": "provision",
-          "cells": [
-            "AS1796"
-          ],
-          "period": "2026-09-30",
-          "percentile": 38.095238095238095,
-          "rank": 14
-        },
-        "fcf1": {
-          "value": -0.009582145342959605,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1681"
-          ],
-          "percentile": 23.80952380952381,
-          "rank": 17
-        },
-        "loan_prov": {
-          "value": 0.027364225123416942,
-          "source": "provision",
-          "cells": [
-            "AS1172",
-            "AS158"
-          ],
-          "formula": "贷款拨备额 ÷ 贷款总额",
-          "percentile": 47.61904761904762,
-          "rank": 12
-        },
-        "bond_profit": {
-          "value": 1.58862465564553,
-          "source": "bond",
-          "cells": [
-            "T4"
-          ],
-          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
-          "percentile": 76.19047619047619,
-          "rank": 6
-        },
-        "bond_equity": {
-          "value": 0.13633737416784045,
-          "source": "bond",
-          "cells": [
-            "H4",
-            "P4"
-          ],
-          "denominator_source": "provision_h1",
-          "denominator_cells": [
-            "AR1718"
-          ],
-          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
-          "percentile": 71.42857142857143,
-          "rank": 7
-        },
-        "cet1_profit": {
-          "source": "performance",
-          "cells": [
-            "K309",
-            "K263"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1336"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1250",
-                "AK1896"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 2.8313596480819387,
-          "denominator_source": "provision",
-          "denominator_cells": [
-            "AS1640"
-          ],
-          "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净利润(TTM)；完整安全垫，不另扣1个百分点",
-          "percentile": 66.66666666666667,
-          "rank": 8
-        },
-        "cet1_equity": {
-          "source": "performance",
-          "cells": [
-            "K309",
-            "K263"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1336"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1250",
-                "AK1896"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 0.24894560558734793,
-          "denominator_source": "provision",
-          "denominator_cells": [
-            "AS1718"
-          ],
-          "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净资产；完整安全垫，不另扣1个百分点",
-          "percentile": 76.19047619047619,
-          "rank": 6
-        }
-      },
-      "supplement": {
-        "超额拨备额": {
-          "value": -678.4984059999988,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AS1562"
-          ],
-          "period": "2026-09-30"
-        },
-        "归母净利润(TTM)": {
-          "value": 3842.9399999999996,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AS1640"
-          ],
-          "period": "2026-09-30"
-        },
-        "归母净资产": {
-          "value": 43707.32,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AS1718"
-          ],
-          "period": "2026-09-30"
-        },
-        "AC浮盈余额": {
-          "value": 5317.600000000006,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "H4"
-          ],
-          "period": "2026-06-30"
-        },
-        "OCI相关其他综合收益余额": {
-          "value": 581.71,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "P4"
-          ],
-          "period": "2026-06-30"
-        },
-        "浮盈表归母净利润(TTM)": {
-          "value": 3713.47,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "L4"
-          ],
-          "period": "2026-06-30"
-        },
-        "CET1安全垫（百分点）": {
-          "source": "performance",
-          "cells": [
-            "K309",
-            "K263"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1336"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1250",
-                "AK1896"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 3.570000000000001,
-          "unit": "百分点"
-        },
-        "风险加权资产RWA": {
-          "source": "performance",
-          "cells": [
-            "K309",
-            "K263"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1336"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1250",
-                "AK1896"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 304782.78,
-          "unit": "亿元",
-          "formula": "2025Q3 RWA×（1＋2026Q3 RWA同比增速）"
-        },
-        "CET1安全垫金额": {
-          "source": "performance",
-          "cells": [
-            "K309",
-            "K263"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1336"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1250",
-                "AK1896"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 10880.745246000004,
-          "unit": "亿元",
-          "formula": "（Q3核充率－沿用资本要求）×推算Q3 RWA"
-        },
-        "浮盈比率沿用H1归母净资产": {
-          "value": 43269.94,
-          "unit": "亿元",
-          "source": "provision_h1",
-          "cells": [
-            "AR1718"
-          ],
-          "period": "2026-06-30"
-        },
-        "核心一级资本充足率（Q3）": {
-          "value": 13.07,
-          "unit": "%",
-          "source": "performance",
-          "cells": [
-            "K309"
-          ],
-          "period": "2026-09-30"
-        },
-        "沿用H1源表隐含资本要求": {
-          "value": 9.5,
-          "unit": "%",
-          "source": "capital",
-          "cells": [
-            "AK1250",
-            "AK1896"
-          ],
-          "period": "2026-06-30（沿用假设）"
-        }
-      },
-      "code": "601398.SH",
-      "absolute": {
-        "discounted_ac_amount": 2127.0400000000022,
-        "provision_amount": -678.4984059999988,
-        "capital_amount": 10880.745246000004,
-        "total_amount": 1448.5415940000034,
-        "equity_ratio": 0.03314185344697418,
-        "profit_ratio": 0.37693578197942296
-      },
-      "complete": true,
-      "scores": {
-        "bond": 73.80952380952381,
-        "provision": 41.26984126984127,
-        "capital": 47.61904761904762
-      },
-      "total": 50.317460317460316,
-      "rank": 12
-    },
-    {
-      "name": "苏州银行",
-      "type": "城农商行",
-      "metrics": {
-        "prov_profit": {
-          "value": 1.4903481155363352,
-          "unit": "百分比值",
-          "source": "provision",
-          "cells": [
-            "AS1901"
-          ],
-          "period": "2026-09-30",
-          "percentile": 90.47619047619048,
-          "rank": 3
-        },
-        "prov_equity": {
-          "value": 0.13037913908461343,
-          "unit": "百分比值",
-          "source": "provision",
-          "cells": [
-            "AS1823"
-          ],
-          "period": "2026-09-30",
-          "percentile": 85.71428571428571,
-          "rank": 4
-        },
-        "fcf1": {
-          "value": -0.009694923266893557,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1706"
-          ],
-          "percentile": 19.047619047619047,
-          "rank": 18
-        },
-        "loan_prov": {
-          "value": 0.03015608042334696,
-          "source": "provision",
-          "cells": [
-            "AS1199",
-            "AS185"
-          ],
-          "formula": "贷款拨备额 ÷ 贷款总额",
-          "percentile": 66.66666666666667,
-          "rank": 8
-        },
-        "bond_profit": {
-          "value": 0.3988665131546132,
-          "source": "bond",
-          "cells": [
-            "T32"
-          ],
-          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
-          "percentile": 4.761904761904762,
-          "rank": 21
-        },
-        "bond_equity": {
-          "value": 0.034139695938798634,
-          "source": "bond",
-          "cells": [
-            "H32",
-            "P32"
-          ],
-          "denominator_source": "provision_h1",
-          "denominator_cells": [
-            "AR1745"
-          ],
-          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
-          "percentile": 9.523809523809524,
-          "rank": 20
-        },
-        "cet1_profit": {
-          "source": "performance",
-          "cells": [
-            "K302",
-            "K248"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1361"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1275",
-                "AK1921"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 1.945298953439486,
-          "denominator_source": "provision",
-          "denominator_cells": [
-            "AS1667"
-          ],
-          "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净利润(TTM)；完整安全垫，不另扣1个百分点",
-          "percentile": 47.61904761904762,
-          "rank": 12
-        },
-        "cet1_equity": {
-          "source": "performance",
-          "cells": [
-            "K302",
-            "K248"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1361"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1275",
-                "AK1921"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 0.17017930251843646,
-          "denominator_source": "provision",
-          "denominator_cells": [
-            "AS1745"
-          ],
-          "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净资产；完整安全垫，不另扣1个百分点",
-          "percentile": 52.38095238095238,
-          "rank": 11
-        }
-      },
-      "supplement": {
-        "超额拨备额": {
-          "value": 85.13228511500002,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AS1589"
-          ],
-          "period": "2026-09-30"
-        },
-        "归母净利润(TTM)": {
-          "value": 57.12241605,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AS1667"
-          ],
-          "period": "2026-09-30"
-        },
-        "归母净资产": {
-          "value": 652.95940526,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AS1745"
-          ],
-          "period": "2026-09-30"
-        },
-        "AC浮盈余额": {
-          "value": 13.547901519999868,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "H32"
-          ],
-          "period": "2026-06-30"
-        },
-        "OCI相关其他综合收益余额": {
-          "value": 8.29474954,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "P32"
-          ],
-          "period": "2026-06-30"
-        },
-        "浮盈表归母净利润(TTM)": {
-          "value": 54.76180712,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "L32"
-          ],
-          "period": "2026-06-30"
-        },
-        "CET1安全垫（百分点）": {
-          "source": "performance",
-          "cells": [
-            "K302",
-            "K248"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1361"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1275",
-                "AK1921"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 1.8899999999999986,
-          "unit": "百分点"
-        },
-        "风险加权资产RWA": {
-          "source": "performance",
-          "cells": [
-            "K302",
-            "K248"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1361"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1275",
-                "AK1921"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 5879.374399999999,
-          "unit": "亿元",
-          "formula": "2025Q3 RWA×（1＋2026Q3 RWA同比增速）"
-        },
-        "CET1安全垫金额": {
-          "source": "performance",
-          "cells": [
-            "K302",
-            "K248"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1361"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1275",
-                "AK1921"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 111.1201761599999,
-          "unit": "亿元",
-          "formula": "（Q3核充率－沿用资本要求）×推算Q3 RWA"
-        },
-        "浮盈比率沿用H1归母净资产": {
-          "value": 639.8021557999999,
-          "unit": "亿元",
-          "source": "provision_h1",
-          "cells": [
-            "AR1745"
-          ],
-          "period": "2026-06-30"
-        },
-        "核心一级资本充足率（Q3）": {
-          "value": 9.39,
-          "unit": "%",
-          "source": "performance",
-          "cells": [
-            "K302"
-          ],
-          "period": "2026-09-30"
-        },
-        "沿用H1源表隐含资本要求": {
-          "value": 7.500000000000001,
-          "unit": "%",
-          "source": "capital",
-          "cells": [
-            "AK1275",
-            "AK1921"
-          ],
-          "period": "2026-06-30（沿用假设）"
-        }
-      },
-      "code": "002966.SZ",
-      "absolute": {
-        "discounted_ac_amount": 5.419160607999948,
-        "provision_amount": 85.13228511500002,
-        "capital_amount": 111.1201761599999,
-        "total_amount": 90.55144572299996,
-        "equity_ratio": 0.13867852272829048,
-        "profit_ratio": 1.5852173627204265
-      },
-      "complete": true,
-      "scores": {
-        "bond": 7.142857142857142,
-        "provision": 80.95238095238095,
-        "capital": 34.523809523809526
-      },
-      "total": 47.61904761904761,
-      "rank": 14
     },
     {
       "name": "江苏银行",
@@ -5083,6 +4649,24 @@
           "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净资产；完整安全垫，不另扣1个百分点",
           "percentile": 0.0,
           "rank": 22
+        },
+        "writeoff_assets": {
+          "value": 0.02210772516751534,
+          "source": "writeoffs",
+          "cells": [
+            "C13",
+            "D13",
+            "E13",
+            "I13:R13"
+          ],
+          "formula": "2021H2起累计核销及转出额÷（2022年末总资产与累计截止期总资产的平均值）；缺失半年度按Excel SUM跳过并注明，非期末不良余额。",
+          "cumulative_yi": 949.6811460022789,
+          "average_assets_yi": 42956.98172499999,
+          "missing_periods": [],
+          "period": "2026-06-30",
+          "assumption": "累计窗口内10个半年度均有数据。",
+          "percentile": 71.42857142857143,
+          "rank": 7
         }
       },
       "supplement": {
@@ -5273,10 +4857,724 @@
       "complete": true,
       "scores": {
         "bond": 52.38095238095238,
-        "provision": 44.44444444444445,
+        "provision": 51.19047619047619,
         "capital": 42.857142857142854
       },
-      "total": 45.3968253968254,
+      "total": 48.92857142857143,
+      "rank": 13
+    },
+    {
+      "name": "工商银行",
+      "type": "国有行",
+      "metrics": {
+        "prov_profit": {
+          "value": -0.17655711668670312,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AS1874"
+          ],
+          "period": "2026-09-30",
+          "percentile": 38.095238095238095,
+          "rank": 14
+        },
+        "prov_equity": {
+          "value": -0.015523679008458968,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AS1796"
+          ],
+          "period": "2026-09-30",
+          "percentile": 38.095238095238095,
+          "rank": 14
+        },
+        "fcf1": {
+          "value": -0.009582145342959605,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1681"
+          ],
+          "percentile": 23.80952380952381,
+          "rank": 17
+        },
+        "loan_prov": {
+          "value": 0.027364225123416942,
+          "source": "provision",
+          "cells": [
+            "AS1172",
+            "AS158"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 47.61904761904762,
+          "rank": 12
+        },
+        "bond_profit": {
+          "value": 1.58862465564553,
+          "source": "bond",
+          "cells": [
+            "T4"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 76.19047619047619,
+          "rank": 6
+        },
+        "bond_equity": {
+          "value": 0.13633737416784045,
+          "source": "bond",
+          "cells": [
+            "H4",
+            "P4"
+          ],
+          "denominator_source": "provision_h1",
+          "denominator_cells": [
+            "AR1718"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 71.42857142857143,
+          "rank": 7
+        },
+        "cet1_profit": {
+          "source": "performance",
+          "cells": [
+            "K309",
+            "K263"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1336"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1250",
+                "AK1896"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 2.8313596480819387,
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AS1640"
+          ],
+          "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净利润(TTM)；完整安全垫，不另扣1个百分点",
+          "percentile": 66.66666666666667,
+          "rank": 8
+        },
+        "cet1_equity": {
+          "source": "performance",
+          "cells": [
+            "K309",
+            "K263"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1336"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1250",
+                "AK1896"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 0.24894560558734793,
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AS1718"
+          ],
+          "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净资产；完整安全垫，不另扣1个百分点",
+          "percentile": 76.19047619047619,
+          "rank": 6
+        },
+        "writeoff_assets": {
+          "value": 0.010357648020148894,
+          "source": "writeoffs",
+          "cells": [
+            "C24",
+            "D24",
+            "E24",
+            "I24:R24"
+          ],
+          "formula": "2021H2起累计核销及转出额÷（2022年末总资产与累计截止期总资产的平均值）；缺失半年度按Excel SUM跳过并注明，非期末不良余额。",
+          "cumulative_yi": 5006.900000000001,
+          "average_assets_yi": 483401.25,
+          "missing_periods": [],
+          "period": "2026-06-30",
+          "assumption": "累计窗口内10个半年度均有数据。",
+          "percentile": 19.047619047619047,
+          "rank": 18
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": -678.4984059999988,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AS1562"
+          ],
+          "period": "2026-09-30"
+        },
+        "归母净利润(TTM)": {
+          "value": 3842.9399999999996,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AS1640"
+          ],
+          "period": "2026-09-30"
+        },
+        "归母净资产": {
+          "value": 43707.32,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AS1718"
+          ],
+          "period": "2026-09-30"
+        },
+        "AC浮盈余额": {
+          "value": 5317.600000000006,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H4"
+          ],
+          "period": "2026-06-30"
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 581.71,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P4"
+          ],
+          "period": "2026-06-30"
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 3713.47,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L4"
+          ],
+          "period": "2026-06-30"
+        },
+        "CET1安全垫（百分点）": {
+          "source": "performance",
+          "cells": [
+            "K309",
+            "K263"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1336"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1250",
+                "AK1896"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 3.570000000000001,
+          "unit": "百分点"
+        },
+        "风险加权资产RWA": {
+          "source": "performance",
+          "cells": [
+            "K309",
+            "K263"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1336"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1250",
+                "AK1896"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 304782.78,
+          "unit": "亿元",
+          "formula": "2025Q3 RWA×（1＋2026Q3 RWA同比增速）"
+        },
+        "CET1安全垫金额": {
+          "source": "performance",
+          "cells": [
+            "K309",
+            "K263"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1336"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1250",
+                "AK1896"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 10880.745246000004,
+          "unit": "亿元",
+          "formula": "（Q3核充率－沿用资本要求）×推算Q3 RWA"
+        },
+        "浮盈比率沿用H1归母净资产": {
+          "value": 43269.94,
+          "unit": "亿元",
+          "source": "provision_h1",
+          "cells": [
+            "AR1718"
+          ],
+          "period": "2026-06-30"
+        },
+        "核心一级资本充足率（Q3）": {
+          "value": 13.07,
+          "unit": "%",
+          "source": "performance",
+          "cells": [
+            "K309"
+          ],
+          "period": "2026-09-30"
+        },
+        "沿用H1源表隐含资本要求": {
+          "value": 9.5,
+          "unit": "%",
+          "source": "capital",
+          "cells": [
+            "AK1250",
+            "AK1896"
+          ],
+          "period": "2026-06-30（沿用假设）"
+        }
+      },
+      "code": "601398.SH",
+      "absolute": {
+        "discounted_ac_amount": 2127.0400000000022,
+        "provision_amount": -678.4984059999988,
+        "capital_amount": 10880.745246000004,
+        "total_amount": 1448.5415940000034,
+        "equity_ratio": 0.03314185344697418,
+        "profit_ratio": 0.37693578197942296
+      },
+      "complete": true,
+      "scores": {
+        "bond": 73.80952380952381,
+        "provision": 35.714285714285715,
+        "capital": 47.61904761904762
+      },
+      "total": 46.904761904761905,
+      "rank": 14
+    },
+    {
+      "name": "苏州银行",
+      "type": "城农商行",
+      "metrics": {
+        "prov_profit": {
+          "value": 1.4903481155363352,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AS1901"
+          ],
+          "period": "2026-09-30",
+          "percentile": 90.47619047619048,
+          "rank": 3
+        },
+        "prov_equity": {
+          "value": 0.13037913908461343,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AS1823"
+          ],
+          "period": "2026-09-30",
+          "percentile": 85.71428571428571,
+          "rank": 4
+        },
+        "fcf1": {
+          "value": -0.009694923266893557,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1706"
+          ],
+          "percentile": 19.047619047619047,
+          "rank": 18
+        },
+        "loan_prov": {
+          "value": 0.03015608042334696,
+          "source": "provision",
+          "cells": [
+            "AS1199",
+            "AS185"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 66.66666666666667,
+          "rank": 8
+        },
+        "bond_profit": {
+          "value": 0.3988665131546132,
+          "source": "bond",
+          "cells": [
+            "T32"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 4.761904761904762,
+          "rank": 21
+        },
+        "bond_equity": {
+          "value": 0.034139695938798634,
+          "source": "bond",
+          "cells": [
+            "H32",
+            "P32"
+          ],
+          "denominator_source": "provision_h1",
+          "denominator_cells": [
+            "AR1745"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 9.523809523809524,
+          "rank": 20
+        },
+        "cet1_profit": {
+          "source": "performance",
+          "cells": [
+            "K302",
+            "K248"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1361"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1275",
+                "AK1921"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 1.945298953439486,
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AS1667"
+          ],
+          "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净利润(TTM)；完整安全垫，不另扣1个百分点",
+          "percentile": 47.61904761904762,
+          "rank": 12
+        },
+        "cet1_equity": {
+          "source": "performance",
+          "cells": [
+            "K302",
+            "K248"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1361"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1275",
+                "AK1921"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 0.17017930251843646,
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AS1745"
+          ],
+          "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净资产；完整安全垫，不另扣1个百分点",
+          "percentile": 52.38095238095238,
+          "rank": 11
+        },
+        "writeoff_assets": {
+          "value": 0.007434288758891065,
+          "source": "writeoffs",
+          "cells": [
+            "C27",
+            "D27",
+            "E27",
+            "I27:R27"
+          ],
+          "formula": "2021H2起累计核销及转出额÷（2022年末总资产与累计截止期总资产的平均值）；缺失半年度按Excel SUM跳过并注明，非期末不良余额。",
+          "cumulative_yi": 52.05022677287113,
+          "average_assets_yi": 7001.37275548,
+          "missing_periods": [],
+          "period": "2026-06-30",
+          "assumption": "累计窗口内10个半年度均有数据。",
+          "percentile": 4.761904761904762,
+          "rank": 21
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": 85.13228511500002,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AS1589"
+          ],
+          "period": "2026-09-30"
+        },
+        "归母净利润(TTM)": {
+          "value": 57.12241605,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AS1667"
+          ],
+          "period": "2026-09-30"
+        },
+        "归母净资产": {
+          "value": 652.95940526,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AS1745"
+          ],
+          "period": "2026-09-30"
+        },
+        "AC浮盈余额": {
+          "value": 13.547901519999868,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H32"
+          ],
+          "period": "2026-06-30"
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 8.29474954,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P32"
+          ],
+          "period": "2026-06-30"
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 54.76180712,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L32"
+          ],
+          "period": "2026-06-30"
+        },
+        "CET1安全垫（百分点）": {
+          "source": "performance",
+          "cells": [
+            "K302",
+            "K248"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1361"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1275",
+                "AK1921"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 1.8899999999999986,
+          "unit": "百分点"
+        },
+        "风险加权资产RWA": {
+          "source": "performance",
+          "cells": [
+            "K302",
+            "K248"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1361"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1275",
+                "AK1921"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 5879.374399999999,
+          "unit": "亿元",
+          "formula": "2025Q3 RWA×（1＋2026Q3 RWA同比增速）"
+        },
+        "CET1安全垫金额": {
+          "source": "performance",
+          "cells": [
+            "K302",
+            "K248"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1361"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1275",
+                "AK1921"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 111.1201761599999,
+          "unit": "亿元",
+          "formula": "（Q3核充率－沿用资本要求）×推算Q3 RWA"
+        },
+        "浮盈比率沿用H1归母净资产": {
+          "value": 639.8021557999999,
+          "unit": "亿元",
+          "source": "provision_h1",
+          "cells": [
+            "AR1745"
+          ],
+          "period": "2026-06-30"
+        },
+        "核心一级资本充足率（Q3）": {
+          "value": 9.39,
+          "unit": "%",
+          "source": "performance",
+          "cells": [
+            "K302"
+          ],
+          "period": "2026-09-30"
+        },
+        "沿用H1源表隐含资本要求": {
+          "value": 7.500000000000001,
+          "unit": "%",
+          "source": "capital",
+          "cells": [
+            "AK1275",
+            "AK1921"
+          ],
+          "period": "2026-06-30（沿用假设）"
+        }
+      },
+      "code": "002966.SZ",
+      "absolute": {
+        "discounted_ac_amount": 5.419160607999948,
+        "provision_amount": 85.13228511500002,
+        "capital_amount": 111.1201761599999,
+        "total_amount": 90.55144572299996,
+        "equity_ratio": 0.13867852272829048,
+        "profit_ratio": 1.5852173627204265
+      },
+      "complete": true,
+      "scores": {
+        "bond": 7.142857142857142,
+        "provision": 61.904761904761905,
+        "capital": 34.523809523809526
+      },
+      "total": 42.73809523809524,
       "rank": 15
     },
     {
@@ -5422,6 +5720,24 @@
           "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净资产；完整安全垫，不另扣1个百分点",
           "percentile": 66.66666666666667,
           "rank": 8
+        },
+        "writeoff_assets": {
+          "value": 0.0104733114551551,
+          "source": "writeoffs",
+          "cells": [
+            "C23",
+            "D23",
+            "E23",
+            "I23:R23"
+          ],
+          "formula": "2021H2起累计核销及转出额÷（2022年末总资产与累计截止期总资产的平均值）；缺失半年度按Excel SUM跳过并注明，非期末不良余额。",
+          "cumulative_yi": 3618.54,
+          "average_assets_yi": 345501.04,
+          "missing_periods": [],
+          "period": "2026-06-30",
+          "assumption": "累计窗口内10个半年度均有数据。",
+          "percentile": 23.80952380952381,
+          "rank": 17
         }
       },
       "supplement": {
@@ -5612,350 +5928,11 @@
       "complete": true,
       "scores": {
         "bond": 40.47619047619048,
-        "provision": 30.15873015873016,
+        "provision": 28.571428571428573,
         "capital": 39.285714285714285
       },
-      "total": 35.87301587301587,
+      "total": 34.16666666666667,
       "rank": 16
-    },
-    {
-      "name": "邮储银行",
-      "type": "国有行",
-      "metrics": {
-        "prov_profit": {
-          "value": -0.941263020088451,
-          "unit": "百分比值",
-          "source": "provision",
-          "cells": [
-            "AS1878"
-          ],
-          "period": "2026-09-30",
-          "percentile": 4.761904761904762,
-          "rank": 21
-        },
-        "prov_equity": {
-          "value": -0.06991404941929591,
-          "unit": "百分比值",
-          "source": "provision",
-          "cells": [
-            "AS1800"
-          ],
-          "period": "2026-09-30",
-          "percentile": 4.761904761904762,
-          "rank": 21
-        },
-        "fcf1": {
-          "value": -0.08144423574609336,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1686"
-          ],
-          "percentile": 0.0,
-          "rank": 22
-        },
-        "loan_prov": {
-          "value": 0.02017908715595183,
-          "source": "provision",
-          "cells": [
-            "AS1176",
-            "AS162"
-          ],
-          "formula": "贷款拨备额 ÷ 贷款总额",
-          "percentile": 0.0,
-          "rank": 22
-        },
-        "bond_profit": {
-          "value": 1.9535410313595178,
-          "source": "bond",
-          "cells": [
-            "T8"
-          ],
-          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
-          "percentile": 95.23809523809524,
-          "rank": 2
-        },
-        "bond_equity": {
-          "value": 0.14350865431955315,
-          "source": "bond",
-          "cells": [
-            "H8",
-            "P8"
-          ],
-          "denominator_source": "provision_h1",
-          "denominator_cells": [
-            "AR1722"
-          ],
-          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
-          "percentile": 80.95238095238095,
-          "rank": 5
-        },
-        "cet1_profit": {
-          "source": "performance",
-          "cells": [
-            "K316",
-            "K256"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1341"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1255",
-                "AK1901"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 2.537174480186582,
-          "denominator_source": "provision",
-          "denominator_cells": [
-            "AS1644"
-          ],
-          "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净利润(TTM)；完整安全垫，不另扣1个百分点",
-          "percentile": 57.142857142857146,
-          "rank": 10
-        },
-        "cet1_equity": {
-          "source": "performance",
-          "cells": [
-            "K316",
-            "K256"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1341"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1255",
-                "AK1901"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 0.18845332091817676,
-          "denominator_source": "provision",
-          "denominator_cells": [
-            "AS1722"
-          ],
-          "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净资产；完整安全垫，不另扣1个百分点",
-          "percentile": 61.904761904761905,
-          "rank": 9
-        }
-      },
-      "supplement": {
-        "超额拨备额": {
-          "value": -855.5892600000001,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AS1566"
-          ],
-          "period": "2026-09-30"
-        },
-        "归母净利润(TTM)": {
-          "value": 908.9799999999999,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AS1644"
-          ],
-          "period": "2026-09-30"
-        },
-        "归母净资产": {
-          "value": 12237.73,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AS1722"
-          ],
-          "period": "2026-09-30"
-        },
-        "AC浮盈余额": {
-          "value": 1660.7799999999988,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "H8"
-          ],
-          "period": "2026-06-30"
-        },
-        "OCI相关其他综合收益余额": {
-          "value": 56.07,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "P8"
-          ],
-          "period": "2026-06-30"
-        },
-        "浮盈表归母净利润(TTM)": {
-          "value": 878.84,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "L8"
-          ],
-          "period": "2026-06-30"
-        },
-        "CET1安全垫（百分点）": {
-          "source": "performance",
-          "cells": [
-            "K316",
-            "K256"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1341"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1255",
-                "AK1901"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 2.2099999999999995,
-          "unit": "百分点"
-        },
-        "风险加权资产RWA": {
-          "source": "performance",
-          "cells": [
-            "K316",
-            "K256"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1341"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1255",
-                "AK1901"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 104354.78999999998,
-          "unit": "亿元",
-          "formula": "2025Q3 RWA×（1＋2026Q3 RWA同比增速）"
-        },
-        "CET1安全垫金额": {
-          "source": "performance",
-          "cells": [
-            "K316",
-            "K256"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1341"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1255",
-                "AK1901"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 2306.240858999999,
-          "unit": "亿元",
-          "formula": "（Q3核充率－沿用资本要求）×推算Q3 RWA"
-        },
-        "浮盈比率沿用H1归母净资产": {
-          "value": 11963.39,
-          "unit": "亿元",
-          "source": "provision_h1",
-          "cells": [
-            "AR1722"
-          ],
-          "period": "2026-06-30"
-        },
-        "核心一级资本充足率（Q3）": {
-          "value": 10.209999999999999,
-          "unit": "%",
-          "source": "performance",
-          "cells": [
-            "K316"
-          ],
-          "period": "2026-09-30"
-        },
-        "沿用H1源表隐含资本要求": {
-          "value": 8.0,
-          "unit": "%",
-          "source": "capital",
-          "cells": [
-            "AK1255",
-            "AK1901"
-          ],
-          "period": "2026-06-30（沿用假设）"
-        }
-      },
-      "code": "601658.SH",
-      "absolute": {
-        "discounted_ac_amount": 664.3119999999996,
-        "provision_amount": -855.5892600000001,
-        "capital_amount": 2306.240858999999,
-        "total_amount": -191.27726000000052,
-        "equity_ratio": -0.015630125848502992,
-        "profit_ratio": -0.2104306585403425
-      },
-      "complete": true,
-      "scores": {
-        "bond": 88.0952380952381,
-        "provision": 3.1746031746031744,
-        "capital": 29.761904761904763
-      },
-      "total": 30.793650793650794,
-      "rank": 17
     },
     {
       "name": "兴业银行",
@@ -6100,6 +6077,24 @@
           "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净资产；完整安全垫，不另扣1个百分点",
           "percentile": 28.571428571428573,
           "rank": 16
+        },
+        "writeoff_assets": {
+          "value": 0.027904711256883392,
+          "source": "writeoffs",
+          "cells": [
+            "C12",
+            "D12",
+            "E12",
+            "I12:R12"
+          ],
+          "formula": "2021H2起累计核销及转出额÷（2022年末总资产与累计截止期总资产的平均值）；缺失半年度按Excel SUM跳过并注明，非期末不良余额。",
+          "cumulative_yi": 2891.99,
+          "average_assets_yi": 103638.055,
+          "missing_periods": [],
+          "period": "2026-06-30",
+          "assumption": "累计窗口内10个半年度均有数据。",
+          "percentile": 76.19047619047619,
+          "rank": 6
         }
       },
       "supplement": {
@@ -6290,350 +6285,11 @@
       "complete": true,
       "scores": {
         "bond": 23.80952380952381,
-        "provision": 22.222222222222225,
+        "provision": 35.714285714285715,
         "capital": 34.523809523809526
       },
-      "total": 27.46031746031746,
-      "rank": 18
-    },
-    {
-      "name": "中信银行",
-      "type": "股份行",
-      "metrics": {
-        "prov_profit": {
-          "value": -0.3812725634307775,
-          "unit": "百分比值",
-          "source": "provision",
-          "cells": [
-            "AS1883"
-          ],
-          "period": "2026-09-30",
-          "percentile": 19.047619047619047,
-          "rank": 18
-        },
-        "prov_equity": {
-          "value": -0.03129546355393423,
-          "unit": "百分比值",
-          "source": "provision",
-          "cells": [
-            "AS1805"
-          ],
-          "period": "2026-09-30",
-          "percentile": 19.047619047619047,
-          "rank": 18
-        },
-        "fcf1": {
-          "value": 0.002679713026723804,
-          "unit": null,
-          "source": "capital",
-          "cells": [
-            "AK1689"
-          ],
-          "percentile": 47.61904761904762,
-          "rank": 12
-        },
-        "loan_prov": {
-          "value": 0.023175485105224564,
-          "source": "provision",
-          "cells": [
-            "AS1181",
-            "AS167"
-          ],
-          "formula": "贷款拨备额 ÷ 贷款总额",
-          "percentile": 14.285714285714286,
-          "rank": 19
-        },
-        "bond_profit": {
-          "value": 0.24657688148637008,
-          "source": "bond",
-          "cells": [
-            "T13"
-          ],
-          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
-          "percentile": 0.0,
-          "rank": 22
-        },
-        "bond_equity": {
-          "value": 0.02014093376938752,
-          "source": "bond",
-          "cells": [
-            "H13",
-            "P13"
-          ],
-          "denominator_source": "provision_h1",
-          "denominator_cells": [
-            "AR1727"
-          ],
-          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
-          "percentile": 4.761904761904762,
-          "rank": 21
-        },
-        "cet1_profit": {
-          "source": "performance",
-          "cells": [
-            "K310",
-            "K276"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1344"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1258",
-                "AK1904"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 1.597546427192498,
-          "denominator_source": "provision",
-          "denominator_cells": [
-            "AS1649"
-          ],
-          "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净利润(TTM)；完整安全垫，不另扣1个百分点",
-          "percentile": 28.571428571428573,
-          "rank": 16
-        },
-        "cet1_equity": {
-          "source": "performance",
-          "cells": [
-            "K310",
-            "K276"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1344"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1258",
-                "AK1904"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 0.13112917315121142,
-          "denominator_source": "provision",
-          "denominator_cells": [
-            "AS1727"
-          ],
-          "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净资产；完整安全垫，不另扣1个百分点",
-          "percentile": 14.285714285714286,
-          "rank": 19
-        }
-      },
-      "supplement": {
-        "超额拨备额": {
-          "value": -276.49886299999986,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AS1571"
-          ],
-          "period": "2026-09-30"
-        },
-        "归母净利润(TTM)": {
-          "value": 725.2,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AS1649"
-          ],
-          "period": "2026-09-30"
-        },
-        "归母净资产": {
-          "value": 8835.11,
-          "unit": "亿元",
-          "source": "provision",
-          "cells": [
-            "AS1727"
-          ],
-          "period": "2026-09-30"
-        },
-        "AC浮盈余额": {
-          "value": 151.47999999999956,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "H13"
-          ],
-          "period": "2026-06-30"
-        },
-        "OCI相关其他综合收益余额": {
-          "value": 24.1,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "P13"
-          ],
-          "period": "2026-06-30"
-        },
-        "浮盈表归母净利润(TTM)": {
-          "value": 712.07,
-          "unit": "亿元",
-          "source": "bond",
-          "cells": [
-            "L13"
-          ],
-          "period": "2026-06-30"
-        },
-        "CET1安全垫（百分点）": {
-          "source": "performance",
-          "cells": [
-            "K310",
-            "K276"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1344"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1258",
-                "AK1904"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 1.4299999999999993,
-          "unit": "百分点"
-        },
-        "风险加权资产RWA": {
-          "source": "performance",
-          "cells": [
-            "K310",
-            "K276"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1344"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1258",
-                "AK1904"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 81016.83,
-          "unit": "亿元",
-          "formula": "2025Q3 RWA×（1＋2026Q3 RWA同比增速）"
-        },
-        "CET1安全垫金额": {
-          "source": "performance",
-          "cells": [
-            "K310",
-            "K276"
-          ],
-          "references": [
-            {
-              "source": "capital",
-              "cells": [
-                "AH1344"
-              ],
-              "period": "2025-09-30",
-              "label": "RWA同比基期余额"
-            },
-            {
-              "source": "capital",
-              "cells": [
-                "AK1258",
-                "AK1904"
-              ],
-              "period": "2026-06-30",
-              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
-            }
-          ],
-          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
-          "period": "2026-09-30（推算）",
-          "value": 1158.5406689999995,
-          "unit": "亿元",
-          "formula": "（Q3核充率－沿用资本要求）×推算Q3 RWA"
-        },
-        "浮盈比率沿用H1归母净资产": {
-          "value": 8717.57,
-          "unit": "亿元",
-          "source": "provision_h1",
-          "cells": [
-            "AR1727"
-          ],
-          "period": "2026-06-30"
-        },
-        "核心一级资本充足率（Q3）": {
-          "value": 9.43,
-          "unit": "%",
-          "source": "performance",
-          "cells": [
-            "K310"
-          ],
-          "period": "2026-09-30"
-        },
-        "沿用H1源表隐含资本要求": {
-          "value": 8.0,
-          "unit": "%",
-          "source": "capital",
-          "cells": [
-            "AK1258",
-            "AK1904"
-          ],
-          "period": "2026-06-30（沿用假设）"
-        }
-      },
-      "code": "601998.SH",
-      "absolute": {
-        "discounted_ac_amount": 60.59199999999983,
-        "provision_amount": -276.49886299999986,
-        "capital_amount": 1158.5406689999995,
-        "total_amount": -215.90686300000004,
-        "equity_ratio": -0.02443737123816229,
-        "profit_ratio": -0.2977204398786542
-      },
-      "complete": true,
-      "scores": {
-        "bond": 2.380952380952381,
-        "provision": 17.46031746031746,
-        "capital": 34.523809523809526
-      },
-      "total": 21.26984126984127,
-      "rank": 19
+      "total": 32.976190476190474,
+      "rank": 17
     },
     {
       "name": "平安银行",
@@ -6778,6 +6434,24 @@
           "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净资产；完整安全垫，不另扣1个百分点",
           "percentile": 42.857142857142854,
           "rank": 13
+        },
+        "writeoff_assets": {
+          "value": 0.06300574108223932,
+          "source": "writeoffs",
+          "cells": [
+            "C7",
+            "D7",
+            "E7",
+            "I7:R7"
+          ],
+          "formula": "2021H2起累计核销及转出额÷（2022年末总资产与累计截止期总资产的平均值）；缺失半年度按Excel SUM跳过并注明，非期末不良余额。",
+          "cumulative_yi": 3575.67,
+          "average_assets_yi": 56751.495,
+          "missing_periods": [],
+          "period": "2026-06-30",
+          "assumption": "累计窗口内10个半年度均有数据。",
+          "percentile": 100.0,
+          "rank": 1
         }
       },
       "supplement": {
@@ -6968,10 +6642,724 @@
       "complete": true,
       "scores": {
         "bond": 30.952380952380956,
-        "provision": 11.111111111111112,
+        "provision": 33.333333333333336,
         "capital": 26.19047619047619
       },
-      "total": 21.111111111111114,
+      "total": 30.714285714285715,
+      "rank": 18
+    },
+    {
+      "name": "邮储银行",
+      "type": "国有行",
+      "metrics": {
+        "prov_profit": {
+          "value": -0.941263020088451,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AS1878"
+          ],
+          "period": "2026-09-30",
+          "percentile": 4.761904761904762,
+          "rank": 21
+        },
+        "prov_equity": {
+          "value": -0.06991404941929591,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AS1800"
+          ],
+          "period": "2026-09-30",
+          "percentile": 4.761904761904762,
+          "rank": 21
+        },
+        "fcf1": {
+          "value": -0.08144423574609336,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1686"
+          ],
+          "percentile": 0.0,
+          "rank": 22
+        },
+        "loan_prov": {
+          "value": 0.02017908715595183,
+          "source": "provision",
+          "cells": [
+            "AS1176",
+            "AS162"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 0.0,
+          "rank": 22
+        },
+        "bond_profit": {
+          "value": 1.9535410313595178,
+          "source": "bond",
+          "cells": [
+            "T8"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 95.23809523809524,
+          "rank": 2
+        },
+        "bond_equity": {
+          "value": 0.14350865431955315,
+          "source": "bond",
+          "cells": [
+            "H8",
+            "P8"
+          ],
+          "denominator_source": "provision_h1",
+          "denominator_cells": [
+            "AR1722"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 80.95238095238095,
+          "rank": 5
+        },
+        "cet1_profit": {
+          "source": "performance",
+          "cells": [
+            "K316",
+            "K256"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1341"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1255",
+                "AK1901"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 2.537174480186582,
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AS1644"
+          ],
+          "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净利润(TTM)；完整安全垫，不另扣1个百分点",
+          "percentile": 57.142857142857146,
+          "rank": 10
+        },
+        "cet1_equity": {
+          "source": "performance",
+          "cells": [
+            "K316",
+            "K256"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1341"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1255",
+                "AK1901"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 0.18845332091817676,
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AS1722"
+          ],
+          "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净资产；完整安全垫，不另扣1个百分点",
+          "percentile": 61.904761904761905,
+          "rank": 9
+        },
+        "writeoff_assets": {
+          "value": 0.008354390929326163,
+          "source": "writeoffs",
+          "cells": [
+            "C26",
+            "D26",
+            "E26",
+            "I26:R26"
+          ],
+          "formula": "2021H2起累计核销及转出额÷（2022年末总资产与累计截止期总资产的平均值）；缺失半年度按Excel SUM跳过并注明，非期末不良余额。",
+          "cumulative_yi": 1415.37,
+          "average_assets_yi": 169416.3,
+          "missing_periods": [],
+          "period": "2026-06-30",
+          "assumption": "累计窗口内10个半年度均有数据。",
+          "percentile": 9.523809523809524,
+          "rank": 20
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": -855.5892600000001,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AS1566"
+          ],
+          "period": "2026-09-30"
+        },
+        "归母净利润(TTM)": {
+          "value": 908.9799999999999,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AS1644"
+          ],
+          "period": "2026-09-30"
+        },
+        "归母净资产": {
+          "value": 12237.73,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AS1722"
+          ],
+          "period": "2026-09-30"
+        },
+        "AC浮盈余额": {
+          "value": 1660.7799999999988,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H8"
+          ],
+          "period": "2026-06-30"
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 56.07,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P8"
+          ],
+          "period": "2026-06-30"
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 878.84,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L8"
+          ],
+          "period": "2026-06-30"
+        },
+        "CET1安全垫（百分点）": {
+          "source": "performance",
+          "cells": [
+            "K316",
+            "K256"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1341"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1255",
+                "AK1901"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 2.2099999999999995,
+          "unit": "百分点"
+        },
+        "风险加权资产RWA": {
+          "source": "performance",
+          "cells": [
+            "K316",
+            "K256"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1341"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1255",
+                "AK1901"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 104354.78999999998,
+          "unit": "亿元",
+          "formula": "2025Q3 RWA×（1＋2026Q3 RWA同比增速）"
+        },
+        "CET1安全垫金额": {
+          "source": "performance",
+          "cells": [
+            "K316",
+            "K256"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1341"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1255",
+                "AK1901"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 2306.240858999999,
+          "unit": "亿元",
+          "formula": "（Q3核充率－沿用资本要求）×推算Q3 RWA"
+        },
+        "浮盈比率沿用H1归母净资产": {
+          "value": 11963.39,
+          "unit": "亿元",
+          "source": "provision_h1",
+          "cells": [
+            "AR1722"
+          ],
+          "period": "2026-06-30"
+        },
+        "核心一级资本充足率（Q3）": {
+          "value": 10.209999999999999,
+          "unit": "%",
+          "source": "performance",
+          "cells": [
+            "K316"
+          ],
+          "period": "2026-09-30"
+        },
+        "沿用H1源表隐含资本要求": {
+          "value": 8.0,
+          "unit": "%",
+          "source": "capital",
+          "cells": [
+            "AK1255",
+            "AK1901"
+          ],
+          "period": "2026-06-30（沿用假设）"
+        }
+      },
+      "code": "601658.SH",
+      "absolute": {
+        "discounted_ac_amount": 664.3119999999996,
+        "provision_amount": -855.5892600000001,
+        "capital_amount": 2306.240858999999,
+        "total_amount": -191.27726000000052,
+        "equity_ratio": -0.015630125848502992,
+        "profit_ratio": -0.2104306585403425
+      },
+      "complete": true,
+      "scores": {
+        "bond": 88.0952380952381,
+        "provision": 4.761904761904762,
+        "capital": 29.761904761904763
+      },
+      "total": 28.92857142857143,
+      "rank": 19
+    },
+    {
+      "name": "中信银行",
+      "type": "股份行",
+      "metrics": {
+        "prov_profit": {
+          "value": -0.3812725634307775,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AS1883"
+          ],
+          "period": "2026-09-30",
+          "percentile": 19.047619047619047,
+          "rank": 18
+        },
+        "prov_equity": {
+          "value": -0.03129546355393423,
+          "unit": "百分比值",
+          "source": "provision",
+          "cells": [
+            "AS1805"
+          ],
+          "period": "2026-09-30",
+          "percentile": 19.047619047619047,
+          "rank": 18
+        },
+        "fcf1": {
+          "value": 0.002679713026723804,
+          "unit": null,
+          "source": "capital",
+          "cells": [
+            "AK1689"
+          ],
+          "percentile": 47.61904761904762,
+          "rank": 12
+        },
+        "loan_prov": {
+          "value": 0.023175485105224564,
+          "source": "provision",
+          "cells": [
+            "AS1181",
+            "AS167"
+          ],
+          "formula": "贷款拨备额 ÷ 贷款总额",
+          "percentile": 14.285714285714286,
+          "rank": 19
+        },
+        "bond_profit": {
+          "value": 0.24657688148637008,
+          "source": "bond",
+          "cells": [
+            "T13"
+          ],
+          "formula": "源表 AC&OCI浮盈/归母净利润(TTM)",
+          "percentile": 0.0,
+          "rank": 22
+        },
+        "bond_equity": {
+          "value": 0.02014093376938752,
+          "source": "bond",
+          "cells": [
+            "H13",
+            "P13"
+          ],
+          "denominator_source": "provision_h1",
+          "denominator_cells": [
+            "AR1727"
+          ],
+          "formula": "(AC浮盈余额[亿元] + OCI相关其他综合收益余额[亿元]) ÷ (归母净资产[百万元] ÷ 100)",
+          "percentile": 4.761904761904762,
+          "rank": 21
+        },
+        "cet1_profit": {
+          "source": "performance",
+          "cells": [
+            "K310",
+            "K276"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1344"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1258",
+                "AK1904"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 1.597546427192498,
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AS1649"
+          ],
+          "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净利润(TTM)；完整安全垫，不另扣1个百分点",
+          "percentile": 28.571428571428573,
+          "rank": 16
+        },
+        "cet1_equity": {
+          "source": "performance",
+          "cells": [
+            "K310",
+            "K276"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1344"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1258",
+                "AK1904"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 0.13112917315121142,
+          "denominator_source": "provision",
+          "denominator_cells": [
+            "AS1727"
+          ],
+          "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净资产；完整安全垫，不另扣1个百分点",
+          "percentile": 14.285714285714286,
+          "rank": 19
+        },
+        "writeoff_assets": {
+          "value": 0.03388215398115151,
+          "source": "writeoffs",
+          "cells": [
+            "C10",
+            "D10",
+            "E10",
+            "I10:R10"
+          ],
+          "formula": "2021H2起累计核销及转出额÷（2022年末总资产与累计截止期总资产的平均值）；缺失半年度按Excel SUM跳过并注明，非期末不良余额。",
+          "cumulative_yi": 3207.18,
+          "average_assets_yi": 94656.91,
+          "missing_periods": [],
+          "period": "2026-06-30",
+          "assumption": "累计窗口内10个半年度均有数据。",
+          "percentile": 85.71428571428571,
+          "rank": 4
+        }
+      },
+      "supplement": {
+        "超额拨备额": {
+          "value": -276.49886299999986,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AS1571"
+          ],
+          "period": "2026-09-30"
+        },
+        "归母净利润(TTM)": {
+          "value": 725.2,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AS1649"
+          ],
+          "period": "2026-09-30"
+        },
+        "归母净资产": {
+          "value": 8835.11,
+          "unit": "亿元",
+          "source": "provision",
+          "cells": [
+            "AS1727"
+          ],
+          "period": "2026-09-30"
+        },
+        "AC浮盈余额": {
+          "value": 151.47999999999956,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "H13"
+          ],
+          "period": "2026-06-30"
+        },
+        "OCI相关其他综合收益余额": {
+          "value": 24.1,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "P13"
+          ],
+          "period": "2026-06-30"
+        },
+        "浮盈表归母净利润(TTM)": {
+          "value": 712.07,
+          "unit": "亿元",
+          "source": "bond",
+          "cells": [
+            "L13"
+          ],
+          "period": "2026-06-30"
+        },
+        "CET1安全垫（百分点）": {
+          "source": "performance",
+          "cells": [
+            "K310",
+            "K276"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1344"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1258",
+                "AK1904"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 1.4299999999999993,
+          "unit": "百分点"
+        },
+        "风险加权资产RWA": {
+          "source": "performance",
+          "cells": [
+            "K310",
+            "K276"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1344"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1258",
+                "AK1904"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 81016.83,
+          "unit": "亿元",
+          "formula": "2025Q3 RWA×（1＋2026Q3 RWA同比增速）"
+        },
+        "CET1安全垫金额": {
+          "source": "performance",
+          "cells": [
+            "K310",
+            "K276"
+          ],
+          "references": [
+            {
+              "source": "capital",
+              "cells": [
+                "AH1344"
+              ],
+              "period": "2025-09-30",
+              "label": "RWA同比基期余额"
+            },
+            {
+              "source": "capital",
+              "cells": [
+                "AK1258",
+                "AK1904"
+              ],
+              "period": "2026-06-30",
+              "label": "H1核充率与H1安全垫，用于反推沿用门槛"
+            }
+          ],
+          "assumption": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+          "period": "2026-09-30（推算）",
+          "value": 1158.5406689999995,
+          "unit": "亿元",
+          "formula": "（Q3核充率－沿用资本要求）×推算Q3 RWA"
+        },
+        "浮盈比率沿用H1归母净资产": {
+          "value": 8717.57,
+          "unit": "亿元",
+          "source": "provision_h1",
+          "cells": [
+            "AR1727"
+          ],
+          "period": "2026-06-30"
+        },
+        "核心一级资本充足率（Q3）": {
+          "value": 9.43,
+          "unit": "%",
+          "source": "performance",
+          "cells": [
+            "K310"
+          ],
+          "period": "2026-09-30"
+        },
+        "沿用H1源表隐含资本要求": {
+          "value": 8.0,
+          "unit": "%",
+          "source": "capital",
+          "cells": [
+            "AK1258",
+            "AK1904"
+          ],
+          "period": "2026-06-30（沿用假设）"
+        }
+      },
+      "code": "601998.SH",
+      "absolute": {
+        "discounted_ac_amount": 60.59199999999983,
+        "provision_amount": -276.49886299999986,
+        "capital_amount": 1158.5406689999995,
+        "total_amount": -215.90686300000004,
+        "equity_ratio": -0.02443737123816229,
+        "profit_ratio": -0.2977204398786542
+      },
+      "complete": true,
+      "scores": {
+        "bond": 2.380952380952381,
+        "provision": 34.523809523809526,
+        "capital": 34.523809523809526
+      },
+      "total": 28.095238095238095,
       "rank": 20
     },
     {
@@ -7117,6 +7505,24 @@
           "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净资产；完整安全垫，不另扣1个百分点",
           "percentile": 19.047619047619047,
           "rank": 18
+        },
+        "writeoff_assets": {
+          "value": 0.03562077962531271,
+          "source": "writeoffs",
+          "cells": [
+            "C8",
+            "D8",
+            "E8",
+            "I8:R8"
+          ],
+          "formula": "2021H2起累计核销及转出额÷（2022年末总资产与累计截止期总资产的平均值）；缺失半年度按Excel SUM跳过并注明，非期末不良余额。",
+          "cumulative_yi": 2680.5,
+          "average_assets_yi": 75251.02,
+          "missing_periods": [],
+          "period": "2026-06-30",
+          "assumption": "累计窗口内10个半年度均有数据。",
+          "percentile": 95.23809523809524,
+          "rank": 2
         }
       },
       "supplement": {
@@ -7307,10 +7713,10 @@
       "complete": true,
       "scores": {
         "bond": 4.761904761904762,
-        "provision": 1.5873015873015872,
+        "provision": 25.0,
         "capital": 47.61904761904761
       },
-      "total": 20.634920634920633,
+      "total": 27.738095238095237,
       "rank": 21
     },
     {
@@ -7456,6 +7862,24 @@
           "formula": "（Q3核充率－沿用H1源表隐含资本要求）×推算Q3 RWA ÷ Q3归母净资产；完整安全垫，不另扣1个百分点",
           "percentile": 4.761904761904762,
           "rank": 21
+        },
+        "writeoff_assets": {
+          "value": 0.03417696467494568,
+          "source": "writeoffs",
+          "cells": [
+            "C9",
+            "D9",
+            "E9",
+            "I9:R9"
+          ],
+          "formula": "2021H2起累计核销及转出额÷（2022年末总资产与累计截止期总资产的平均值）；缺失半年度按Excel SUM跳过并注明，非期末不良余额。",
+          "cumulative_yi": 3265.61,
+          "average_assets_yi": 95550.03,
+          "missing_periods": [],
+          "period": "2026-06-30",
+          "assumption": "累计窗口内10个半年度均有数据。",
+          "percentile": 90.47619047619048,
+          "rank": 3
         }
       },
       "supplement": {
@@ -7646,10 +8070,10 @@
       "complete": true,
       "scores": {
         "bond": 19.047619047619047,
-        "provision": 17.46031746031746,
+        "provision": 35.714285714285715,
         "capital": 15.476190476190476
       },
-      "total": 16.984126984126984,
+      "total": 26.30952380952381,
       "rank": 22
     }
   ],
@@ -7667,8 +8091,34 @@
     "adjusted_pb_formula": "家底调整后PB＝原PB÷（1＋总家底/归母净资产）",
     "valuation_note": "总家底仅含折扣后AC浮盈与超额拨备，CET1安全垫不加回且不从原归母净资产扣除。家底、归母净资产及利润TTM的报告期见逐列标注；原PB为2026E全年预测。家底调整后PB＝原PB÷（1＋总家底/归母净资产），属于混合报告期研究近似，并非严格同一期市值/调整后净资产；仍未进一步调整税务及超额拨备与账面净资产的其他重叠。PB下降倍数＝原PB－调整后PB，不是股价涨幅或合理价格偏离。"
   },
-  "config_hash": "1c5640f852904ff592efd81c9382da5706a1759fd77e42fd3406d8148c3a95e9",
-  "source_note": "浮盈两项与自由现金流1均完整保留2026H1；拨备与NII更新至2026Q3；资本以Q3核充率和RWA同比增速推算。总家底及调整PB为混合报告期测算。",
+  "config_hash": "3d03664d38c3a1d86b210e5320a7d6895850ebd4cbd330c7d6cd8b2e81119ade",
+  "source_note": "浮盈两项与自由现金流1均完整保留2026H1；拨备与NII更新至2026Q3；资本以Q3核充率和RWA同比增速推算。总家底及调整PB为混合报告期测算。；新增累计核销及转出额／平均总资产，采用用户修正版工作簿D列（2021H2–2026H1），沪农商行缺2021H2并跳过。",
   "scope_note": "2_Bank 独立银行笔记中按用户要求排除3家香港银行，保留22家。排除行业、基础知识、观点和其他银行合集。",
-  "capital_note": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。"
+  "capital_note": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。",
+  "writeoff_model": {
+    "start_period": "2021H2",
+    "asset_base_date": "2022-12-31",
+    "cutoff_rule": "latest_common_reconstructable_half_year; quarterly_extension_requires_verified_period_basis",
+    "missing_policy": "skip_missing_like_excel_sum_and_disclose",
+    "source_sheet": "底稿-42家上市银行",
+    "fields": {
+      "npl": "不良贷款余额",
+      "rate": "不良核销转出率1（披露核转）",
+      "assets": "总资产"
+    },
+    "corrections": [
+      {
+        "code": "601988.SH",
+        "period": "2024A",
+        "amount_yi": 846.11,
+        "source": "https://static.cninfo.com.cn/finalpage/2025-03-27/1222911239.PDF"
+      },
+      {
+        "code": "601838.SH",
+        "period": "2025H1",
+        "amount_yi": 0.723,
+        "source": "https://static.cninfo.com.cn/finalpage/2025-08-27/1224586200.PDF"
+      }
+    ]
+  }
 }
