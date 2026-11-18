@@ -1,13 +1,24 @@
-import {renderValuation} from './valuation.mjs?v=20261117-valuation';
-import {calculate,color,finite} from './engine.mjs?v=20261117-valuation';
-import {renderAbsolute} from './absolute.mjs?v=20261117-valuation';
-import {renderCombined} from './combined.mjs?v=20261117-valuation';
+import {renderValuation} from './valuation.mjs?v=20261118-roe';
+import {calculate,color,finite} from './engine.mjs?v=20261118-roe';
+import {renderAbsolute} from './absolute.mjs?v=20261118-roe';
+import {renderCombined} from './combined.mjs?v=20261118-roe';
+import {validateRoeSnapshot} from './roe.mjs?v=20261118-roe';
+import {renderRoeAnalysis} from './roe-view.mjs?v=20261118-roe';
 const $=id=>document.getElementById(id);
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=(x,d=2)=>finite(x)?(x*100).toLocaleString('zh-CN',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
 const score=x=>finite(x)?x.toFixed(1):'—';
 const rawNum=x=>finite(x)?x.toLocaleString('zh-CN',{minimumFractionDigits:2,maximumFractionDigits:2}):'—';
 let data,model,valuation,valuationH,niiGrowth,weights,showScores=false,sortKey='total',sortDirection=-1;
+const inputHashes={};
+async function loadAsset(name,parse=true){
+  const response=await fetch('./'+name+'?v=20261118-roe');
+  if(!response.ok)throw new Error('报告文件暂时不可用：'+name);
+  const text=await response.text();
+  const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text));
+  inputHashes[name]=Array.from(new Uint8Array(digest),b=>b.toString(16).padStart(2,'0')).join('');
+  return parse?JSON.parse(text):text;
+}
 const labels={bond_profit:'AC&OCI浮盈<br>／归母净利润',bond_equity:'AC&OCI浮盈<br>／归母净资产',prov_profit:'超额拨备<br>／归母净利润',prov_equity:'超额拨备<br>／归母净资产',loan_prov:'拨贷比',writeoff_assets:'累计已核销不良<br>／总资产',cet1_profit:'CET1安全垫金额<br>／归母净利润',cet1_equity:'CET1安全垫金额<br>／归母净资产',fcf1:'自由现金流1'};
 const groupNote=g=>{const ms=data.metrics.filter(m=>m.group===g.id),sum=ms.reduce((s,m)=>s+m.weight,0);return ms.map(m=>`${m.label} ${(m.weight/sum*100).toFixed(1)}%`).join('；');};
 
@@ -98,10 +109,10 @@ function exportCSV(){
 
 async function init(){
   try{
-    const response=await fetch('./data.json?v=20261117-valuation');if(!response.ok)throw new Error('数据文件暂时不可用');data=await response.json();
-    const vr=await fetch('./valuation.json?v=20261117-valuation');if(!vr.ok)throw new Error('估值文件暂时不可用');valuation=await vr.json();
-    const hr=await fetch('./valuation-h.json?v=20261117-valuation');if(!hr.ok)throw new Error('H股估值文件暂时不可用');valuationH=await hr.json();
-    const nr=await fetch('./nii-growth.json?v=20261117-valuation');if(!nr.ok)throw new Error('净利息收入增速文件暂时不可用');niiGrowth=await nr.json();
+    [data,valuation,valuationH,niiGrowth]=await Promise.all(['data.json','valuation.json','valuation-h.json','nii-growth.json'].map(name=>loadAsset(name)));
+    const [roeSnapshot]=await Promise.all([loadAsset('roe-valuation.json'),loadAsset('roe.mjs',false)]);
+    validateRoeSnapshot(roeSnapshot,inputHashes);
+    renderRoeAnalysis(roeSnapshot,data,{a:valuation,h:valuationH},esc);
     const growthNames=niiGrowth.banks.map(b=>b.name).sort(),bankNames=data.banks.map(b=>b.name).sort();
     if(JSON.stringify(growthNames)!==JSON.stringify(bankNames)||niiGrowth.banks.some(b=>!finite(b.value))||niiGrowth.display_only!==true)throw new Error('净利息收入增速范围或口径不完整');
     $('valuation-sort').addEventListener('change',render);
