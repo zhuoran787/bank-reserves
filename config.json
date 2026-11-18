@@ -125,17 +125,17 @@
     {
       "id": "bond",
       "label": "浮盈家底",
-      "weight": 1
+      "weight": 20
     },
     {
       "id": "provision",
       "label": "拨备家底",
-      "weight": 1
+      "weight": 40
     },
     {
       "id": "capital",
       "label": "资本宽裕度",
-      "weight": 1
+      "weight": 40
     }
   ],
   "absolute_model": {

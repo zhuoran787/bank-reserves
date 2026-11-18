@@ -1,13 +1,13 @@
-import {renderValuation} from './valuation.mjs?v=20261117-ac40';
-import {calculate,color,finite} from './engine.mjs?v=20261117-ac40';
-import {renderAbsolute} from './absolute.mjs?v=20261117-ac40';
-import {renderCombined} from './combined.mjs?v=20261117-ac40';
+import {renderValuation} from './valuation.mjs?v=20261117-w204040';
+import {calculate,color,finite} from './engine.mjs?v=20261117-w204040';
+import {renderAbsolute} from './absolute.mjs?v=20261117-w204040';
+import {renderCombined} from './combined.mjs?v=20261117-w204040';
 const $=id=>document.getElementById(id);
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=(x,d=2)=>finite(x)?(x*100).toLocaleString('zh-CN',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
 const score=x=>finite(x)?x.toFixed(1):'—';
 const rawNum=x=>finite(x)?x.toLocaleString('zh-CN',{minimumFractionDigits:2,maximumFractionDigits:2}):'—';
-let data,model,valuation,valuationH,niiGrowth,weights=[33,33,33],showScores=false,sortKey='total',sortDirection=-1;
+let data,model,valuation,valuationH,niiGrowth,weights,showScores=false,sortKey='total',sortDirection=-1;
 const labels={bond_profit:'AC&OCI浮盈<br>／归母净利润',bond_equity:'AC&OCI浮盈<br>／归母净资产',prov_profit:'超额拨备<br>／归母净利润',prov_equity:'超额拨备<br>／归母净资产',loan_prov:'拨贷比',cet1_profit:'CET1安全垫金额<br>／归母净利润',cet1_equity:'CET1安全垫金额<br>／归母净资产',fcf1:'自由现金流1'};
 const groupNote=g=>{const ms=data.metrics.filter(m=>m.group===g.id),sum=ms.reduce((s,m)=>s+m.weight,0);return ms.map(m=>`${m.label} ${(m.weight/sum*100).toFixed(1)}%`).join('；');};
 
@@ -97,10 +97,10 @@ function exportCSV(){
 
 async function init(){
   try{
-    const response=await fetch('./data.json?v=20261117-ac40');if(!response.ok)throw new Error('数据文件暂时不可用');data=await response.json();
-    const vr=await fetch('./valuation.json?v=20261117-ac40');if(!vr.ok)throw new Error('估值文件暂时不可用');valuation=await vr.json();
-    const hr=await fetch('./valuation-h.json?v=20261117-ac40');if(!hr.ok)throw new Error('H股估值文件暂时不可用');valuationH=await hr.json();
-    const nr=await fetch('./nii-growth.json?v=20261117-ac40');if(!nr.ok)throw new Error('净利息收入增速文件暂时不可用');niiGrowth=await nr.json();
+    const response=await fetch('./data.json?v=20261117-w204040');if(!response.ok)throw new Error('数据文件暂时不可用');data=await response.json();
+    const vr=await fetch('./valuation.json?v=20261117-w204040');if(!vr.ok)throw new Error('估值文件暂时不可用');valuation=await vr.json();
+    const hr=await fetch('./valuation-h.json?v=20261117-w204040');if(!hr.ok)throw new Error('H股估值文件暂时不可用');valuationH=await hr.json();
+    const nr=await fetch('./nii-growth.json?v=20261117-w204040');if(!nr.ok)throw new Error('净利息收入增速文件暂时不可用');niiGrowth=await nr.json();
     const growthNames=niiGrowth.banks.map(b=>b.name).sort(),bankNames=data.banks.map(b=>b.name).sort();
     if(JSON.stringify(growthNames)!==JSON.stringify(bankNames)||niiGrowth.banks.some(b=>!finite(b.value))||niiGrowth.display_only!==true)throw new Error('净利息收入增速范围或口径不完整');
     $('valuation-sort').addEventListener('change',render);
@@ -108,6 +108,7 @@ async function init(){
     $('absolute-sort').addEventListener('change',render);
     $('h-absolute-sort').addEventListener('change',render);
     document.querySelectorAll('.ac-discount-factor').forEach(el=>el.textContent=(data.absolute_model.ac_discount_factor*100).toFixed(0)+'%');
+    weights=data.groups.map(g=>g.weight);
     weightUI();recalculate();
     $('sources').innerHTML='<b>本页采用的原始数据库</b>'+Object.entries(data.sources).map(([key,s])=>`<div class="source-row"><span>${esc(({bond:'H1浮盈',provision:'Q3拨备',capital:'H1资本模型及历史RWA',provision_h1:'H1浮盈分母',performance:'Q3业绩与资本'})[key])}</span><a href="${s.url}" target="_blank" rel="noopener">${esc(s.filename)} ↗</a><span>${esc(s.report)} · 文件名日期 ${esc(s.filename_date)}${s.internal_updated?' · 源表更新日 '+esc(s.internal_updated):''}</span></div>`).join('')+'<p>新文件由用户提供，链接指向银行先爽文件目录；源文件需登录后下载。点击银行名称可查看精确单元格和资本推算的历史输入。</p>';
     $('reset').addEventListener('click',()=>{weights=[33,33,33];sortKey='total';sortDirection=-1;weightUI();recalculate();});
