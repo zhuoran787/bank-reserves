@@ -1,4 +1,4 @@
-import {finite,color} from './engine.mjs?v=20261117-writeoffs';
+import {finite,color} from './engine.mjs?v=20261117-valuation';
 
 // Market pricing: higher PB and lower yield mean a higher pricing score.
 // Compare the same best-to-worst directions: financial strength vs market premium.
