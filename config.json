@@ -139,7 +139,7 @@
     }
   ],
   "absolute_model": {
-    "ac_discount_factor": 0.8,
+    "ac_discount_factor": 0.4,
     "formula": "折扣后AC浮盈＋超额拨备＋CET1安全垫金额",
     "short_formula": "折扣后AC浮盈＋超额拨备＋CET1安全垫金额",
     "unit": "亿元",

@@ -517,12 +517,12 @@
       },
       "code": "600926.SH",
       "absolute": {
-        "discounted_ac_amount": 271.3129119999998,
+        "discounted_ac_amount": 135.6564559999999,
         "provision_amount": 421.671443793,
         "capital_amount": 304.52913838399996,
-        "total_amount": 997.5134941769998,
-        "equity_ratio": 0.5729472676617824,
-        "profit_ratio": 4.847085836219597
+        "total_amount": 861.8570381769998,
+        "equity_ratio": 0.49502952894486696,
+        "profit_ratio": 4.187908300970463
       },
       "complete": true,
       "scores": {
@@ -856,12 +856,12 @@
       },
       "code": "601077.SH",
       "absolute": {
-        "discounted_ac_amount": 119.49937600000013,
+        "discounted_ac_amount": 59.74968800000006,
         "provision_amount": 114.0778699999999,
         "capital_amount": 582.083500185948,
-        "total_amount": 815.660746185948,
-        "equity_ratio": 0.5587197785565428,
-        "profit_ratio": 6.289574843650994
+        "total_amount": 755.9110581859479,
+        "equity_ratio": 0.5177918160374637,
+        "profit_ratio": 5.828843913153176
       },
       "complete": true,
       "scores": {
@@ -1195,12 +1195,12 @@
       },
       "code": "601939.SH",
       "absolute": {
-        "discounted_ac_amount": 4163.023999999999,
+        "discounted_ac_amount": 2081.5119999999997,
         "provision_amount": 108.50976400000043,
         "capital_amount": 13756.553657,
-        "total_amount": 18028.087421,
-        "equity_ratio": 0.45690269781132303,
-        "profit_ratio": 5.06731485923569
+        "total_amount": 15946.575421000001,
+        "equity_ratio": 0.4041489904369726,
+        "profit_ratio": 4.482245770043736
       },
       "complete": true,
       "scores": {
@@ -1534,12 +1534,12 @@
       },
       "code": "600036.SH",
       "absolute": {
-        "discounted_ac_amount": 965.8400000000024,
+        "discounted_ac_amount": 482.9200000000012,
         "provision_amount": 1131.958578,
         "capital_amount": 4906.125248000001,
-        "total_amount": 7003.923826000004,
-        "equity_ratio": 0.5068013587691919,
-        "profit_ratio": 4.581171354939991
+        "total_amount": 6521.003826000002,
+        "equity_ratio": 0.4718574447208584,
+        "profit_ratio": 4.265299948327176
       },
       "complete": true,
       "scores": {
@@ -1873,12 +1873,12 @@
       },
       "code": "601288.SH",
       "absolute": {
-        "discounted_ac_amount": 4697.192000000005,
+        "discounted_ac_amount": 2348.5960000000023,
         "provision_amount": 3135.6526430000017,
         "capital_amount": 5017.25723,
-        "total_amount": 12850.101873000007,
-        "equity_ratio": 0.3794347934813326,
-        "profit_ratio": 4.1894127282152285
+        "total_amount": 10501.505873000006,
+        "equity_ratio": 0.31008600177225665,
+        "profit_ratio": 3.42371934515271
       },
       "complete": true,
       "scores": {
@@ -2212,12 +2212,12 @@
       },
       "code": "002948.SZ",
       "absolute": {
-        "discounted_ac_amount": 51.927576000000045,
+        "discounted_ac_amount": 25.963788000000022,
         "provision_amount": 88.08507702899999,
         "capital_amount": 63.76194354599992,
-        "total_amount": 203.77459657499995,
-        "equity_ratio": 0.35870520880425116,
-        "profit_ratio": 3.5053858000586935
+        "total_amount": 177.81080857499992,
+        "equity_ratio": 0.3130010525824941,
+        "profit_ratio": 3.0587496869186697
       },
       "complete": true,
       "scores": {
@@ -2551,12 +2551,12 @@
       },
       "code": "601009.SH",
       "absolute": {
-        "discounted_ac_amount": 228.23751200000044,
+        "discounted_ac_amount": 114.11875600000022,
         "provision_amount": 171.19194867499988,
         "capital_amount": 365.2010299559999,
-        "total_amount": 764.6304906310002,
-        "equity_ratio": 0.3509343339561091,
-        "profit_ratio": 3.288320732538633
+        "total_amount": 650.5117346310001,
+        "equity_ratio": 0.2985584607474557,
+        "profit_ratio": 2.797548946788053
       },
       "complete": true,
       "scores": {
@@ -2890,12 +2890,12 @@
       },
       "code": "601128.SH",
       "absolute": {
-        "discounted_ac_amount": 10.620863999999983,
+        "discounted_ac_amount": 5.310431999999992,
         "provision_amount": 27.702769582679995,
         "capital_amount": 131.22301426174494,
-        "total_amount": 169.5466478444249,
-        "equity_ratio": 0.49029756356889226,
-        "profit_ratio": 3.7771453093393887
+        "total_amount": 164.23621584442492,
+        "equity_ratio": 0.4749407758989443,
+        "profit_ratio": 3.6588399722868328
       },
       "complete": true,
       "scores": {
@@ -3229,12 +3229,12 @@
       },
       "code": "601838.SH",
       "absolute": {
-        "discounted_ac_amount": 57.075360000000366,
+        "discounted_ac_amount": 28.537680000000183,
         "provision_amount": 183.8082687279999,
         "capital_amount": 143.12158123499987,
-        "total_amount": 384.0052099630001,
-        "equity_ratio": 0.3687028082655712,
-        "profit_ratio": 2.801132502660493
+        "total_amount": 355.46752996299995,
+        "equity_ratio": 0.3413023395104778,
+        "profit_ratio": 2.5929639129524866
       },
       "complete": true,
       "scores": {
@@ -3568,12 +3568,12 @@
       },
       "code": "002142.SZ",
       "absolute": {
-        "discounted_ac_amount": 179.0239999999998,
+        "discounted_ac_amount": 89.5119999999999,
         "provision_amount": 226.294991,
         "capital_amount": 458.4109170000001,
-        "total_amount": 863.7299079999999,
-        "equity_ratio": 0.3020446522427883,
-        "profit_ratio": 2.696038667790367
+        "total_amount": 774.2179080000001,
+        "equity_ratio": 0.2707424816670805,
+        "profit_ratio": 2.416636726285233
       },
       "complete": true,
       "scores": {
@@ -3907,12 +3907,12 @@
       },
       "code": "601398.SH",
       "absolute": {
-        "discounted_ac_amount": 4254.0800000000045,
+        "discounted_ac_amount": 2127.0400000000022,
         "provision_amount": -678.4984059999988,
         "capital_amount": 10880.745246000004,
-        "total_amount": 14456.326840000009,
-        "equity_ratio": 0.33075299148975523,
-        "profit_ratio": 3.7617883287274876
+        "total_amount": 12329.286840000008,
+        "equity_ratio": 0.28208745903432214,
+        "profit_ratio": 3.2082954300613618
       },
       "complete": true,
       "scores": {
@@ -4246,12 +4246,12 @@
       },
       "code": "601825.SH",
       "absolute": {
-        "discounted_ac_amount": 56.92299999999996,
+        "discounted_ac_amount": 28.46149999999998,
         "provision_amount": 61.16653425800001,
         "capital_amount": 600.9585957700001,
-        "total_amount": 719.0481300280001,
-        "equity_ratio": 0.5378694193933424,
-        "profit_ratio": 5.787239500328258
+        "total_amount": 690.5866300280001,
+        "equity_ratio": 0.5165793696167476,
+        "profit_ratio": 5.558167884451615
       },
       "complete": true,
       "scores": {
@@ -4585,12 +4585,12 @@
       },
       "code": "601328.SH",
       "absolute": {
-        "discounted_ac_amount": 1024.7920000000013,
+        "discounted_ac_amount": 512.3960000000006,
         "provision_amount": -268.8175260000004,
         "capital_amount": 2968.94931,
-        "total_amount": 3724.923784000001,
-        "equity_ratio": 0.28381885388173095,
-        "profit_ratio": 3.729025712283513
+        "total_amount": 3212.5277840000003,
+        "equity_ratio": 0.2447770764155041,
+        "profit_ratio": 3.216065456001602
       },
       "complete": true,
       "scores": {
@@ -4924,12 +4924,12 @@
       },
       "code": "600919.SH",
       "absolute": {
-        "discounted_ac_amount": 233.00343200000063,
+        "discounted_ac_amount": 116.50171600000031,
         "provision_amount": 180.7943451419998,
         "capital_amount": 360.830596545,
-        "total_amount": 774.6283736870005,
-        "equity_ratio": 0.21425406517040246,
-        "profit_ratio": 2.0928534016294704
+        "total_amount": 658.126657687,
+        "equity_ratio": 0.18203091520557346,
+        "profit_ratio": 1.7780947109998515
       },
       "complete": true,
       "scores": {
@@ -5263,12 +5263,12 @@
       },
       "code": "002966.SZ",
       "absolute": {
-        "discounted_ac_amount": 10.838321215999896,
+        "discounted_ac_amount": 5.419160607999948,
         "provision_amount": 85.13228511500002,
         "capital_amount": 111.1201761599999,
-        "total_amount": 207.0907824909998,
-        "equity_ratio": 0.317157208890404,
-        "profit_ratio": 3.6253855633440035
+        "total_amount": 201.67162188299986,
+        "equity_ratio": 0.30885782524672695,
+        "profit_ratio": 3.5305163161599125
       },
       "complete": true,
       "scores": {
@@ -5602,12 +5602,12 @@
       },
       "code": "601658.SH",
       "absolute": {
-        "discounted_ac_amount": 1328.6239999999991,
+        "discounted_ac_amount": 664.3119999999996,
         "provision_amount": -855.5892600000001,
         "capital_amount": 2306.240858999999,
-        "total_amount": 2779.2755989999982,
-        "equity_ratio": 0.22710711864046668,
-        "profit_ratio": 3.057576183194348
+        "total_amount": 2114.963598999999,
+        "equity_ratio": 0.17282319506967378,
+        "profit_ratio": 2.32674382164624
       },
       "complete": true,
       "scores": {
@@ -5941,12 +5941,12 @@
       },
       "code": "601988.SH",
       "absolute": {
-        "discounted_ac_amount": 1499.6880000000006,
+        "discounted_ac_amount": 749.8440000000003,
         "provision_amount": -531.4557840000011,
         "capital_amount": 6852.308655999999,
-        "total_amount": 7820.540871999999,
-        "equity_ratio": 0.24509724616873993,
-        "profit_ratio": 3.0930422720818838
+        "total_amount": 7070.696871999999,
+        "equity_ratio": 0.2215969918430884,
+        "profit_ratio": 2.7964772099682405
       },
       "complete": true,
       "scores": {
@@ -6280,12 +6280,12 @@
       },
       "code": "601166.SH",
       "absolute": {
-        "discounted_ac_amount": 455.51200000000244,
+        "discounted_ac_amount": 227.75600000000122,
         "provision_amount": -208.75610400000033,
         "capital_amount": 1366.834453781513,
-        "total_amount": 1613.5903497815152,
-        "equity_ratio": 0.16746445404367585,
-        "profit_ratio": 2.149247239209765
+        "total_amount": 1385.834349781514,
+        "equity_ratio": 0.14382708276146905,
+        "profit_ratio": 1.8458840254425644
       },
       "complete": true,
       "scores": {
@@ -6619,12 +6619,12 @@
       },
       "code": "000001.SZ",
       "absolute": {
-        "discounted_ac_amount": 298.85599999999977,
+        "discounted_ac_amount": 149.42799999999988,
         "provision_amount": -255.57620000000009,
         "capital_amount": 902.2951140000002,
-        "total_amount": 945.5749139999999,
-        "equity_ratio": 0.16985328102518227,
-        "profit_ratio": 2.1747353127874884
+        "total_amount": 796.146914,
+        "equity_ratio": 0.14301158323768054,
+        "profit_ratio": 1.8310646596136155
       },
       "complete": true,
       "scores": {
@@ -6958,12 +6958,12 @@
       },
       "code": "601998.SH",
       "absolute": {
-        "discounted_ac_amount": 121.18399999999966,
+        "discounted_ac_amount": 60.59199999999983,
         "provision_amount": -276.49886299999986,
         "capital_amount": 1158.5406689999995,
-        "total_amount": 1003.2258059999994,
-        "equity_ratio": 0.11354989422882107,
-        "profit_ratio": 1.383378110865967
+        "total_amount": 942.6338059999995,
+        "equity_ratio": 0.10669180191304913,
+        "profit_ratio": 1.2998259873138436
       },
       "complete": true,
       "scores": {
@@ -7297,12 +7297,12 @@
       },
       "code": "600016.SH",
       "absolute": {
-        "discounted_ac_amount": 52.15200000000041,
+        "discounted_ac_amount": 26.076000000000207,
         "provision_amount": -993.4795049999999,
         "capital_amount": 918.3302164502163,
-        "total_amount": -22.997288549783207,
-        "equity_ratio": -0.0032873557037747876,
-        "profit_ratio": -0.0872961150538385
+        "total_amount": -49.07328854978334,
+        "equity_ratio": -0.00701479892587759,
+        "profit_ratio": -0.18627880560956328
       },
       "complete": true,
       "scores": {
@@ -7636,12 +7636,12 @@
       },
       "code": "600000.SH",
       "absolute": {
-        "discounted_ac_amount": 242.1920000000013,
+        "discounted_ac_amount": 121.09600000000064,
         "provision_amount": -343.4418360000005,
         "capital_amount": 850.2924559999992,
-        "total_amount": 749.04262,
-        "equity_ratio": 0.08924877066515743,
-        "profit_ratio": 1.4468661773227738
+        "total_amount": 627.9466199999994,
+        "equity_ratio": 0.07482012689523689,
+        "profit_ratio": 1.2129546455476132
       },
       "complete": true,
       "scores": {
@@ -7654,7 +7654,7 @@
     }
   ],
   "absolute_model": {
-    "ac_discount_factor": 0.8,
+    "ac_discount_factor": 0.4,
     "formula": "折扣后AC浮盈＋超额拨备＋CET1安全垫金额",
     "short_formula": "折扣后AC浮盈＋超额拨备＋CET1安全垫金额",
     "unit": "亿元",
@@ -7663,7 +7663,7 @@
     "adjusted_pb_formula": "家底调整后PB＝原PB÷（1＋总家底/归母净资产）",
     "valuation_note": "混合报告期测算：AC浮盈保留2026H1；拨备、归母净资产及利润TTM采用2026Q3；资本为Q3推算。原PB为2026E全年预测。家底调整后PB＝原PB÷（1＋总家底/归母净资产），并非严格同一期市值/调整后净资产。PB下降倍数＝原PB－调整后PB，不是股价涨幅。沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。"
   },
-  "config_hash": "e8ab1e74fc95b897c7887db0cacfda1c09a3134c17adbe1aa1de7b15b803a920",
+  "config_hash": "15baf81a3167968523cd2d54e1e82fe0fb70064e234a33a0255ea9eee173ae0c",
   "source_note": "浮盈两项与自由现金流1均完整保留2026H1；拨备与NII更新至2026Q3；资本以Q3核充率和RWA同比增速推算。总家底及调整PB为混合报告期测算。",
   "scope_note": "2_Bank 独立银行笔记中按用户要求排除3家香港银行，保留22家。排除行业、基础知识、观点和其他银行合集。",
   "capital_note": "沿用原H1源表隐含资本要求不变的假设；未逐家重新核验Q3监管要求。Q3 RWA由2025Q3余额×（1＋2026Q3同比增速）推算，非直接披露余额。"
