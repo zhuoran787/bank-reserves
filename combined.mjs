@@ -1,5 +1,5 @@
-import {compareValuation} from './valuation.mjs?v=20261117-tail10';
-import {compareAbsolute} from './absolute.mjs?v=20261117-tail10';
+import {compareValuation} from './valuation.mjs?v=20261117-excet1';
+import {compareAbsolute} from './absolute.mjs?v=20261117-excet1';
 
 export const combination = Object.freeze({gapWeight:1, adjustedWeight:1, edgeCount:5, aTailCount:10});
 
