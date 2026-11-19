@@ -1,6 +1,9 @@
+import {validateFirstMethodData} from './first-method.mjs?v=20261118-boc';
+
 export const finite = x => typeof x === 'number' && Number.isFinite(x);
 
 export function calculate(data, rawWeights = data.groups.map(g => g.weight)) {
+  validateFirstMethodData(data);
   const validWeights = rawWeights.length === data.groups.length && rawWeights.every(x => finite(x) && x >= 0);
   const sum = rawWeights.reduce((a,b) => a+b,0);
   if (!validWeights || sum <= 0) return {error:'至少保留一个正权重。', banks:[], weights:[]};

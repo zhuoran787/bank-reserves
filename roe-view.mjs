@@ -1,4 +1,4 @@
-import {calculateRoeValuation} from './roe.mjs?v=20261118-roe';
+import {calculateRoeValuation} from './roe.mjs?v=20261118-boc';
 
 const signed = (value, digits = 4) => (value >= 0 ? '+' : '') + value.toFixed(digits);
 export function renderRoeAnalysis(snapshot, data, valuations, esc) {

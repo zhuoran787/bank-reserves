@@ -1,5 +1,6 @@
-import {finite,color} from './engine.mjs?v=20261118-roe';
-import {calculateRoeValuation} from './roe.mjs?v=20261118-roe';
+import {finite,color} from './engine.mjs?v=20261118-boc';
+import {calculateRoeValuation} from './roe.mjs?v=20261118-boc';
+import {hasFirstMethodAdjustment} from './first-method.mjs?v=20261118-boc';
 
 // Absolute reserve colors use the full bank cohort; valuation colors use each market.
 // Linear value spacing retains magnitude differences instead of percentile spacing.
@@ -56,7 +57,7 @@ export function renderAbsolute(data, valuation, esc, prefix='') {
   const q=document.getElementById('search').value.trim(),type=document.getElementById('type').value;
   const shown=rows.filter(b=>(!q||b.name.includes(q)||(b.code||'').includes(q))&&(!type||b.type===type));
   const scales=absoluteColumns.map(c=>(c.source==='absolute'?data.banks:rows).map(b=>b[c.source][c.key]));
-  $('absolute-body').innerHTML=shown.map(b=>`<tr><td class="sticky-bank"><button class="bank-name absolute-bank" data-bank="${esc(b.name)}">${esc(b.name)}</button><span class="bank-sub">${prefix?'H股':'A股'} · ${esc(b.type)}</span></td>${absoluteColumns.map((c,i)=>{
+  $('absolute-body').innerHTML=shown.map(b=>`<tr><td class="sticky-bank"><button class="bank-name absolute-bank" data-bank="${esc(b.name)}">${esc(b.name)}</button><span class="bank-sub">${prefix?'H股':'A股'} · ${esc(b.type)}${hasFirstMethodAdjustment(b)?' · 集团口径':''}</span></td>${absoluteColumns.map((c,i)=>{
     const value=b[c.source][c.key],paint=color(absoluteColorScore(value,scales[i],c.lower));
     const detail=c.key==='roe_deviation'?`；调整后ROE ${b.comparison.adjusted_roe_pct.toPrecision(12)}%；趋势线PB ${b.comparison.trend_pb.toPrecision(12)}倍`:'';
     return `<td${c.focus?` class="${c.focus}"`:''}><span class="metric-value absolute-value${c.rankKey?' adjusted-pb':''}" style="background:${paint.background};color:${paint.color}" title="${value.toPrecision(12)}${detail}">${formatAbsolute(value,c.kind,c.signed)}${c.rankKey?`<span class="metric-rank">第 ${b.comparison[c.rankKey]} 名</span>`:''}</span></td>`;

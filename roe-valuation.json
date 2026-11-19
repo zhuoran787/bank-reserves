@@ -12,12 +12,12 @@
     "rank_tolerance": 1e-12
   },
   "input_sha256": {
-    "data.json": "4ad252121eeb08b7956f3d63f145b053ef0a679b8da7585c6092b841ba8e7dd9",
+    "data.json": "e6c17751e46805ce2f94e617cef98ae3c49d247146cf684c4bff81c0711b0458",
     "valuation.json": "2902c57c4dc7623b4e83304734d8a59f4156e307278f30750bc523deadb9cb06",
     "valuation-h.json": "d60c67995d25f02ae82754c88ec7643f96853d3a211e2c729e722d667138e185",
     "roe.mjs": "23f43a3cbdc2a5372b18494469fb9c05fba5738eb5fd04cbb02ffb949057b390"
   },
-  "generated_at": "2026-11-18T08:49:01.806Z",
+  "generated_at": "2026-11-19T05:33:01.949Z",
   "basis": "混合报告期的研究近似。趋势线描述样本关系；估值偏离是PB倍数差，不是低估百分比或预期股价涨幅。",
   "financial_periods": {
     "profit_ttm_end": "2026-09-30",
@@ -552,10 +552,10 @@
   },
   "artifact_sha256": {
     "roe-pb-a.png": "2e78db255a4bc7e09d0003b5162dbcf2e5c4e8ac28437ba5da3a787d249a44e5",
-    "roe-pb-a.svg": "2a683cc955a90ff0de3d8d0a11ac6df583e02569b4e0647c53bc467949d7f339",
+    "roe-pb-a.svg": "65cbc49bbf398c27b7ff04d1a21263c0b36f807a63738be4d51f8dfc03512a45",
     "roe-pb-a-ranking.csv": "04e598031b41b061e13faf53d5fa74ed5109866747bd09b163709a8473946e3f",
     "roe-pb-h.png": "73f6928639d30ad68297da55e71dfb423f9dc5b58b16c9a7280a5115d2f0b02d",
-    "roe-pb-h.svg": "e39b2278cad423724fb1bbd032526d143960b3aae3dfb6014a3dba6bf826cbc4",
+    "roe-pb-h.svg": "5ab9927f3bf517e8447c7da159223794cac8cf69d37e6eb28769449f6d5da163",
     "roe-pb-h-ranking.csv": "f4a20c3bf528d3671dbf445f3909d90f09153751cf2c710df6261fcac9fa6a55"
   }
 }

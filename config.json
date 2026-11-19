@@ -194,5 +194,9 @@
         "source": "https://static.cninfo.com.cn/finalpage/2025-08-27/1224586200.PDF"
       }
     ]
+  },
+  "first_method_adjustment": {
+    "policy_file": "first-method.mjs",
+    "policy_sha256": "a9855ee2f712987e29bc6ed82641e71a769824dfb6a2ac1ee963cfcd4639c3ef"
   }
 }

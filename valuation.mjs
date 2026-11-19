@@ -1,4 +1,5 @@
-import {finite,color} from './engine.mjs?v=20261118-roe';
+import {finite,color} from './engine.mjs?v=20261118-boc';
+import {firstMethodPolicy,hasFirstMethodAdjustment} from './first-method.mjs?v=20261118-boc';
 
 // Market pricing: higher PB and lower yield mean a higher pricing score.
 // Compare the same best-to-worst directions: financial strength vs market premium.
@@ -45,7 +46,7 @@ export function renderValuation(model, valuation, esc, prefix=''){
   if(mode==='strength')rows.sort((a,b)=>a.rank-b.rank);
   const q=document.getElementById('search').value.trim(),type=document.getElementById('type').value;
   const shown=rows.filter(b=>(!q||b.name.includes(q)||(b.code||'').includes(q))&&(!type||b.type===type));
-  $('valuation-body').innerHTML=shown.map(b=>`<tr><td class="sticky-bank"><b>${esc(b.name)}</b><span class="bank-sub">${prefix?'H股 · 同一银行主体':esc(b.code)+' · A股'}</span></td><td>${p(b.valuation.pb.toFixed(2)+'×',b.pbCheapScore)}</td><td>${p((b.valuation.dividend_yield*100).toFixed(2)+'%',b.yieldCheapScore)}</td><td>${p('第 '+b.cheapRank+' 名',b.cheapScore)}</td><td>第 ${b.pricingRank} 名</td><td>第 ${b.rank} 名${prefix?`<span class="metric-rank">全22家：第 ${b.fullRank} 名</span>`:''}</td><td>${p((b.gap>0?'+':'')+b.gap+' 位',rows.length>1?50+50*b.gap/(rows.length-1):50)}</td></tr>`).join('');
+  $('valuation-body').innerHTML=shown.map(b=>`<tr><td class="sticky-bank"><b>${esc(b.name)}</b><span class="bank-sub">${prefix?'H股 · 同一银行主体':esc(b.code)+' · A股'}</span>${hasFirstMethodAdjustment(b)?`<span class="adjustment-badge">${esc(firstMethodPolicy.label)}</span>`:''}</td><td>${p(b.valuation.pb.toFixed(2)+'×',b.pbCheapScore)}</td><td>${p((b.valuation.dividend_yield*100).toFixed(2)+'%',b.yieldCheapScore)}</td><td>${p('第 '+b.cheapRank+' 名',b.cheapScore)}</td><td>第 ${b.pricingRank} 名</td><td>第 ${b.rank} 名${prefix?`<span class="metric-rank">全22家：第 ${b.fullRank} 名</span>`:''}</td><td>${p((b.gap>0?'+':'')+b.gap+' 位',rows.length>1?50+50*b.gap/(rows.length-1):50)}</td></tr>`).join('');
   $('valuation-source').innerHTML=`<b>全部估值来源：</b><a href="${valuation.source.url}" target="_blank" rel="noopener">${esc(valuation.source.title)}（${valuation.source.published}图片）↗</a> · ${esc(valuation.source.filename)}<br>${esc(valuation.source.market)}；${esc(valuation.source.basis)}。${esc(valuation.source.price_basis)}。各行对应图片同名银行的“2026E PB / ${esc(valuation.source.market)}”和“2026年预期股息率 / ${esc(valuation.source.market)}”两列。`;
   return rows;
 }
