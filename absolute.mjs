@@ -1,6 +1,6 @@
-import {finite,color} from './engine.mjs?v=20261118-boc';
-import {calculateRoeValuation} from './roe.mjs?v=20261118-boc';
-import {hasFirstMethodAdjustment} from './first-method.mjs?v=20261118-boc';
+import {finite,color} from './engine.mjs?v=20261121-valuation';
+import {calculateRoeValuation} from './roe.mjs?v=20261121-valuation';
+import {hasFirstMethodAdjustment} from './first-method.mjs?v=20261121-valuation';
 
 // Absolute reserve colors use the full bank cohort; valuation colors use each market.
 // Linear value spacing retains magnitude differences instead of percentile spacing.

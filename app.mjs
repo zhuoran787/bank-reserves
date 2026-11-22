@@ -1,10 +1,10 @@
-import {renderValuation} from './valuation.mjs?v=20261118-boc';
-import {calculate,color,finite} from './engine.mjs?v=20261118-boc';
-import {renderAbsolute} from './absolute.mjs?v=20261118-boc';
-import {renderCombined} from './combined.mjs?v=20261118-boc';
-import {validateRoeSnapshot} from './roe.mjs?v=20261118-boc';
-import {renderRoeAnalysis} from './roe-view.mjs?v=20261118-boc';
-import {firstMethodPolicy, hasFirstMethodAdjustment, firstMethodRuleText, validateFirstMethodData} from './first-method.mjs?v=20261118-boc';
+import {renderValuation} from './valuation.mjs?v=20261121-valuation';
+import {calculate,color,finite} from './engine.mjs?v=20261121-valuation';
+import {renderAbsolute} from './absolute.mjs?v=20261121-valuation';
+import {renderCombined} from './combined.mjs?v=20261121-valuation';
+import {validateRoeSnapshot} from './roe.mjs?v=20261121-valuation';
+import {renderRoeAnalysis} from './roe-view.mjs?v=20261121-valuation';
+import {firstMethodPolicy, hasFirstMethodAdjustment, firstMethodRuleText, validateFirstMethodData} from './first-method.mjs?v=20261121-valuation';
 const $=id=>document.getElementById(id);
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=(x,d=2)=>finite(x)?(x*100).toLocaleString('zh-CN',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
@@ -13,7 +13,7 @@ const rawNum=x=>finite(x)?x.toLocaleString('zh-CN',{minimumFractionDigits:2,maxi
 let data,model,valuation,valuationH,niiGrowth,weights,showScores=false,sortKey='total',sortDirection=-1;
 const inputHashes={};
 async function loadAsset(name,parse=true){
-  const response=await fetch('./'+name+'?v=20261118-boc');
+  const response=await fetch('./'+name+'?v=20261121-valuation');
   if(!response.ok)throw new Error('报告文件暂时不可用：'+name);
   const text=await response.text();
   const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text));
@@ -111,7 +111,7 @@ function exportCSV(){
   const adjustedBank=data.banks.find(hasFirstMethodAdjustment);
   for(const m of data.metrics){const v=adjustedBank.metrics[m.id];foot.push([adjustedBank.name,m.label,(v.raw_value??v.value)*100,v.value*100,firstMethodRuleText(m.id)]);}
   const csv='\ufeff'+[headers,...rows,...foot].map(row=>row.map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(',')).join('\r\n');
-  const a=document.createElement('a'),url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.href=url;a.download='银行家底-20261118-含中行调整.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  const a=document.createElement('a'),url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.href=url;a.download='银行家底-20261121-含中行调整.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
 
 async function init(){

@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-18T21:33:02.595320</dc:date>
+    <dc:date>2026-11-21T23:47:00.500001</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -95,18 +95,18 @@ z
     </g>
     <g id="xtick_2">
      <g id="line2d_3">
-      <path d="M 292.794382 536.544 
-L 292.794382 125.856 
+      <path d="M 294.700229 536.544 
+L 294.700229 125.856 
 " clip-path="url(#pe142c2a2e1)" style="fill: none; stroke: #dce4e8; stroke-width: 0.7; stroke-linecap: square"/>
      </g>
      <g id="line2d_4">
       <g>
-       <use xlink:href="#mee590f2e01" x="292.794382" y="536.544" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#mee590f2e01" x="294.700229" y="536.544" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_2">
       <!-- 0.2 -->
-      <g transform="translate(284.454382 552.133375) scale(0.12 -0.12)">
+      <g transform="translate(286.360229 552.133375) scale(0.12 -0.12)">
        <defs>
         <path id="ArialUnicodeMS-32" d="M 3231 0 
 L 197 0 
@@ -139,18 +139,18 @@ z
     </g>
     <g id="xtick_3">
      <g id="line2d_5">
-      <path d="M 493.788763 536.544 
-L 493.788763 125.856 
+      <path d="M 497.600457 536.544 
+L 497.600457 125.856 
 " clip-path="url(#pe142c2a2e1)" style="fill: none; stroke: #dce4e8; stroke-width: 0.7; stroke-linecap: square"/>
      </g>
      <g id="line2d_6">
       <g>
-       <use xlink:href="#mee590f2e01" x="493.788763" y="536.544" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#mee590f2e01" x="497.600457" y="536.544" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_3">
       <!-- 0.4 -->
-      <g transform="translate(485.448763 552.133375) scale(0.12 -0.12)">
+      <g transform="translate(489.260457 552.133375) scale(0.12 -0.12)">
        <defs>
         <path id="ArialUnicodeMS-34" d="M 3263 1094 
 L 2644 1094 
@@ -181,18 +181,18 @@ z
     </g>
     <g id="xtick_4">
      <g id="line2d_7">
-      <path d="M 694.783145 536.544 
-L 694.783145 125.856 
+      <path d="M 700.500686 536.544 
+L 700.500686 125.856 
 " clip-path="url(#pe142c2a2e1)" style="fill: none; stroke: #dce4e8; stroke-width: 0.7; stroke-linecap: square"/>
      </g>
      <g id="line2d_8">
       <g>
-       <use xlink:href="#mee590f2e01" x="694.783145" y="536.544" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#mee590f2e01" x="700.500686" y="536.544" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_4">
       <!-- 0.6 -->
-      <g transform="translate(686.443145 552.133375) scale(0.12 -0.12)">
+      <g transform="translate(692.160686 552.133375) scale(0.12 -0.12)">
        <defs>
         <path id="ArialUnicodeMS-36" d="M 838 2363 
 Q 1225 2969 1941 2969 
@@ -232,18 +232,18 @@ z
     </g>
     <g id="xtick_5">
      <g id="line2d_9">
-      <path d="M 895.777527 536.544 
-L 895.777527 125.856 
+      <path d="M 903.400914 536.544 
+L 903.400914 125.856 
 " clip-path="url(#pe142c2a2e1)" style="fill: none; stroke: #dce4e8; stroke-width: 0.7; stroke-linecap: square"/>
      </g>
      <g id="line2d_10">
       <g>
-       <use xlink:href="#mee590f2e01" x="895.777527" y="536.544" style="stroke: #000000; stroke-width: 0.8"/>
+       <use xlink:href="#mee590f2e01" x="903.400914" y="536.544" style="stroke: #000000; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_5">
       <!-- 0.8 -->
-      <g transform="translate(887.437527 552.133375) scale(0.12 -0.12)">
+      <g transform="translate(895.060914 552.133375) scale(0.12 -0.12)">
        <defs>
         <path id="ArialUnicodeMS-38" d="M 2425 2478 
 Q 3284 2203 3284 1306 
@@ -979,63 +979,63 @@ z
     </g>
    </g>
    <g id="line2d_25">
-    <path d="M 504.899263 286.209357 
-L 642.753532 286.209357 
+    <path d="M 564.933956 253.383443 
+L 715.047423 253.383443 
 " clip-path="url(#pe142c2a2e1)" style="fill: none; stroke-dasharray: 2.4,2.4; stroke-dashoffset: 0; stroke: #aab7bd; stroke-opacity: 0.85; stroke-width: 0.8"/>
    </g>
    <g id="line2d_26">
-    <path d="M 585.598179 253.383443 
-L 720.352088 253.383443 
+    <path d="M 499.750735 286.209357 
+L 636.928041 286.209357 
 " clip-path="url(#pe142c2a2e1)" style="fill: none; stroke-dasharray: 2.4,2.4; stroke-dashoffset: 0; stroke: #aab7bd; stroke-opacity: 0.85; stroke-width: 0.8"/>
    </g>
    <g id="line2d_27">
-    <path d="M 617.174444 259.47118 
-L 705.96103 259.47118 
+    <path d="M 611.756953 259.47118 
+L 700.559775 259.47118 
 " clip-path="url(#pe142c2a2e1)" style="fill: none; stroke-dasharray: 2.4,2.4; stroke-dashoffset: 0; stroke: #aab7bd; stroke-opacity: 0.85; stroke-width: 0.8"/>
    </g>
    <g id="line2d_28">
-    <path d="M 655.985552 254.040301 
-L 718.799313 254.040301 
+    <path d="M 661.33521 254.040301 
+L 713.484226 254.040301 
 " clip-path="url(#pe142c2a2e1)" style="fill: none; stroke-dasharray: 2.4,2.4; stroke-dashoffset: 0; stroke: #aab7bd; stroke-opacity: 0.85; stroke-width: 0.8"/>
    </g>
    <g id="line2d_29">
-    <path d="M 691.638977 252.234271 
-L 723.068664 252.234271 
+    <path d="M 687.715169 252.234271 
+L 717.782232 252.234271 
 " clip-path="url(#pe142c2a2e1)" style="fill: none; stroke-dasharray: 2.4,2.4; stroke-dashoffset: 0; stroke: #aab7bd; stroke-opacity: 0.85; stroke-width: 0.8"/>
    </g>
    <g id="line2d_30">
-    <path d="M 955.632463 175.636364 
-L 904.141672 175.636364 
+    <path d="M 638.023142 308.268895 
+L 584.430569 308.268895 
 " clip-path="url(#pe142c2a2e1)" style="fill: none; stroke-dasharray: 2.4,2.4; stroke-dashoffset: 0; stroke: #aab7bd; stroke-opacity: 0.85; stroke-width: 0.8"/>
    </g>
    <g id="line2d_31">
-    <path d="M 643.101746 308.268895 
-L 590.606063 308.268895 
+    <path d="M 954.739823 175.636364 
+L 900.070566 175.636364 
 " clip-path="url(#pe142c2a2e1)" style="fill: none; stroke-dasharray: 2.4,2.4; stroke-dashoffset: 0; stroke: #aab7bd; stroke-opacity: 0.85; stroke-width: 0.8"/>
    </g>
    <g id="line2d_32">
-    <path d="M 644.329677 312.3853 
-L 580.87512 312.3853 
+    <path d="M 686.286811 290.020213 
+L 627.858933 290.020213 
 " clip-path="url(#pe142c2a2e1)" style="fill: none; stroke-dasharray: 2.4,2.4; stroke-dashoffset: 0; stroke: #aab7bd; stroke-opacity: 0.85; stroke-width: 0.8"/>
    </g>
    <g id="line2d_33">
-    <path d="M 688.588169 294.266751 
-L 623.706319 294.266751 
+    <path d="M 676.784737 294.266751 
+L 617.752987 294.266751 
 " clip-path="url(#pe142c2a2e1)" style="fill: none; stroke-dasharray: 2.4,2.4; stroke-dashoffset: 0; stroke: #aab7bd; stroke-opacity: 0.85; stroke-width: 0.8"/>
    </g>
    <g id="line2d_34">
-    <path d="M 700.665588 290.020213 
-L 633.744889 290.020213 
+    <path d="M 639.608656 312.3853 
+L 574.634313 312.3853 
 " clip-path="url(#pe142c2a2e1)" style="fill: none; stroke-dasharray: 2.4,2.4; stroke-dashoffset: 0; stroke: #aab7bd; stroke-opacity: 0.85; stroke-width: 0.8"/>
    </g>
    <g id="line2d_35">
-    <path d="M 325.049483 486.763636 
-L 168.654851 486.763636 
+    <path d="M 327.261176 486.763636 
+L 159.647304 486.763636 
 " clip-path="url(#pe142c2a2e1)" style="fill: none; stroke-dasharray: 2.4,2.4; stroke-dashoffset: 0; stroke: #aab7bd; stroke-opacity: 0.85; stroke-width: 0.8"/>
    </g>
    <g id="line2d_36">
-    <path d="M 91.8 519.274947 
-L 1042.2 117.234622 
+    <path d="M 91.8 515.273204 
+L 1042.2 115.913303 
 " clip-path="url(#pe142c2a2e1)" style="fill: none; stroke: #244f68; stroke-width: 2; stroke-linecap: square"/>
    </g>
    <g id="patch_3">
@@ -1063,11 +1063,11 @@ z
 " style="stroke: #ffffff; stroke-width: 0.8"/>
     </defs>
     <g clip-path="url(#pe142c2a2e1)">
-     <use xlink:href="#md75ad44ae8" x="504.899263" y="286.209357" style="fill: #28765b; stroke: #ffffff; stroke-width: 0.8"/>
-     <use xlink:href="#md75ad44ae8" x="585.598179" y="253.383443" style="fill: #28765b; stroke: #ffffff; stroke-width: 0.8"/>
-     <use xlink:href="#md75ad44ae8" x="617.174444" y="259.47118" style="fill: #28765b; stroke: #ffffff; stroke-width: 0.8"/>
-     <use xlink:href="#md75ad44ae8" x="655.985552" y="254.040301" style="fill: #28765b; stroke: #ffffff; stroke-width: 0.8"/>
-     <use xlink:href="#md75ad44ae8" x="691.638977" y="252.234271" style="fill: #28765b; stroke: #ffffff; stroke-width: 0.8"/>
+     <use xlink:href="#md75ad44ae8" x="564.933956" y="253.383443" style="fill: #28765b; stroke: #ffffff; stroke-width: 0.8"/>
+     <use xlink:href="#md75ad44ae8" x="499.750735" y="286.209357" style="fill: #28765b; stroke: #ffffff; stroke-width: 0.8"/>
+     <use xlink:href="#md75ad44ae8" x="611.756953" y="259.47118" style="fill: #28765b; stroke: #ffffff; stroke-width: 0.8"/>
+     <use xlink:href="#md75ad44ae8" x="661.33521" y="254.040301" style="fill: #28765b; stroke: #ffffff; stroke-width: 0.8"/>
+     <use xlink:href="#md75ad44ae8" x="687.715169" y="252.234271" style="fill: #28765b; stroke: #ffffff; stroke-width: 0.8"/>
     </g>
    </g>
    <g id="PathCollection_2">
@@ -1085,35 +1085,35 @@ z
 " style="stroke: #ffffff; stroke-width: 0.8"/>
     </defs>
     <g clip-path="url(#pe142c2a2e1)">
-     <use xlink:href="#meb77f93adc" x="955.632463" y="175.636364" style="fill: #ad5542; stroke: #ffffff; stroke-width: 0.8"/>
-     <use xlink:href="#meb77f93adc" x="643.101746" y="308.268895" style="fill: #ad5542; stroke: #ffffff; stroke-width: 0.8"/>
-     <use xlink:href="#meb77f93adc" x="644.329677" y="312.3853" style="fill: #ad5542; stroke: #ffffff; stroke-width: 0.8"/>
-     <use xlink:href="#meb77f93adc" x="688.588169" y="294.266751" style="fill: #ad5542; stroke: #ffffff; stroke-width: 0.8"/>
-     <use xlink:href="#meb77f93adc" x="700.665588" y="290.020213" style="fill: #ad5542; stroke: #ffffff; stroke-width: 0.8"/>
-     <use xlink:href="#meb77f93adc" x="325.049483" y="486.763636" style="fill: #ad5542; stroke: #ffffff; stroke-width: 0.8"/>
+     <use xlink:href="#meb77f93adc" x="638.023142" y="308.268895" style="fill: #ad5542; stroke: #ffffff; stroke-width: 0.8"/>
+     <use xlink:href="#meb77f93adc" x="954.739823" y="175.636364" style="fill: #ad5542; stroke: #ffffff; stroke-width: 0.8"/>
+     <use xlink:href="#meb77f93adc" x="686.286811" y="290.020213" style="fill: #ad5542; stroke: #ffffff; stroke-width: 0.8"/>
+     <use xlink:href="#meb77f93adc" x="676.784737" y="294.266751" style="fill: #ad5542; stroke: #ffffff; stroke-width: 0.8"/>
+     <use xlink:href="#meb77f93adc" x="639.608656" y="312.3853" style="fill: #ad5542; stroke: #ffffff; stroke-width: 0.8"/>
+     <use xlink:href="#meb77f93adc" x="327.261176" y="486.763636" style="fill: #ad5542; stroke: #ffffff; stroke-width: 0.8"/>
     </g>
    </g>
    <g id="patch_5">
-    <path d="M 959.737845 174.503844 
-Q 958.649357 174.804117 957.56087 175.104389 
+    <path d="M 958.845205 174.503844 
+Q 957.756718 174.804117 956.66823 175.104389 
 " style="fill: none; stroke: #81929c; stroke-width: 0.6; stroke-linecap: round"/>
    </g>
    <g id="text_15">
     <g id="patch_6">
-     <path d="M 962.632463 174.318864 
-L 1006.632463 174.318864 
-Q 1008.282463 174.318864 1008.282463 172.668864 
-L 1008.282463 162.603864 
-Q 1008.282463 160.953864 1006.632463 160.953864 
-L 962.632463 160.953864 
-Q 960.982463 160.953864 960.982463 162.603864 
-L 960.982463 172.668864 
-Q 960.982463 174.318864 962.632463 174.318864 
+     <path d="M 961.739823 174.318864 
+L 1005.739823 174.318864 
+Q 1007.389823 174.318864 1007.389823 172.668864 
+L 1007.389823 162.603864 
+Q 1007.389823 160.953864 1005.739823 160.953864 
+L 961.739823 160.953864 
+Q 960.089823 160.953864 960.089823 162.603864 
+L 960.089823 172.668864 
+Q 960.089823 174.318864 961.739823 174.318864 
 z
 " style="fill: #ffffff; opacity: 0.88"/>
     </g>
     <!-- 招商银行 -->
-    <g style="fill: #223d4b" transform="translate(962.632463 170.477457) scale(0.11 -0.11)">
+    <g style="fill: #223d4b" transform="translate(961.739823 170.477457) scale(0.11 -0.11)">
      <defs>
       <path id="ArialUnicodeMS-62db" d="M 5844 5025 
 Q 5831 4356 5768 3701 
@@ -1353,26 +1353,26 @@ z
     </g>
    </g>
    <g id="patch_7">
-    <path d="M 695.744359 251.101752 
-Q 694.655871 251.402024 693.567384 251.702296 
+    <path d="M 691.820551 251.101752 
+Q 690.732064 251.402024 689.643576 251.702296 
 " style="fill: none; stroke: #81929c; stroke-width: 0.6; stroke-linecap: round"/>
    </g>
    <g id="text_16">
     <g id="patch_8">
-     <path d="M 698.638977 250.916771 
-L 742.638977 250.916771 
-Q 744.288977 250.916771 744.288977 249.266771 
-L 744.288977 239.201771 
-Q 744.288977 237.551771 742.638977 237.551771 
-L 698.638977 237.551771 
-Q 696.988977 237.551771 696.988977 239.201771 
-L 696.988977 249.266771 
-Q 696.988977 250.916771 698.638977 250.916771 
+     <path d="M 694.715169 250.916771 
+L 738.715169 250.916771 
+Q 740.365169 250.916771 740.365169 249.266771 
+L 740.365169 239.201771 
+Q 740.365169 237.551771 738.715169 237.551771 
+L 694.715169 237.551771 
+Q 693.065169 237.551771 693.065169 239.201771 
+L 693.065169 249.266771 
+Q 693.065169 250.916771 694.715169 250.916771 
 z
 " style="fill: #ffffff; opacity: 0.88"/>
     </g>
     <!-- 建设银行 -->
-    <g style="fill: #223d4b" transform="translate(698.638977 247.075365) scale(0.11 -0.11)">
+    <g style="fill: #223d4b" transform="translate(694.715169 247.075365) scale(0.11 -0.11)">
      <defs>
       <path id="ArialUnicodeMS-5efa" d="M 5900 972 
 L 4225 972 
@@ -1520,26 +1520,26 @@ z
     </g>
    </g>
    <g id="patch_9">
-    <path d="M 589.703561 252.250924 
-Q 588.615074 252.551196 587.526586 252.851468 
+    <path d="M 569.039338 252.250924 
+Q 567.950851 252.551196 566.862363 252.851468 
 " style="fill: none; stroke: #81929c; stroke-width: 0.6; stroke-linecap: round"/>
    </g>
    <g id="text_17">
     <g id="patch_10">
-     <path d="M 592.598179 252.065943 
-L 636.598179 252.065943 
-Q 638.248179 252.065943 638.248179 250.415943 
-L 638.248179 240.350943 
-Q 638.248179 238.700943 636.598179 238.700943 
-L 592.598179 238.700943 
-Q 590.948179 238.700943 590.948179 240.350943 
-L 590.948179 250.415943 
-Q 590.948179 252.065943 592.598179 252.065943 
+     <path d="M 571.933956 252.065943 
+L 615.933956 252.065943 
+Q 617.583956 252.065943 617.583956 250.415943 
+L 617.583956 240.350943 
+Q 617.583956 238.700943 615.933956 238.700943 
+L 571.933956 238.700943 
+Q 570.283956 238.700943 570.283956 240.350943 
+L 570.283956 250.415943 
+Q 570.283956 252.065943 571.933956 252.065943 
 z
 " style="fill: #ffffff; opacity: 0.88"/>
     </g>
     <!-- 青岛银行 -->
-    <g style="fill: #223d4b" transform="translate(592.598179 248.224537) scale(0.11 -0.11)">
+    <g style="fill: #223d4b" transform="translate(571.933956 248.224537) scale(0.11 -0.11)">
      <defs>
       <path id="ArialUnicodeMS-9752" d="M 5856 2913 
 L 666 2913 
@@ -1656,26 +1656,26 @@ z
     </g>
    </g>
    <g id="patch_11">
-    <path d="M 670.289306 261.438794 
-Q 664.026175 258.199244 657.763045 254.959694 
+    <path d="M 675.638964 261.438794 
+Q 669.375833 258.199244 663.112703 254.959694 
 " style="fill: none; stroke: #81929c; stroke-width: 0.6; stroke-linecap: round"/>
    </g>
    <g id="text_18">
     <g id="patch_12">
-     <path d="M 662.985552 275.722801 
-L 706.985552 275.722801 
-Q 708.635552 275.722801 708.635552 274.072801 
-L 708.635552 264.007801 
-Q 708.635552 262.357801 706.985552 262.357801 
-L 662.985552 262.357801 
-Q 661.335552 262.357801 661.335552 264.007801 
-L 661.335552 274.072801 
-Q 661.335552 275.722801 662.985552 275.722801 
+     <path d="M 668.33521 275.722801 
+L 712.33521 275.722801 
+Q 713.98521 275.722801 713.98521 274.072801 
+L 713.98521 264.007801 
+Q 713.98521 262.357801 712.33521 262.357801 
+L 668.33521 262.357801 
+Q 666.68521 262.357801 666.68521 264.007801 
+L 666.68521 274.072801 
+Q 666.68521 275.722801 668.33521 275.722801 
 z
 " style="fill: #ffffff; opacity: 0.88"/>
     </g>
     <!-- 工商银行 -->
-    <g style="fill: #223d4b" transform="translate(662.985552 271.881395) scale(0.11 -0.11)">
+    <g style="fill: #223d4b" transform="translate(668.33521 271.881395) scale(0.11 -0.11)">
      <defs>
       <path id="ArialUnicodeMS-5de5" d="M 5819 347 
 L 609 347 
@@ -1700,26 +1700,26 @@ z
     </g>
    </g>
    <g id="patch_13">
-    <path d="M 602.87069 266.869673 
-Q 609.133821 263.630123 615.396951 260.390573 
+    <path d="M 626.060706 266.869673 
+Q 619.797576 263.630123 613.534445 260.390573 
 " style="fill: none; stroke: #81929c; stroke-width: 0.6; stroke-linecap: round"/>
    </g>
    <g id="text_19">
     <g id="patch_14">
-     <path d="M 566.174444 281.15368 
-L 610.174444 281.15368 
-Q 611.824444 281.15368 611.824444 279.50368 
-L 611.824444 269.43868 
-Q 611.824444 267.78868 610.174444 267.78868 
-L 566.174444 267.78868 
-Q 564.524444 267.78868 564.524444 269.43868 
-L 564.524444 279.50368 
-Q 564.524444 281.15368 566.174444 281.15368 
+     <path d="M 618.756953 281.15368 
+L 662.756953 281.15368 
+Q 664.406953 281.15368 664.406953 279.50368 
+L 664.406953 269.43868 
+Q 664.406953 267.78868 662.756953 267.78868 
+L 618.756953 267.78868 
+Q 617.106953 267.78868 617.106953 269.43868 
+L 617.106953 279.50368 
+Q 617.106953 281.15368 618.756953 281.15368 
 z
 " style="fill: #ffffff; opacity: 0.88"/>
     </g>
     <!-- 中信银行 -->
-    <g style="fill: #223d4b" transform="translate(566.174444 277.312274) scale(0.11 -0.11)">
+    <g style="fill: #223d4b" transform="translate(618.756953 277.312274) scale(0.11 -0.11)">
      <defs>
       <path id="ArialUnicodeMS-4e2d" d="M 5503 1306 
 L 4997 1306 
@@ -1812,26 +1812,26 @@ z
     </g>
    </g>
    <g id="patch_15">
-    <path d="M 508.979516 285.08377 
-Q 507.901675 285.381105 506.823835 285.67844 
+    <path d="M 503.830988 285.08377 
+Q 502.753148 285.381105 501.675308 285.67844 
 " style="fill: none; stroke: #81929c; stroke-width: 0.6; stroke-linecap: round"/>
    </g>
    <g id="text_20">
     <g id="patch_16">
-     <path d="M 511.899263 284.927091 
-L 555.899263 284.927091 
-Q 557.549263 284.927091 557.549263 283.277091 
-L 557.549263 273.141622 
-Q 557.549263 271.491622 555.899263 271.491622 
-L 511.899263 271.491622 
-Q 510.249263 271.491622 510.249263 273.141622 
-L 510.249263 283.277091 
-Q 510.249263 284.927091 511.899263 284.927091 
+     <path d="M 506.750735 284.927091 
+L 550.750735 284.927091 
+Q 552.400735 284.927091 552.400735 283.277091 
+L 552.400735 273.141622 
+Q 552.400735 271.491622 550.750735 271.491622 
+L 506.750735 271.491622 
+Q 505.100735 271.491622 505.100735 273.141622 
+L 505.100735 283.277091 
+Q 505.100735 284.927091 506.750735 284.927091 
 z
 " style="fill: #ffffff; opacity: 0.88"/>
     </g>
     <!-- 渝农商行 -->
-    <g style="fill: #223d4b" transform="translate(511.899263 281.085685) scale(0.11 -0.11)">
+    <g style="fill: #223d4b" transform="translate(506.750735 281.085685) scale(0.11 -0.11)">
      <defs>
       <path id="ArialUnicodeMS-6e1d" d="M 6175 3609 
 L 5919 3194 
@@ -1963,26 +1963,26 @@ z
     </g>
    </g>
    <g id="patch_17">
-    <path d="M 704.77097 288.887694 
-Q 703.682483 289.187966 702.593995 289.488239 
+    <path d="M 690.392194 288.887694 
+Q 689.303706 289.187966 688.215218 289.488239 
 " style="fill: none; stroke: #81929c; stroke-width: 0.6; stroke-linecap: round"/>
    </g>
    <g id="text_21">
     <g id="patch_18">
-     <path d="M 707.665588 288.702713 
-L 751.665588 288.702713 
-Q 753.315588 288.702713 753.315588 287.052713 
-L 753.315588 276.987713 
-Q 753.315588 275.337713 751.665588 275.337713 
-L 707.665588 275.337713 
-Q 706.015588 275.337713 706.015588 276.987713 
-L 706.015588 287.052713 
-Q 706.015588 288.702713 707.665588 288.702713 
+     <path d="M 693.286811 288.702713 
+L 737.286811 288.702713 
+Q 738.936811 288.702713 738.936811 287.052713 
+L 738.936811 276.987713 
+Q 738.936811 275.337713 737.286811 275.337713 
+L 693.286811 275.337713 
+Q 691.636811 275.337713 691.636811 276.987713 
+L 691.636811 287.052713 
+Q 691.636811 288.702713 693.286811 288.702713 
 z
 " style="fill: #ffffff; opacity: 0.88"/>
     </g>
     <!-- 中国银行 -->
-    <g style="fill: #223d4b" transform="translate(707.665588 284.861307) scale(0.11 -0.11)">
+    <g style="fill: #223d4b" transform="translate(693.286811 284.861307) scale(0.11 -0.11)">
      <defs>
       <path id="ArialUnicodeMS-56fd" d="M 5619 -378 
 L 5166 -378 
@@ -2037,26 +2037,26 @@ z
     </g>
    </g>
    <g id="patch_19">
-    <path d="M 684.482787 293.134232 
-Q 685.571274 293.434504 686.659762 293.734777 
+    <path d="M 691.08849 301.665244 
+Q 684.82536 298.425694 678.56223 295.186144 
 " style="fill: none; stroke: #81929c; stroke-width: 0.6; stroke-linecap: round"/>
    </g>
    <g id="text_22">
     <g id="patch_20">
-     <path d="M 637.588169 292.949251 
-L 681.588169 292.949251 
-Q 683.238169 292.949251 683.238169 291.299251 
-L 683.238169 281.234251 
-Q 683.238169 279.584251 681.588169 279.584251 
-L 637.588169 279.584251 
-Q 635.938169 279.584251 635.938169 281.234251 
-L 635.938169 291.299251 
-Q 635.938169 292.949251 637.588169 292.949251 
+     <path d="M 683.784737 315.949251 
+L 727.784737 315.949251 
+Q 729.434737 315.949251 729.434737 314.299251 
+L 729.434737 304.234251 
+Q 729.434737 302.584251 727.784737 302.584251 
+L 683.784737 302.584251 
+Q 682.134737 302.584251 682.134737 304.234251 
+L 682.134737 314.299251 
+Q 682.134737 315.949251 683.784737 315.949251 
 z
 " style="fill: #ffffff; opacity: 0.88"/>
     </g>
     <!-- 农业银行 -->
-    <g style="fill: #223d4b" transform="translate(637.588169 289.107845) scale(0.11 -0.11)">
+    <g style="fill: #223d4b" transform="translate(683.784737 312.107845) scale(0.11 -0.11)">
      <defs>
       <path id="ArialUnicodeMS-4e1a" d="M 5875 -78 
 L 428 -78 
@@ -2093,26 +2093,26 @@ z
     </g>
    </g>
    <g id="patch_21">
-    <path d="M 639.00118 307.137704 
-Q 640.088391 307.437625 641.175601 307.737545 
+    <path d="M 633.922576 307.137704 
+Q 635.009786 307.437625 636.096997 307.737545 
 " style="fill: none; stroke: #81929c; stroke-width: 0.6; stroke-linecap: round"/>
    </g>
    <g id="text_23">
     <g id="patch_22">
-     <path d="M 592.101746 306.961708 
-L 636.101746 306.961708 
-Q 637.751746 306.961708 637.751746 305.311708 
-L 637.751746 295.226083 
-Q 637.751746 293.576083 636.101746 293.576083 
-L 592.101746 293.576083 
-Q 590.451746 293.576083 590.451746 295.226083 
-L 590.451746 305.311708 
-Q 590.451746 306.961708 592.101746 306.961708 
+     <path d="M 587.023142 306.961708 
+L 631.023142 306.961708 
+Q 632.673142 306.961708 632.673142 305.311708 
+L 632.673142 295.226083 
+Q 632.673142 293.576083 631.023142 293.576083 
+L 587.023142 293.576083 
+Q 585.373142 293.576083 585.373142 295.226083 
+L 585.373142 305.311708 
+Q 585.373142 306.961708 587.023142 306.961708 
 z
 " style="fill: #ffffff; opacity: 0.88"/>
     </g>
     <!-- 邮储银行 -->
-    <g style="fill: #223d4b" transform="translate(592.101746 303.120301) scale(0.11 -0.11)">
+    <g style="fill: #223d4b" transform="translate(587.023142 303.120301) scale(0.11 -0.11)">
      <defs>
       <path id="ArialUnicodeMS-90ae" d="M 3303 56 
 L 2816 56 
@@ -2259,26 +2259,26 @@ z
     </g>
    </g>
    <g id="patch_23">
-    <path d="M 648.43506 311.252781 
-Q 647.346572 311.553054 646.258084 311.853326 
+    <path d="M 653.91241 319.783794 
+Q 647.649279 316.544243 641.386149 313.304693 
 " style="fill: none; stroke: #81929c; stroke-width: 0.6; stroke-linecap: round"/>
    </g>
    <g id="text_24">
     <g id="patch_24">
-     <path d="M 651.329677 311.0678 
-L 695.329677 311.0678 
-Q 696.979677 311.0678 696.979677 309.4178 
-L 696.979677 299.3528 
-Q 696.979677 297.7028 695.329677 297.7028 
-L 651.329677 297.7028 
-Q 649.679677 297.7028 649.679677 299.3528 
-L 649.679677 309.4178 
-Q 649.679677 311.0678 651.329677 311.0678 
+     <path d="M 646.608656 334.0678 
+L 690.608656 334.0678 
+Q 692.258656 334.0678 692.258656 332.4178 
+L 692.258656 322.3528 
+Q 692.258656 320.7028 690.608656 320.7028 
+L 646.608656 320.7028 
+Q 644.958656 320.7028 644.958656 322.3528 
+L 644.958656 332.4178 
+Q 644.958656 334.0678 646.608656 334.0678 
 z
 " style="fill: #ffffff; opacity: 0.88"/>
     </g>
     <!-- 交通银行 -->
-    <g style="fill: #223d4b" transform="translate(651.329677 307.226394) scale(0.11 -0.11)">
+    <g style="fill: #223d4b" transform="translate(646.608656 330.226394) scale(0.11 -0.11)">
      <defs>
       <path id="ArialUnicodeMS-4ea4" d="M 5759 3969 
 L 684 3969 
@@ -2404,26 +2404,26 @@ z
     </g>
    </g>
    <g id="patch_25">
-    <path d="M 329.154865 485.631117 
-Q 328.066378 485.93139 326.97789 486.231662 
+    <path d="M 331.366558 485.631117 
+Q 330.27807 485.93139 329.189583 486.231662 
 " style="fill: none; stroke: #81929c; stroke-width: 0.6; stroke-linecap: round"/>
    </g>
    <g id="text_25">
     <g id="patch_26">
-     <path d="M 332.049483 485.446136 
-L 376.049483 485.446136 
-Q 377.699483 485.446136 377.699483 483.796136 
-L 377.699483 473.731136 
-Q 377.699483 472.081136 376.049483 472.081136 
-L 332.049483 472.081136 
-Q 330.399483 472.081136 330.399483 473.731136 
-L 330.399483 483.796136 
-Q 330.399483 485.446136 332.049483 485.446136 
+     <path d="M 334.261176 485.446136 
+L 378.261176 485.446136 
+Q 379.911176 485.446136 379.911176 483.796136 
+L 379.911176 473.731136 
+Q 379.911176 472.081136 378.261176 472.081136 
+L 334.261176 472.081136 
+Q 332.611176 472.081136 332.611176 473.731136 
+L 332.611176 483.796136 
+Q 332.611176 485.446136 334.261176 485.446136 
 z
 " style="fill: #ffffff; opacity: 0.88"/>
     </g>
     <!-- 民生银行 -->
-    <g style="fill: #223d4b" transform="translate(332.049483 481.60473) scale(0.11 -0.11)">
+    <g style="fill: #223d4b" transform="translate(334.261176 481.60473) scale(0.11 -0.11)">
      <defs>
       <path id="ArialUnicodeMS-6c11" d="M 6081 972 
 Q 6031 334 5934 -3 
@@ -3578,7 +3578,7 @@ z
    </g>
   </g>
   <g id="text_30">
-   <!-- 11 家银行 · 等权、含截距 · 原 PB：2026E · 估值日期：2026-11-17 -->
+   <!-- 11 家银行 · 等权、含截距 · 原 PB：2026E · 估值日期：2026-11-20 -->
    <g style="fill: #526775" transform="translate(91.8 69.552) scale(0.12 -0.12)">
     <defs>
      <path id="ArialUnicodeMS-5bb6" d="M 5722 3525 
@@ -4138,12 +4138,12 @@ z
     <use xlink:href="#ArialUnicodeMS-31" transform="translate(2695.166016 0)"/>
     <use xlink:href="#ArialUnicodeMS-31" transform="translate(2750.78125 0)"/>
     <use xlink:href="#ArialUnicodeMS-2d" transform="translate(2806.396484 0)"/>
-    <use xlink:href="#ArialUnicodeMS-31" transform="translate(2839.697266 0)"/>
-    <use xlink:href="#ArialUnicodeMS-37" transform="translate(2895.3125 0)"/>
+    <use xlink:href="#ArialUnicodeMS-32" transform="translate(2839.697266 0)"/>
+    <use xlink:href="#ArialUnicodeMS-30" transform="translate(2895.3125 0)"/>
    </g>
   </g>
   <g id="text_31">
-   <!-- ROE（%）= 7.563293 × PB + 3.791672     R² = 0.712578 -->
+   <!-- ROE（%）= 7.584106 × PB + 3.862866     R² = 0.699922 -->
    <g style="fill: #244f68" transform="translate(91.8 98.0352) scale(0.14 -0.14)">
     <defs>
      <path id="ArialUnicodeMS-3d" d="M 3384 2694 
@@ -4157,6 +4157,36 @@ L 353 1300
 L 353 1825 
 L 3384 1825 
 L 3384 1300 
+z
+" transform="scale(0.015625)"/>
+     <path id="ArialUnicodeMS-d7" d="M 3231 1288 
+L 2853 903 
+L 1869 1888 
+L 884 903 
+L 506 1281 
+L 1491 2259 
+L 513 3244 
+L 891 3628 
+L 1875 2644 
+L 2853 3622 
+L 3225 3244 
+L 2253 2266 
+L 3231 1288 
+z
+" transform="scale(0.015625)"/>
+     <path id="ArialUnicodeMS-2b" d="M 3384 1997 
+L 2131 1997 
+L 2131 744 
+L 1606 744 
+L 1606 1997 
+L 353 1997 
+L 353 2522 
+L 1606 2522 
+L 1606 3775 
+L 2131 3775 
+L 2131 2522 
+L 3384 2522 
+L 3384 1997 
 z
 " transform="scale(0.015625)"/>
      <path id="ArialUnicodeMS-33" d="M 2425 2478 
@@ -4190,36 +4220,6 @@ Q 2288 4603 2670 4258
 Q 3053 3913 3053 3413 
 Q 3053 2772 2425 2491 
 L 2425 2478 
-z
-" transform="scale(0.015625)"/>
-     <path id="ArialUnicodeMS-d7" d="M 3231 1288 
-L 2853 903 
-L 1869 1888 
-L 884 903 
-L 506 1281 
-L 1491 2259 
-L 513 3244 
-L 891 3628 
-L 1875 2644 
-L 2853 3622 
-L 3225 3244 
-L 2253 2266 
-L 3231 1288 
-z
-" transform="scale(0.015625)"/>
-     <path id="ArialUnicodeMS-2b" d="M 3384 1997 
-L 2131 1997 
-L 2131 744 
-L 1606 744 
-L 1606 1997 
-L 353 1997 
-L 353 2522 
-L 1606 2522 
-L 1606 3775 
-L 2131 3775 
-L 2131 2522 
-L 3384 2522 
-L 3384 1997 
 z
 " transform="scale(0.015625)"/>
      <path id="ArialUnicodeMS-b2" d="M 2022 2271 
@@ -4256,11 +4256,11 @@ z
     <use xlink:href="#ArialUnicodeMS-37" transform="translate(591.796875 0)"/>
     <use xlink:href="#ArialUnicodeMS-2e" transform="translate(647.412109 0)"/>
     <use xlink:href="#ArialUnicodeMS-35" transform="translate(675.195312 0)"/>
-    <use xlink:href="#ArialUnicodeMS-36" transform="translate(730.810547 0)"/>
-    <use xlink:href="#ArialUnicodeMS-33" transform="translate(786.425781 0)"/>
-    <use xlink:href="#ArialUnicodeMS-32" transform="translate(842.041016 0)"/>
-    <use xlink:href="#ArialUnicodeMS-39" transform="translate(897.65625 0)"/>
-    <use xlink:href="#ArialUnicodeMS-33" transform="translate(953.271484 0)"/>
+    <use xlink:href="#ArialUnicodeMS-38" transform="translate(730.810547 0)"/>
+    <use xlink:href="#ArialUnicodeMS-34" transform="translate(786.425781 0)"/>
+    <use xlink:href="#ArialUnicodeMS-31" transform="translate(842.041016 0)"/>
+    <use xlink:href="#ArialUnicodeMS-30" transform="translate(897.65625 0)"/>
+    <use xlink:href="#ArialUnicodeMS-36" transform="translate(953.271484 0)"/>
     <use xlink:href="#ArialUnicodeMS-20" transform="translate(1008.886719 0)"/>
     <use xlink:href="#ArialUnicodeMS-d7" transform="translate(1036.669922 0)"/>
     <use xlink:href="#ArialUnicodeMS-20" transform="translate(1095.068359 0)"/>
@@ -4271,12 +4271,12 @@ z
     <use xlink:href="#ArialUnicodeMS-20" transform="translate(1342.431641 0)"/>
     <use xlink:href="#ArialUnicodeMS-33" transform="translate(1370.214844 0)"/>
     <use xlink:href="#ArialUnicodeMS-2e" transform="translate(1425.830078 0)"/>
-    <use xlink:href="#ArialUnicodeMS-37" transform="translate(1453.613281 0)"/>
-    <use xlink:href="#ArialUnicodeMS-39" transform="translate(1509.228516 0)"/>
-    <use xlink:href="#ArialUnicodeMS-31" transform="translate(1564.84375 0)"/>
-    <use xlink:href="#ArialUnicodeMS-36" transform="translate(1620.458984 0)"/>
-    <use xlink:href="#ArialUnicodeMS-37" transform="translate(1676.074219 0)"/>
-    <use xlink:href="#ArialUnicodeMS-32" transform="translate(1731.689453 0)"/>
+    <use xlink:href="#ArialUnicodeMS-38" transform="translate(1453.613281 0)"/>
+    <use xlink:href="#ArialUnicodeMS-36" transform="translate(1509.228516 0)"/>
+    <use xlink:href="#ArialUnicodeMS-32" transform="translate(1564.84375 0)"/>
+    <use xlink:href="#ArialUnicodeMS-38" transform="translate(1620.458984 0)"/>
+    <use xlink:href="#ArialUnicodeMS-36" transform="translate(1676.074219 0)"/>
+    <use xlink:href="#ArialUnicodeMS-36" transform="translate(1731.689453 0)"/>
     <use xlink:href="#ArialUnicodeMS-20" transform="translate(1787.304688 0)"/>
     <use xlink:href="#ArialUnicodeMS-20" transform="translate(1815.087891 0)"/>
     <use xlink:href="#ArialUnicodeMS-20" transform="translate(1842.871094 0)"/>
@@ -4289,12 +4289,12 @@ z
     <use xlink:href="#ArialUnicodeMS-20" transform="translate(2117.919922 0)"/>
     <use xlink:href="#ArialUnicodeMS-30" transform="translate(2145.703125 0)"/>
     <use xlink:href="#ArialUnicodeMS-2e" transform="translate(2201.318359 0)"/>
-    <use xlink:href="#ArialUnicodeMS-37" transform="translate(2229.101562 0)"/>
-    <use xlink:href="#ArialUnicodeMS-31" transform="translate(2284.716797 0)"/>
-    <use xlink:href="#ArialUnicodeMS-32" transform="translate(2340.332031 0)"/>
-    <use xlink:href="#ArialUnicodeMS-35" transform="translate(2395.947266 0)"/>
-    <use xlink:href="#ArialUnicodeMS-37" transform="translate(2451.5625 0)"/>
-    <use xlink:href="#ArialUnicodeMS-38" transform="translate(2507.177734 0)"/>
+    <use xlink:href="#ArialUnicodeMS-36" transform="translate(2229.101562 0)"/>
+    <use xlink:href="#ArialUnicodeMS-39" transform="translate(2284.716797 0)"/>
+    <use xlink:href="#ArialUnicodeMS-39" transform="translate(2340.332031 0)"/>
+    <use xlink:href="#ArialUnicodeMS-39" transform="translate(2395.947266 0)"/>
+    <use xlink:href="#ArialUnicodeMS-32" transform="translate(2451.5625 0)"/>
+    <use xlink:href="#ArialUnicodeMS-32" transform="translate(2507.177734 0)"/>
    </g>
   </g>
   <g id="text_32">

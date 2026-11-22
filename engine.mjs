@@ -1,4 +1,4 @@
-import {validateFirstMethodData} from './first-method.mjs?v=20261118-boc';
+import {validateFirstMethodData} from './first-method.mjs?v=20261121-valuation';
 
 export const finite = x => typeof x === 'number' && Number.isFinite(x);
 

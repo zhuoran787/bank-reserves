@@ -1,5 +1,5 @@
-import {finite,color} from './engine.mjs?v=20261118-boc';
-import {firstMethodPolicy,hasFirstMethodAdjustment} from './first-method.mjs?v=20261118-boc';
+import {finite,color} from './engine.mjs?v=20261121-valuation';
+import {firstMethodPolicy,hasFirstMethodAdjustment} from './first-method.mjs?v=20261121-valuation';
 
 // Market pricing: higher PB and lower yield mean a higher pricing score.
 // Compare the same best-to-worst directions: financial strength vs market premium.
